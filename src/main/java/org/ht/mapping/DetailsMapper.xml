@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.ht.dao.DetailsDao">
+
+	<select id="detailslist" resultType="org.ht.pojo.Details"
+		parameterType="int">
+		select *
+		from Details where 1=1 and pid=#{pid}
+	</select>
+
+
+	<insert id="detailsadd" parameterType="org.ht.pojo.Details">
+		insert into details (
+		dname,dcontent,
+		dtype,pid)
+		values ( #{dname}, #{dcontent},
+		#{dtype},#{pid})
+	</insert>
+
+	<delete id="detailsdel" parameterType="int">
+		delete from details
+		where
+		did = #{ids}
+	</delete>
+
+	<delete id="delete" parameterType="java.lang.Integer">
+		delete from details
+		where did =
+		#{did}
+	</delete>
+	<delete id="deleteByPid" parameterType="java.lang.Integer">
+		delete from details
+		where
+		pid = #{pid}
+	</delete>
+	<insert id="create" parameterType="org.ht.pojo.Details">
+		insert into details
+		(dname,dcontent,
+		dtype,pid)
+		values ( #{dname},
+		#{dcontent},
+		#{dtype},#{pid})
+	</insert>
+</mapper>

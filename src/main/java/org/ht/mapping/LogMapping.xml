@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.ht.dao.LogDao">
+    <insert id="create"  >
+        insert into log(
+           laccount,
+           logtype,
+           lremark,
+           lprocesstime
+        )
+        values(
+            #{laccount},
+            #{logtype},
+            #{lremark},
+            #{lprocesstime}
+        )
+    </insert>
+    <select id="findList" resultType="org.ht.pojo.Log" >
+        SELECT
+           laccount,
+           logtype,
+           lremark,
+           lprocesstime
+        FROM log
+        WHERE 1=1
+        <if test="params.logtype !=null and params.logtype !=''">
+            AND logtype = #{params.logtype}
+        </if>
+        <if test="params.lremark !=null and params.lremark !=''">
+            AND lremark LIKE CONCAT("%",#{params.lremark},"%")
+        </if>
+        <if test="params.beginTime !=null">
+            AND lprocesstime <![CDATA[>=]]> #{params.beginTime}
+        </if>
+        <if test="params.endTime !=null">
+            AND lprocesstime <![CDATA[<]]> #{params.endTime}
+        </if> 
+        ORDER BY id DESC
+    </select>
+    
+</mapper>

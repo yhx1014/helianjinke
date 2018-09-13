@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.ht.dao.EmployeeDao">
+	<resultMap id="BaseResultMap" type="org.ht.pojo.Employee">
+		<id column="eid" property="eid" jdbcType="INTEGER" />
+		<result column="ename" property="ename" jdbcType="VARCHAR" />
+		<result column="esex" property="esex" jdbcType="VARCHAR" />
+		<result column="ebirth" property="ebirth" />
+		<result column="eidcard" property="eidcard" jdbcType="VARCHAR" />
+		<result column="ephone" property="ephone" />
+		<result column="email" property="email" jdbcType="VARCHAR" />
+		<result column="edeptno" property="edeptno" />
+		<result column="epostno" property="epostno" />
+		<result column="etime" property="etime"/>
+		<result column="epassword" property="epassword"/>
+		<result column="estatus" property="estatus"/>
+
+	</resultMap>
+	<select id="selectlike" resultMap="BaseResultMap" parameterType="String">
+		select * from Employee	where estatus=1 and ename like concat(concat('%',#{ename}),'%')
+	</select>
+
+	<select id="findlist" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+		select * from Employee	where estatus=1
+	</select>
+	<select id="toupd" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+		select * from Employee	where estatus=1 and eid = #{eid}
+	</select>
+	<select id="empLogin" resultMap="BaseResultMap"
+		parameterType="org.ht.pojo.Employee" >
+		select * from Employee where
+		ename = #{ename,jdbcType=VARCHAR}
+	</select>
+
+	<insert id="insert" parameterType="org.ht.pojo.Employee">
+		insert into Employee ( ename,epassword,
+		ephone)
+		values ( #{ename,jdbcType=VARCHAR}, #{epassword,jdbcType=VARCHAR},
+		#{ephone,jdbcType=VARCHAR})
+	</insert>
+	<insert id="add" parameterType="org.ht.pojo.Employee">
+		insert into Employee (ename,esex,ebirth,eidcard,ephone,email,edeptno,
+		epostno,etime,estatus,epassword) values(
+		#{ename},#{esex},#{ebirth},#{eidcard},#{ephone},#{email},
+		#{edeptno},#{epostno},#{etime},1,#{epassword}
+		) 
+	</insert>
+	<update id="upd" parameterType="org.ht.pojo.Employee">
+		update Employee set
+		ename=#{ename},esex=#{esex},ebirth=#{ebirth},eidcard=#{eidcard},
+		ephone=#{ephone},email=#{email},edeptno=#{edeptno},epostno=#{epostno},
+		etime=#{etime},estatus=1,epassword=#{epassword}
+		where eid = #{eid}
+	</update>
+	<update id="del" parameterType="org.ht.pojo.Employee">
+		update Employee set
+			estatus=0
+		where eid = #{eid}
+	</update>
+
+</mapper>

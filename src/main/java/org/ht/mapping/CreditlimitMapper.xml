@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="org.ht.dao.CreditlimitDao">
+	<resultMap type="org.ht.pojo.Creditlimit" id="BaseResultMap">
+		<id column="clid" property="clid" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+		<result column="cluserid" property="cluserid" javaType="java.lang.Integer" jdbcType="INTEGER" />
+		<result column="clusername" property="clusername" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="crbankcard" property="crbankcard" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="cllimit" property="cllimit" javaType="java.lang.Double" jdbcType="DOUBLE" />
+	</resultMap>
+	<select id="queryCreditlimits" parameterType="map" resultMap="BaseResultMap">
+		select * from creditlimit where 1=1 
+  		<if test="clid !=null and clid !='' ">
+  			and  clid =#{clid}  
+  		</if>
+  		<if test="cluserid != null and cluserid != '' ">
+  			and  cluserid = #{cluserid}
+  		</if>
+  		<if test="clusername != null and clusername != '' ">
+  			 and clusername like  '%${clusername}%'
+  		</if>
+  		<if test="crbankcard != null and crbankcard != '' ">
+  			 and crbankcard =#{crbankcard} 
+  		</if>
+  		<if test="candp != null and pandc !=null">
+  			limit #{candp},#{pandc}
+  		</if>
+	</select>
+	<insert id="insertCreditlimit" parameterType="map">
+		insert into creditlimit(cluserid,clusername,crbankcard,cllimit) values
+			(#{cluserid},#{clusername},#{crbankcard},#{cllimit})
+	</insert>
+	<update id="updateCreditlimit" parameterType="map">
+		update creditlimit  set cllimit = #{cllimit} where 1=1
+			<if test="crbankcard != null and crbankcard != '' ">
+  				 and crbankcard =#{crbankcard} 
+  			</if>
+  			<if test="cluserid != null and cluserid != '' ">
+  				and  cluserid = #{cluserid}
+  			</if>
+		 	<if test="clid !=null and clid !='' ">
+  				and  clid =#{clid}  
+  			</if>
+	</update>
+</mapper>

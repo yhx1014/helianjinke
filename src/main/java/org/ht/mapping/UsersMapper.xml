@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.ht.dao.UsersDao">
+	<resultMap id="BaseResultMap" type="org.ht.pojo.Users">
+		<id column="uid" property="uid" jdbcType="INTEGER" />
+		<result column="unickname" property="unickname" jdbcType="VARCHAR" />
+		<result column="ethaddress" property="ethaddress" jdbcType="VARCHAR"/>
+		<result column="uname" property="uname" jdbcType="VARCHAR" />
+		<result column="umailbox" property="umailbox" jdbcType="VARCHAR" />
+		<result column="uphonenumber" property="uphonenumber" jdbcType="VARCHAR" />
+		<result column="uregisterdate" property="uregisterdate" />
+		<result column="uflip" property="uflip" jdbcType="VARCHAR" />
+		<result column="ufldate" property="ufldate" />
+		<result column="ureferrer" property="ureferrer" />
+		<result column="ureferrername" property="ureferrername"
+			jdbcType="VARCHAR" />
+		<result column="ucardid" property="ucardid" jdbcType="VARCHAR"></result>
+		<result column="uhead" property="uhead" jdbcType="VARCHAR"></result>
+		<result column="userpaytoid" property="userpaytoid" jdbcType="VARCHAR" />
+		<result column="ucertnumber" property="ucertnumber" jdbcType="VARCHAR" />
+		<result column="upassword" property="upassword" jdbcType="VARCHAR" />
+		<result column="upwd_zd" property="upwd_zd" jdbcType="VARCHAR" />
+
+	</resultMap>
+
+	<select id="userList" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+		select * from users
+	</select>
+	<select id="queryUserslimits" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+		select * from users limit #{candp},#{pandc}
+	</select>
+	<select id="queryUserslimitss" resultMap="BaseResultMap" parameterType="String">
+		select * from users where unickname =#{unickname}
+	</select>
+	<select id="byNameFindUsers" resultMap="BaseResultMap"
+		parameterType="org.ht.pojo.Users">
+		select * from Users where
+		unickname =
+		#{unickname,jdbcType=VARCHAR}
+	</select>
+	<insert id="insert" parameterType="org.ht.pojo.Users" keyProperty="uid" useGeneratedKeys="true">
+		insert into users (
+		unickname,upassword,
+		uphonenumber,
+		uregisterdate,
+		ethaddress)
+		values (
+		#{unickname,jdbcType=VARCHAR}, #{upassword,jdbcType=VARCHAR},
+		#{uphonenumber,jdbcType=VARCHAR},sysdate(),#{ethaddress,jdbcType=VARCHAR})
+	</insert>
+	<select id="queryUser" resultMap="BaseResultMap"
+		parameterType="map">
+			select * from users
+			 <if test="candp !=null and pandc !=null">
+		 		limit #{candp},#{pandc}
+			</if>
+		</select>
+</mapper>

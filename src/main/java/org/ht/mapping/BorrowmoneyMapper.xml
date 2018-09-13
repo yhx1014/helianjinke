@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.ht.dao.BorrowmoneyDao">
+	<sql id="Base_Column_List">
+		id, bserial, busername, brelname, bpass, btype, btitle,
+		bmoney, brate,
+		btimelimit,blimit, bstate,
+		brecommend,bleixing,beizhu1,beizhu2
+	</sql>
+
+	<select id="findList" resultType="org.ht.pojo.Borrowmoney">
+		SELECT
+		*
+		FROM Borrowmoney
+		WHERE 1=1
+		<if test="params.brelname !=null and params.brelname !=''">
+			AND brelname LIKE CONCAT("%",#{params.brelname},"%")
+		</if>
+		<if test="params.btype !=null and params.btype !=''">
+			AND btype LIKE CONCAT("%",#{params.btype},"%")
+		</if>
+		<if test="params.bstate !=null and params.bstate !=''">
+			AND bstate = #{params.bstate}
+		</if>
+		ORDER BY id
+		<if test="params.startPage !=null and params.pageSize !=''">
+			limit #{params.startPage},#{params.pageSize}
+		</if>
+	</select>
+
+
+	<!-- ygx -->
+	<select id="pagingList" resultType="org.ht.pojo.Borrowmoney"
+		parameterType="map">
+		SELECT *
+		FROM Borrowmoney
+		WHERE 1=1
+		<if test="bserial !=null and bserial !=''">
+			AND bserial = #{bserial}
+		</if>
+		<if test="busername !=null and busername !=''">
+			AND busername LIKE CONCAT("%",#{busername},"%")
+		</if>
+		<if test="brelname !=null and busername !=''">
+			AND brelname LIKE CONCAT("%",#{brelname},"%")
+		</if>
+		<if test="bpass !=null and busername !=''">
+			AND bpass LIKE CONCAT("%",#{bpass},"%")
+		</if>
+		<if test="btype !=null and busername !=''">
+			AND btype LIKE CONCAT("%",#{btype},"%")
+		</if>
+		<if test="btitle !=null and busername !=''">
+			AND btitle LIKE CONCAT("%",#{btitle},"%")
+		</if>
+		<if test="bmoney !=null and busername !=''">
+			AND bmoney LIKE CONCAT("%",#{bmoney},"%")
+		</if>
+		<if test="brate !=null and busername !=''">
+			AND brate LIKE CONCAT("%",#{brate},"%")
+		</if>
+		<if test="btimelimit !=null and busername !=''">
+			AND btimelimit LIKE CONCAT("%",#{btimelimit},"%")
+		</if>
+		<if test="blimit !=null and busername !=''">
+			AND blimit LIKE CONCAT("%",#{blimit},"%")
+		</if>
+		<if test="bstate !=null and busername !=''">
+			AND bstate LIKE CONCAT("%",#{bstate},"%")
+		</if>
+		<if test="brecommend !=null and busername !=''">
+			AND brecommend LIKE CONCAT("",#{brecommend},"%")
+		</if>
+		<if test="candp != null and pandc !=null">
+			limit #{candp},#{pandc}
+		</if>
+
+	</select><!-- ORDER BY id DESC -->
+
+	<!-- <select id="recommendShow">首页显示固定条数的推荐项目 select * from Borrowmoney 
+		where brecommend </select> -->
+
+	<select id="get" resultType="org.ht.pojo.Borrowmoney"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from borrowmoney
+		where id = #{id}
+	</select>
+	<delete id="delete" parameterType="java.lang.Integer">
+		delete from borrowmoney
+		where
+		id = #{id}
+	</delete>
+	<insert id="create" parameterType="org.ht.pojo.Borrowmoney">
+		insert into borrowmoney
+		(bserial, busername,
+		brelname, bpass, btype,
+		btitle, bmoney, brate,
+		btimelimit, blimit, bstate,
+		brecommend,bleixing,beizhu1,beizhu2)
+		values
+		(
+		#{bserial},
+		#{busername},
+		#{brelname},
+		#{bpass},
+		#{btype},
+		#{btitle},
+		#{bmoney},
+		#{brate},
+		#{btimelimit},
+		#{blimit},
+		#{bstate},
+		#{brecommend},
+		#{bleixing},
+		#{beizhu1},
+		#{beizhu2}
+		)
+	</insert>
+	<update id="update" parameterType="org.ht.pojo.Borrowmoney">
+		update borrowmoney
+		<trim prefix="set" suffixOverrides=",">
+			<if test="bserial != null and bserial != '' ">
+				bserial= #{bserial},
+			</if>
+			<if test="busername !=null and  busername!=''">
+				busername = #{busername},
+			</if>
+			<if test="brelname !=null and  brelname!=''">
+				brelname = #{brelname},
+			</if>
+			<if test="bpass !=null and  bpass!=''">
+				bpass =#{bpass},
+			</if>
+			<if test="brelname !=null and  brelname !=''">
+				btype = #{btype},
+			</if>
+			<if test="btitle !=null and  btitle !=''">
+				btitle = #{btitle},
+			</if>
+			<if test="bmoney !=null and  bmoney !=''">
+				bmoney = #{bmoney},
+			</if>
+			<if test="brate !=null and  brate !=''">
+				brate = #{brate},
+			</if>
+			<if test="btimelimit !=null and  btimelimit !=''">
+				btimelimit = #{btimelimit},
+			</if>
+			<if test="blimit !=null and  blimit !=''">
+				blimit = #{blimit},
+			</if>
+			<if test="bstate !=null and  bstate !=''">
+				bstate = #{bstate},
+			</if>
+			<if test="brecommend !=null and  brecommend !=''">
+				brecommend = #{brecommend},
+			</if>
+			<if test="bleixing !=null and  bleixing !=''">
+				bleixing = #{bleixing},
+			</if>
+			<if test="beizhu1 !=null and  beizhu1 !=''">
+				beizhu1 = #{beizhu1},
+			</if>
+			<if test="beizhu2 !=null and  beizhu2 !=''">
+				beizhu2 = #{beizhu2},
+			</if>
+		</trim>
+		where id = #{id}
+	</update>
+
+	<!--周旗 -->
+	<insert id="toaddborr" parameterType="org.ht.pojo.Borrowmoney">
+		insert into borrowmoney
+		(
+		bleixing,brelname,bpass,btitle,bmoney,bstate,brecommend,beizhu1,
+		beizhu2)
+		values (
+		#{bleixing},
+		#{brelname},
+		#{bpass},
+		#{btitle},
+		#{bmoney},
+		'0',
+		#{brecommend},
+		#{beizhu1},
+		#{beizhu2})
+	</insert>
+	<select id="updhuankuan" resultType="org.ht.pojo.Borrowmoney">
+	    SELECT
+		borrowmoney.* FROM borrowmoney WHERE borrowmoney.bserial = 2
+	</select>
+	<!---->
+	<select id="borrowget" resultType="org.ht.pojo.Borrowmoney" parameterType="int">
+	    SELECT
+		borrowmoney.* FROM borrowmoney WHERE borrowmoney.id = #{ids}
+	</select>
+	
+	<!-- hjy -->
+	<select id="selecthjy" resultType="org.ht.pojo.Borrowmoney" parameterType="map">
+	    select * from borrowmoney where 1=1
+	     limit #{l1},#{l2}
+	</select>
+	<select id="hjycount" resultType="int">
+	    select COUNT(*) from borrowmoney
+	</select>
+</mapper>

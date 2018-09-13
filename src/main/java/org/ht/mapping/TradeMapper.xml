@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="org.ht.dao.TradeDao">
+  	<resultMap type="org.ht.pojo.Trade" id="tmap">
+  		<id column="tID" property="tID"  jdbcType="INTEGER"/>
+  		<result column="uID" property="uID" jdbcType="INTEGER" />
+  		<result column="uname" property="uname" jdbcType="VARCHAR" />
+  		<result column="zname" property="zname" jdbcType="VARCHAR" />
+  		<result column="jymoney" property="jymoney" jdbcType="VARCHAR" />
+  		<result column="what" property="what" jdbcType="VARCHAR" />
+  		<result column="jytime" property="jytime" jdbcType="TIMESTAMP" />
+  		<result column="other" property="other" jdbcType="VARCHAR" />
+  	</resultMap>
+  	
+  	<select id="selecttd" resultMap="tmap" parameterType="map">
+  	    select * from trade where 1=1
+  	    <if test="uname !=null and uname !='' ">
+  			and  uname = #{uname}
+  		</if>
+  	    <if test="zname !=null and zname !='' ">
+  			and  zname = #{zname}
+  		</if>
+  		<if test="yyy !=null and yyy!=''  and yyyy !=null  and yyyy!='' ">
+  			and  STR_TO_DATE(jytime,'%Y-%m-%d') 
+		BETWEEN STR_TO_DATE(#{yyy},'%Y-%m-%d') AND STR_TO_DATE(#{yyyy},'%Y-%m-%d')
+  		</if>
+  		<if test="l1 != -2">
+  	    limit #{l1},#{l2}
+  	    </if>
+  	</select>
+  	<select id="selectMoney" resultMap="tmap" parameterType="int">
+  		select jymoney from trade where uID = #{userid} and what like '%退回本金%'
+  	</select>
+  	<select id="tradecount" resultType="int" parameterType="map">
+  	    SELECT COUNT(*) FROM trade where 1=1 
+  	    <if test="uname !=null and uname !='' ">
+  			and  uname = #{uname}
+  		</if>
+  	    <if test="zname !=null and zname !='' ">
+  			and  zname = #{zname}
+  		</if>
+  		<if test="yyy !=null and yyy!=''  and yyyy !=null  and yyyy!='' ">
+  			and  STR_TO_DATE(jytime,'%Y-%m-%d') 
+		BETWEEN STR_TO_DATE(#{yyy},'%Y-%m-%d') AND STR_TO_DATE(#{yyyy},'%Y-%m-%d')
+  		</if>
+  	    </select>
+  	    
+  	 <insert id="insertT" parameterType="org.ht.pojo.Trade">
+  	 	insert into trade (uID,uname,zname,jymoney,what,jytime,other) values (#{uID},#{uname},#{zname},#{jymoney},#{what},current_timestamp(),#{other});
+  	 </insert>
+</mapper>

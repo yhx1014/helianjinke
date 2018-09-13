@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="org.ht.dao.ClapplyforDao">
+ 	<resultMap type="org.ht.pojo.Clapplyfor" id="BaseResultMap">
+ 		<id column="clpid" property="clpid" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+ 		<result column="clpubcid" property="clpubcid" javaType="java.lang.String" jdbcType="VARCHAR"/>
+ 		<result column="clpuname" property="clpuname" javaType="java.lang.String" jdbcType="VARCHAR"/>
+ 		<result column="clpporiginal" property="clpporiginal" javaType="java.lang.Double" jdbcType="DOUBLE"/>
+ 		<result column="clpidpaper" property="clpidpaper" javaType="java.lang.String" jdbcType="VARCHAR"/>
+ 		<result column="clphpoc" property="clphpoc" javaType="java.lang.String" jdbcType="VARCHAR"/>
+ 		<result column="clpf" property="clpf" javaType="java.lang.Double" jdbcType="DOUBLE"/>
+ 		<result column="clpdate" property="clpdate"/>
+ 		<result column="clpauditor" property="clpauditor" javaType="java.lang.String" jdbcType="VARCHAR"/>
+ 		<result column="clpstate" property="clpstate" javaType="java.lang.String" jdbcType="VARCHAR"/>
+ 	</resultMap>
+ 	
+ 	<select id="queryClapplyfors" parameterType="map" resultMap="BaseResultMap">
+ 		select * from clapplyfor where 1=1
+ 		<if test="clpid != null ">
+ 				and clpid = #{clpid}
+ 		</if>
+ 		<if test="clpubcid != null and clpubcid !='' ">
+ 				and clpubcid = #{clpubcid}
+ 		</if>
+ 		<if test="clpuname != null and clpuname !='' ">
+ 				and clpuname like  '%${clpuname}%'
+ 		</if>
+ 		<if test=" mindate != null and mindate !='' ">
+ 				and clpdate &gt; #{mindate}
+ 		</if>
+ 		<if test=" maxdate != null and maxdate !='' ">
+ 				and clpdate &lt; #{maxdate}
+ 		</if>
+ 		<if test=" clpstate != null and clpstate !='' ">
+ 				and clpstate = #{clpstate}
+ 		</if>
+ 		<if test="candp != null and pandc !=null">
+  			limit #{candp},#{pandc}
+  		</if>
+ 	</select>
+ 	<insert id="insertClapplyfor"  parameterType="map">
+ 			insert into clapplyfor(clpubcid,clpuname,clpporiginal,clpidpaper,clphpoc,clpf,clpdate,clpauditor,clpstate)
+ 				values(#{clpubcid},#{clpuname},#{clpporiginal},#{clpidpaper},#{clphpoc},#{clpf},#{clpdate},#{clpauditor},#{clpstate});
+ 	</insert>
+ 	<update id="updateClapplyforState" parameterType="map">
+		update clapplyfor  set clpstate = #{clpstate} where clpid = #{clpid}
+ 	</update>
+</mapper>

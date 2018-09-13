@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.ht.dao.ProductDao">
+	<sql id="Base_Column_List">
+		id, pmoney,pincome, ptime, ptype, pway, pcount, progress,
+		psaveway,
+		prateben, ppublishtime,
+		pname, ptotalmoney, prange, puse,
+		pstate, picture, pproduce, pdesc, psafe
+	</sql>
+	<select id="get" resultType="org.ht.pojo.Product" parameterType="java.lang.Integer">
+		select
+		*
+		from product
+		where id = #{id}
+	</select>
+
+	<delete id="delete" parameterType="java.lang.Integer">
+		delete from product
+		where id =
+		#{id}
+	</delete>
+	<insert id="create" parameterType="org.ht.dao.ProductDao"
+		keyProperty="id" useGeneratedKeys="true">
+		insert into product (pmoney,pincome,
+		ptime,
+		ptype, pway, pcount,
+		progress, psaveway, prateben,
+		ppublishtime,
+		pname, ptotalmoney,
+		prange, puse, pstate,
+		picture, pproduce, pdesc,
+		psafe)
+		values ( #{pmoney},#{pincome}, #{ptime},
+		#{ptype}, #{pway},
+		#{pcount},
+		#{progress}, #{psaveway}, #{prateben},
+		#{ppublishtime},
+		#{pname}, #{ptotalmoney},
+		#{prange}, #{puse}, #{pstate},
+		#{picture},
+		#{pproduce}, #{pdesc},
+		#{psafe})
+	</insert>
+	<select id="findList" resultType="org.ht.pojo.Product">
+		select
+		p.id,p.pmoney,p.pincome,p.ptime,b.bname as "biao.bname",b.id as
+		"biao.id" ,
+		p.pway,p.pcount,p.progress,p.psaveway,p.prateben,p.ppublishtime,p.pname,p.ptotalmoney,p.prange,p.puse,p.pstate,p.picture,p.pproduce
+		,p.pdesc,p.psafe, u.uname as "users.uname" from product p LEFT JOIN
+		users u ON p.pproduce=u.uid LEFT JOIN biao b on b.id=p.ptype where 1=1
+		<if test="params.ptype != null and params.ptype !=''">
+			and b.id = #{params.ptype}
+		</if>
+		<if test="params.startPage !=null and params.pageSize !=''">
+			limit #{params.startPage},#{params.pageSize}
+		</if>
+	</select>
+
+	<select id="myList" resultType="org.ht.pojo.Product"
+		parameterType="map">
+		select * from product p where 1 = 1
+		<if test="biaoId != null and biaoId !=''">
+			and p.ptype = #{biaoId}
+		</if>
+		<if test="pincome !=null and endR != null and endR != ''"><!-- and params.pincome !='' 收益利率 --><!-- #{params.startR} &lt; pincome &lt; #{params.endR} -->
+			and p.pincome between #{startR} and #{endR}
+		</if>
+		<if test="pincome !=null and (endR == null || endR == '')"><!-- #{params.startR} &lt; pincome &lt; (select max(pincome) 
+				from product) -->
+			and p.pincome between #{startR} and (select max(pincome) from
+			product)
+		</if>
+		<if test="pcount != null and endT != null and endT != ''"><!-- 还款期限 #{params.startT} &lt; (select to_days(pcount) - to_days(ptime) 
+				from product pt where pt.id = p.id) &lt; #{params.endT} -->
+			and (select to_days(pcount) - to_days(ptime) from product pt where
+			pt.id = p.id) between #{startT} and #{endT}
+		</if>
+		<if test="pcount != null and endT == null">
+			and (select to_days(pr.pcount) - to_days(pr.ptime) from
+			product pr where
+			pr.id = p.id) between #{startT} and (select
+			max(pro.cday) from
+			(select (to_days(pcount) - to_days(ptime)) as cday
+			from product) as
+			pro)
+		</if>
+		<if test="pway != null and pway != ''"><!-- 还款方式 -->
+			and p.pway = #{pway}
+		</if>
+		<if test="startPage !=null and pageSize !=''">
+			limit #{startPage},#{pageSize}
+		</if>
+	</select>
+
+	<update id="update" parameterType="org.ht.dao.ProductDao">
+		update product
+		set pmoney =
+		#{pmoney},
+		pincome = #{pincome},
+		ptime = #{ptime},
+		ptype = #{ptype},
+		pway
+		= #{pway},
+		pcount = #{pcount},
+		progress = #{progress},
+		psaveway =
+		#{psaveway},
+		prateben = #{prateben},
+		ppublishtime = #{ppublishtime},
+		pname = #{pname},
+		ptotalmoney = #{ptotalmoney},
+		prange = #{prange},
+		puse
+		= #{puse},
+		pstate = #{pstate},
+		picture = #{picture},
+		pproduce =
+		#{pproduce},
+		pdesc = #{pdesc},
+		psafe = #{psafe}
+		where id = #{id}
+	</update>
+
+	<update id="updateProgres" parameterType="org.ht.pojo.Product">
+		update product
+		set
+		progress = #{progress}
+		where id = #{id}
+	</update>
+
+	<update id="updateStatus" parameterType="org.ht.pojo.Product">
+		UPDATE product SET
+		pstate =#{pstate}
+	</update>
+
+	<update id="setRateAndDeadline" parameterType="org.ht.pojo.Product">
+		update product
+		set
+		pincome = #{pincome},ptime = #{ptime},pcount = #{pcount}
+		where id =
+		#{id}
+	</update>
+
+
+</mapper>

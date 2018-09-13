@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.ht.dao.BiaoMapperDao">
+ <!-- 以下两个<cache>标签二选一,第一个可以输出日志,第二个不输出日志 -->
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache" />
+    <!--<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>-->
+	<select id="get" resultType="org.ht.pojo.Biao" parameterType="java.lang.Integer">
+		select
+		*
+		from biao
+		where id = #{id}
+	</select>
+	<select id="findList" resultType="org.ht.pojo.Biao">
+		select
+		*
+		from biao where 1=1
+		<if test="params.startPage !=null and params.pageSize !=''">
+			limit #{params.startPage},#{params.pageSize}
+		</if>
+	</select>
+	<delete id="delete" parameterType="java.lang.Integer">
+		delete from biao
+		where id = #{id}
+	</delete>
+	<insert id="create" parameterType="org.ht.dao.BiaoMapperDao">
+		insert into biao ( bname)
+		values ( #{bname})
+	</insert>
+
+	<update id="update" parameterType="org.ht.dao.BiaoMapperDao">
+		update biao
+		<trim prefix="set" suffixOverrides=",">
+			<if test="bname != null and bname != '' ">
+				bname= #{bname},
+			</if>
+		</trim>
+		where id = #{id}
+	</update>
+</mapper>

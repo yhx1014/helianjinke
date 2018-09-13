@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.ht.dao.NoticeDao">
+
+
+	<select id="noticelist" resultType="org.ht.pojo.Notice" parameterType="String">
+		select *
+		from notice
+		<if test="_parameter !='' and _parameter != null">
+			 where noticetype=#{ids} 
+		</if>
+		 order by noticelasttime desc
+	</select>
+	<!-- 网站公告 -->
+	<select id="noticetop5" resultType="org.ht.pojo.Notice" >
+		select noticeid,noticetitle,noticelasttime
+		from notice  where noticetype='1' order by noticelasttime desc limit 0,5
+	</select>
+	<!-- 媒体报道 -->
+	<select id="noticetop5meiti" resultType="org.ht.pojo.Notice" >
+		select noticeid,noticetitle,noticelasttime
+		from notice  where noticetype='2' order by noticelasttime desc limit 0,5
+	</select>
+	<!-- 媒体报道 -->
+	<select id="noticetop5sy" resultType="org.ht.pojo.Notice" >
+		select *
+		from notice  where noticetype='6' order by noticelasttime desc limit 0,4
+	</select>
+	<select id="noticeget" resultType="org.ht.pojo.Notice"
+		parameterType="int">
+		select * from notice where noticeid= #{ids}
+	</select>
+	
+	<insert id="noticeadd" parameterType="org.ht.pojo.Notice" >
+		insert into Notice(
+		noticetitle,noticetype,noticepicture,
+		noticecontent,noticelasttime,noticelastmodifier)
+		values
+		(#{noticetitle},#{noticetype},#{noticepicture},
+		#{noticecontent},current_timestamp(),#{noticelastmodifier})
+	</insert>
+	
+	<delete id="noticedel" parameterType="int">
+		delete from Notice
+		where noticeid = #{ids}
+	</delete>
+	<update id="noticeupds" parameterType="org.ht.pojo.Notice">
+		update INVENTORYWARNING set
+		status=1
+		where noticeid = #{noticeid}
+	</update>
+	<!-- 图片置顶 -->
+	<update id="noticshiji" parameterType="int" >
+		update notice set
+		noticelasttime=current_timestamp()
+		where noticeid = #{ids}
+	</update>
+	
+	
+
+	
+	<update id="noticeupd" parameterType="org.ht.pojo.Notice">
+		  update notice set noticetitle=#{noticetitle},noticetype=#{noticetype},noticepicture=#{noticepicture},noticecontent=#{noticecontent} where noticeid = #{noticeid}
+	</update>
+	
+	
+	
+	
+	
+	
+</mapper>

@@ -1,0 +1,9 @@
+eclipse.preferences.version=1
+encoding//src/main/java/org/ht=GBK
+encoding//src/main/java/org/ht/controller=UTF-8
+encoding//src/main/java/org/ht/pojo=UTF-8
+encoding//src/main/java/org/ht/service=UTF-8
+encoding//src/main/java/org/ht/service/BorrowcordService.java=UTF-8
+encoding//src/main/java/org/ht/service/impl/BorrowcordServiceImpl.java=UTF-8
+encoding//src/main/java/org/ht/service/impl/WithdrawalServiceImpl.java=UTF-8
+encoding//src/main/resources/log4j.properties=UTF-8

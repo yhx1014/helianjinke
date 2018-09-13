@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="org.ht.dao.InfromationDao">
+  <select id="query" resultType="org.ht.pojo.Users" parameterType="map">
+  	select * from users where uid=${id}
+  </select>
+  <select id="find" resultType="org.ht.pojo.Users" parameterType="map">
+  	select * from users where uid=${id}
+  </select>
+  <select id="appquery" resultType="org.ht.pojo.Approveitem">
+  	select * from approveitem
+  </select>
+  <!-- 添加身份信息 -->
+  <update id="addUsers"  parameterType="map">
+  	update users u set u.uname=#{uname},u.ucardid=#{ucardid} where u.uid=#{uid}
+  </update>
+  <!-- 添加认证信息 -->
+  <insert id="addcertifrecord" parameterType="org.ht.pojo.Certifrecord">
+  	insert into certifrecord(cruserid,crusername,craiid,crainame,craitype,crispass)
+  	values(#{cruserid},#{crusername},#{craiid},#{crainame},1,1);
+  </insert>
+  <!-- 模拟添加第三方账户 -->
+  <update id="upucertnum"  parameterType="map">
+  	update users u set u.ucertnumber=#{ucertnumber},u.uname=#{uname},u.ucardid=#{ucardid}
+  	,u.umailbox=#{umailbox},u.uphonenumber=#{uphonenumber},u.upwd_zd=#{upwd_zd} where u.uid=#{id}
+  </update>
+ <update id="updPassword" parameterType="map">
+ 	update users set upassword=#{password} where uid=#{id}
+ </update>
+ <update id="updphone" parameterType="map">
+ 	UPDATE users SET uphonenumber=#{phone} WHERE uid=#{id}
+ </update>
+</mapper>

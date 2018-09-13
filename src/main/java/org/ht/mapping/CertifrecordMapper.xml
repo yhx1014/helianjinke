@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="org.ht.dao.CertifrecordDao">
+
+  	<resultMap type="org.ht.pojo.Certifrecord" id="BaseResultMap">
+  		<id column="crid" property="crid" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+  		<result column="cruserid" property="cruserid" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+  		<result column="crusername" property="crusername" javaType="java.lang.String" jdbcType="VARCHAR"/>
+  		<result column="craiid" property="craiid" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+  		<result column="crainame" property="crainame" javaType="java.lang.String" jdbcType="VARCHAR"/>
+  		<result column="craitype" property="craitype" javaType="java.lang.String" jdbcType="VARCHAR"/>
+  		<result column="crispass" property="crispass" javaType="java.lang.String" jdbcType="VARCHAR"/>
+  		<result column="crdate" property="crdate" />
+  		<result column="crauditor" property="crauditor" javaType="java.lang.String" jdbcType="VARCHAR"/>
+  		<result column="crintegral" property="crintegral" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+  		<result column="crviewpoint" property="crviewpoint" javaType="java.lang.String" jdbcType="VARCHAR"/>
+  		<result column="crimg" property="crimg" javaType="java.lang.String" jdbcType="VARCHAR"/>
+  		<result column="crupldate" property="crupldate"/>
+  	</resultMap>
+  	<select id="queryCertifrecord" parameterType="map" resultMap="BaseResultMap">
+  		select * from certifrecord where 1=1 
+  		<if test="crid !=null and crid !='' ">
+  			and  crid  = #{crid}
+  		</if>
+  		<if test="cruserid != null and cruserid != '' ">
+  			and  cruserid = #{cruserid}
+  		</if>
+  		<if test="crusername != null and crusername != '' ">
+  			 and crusername like  '%${crusername}%'
+  		</if>
+  		<if test="craiid != null and craiid != '' ">
+  			 and craiid =  #{craiid}
+  		</if>
+  		<if test="crainame != null and crainame != '' ">
+  			 and crainame like  '%${crainame}%'
+  		</if>
+  		<if test="craitype != null and craitype != '' ">
+  			 and craitype like  '%${craitype}%'
+  		</if>
+  		<if test="crispass != null and crispass != '' ">
+  			 and crispass like  '%${crispass}%'
+  		</if>
+  		<if test="crauditor != null and crauditor != '' ">
+  			 and crauditor like  '%${crauditor}%'
+  		</if>
+  		<if test="crintegral != null and crintegral != '' ">
+  			 and crintegral like '%${crintegral}%'
+  		</if>
+  		<if test="candp != null and pandc !=null">
+  			limit #{candp},#{pandc}
+  		</if>
+  	</select>
+  	<update id="updateCertifrecord" parameterType="map">
+  		update certifrecord 
+		<trim prefix="set" suffixOverrides=",">
+
+  		<if test="crispass != null and crispass != '' ">
+  			  crispass = #{crispass},
+  		</if>
+  		<if test="crdate != null and crdate != '' ">
+  			  crdate = #{crdate},
+  		</if>
+  		<if test="crauditor != null and crauditor != '' ">
+  			  crauditor = #{crauditor},
+  		</if>
+  		<if test="crviewpoint != null and crviewpoint != '' ">
+  			  crviewpoint = #{crviewpoint},
+  		</if>
+  		<if test="crintegral != null and crintegral != '' ">
+  			  crintegral = #{crintegral},
+  		</if>
+  		
+ 		</trim>
+  		 where 1=1
+  		<if test="cruserid != null and cruserid != '' ">
+  			and  cruserid = #{cruserid}
+  		</if>
+  		<if test="craiid != null and craiid != '' ">
+  			and  craiid = #{craiid}
+  		</if>
+  		
+  	</update>
+
+  	<insert id="addCertifrecord" parameterType="map">
+  		insert into certifrecord(cruserid,crusername,craiid,crainame,craitype,crispass,crimg,crupldate)
+  		 values(#{cruserid},#{crusername},#{craiid},#{crainame},#{craitype},#{crispass},#{crimg},#{crupldate});
+  	</insert>
+</mapper>

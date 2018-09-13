@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="org.ht.dao.ApproveDao">
+  	<resultMap type="org.ht.pojo.Approveitem" id="BaseResultMap">
+  		<id column="aiid" property="aiid" javaType="INTEGER" jdbcType="INTEGER"/>
+  		<result column="ainame" property="ainame" javaType="java.lang.String" jdbcType="VARCHAR"/>
+  		<result column="aitype" property="aitype" javaType="java.lang.String" jdbcType="VARCHAR"/>
+  		<result column="aistate" property="aistate" javaType="java.lang.String" jdbcType="VARCHAR"/>
+  	</resultMap>
+  	<select id="queryApproves" resultMap="BaseResultMap" parameterType="map">
+  		select * from approveitem where 1=1 
+  		<if test="aiid !=null and aiid !='' ">
+  			and  aiid like  concat(concat('%',#{aiid}),'%') 
+  		</if>
+  		<if test="ainame != null and ainame != '' ">
+  			and  ainame  like  concat(concat('%',#{ainame}),'%') 
+  		</if>
+  		<if test="aitype != null and aitype != '' ">
+  			 and aitype  like  concat(concat('%',#{aitype}),'%') 
+  		</if>
+  		<if test="aistate != null and aistate != '' ">
+  			 and aistate  like  concat(concat('%',#{aistate}),'%') 
+  		</if>
+  		<if test="candp != null and pandc !=null">
+  			limit #{candp},#{pandc}
+  		</if>
+  	</select>
+  	<insert id="addApproves" parameterType="map">
+  		insert into approveitem(ainame,aitype,aistate)
+  		 values(#{ainame},#{aitype},#{aistate});
+  	</insert>
+  	
+  	<update id="updateApproves" parameterType="map">
+  		update approveitem 
+		<trim prefix="set" suffixOverrides=",">
+		  	<if test="ainame != null and ainame != '' ">
+		  		ainame = #{ainame},
+		  	</if>
+  			<if test="aitype != null and aitype != '' ">
+  				aitype = #{aitype},
+  			</if>
+  			<if test="aistate != null and aistate != '' ">
+  				aistate = #{aistate},
+  			</if>
+ 		</trim>
+  		 where aiid = #{aiid}
+  	</update>
+</mapper>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="org.ht.dao.WithdrawalDao">
+  	<resultMap type="org.ht.pojo.Withdrawal" id="wmap">
+  		<id column="wID" property="wID"  jdbcType="INTEGER"/>
+  		<result column="uID" property="uID" jdbcType="INTEGER" />
+  		<result column="uname" property="uname" jdbcType="VARCHAR" />
+  		<result column="zname" property="zname" jdbcType="VARCHAR" />
+  		<result column="txnum" property="txnum" jdbcType="VARCHAR" />
+  		<result column="txbank" property="txbank" jdbcType="VARCHAR" />
+  		<result column="txmoney" property="txmoney" jdbcType="VARCHAR" />
+  		<result column="dzmoney" property="dzmoney" jdbcType="VARCHAR" />
+  		<result column="txtime" property="txtime" jdbcType="TIMESTAMP" />
+  		<result column="zztime" property="zztime" jdbcType="TIMESTAMP" />
+  		<result column="statu" property="statu" jdbcType="VARCHAR" />
+  		<result column="shwho" property="shwho" jdbcType="VARCHAR" />
+  		<result column="shtime" property="shtime" jdbcType="TIMESTAMP" />
+  		<result column="nothing" property="nothing" jdbcType="VARCHAR" />
+  	</resultMap>
+  	<select id="withdrawallist" resultMap="wmap" parameterType="map">
+  	    select * from withdrawal where 1=1 
+  		<if test="btn !=null and btn !='' ">
+  			and  statu = #{btn}
+  		</if>
+  	    <if test="wname !=null and wname !='' ">
+  			and  uname = #{wname}
+  		</if>
+  		<if test="yyy !=null and yyy!=''  and yyyy !=null  and yyyy!='' ">
+  			and  STR_TO_DATE(txtime,'%Y-%m-%d') 
+		BETWEEN STR_TO_DATE(#{yyy},'%Y-%m-%d') AND STR_TO_DATE(#{yyyy},'%Y-%m-%d')
+  		</if>
+  		
+  		<if test="wstatu !=null and wstatu !='' ">
+  			and  statu = #{wstatu}
+  		</if>
+  		<if test="l1 != -2">
+  		     limit #{l1},#{l2}
+  		    
+  		</if>
+  	   
+  	</select>
+  	<select id="withdrawalcount" resultType="int" parameterType="map">
+  	    SELECT COUNT(*) FROM withdrawal where 1=1 
+  		<if test="btn !=null and btn !='' ">
+  			and  statu = #{btn}
+  		</if>
+  		 <if test="wname !=null and wname !='' ">
+  			and  uname = #{wname}
+  		</if>
+  		<if test="yyy !=null and yyy!=''  and yyyy !=null  and yyyy!=''">
+  			and  STR_TO_DATE(txtime,'%Y-%m-%d') 
+		BETWEEN STR_TO_DATE(#{yyy},'%Y-%m-%d') AND STR_TO_DATE(#{yyyy},'%Y-%m-%d')
+  		</if>
+  		
+  		<if test="wstatu !=null and wstatu !='' ">
+  			and  statu = #{wstatu}
+  		</if>
+  	</select>
+  	<select id="selectallw" resultMap="wmap">
+  	     select * from withdrawal
+  	</select>
+  	<select id="selectone" parameterType="int" resultType="org.ht.pojo.Withdrawal">
+		select * from   withdrawal where 	wID=#{id}    
+  	</select>
+  	
+  	<update id="updwith" parameterType="map"  >
+  	    update withdrawal set statu = #{gg} where wID=#{wid}
+  	</update>
+  	<update id="updmoney" parameterType="map"  >
+  	    update certification set cbalance = #{txmoney}+cbalance , ctotalmoney = #{txmoney}+ctotalmoney where cserial=#{uid}
+  	</update>
+  	<update id="updwiths" parameterType="map"  >
+  	    update withdrawal set statu = #{gg},zztime = #{zztime},shtime = #{shtime},shwho = #{shwho}  where wID=#{wid}
+  	</update>
+  	<insert id="intmoney" parameterType="map">
+  	    INSERT INTO trade(uid,uname,zname,jymoney,what,jytime,other) VALUES(#{uid},#{uname},#{zname},#{jymoney},#{what},#{jytime},#{other})
+  	</insert>
+  	<!-- 提现总额 -->
+  	<select id="sumtxmoney" resultType="int">
+		SELECT SUM(txmoney) FROM withdrawal  	    
+  	</select>
+  	<!-- 到账总额 -->
+  	<select id="sumdzmoney" resultType="int">
+		SELECT SUM(dzmoney) FROM withdrawal  	    
+  	</select>
+  	<!-- 手续费总额 -->
+  	<select id="sumsxf" resultType="int">
+		SELECT SUM(sxf) FROM withdrawal  	    
+  	</select>
+  	
+</mapper>

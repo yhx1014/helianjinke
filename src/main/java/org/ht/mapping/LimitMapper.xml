@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="org.ht.dao.LimitDao">
+	<select id="limitByeid" resultType="org.ht.pojo.Limi"
+		parameterType="map">
+		select * from limi where eid=#{eid} 
+	</select>
+	<delete id="limitdel" parameterType="org.ht.pojo.Limi">
+		delete from limi where eid = #{eid}
+	</delete>
+	<insert id="limitadd" parameterType="org.ht.pojo.Limi">
+		insert into limi (eid,mid) values(#{eid},#{mid})
+	</insert>
+	
+</mapper>

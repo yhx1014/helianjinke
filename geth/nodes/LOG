@@ -1,0 +1,22 @@
+=============== Sep 3, 2018 (CST) ===============
+10:57:46.227075 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+10:57:46.270967 db@open opening
+10:57:46.270967 version@stat F·[] S·0B[] Sc·[]
+10:57:46.313816 db@janitor F·2 G·0
+10:57:46.314816 db@open done T·43.8487ms
+11:11:21.116290 memdb@flush N·41806 S·3MiB
+11:11:21.347086 memdb@flush created L0@3 N·41806 S·953KiB "n:\x00..ing,v20685":"version,v1"
+11:11:21.347086 version@stat F·[1] S·953KiB[953KiB] Sc·[0.25]
+11:11:21.502554 memdb@flush committed F·1 T·386.2632ms
+11:11:21.503525 journal@remove removed @1
+11:33:01.431450 memdb@flush N·42653 S·3MiB
+11:33:01.594012 memdb@flush created L0@5 N·42653 S·1023KiB "n:\x00..ing,v77521":"n:\xff..ing,v79222"
+11:33:01.595006 version@stat F·[2] S·1MiB[1MiB] Sc·[0.50]
+11:33:01.704734 memdb@flush committed F·1 T·273.2843ms
+11:33:01.705754 journal@remove removed @2
+11:33:02.447393 table@compaction L0·2 -> L1·0 S·1MiB Q·84503
+11:33:02.681972 table@build created L1@6 N·28620 S·1MiB "n:\x00..ing,v77521":"version,v1"
+11:33:02.681972 version@stat F·[0 1] S·1MiB[0B 1MiB] Sc·[0.00 0.01]
+11:33:02.733985 table@compaction committed F-1 S-645KiB Ke·0 D·55839 T·286.5919ms
+11:33:02.734976 table@remove removed @5
+11:33:02.749063 table@remove removed @3

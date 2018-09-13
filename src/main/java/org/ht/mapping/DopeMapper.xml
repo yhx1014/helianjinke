@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="org.ht.dao.DopeDao">
+  <resultMap id="BaseResultMap" type="org.ht.pojo.Dope">
+  	<id column="did" property="did" jdbcType="INTEGER"/>
+  	<result column="dprimkey" property="dprimkey" jdbcType="INTEGER"/>
+  	<result column="dtitle" property="dtitle" jdbcType="VARCHAR"/>
+  	<result column="details" property="details" jdbcType="VARCHAR"/>
+  	<result column="dtime" property="dtime" jdbcType="TIMESTAMP"/>
+  </resultMap>
+  <insert id="insert" parameterType="org.ht.pojo.Dope">
+		insert into dope (
+		dprimkey,dtitle,details,dtime)
+		values (
+		#{dprimkey},#{dtitle},#{details},#{dtime})
+	</insert>
+	<select id="findDope" resultType="org.ht.pojo.Dope"
+		parameterType="map">
+			select * from dope
+			 <if test="candp !=null and pandc !=null">
+		 		limit #{pagecount},#{currpage}
+			</if>
+		</select>
+	<select id="total" resultType="org.ht.pojo.Dope">
+			SELECT COUNT(*) FROM dope
+	</select>
+	<delete id="batchDeletes" parameterType="org.ht.pojo.Dope">
+		DELETE from dope WHERE did=#{did}
+	</delete>
+</mapper>

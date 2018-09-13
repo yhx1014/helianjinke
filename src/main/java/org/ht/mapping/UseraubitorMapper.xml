@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="org.ht.dao.UserauditorDao">
+  	<resultMap type="org.ht.pojo.Userauditor" id="BaseresultMap">
+  		<id column="uaid" property="uaid" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+  		<result column="userid" property="userid" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+  		<result column="username" property="username" javaType="java.lang.String" jdbcType="VARCHAR"/>
+  		<result column="uauditorid" property="uauditorid" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+  		<result column="uauditor" property="uauditor" javaType="java.lang.String" jdbcType="VARCHAR"/>
+  	</resultMap>
+  	<select id="queryUserauditor" parameterType="map" resultMap="BaseresultMap">
+  	select * from userauditor where 1=1
+  	<if test="uaid!=null and uaid != ''">
+  		and uaid like  concat(concat('%',#{uaid}),'%') 
+  	</if>
+  	<if test="userid!=null and userid != ''">
+  		and userid like  concat(concat('%',#{userid}),'%') 
+  	</if>
+  	<if test="username!=null and username != ''">
+  		and username like  concat(concat('%',#{username}),'%') 
+  	</if>
+  	<if test="uauditorid!=null and uauditorid != ''">
+  		and uauditorid like  concat(concat('%',#{uauditorid}),'%') 
+  	</if>
+  	<if test="uauditor!=null and uauditor != ''">
+  		and uauditor like  concat(concat('%',#{uauditor}),'%') 
+  	</if>
+  	</select>
+  	<insert id="addUserauditor" parameterType="map">
+  		insert into userauditor(userid,username,uauditorid,uauditor)
+  		 values(#{userid},#{username},#{uauditorid},#{uauditor});
+  	</insert>
+</mapper>

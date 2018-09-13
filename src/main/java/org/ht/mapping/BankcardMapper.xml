@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="org.ht.dao.BankcardDao">
+  	<resultMap type="org.ht.pojo.Bankcard" id="bmap">
+  		<id column="bID" property="bID"  jdbcType="INTEGER"/>
+  		<result column="uID" property="uID" jdbcType="INTEGER" />
+  		<result column="uname" property="uname" jdbcType="VARCHAR" />
+  		<result column="zname" property="zname" jdbcType="VARCHAR" />
+  		<result column="sfz" property="sfz" jdbcType="VARCHAR" />
+  		<result column="khh" property="khh" jdbcType="VARCHAR" />
+  		<result column="cardid" property="cardid" jdbcType="VARCHAR" />
+  		<result column="tjtime" property="tjtime" jdbcType="TIMESTAMP" />
+  		<result column="statu" property="statu" jdbcType="VARCHAR" />
+  	</resultMap>
+  	
+  	<select id="selectbc" resultMap="bmap" parameterType="map">
+  	    select * from bankcard where 1=1
+  	    <if test="uname !=null and uname !='' ">
+  			and  uname = #{uname}
+  		</if>
+  	    <if test="zname !=null and zname !='' ">
+  			and  zname = #{zname}
+  		</if>
+  		<if test="yyy !=null and yyy!=''  and yyyy !=null  and yyyy!='' ">
+  			and  STR_TO_DATE(tjtime,'%Y-%m-%d') 
+		BETWEEN STR_TO_DATE(#{yyy},'%Y-%m-%d') AND STR_TO_DATE(#{yyyy},'%Y-%m-%d')
+  		</if>
+  		<if test="l1 != -2">
+  	    limit #{l1},#{l2}
+  	    </if>
+  	</select>
+  	<select id="bankcount" resultType="int" parameterType="map">
+  	    SELECT COUNT(*) FROM bankcard where 1=1 
+  	    <if test="uname !=null and uname !='' ">
+  			and  uname = #{uname}
+  		</if>
+  	    <if test="zname !=null and zname !='' ">
+  			and  zname = #{zname}
+  		</if>
+  		<if test="yyy !=null and yyy!=''  and yyyy !=null  and yyyy!='' ">
+  			and  STR_TO_DATE(tjtime,'%Y-%m-%d') 
+		BETWEEN STR_TO_DATE(#{yyy},'%Y-%m-%d') AND STR_TO_DATE(#{yyyy},'%Y-%m-%d')
+  		</if>
+  	    </select>
+</mapper>

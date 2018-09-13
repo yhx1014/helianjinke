@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.ht.dao.InvestInfoDao">
+	<resultMap type="org.ht.pojo.InvestInfo" id="rm">
+ 		<id column="inid" property="inid" jdbcType="INTEGER"></id>
+		<result column="userid" property="userid" jdbcType="INTEGER"></result>
+		<result column="brrowid" property="brrowid" jdbcType="INTEGER"></result>
+		<result column="inmoney" property="inmoney" jdbcType="DECIMAL"></result>
+		<result column="instatus" property="instatus" jdbcType="VARCHAR"></result>
+		<result column="instyle" property="instyle" jdbcType="VARCHAR"></result>
+		<result column="brrowstatus" property="brrowstatus" jdbcType="VARCHAR"></result>
+		<result column="interest" property="interest" jdbcType="VARCHAR"></result>
+		<result column="profitmodel" property="profitmodel" jdbcType="VARCHAR"></result>
+		<result column="profitmoney" property="profitmoney" jdbcType="DECIMAL"></result>
+		<result column="indate" property="indate" jdbcType="DATE"></result>
+		<result column="replaydate" property="replaydate" jdbcType="VARCHAR"></result>
+		<result column="markstatus" property="markstatus" jdbcType="INTEGER"></result>
+		<result column="title" property="title" jdbcType="VARCHAR"></result>
+		<result column="type" property="type" jdbcType="VARCHAR"></result>
+		<result column="uname" property="uname" jdbcType="VARCHAR"></result>
+	</resultMap>
+	
+	<select id="recordList" resultMap="rm" parameterType="map">
+		<!-- select *,pname title,ptype type from InvestInfo
+		left join product on brrowid = id -->
+		SELECT a.*,p.pname title,p.ptype type FROM (SELECT inv.*,un.uname FROM InvestInfo inv LEFT JOIN users un ON inv.userid = un.uid) as a left join product p on a.brrowid =p.id
+		where 1 = 1 
+		<if test="uid != null">
+			and userid = #{uid}	
+		</if>
+		<if test="bid != null">
+			and brrowid = #{bid}
+		</if>
+		<if test="candp != null and pandc != null">
+			limit #{candp},#{pandc};
+		</if>
+	</select>
+	<select id="getMoney" resultType="int" parameterType="int">
+		select sum(inmoney * (interest / 100)) from investinfo where userid = #{uid}
+	</select>
+	<insert id="create" parameterType="org.ht.pojo.InvestInfo">
+	<!-- 不能用单引号 mysql和oracle sql server 不一样主键自增要指明其他字段-->
+ 		insert into investinfo (userid,brrowid,inmoney,instatus,instyle,brrowstatus,interest,profitmodel,profitmoney,indate,replaydate,markstatus) values (#{userid},#{brrowid},#{inmoney},#{instatus},#{instyle},#{brrowstatus},#{interest},#{profitmodel},#{profitmoney},current_timestamp(),#{replaydate},#{markstatus}) 
+<!--  			insert into investinfo (userid,brrowid,inmoney,interest,profitmoney,indate,replaydate,markstatus) values (#{userid},#{brrowid},#{inmoney},#{interest},#{profitmoney},current_timestamp(),#{replaydate},#{markstatus}) 
+ --> 	</insert>
+	
+	<select id="getSum" parameterType="map" resultType="Double"><!-- ${tableName} 不能用#{}-->
+		select sum(${rowName}) from ${tableName} where 1 = 1
+		<if test="uid != null">
+			and userid = #{uid}	
+		</if>
+		<if test="bid != null">
+			and brrowid = #{bid}
+		</if>
+	</select>
+	
+	<select id="getDtail" resultType="org.ht.pojo.InvestInfo" >
+   		select * FROM investinfo where brrowid=#{params.brrowid}
+   		<if test="params.startPage !=null and params.pageSize !=''">
+			limit #{params.startPage},#{params.pageSize}
+		</if>
+  	</select>
+  
+</mapper>

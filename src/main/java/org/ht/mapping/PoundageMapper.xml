@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="org.ht.dao.PoundageDao">
+  	<resultMap type="org.ht.pojo.Poundage" id="pmap">
+  		<id column="pID" property="pID"  jdbcType="INTEGER"/>
+  		<result column="uID" property="uID" jdbcType="INTEGER" />
+  		<result column="uname" property="uname" jdbcType="VARCHAR" />
+  		<result column="zname" property="zname" jdbcType="VARCHAR" />
+  		<result column="sxmoney" property="sxmoney" jdbcType="VARCHAR" />
+  		<result column="what" property="what" jdbcType="VARCHAR" />
+  		<result column="sxtime" property="sxtime" jdbcType="TIMESTAMP" />
+  		<result column="Localaccount" property="Localaccount" jdbcType="VARCHAR" />
+  		<result column="bookaccount" property="bookaccount" jdbcType="VARCHAR" />
+  		<result column="paytype" property="paytype" jdbcType="VARCHAR" />
+  	</resultMap>
+  	
+  	<select id="selectpa" resultMap="pmap" parameterType="map">
+  	    select * from poundage where 1=1
+  	    <if test="uname !=null and uname !='' ">
+  			and  uname = #{uname}
+  		</if>
+  	    <if test="zname !=null and zname !='' ">
+  			and  zname = #{zname}
+  		</if>
+  		<if test="yyy !=null and yyy!=''  and yyyy !=null  and yyyy!='' ">
+  			and  STR_TO_DATE(sxtime,'%Y-%m-%d') 
+		BETWEEN STR_TO_DATE(#{yyy},'%Y-%m-%d') AND STR_TO_DATE(#{yyyy},'%Y-%m-%d')
+  		</if>
+  		<if test="l1 != -2">
+  	    limit #{l1},#{l2}
+  	    </if>
+  	</select>
+  	<select id="poundcount" resultType="int" parameterType="map">
+  	    SELECT COUNT(*) FROM poundage where 1=1 
+  	    <if test="uname !=null and uname !='' ">
+  			and  uname = #{uname}
+  		</if>
+  	    <if test="zname !=null and zname !='' ">
+  			and  zname = #{zname}
+  		</if>
+  		<if test="yyy !=null and yyy!=''  and yyyy !=null  and yyyy!='' ">
+  			and  STR_TO_DATE(sxtime,'%Y-%m-%d') 
+		BETWEEN STR_TO_DATE(#{yyy},'%Y-%m-%d') AND STR_TO_DATE(#{yyyy},'%Y-%m-%d')
+  		</if>
+  	    </select>
+  	    <insert id="insert" parameterType="org.ht.pojo.Poundage">
+  	    insert into poundage 
+  	    (uID,uname,zname,sxmoney,what,sxtime,Localaccount,bookaccount,paytype) values 
+  	    (#{uID},#{uname},#{zname},#{sxmoney},#{what},#{sxtime},#{Localaccount},#{bookaccount},#{paytype});
+  	    </insert>
+</mapper>
