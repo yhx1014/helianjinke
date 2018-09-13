@@ -6,22 +6,20 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>p2p网贷平台</title>
-<meta name="keywords" content="" />
-<meta name="description" content="" />
-<link href="<%=basePath%>css/common.css" rel="stylesheet" />
-<link href="<%=basePath%>css/register.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="<%=basePath%>script/jquery.min.js"></script>
-<script type="text/javascript" src="<%=basePath%>script/common.js"></script>
-<script src="<%=basePath%>script/login.js" type="text/javascript"></script>
+	<title>币币袋</title>
+	<link href="<%=basePath%>css/common.css" rel="stylesheet" />
+	<link href="<%=basePath%>css/register.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="<%=basePath%>script/jquery.min.js"></script>
+	<script type="text/javascript" src="<%=basePath%>script/common.js"></script>
+	<script src="<%=basePath%>script/login.js" type="text/javascript"></script>
 </head>
+
 <body>
-	<!-- 导航栏 --><jsp:include page="head.jsp"></jsp:include>
+	<!-- 导航栏 -->
+	<jsp:include page="head.jsp"></jsp:include>
 	
-	 
 	<!--注册-->
 	<div class="wrap">
 		<form id="LonginForm" name="LonginForm" action="<%=basePath%>/users/login.do" method="post">
@@ -44,7 +42,6 @@
 			</div>
 		</form>
 	</div>
-	
 <!--网站底部-->
  <jsp:include page="bottom.jsp"></jsp:include>
  </body>

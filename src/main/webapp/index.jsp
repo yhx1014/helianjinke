@@ -6,29 +6,30 @@
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path;
 %>
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="<%=basePath%>/css/common.css" rel="stylesheet"/>
-<link href="<%=basePath%>/css/index.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="<%=basePath%>/script/jquery.min.js"></script>
-<script type="text/javascript" src="<%=basePath%>/script/jquery.jcarousellite-1.0.1.js"></script>
-<script src="<%=basePath%>/script/index.js"></script>
-<script type="text/javascript" src="<%=basePath%>/script/common.js"></script>
-<title>币币袋</title>
+	<link href="<%=basePath%>/css/common.css" rel="stylesheet"/>
+	<link href="<%=basePath%>/css/index.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="<%=basePath%>/script/jquery.min.js"></script>
+	<script type="text/javascript" src="<%=basePath%>/script/jquery.jcarousellite-1.0.1.js"></script>
+	<script src="<%=basePath%>/script/index.js"></script>
+	<script type="text/javascript" src="<%=basePath%>/script/common.js"></script>
+	<title>币币袋</title>
 <style>
-/*上下滚动*/
-#scrollDiv {
-	width: 400px;
-	height: 30px;
-	line-height: 30px;
-	overflow: hidden;
-}
+	/*上下滚动 */
+	#scrollDiv {
+		width: 400px;
+		height: 30px;
+		line-height: 30px;
+		overflow: hidden;
+	}
 
-#scrollDiv li {
-	height: 30px;
-	padding-left: 10px;
-}
+	#scrollDiv li {
+		height: 30px;
+		padding-left: 10px;
+	}
 </style>
 
 <script type="text/javascript">
