@@ -10,32 +10,25 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>币币袋</title>
-<meta name="keywords" content="" />
-<meta name="description" content="" />
-<link href="<%=basePath%>css/common.css" rel="stylesheet" />
-<link href="<%=basePath%>css/index.css" rel="stylesheet"
-	type="text/css" />
-<link href="<%=basePath%>css/detail.css" rel="stylesheet"
-	type="text/css" />
-<script type="text/javascript" src="script/jquery.min.js"></script>
-<script type="text/javascript" src="script/common.js"></script>
-<script src="<%=basePath%>script/ablumn.js"></script>
-<script src="<%=basePath%>script/plugins.js"></script>
-<script src="<%=basePath%>script/detail.js"></script>
-<link href="http://localhost:8080/p2p/css/common.css" rel="stylesheet" />
-<link href="http://localhost:8080/p2p/css/register.css"
-	rel="stylesheet" type="text/css" />
-<script type="text/javascript"
-	src="http://localhost:8080/p2p/script/jquery.min.js"></script>
-<script type="text/javascript"
-	src="http://localhost:8080/p2p/script/common.js"></script>
-<script src="http://localhost:8080/p2p/script/login.js"
-	type="text/javascript"></script>
+	<link href="<%=basePath%>css/common.css" rel="stylesheet" />
+	<link href="<%=basePath%>css/index.css" rel="stylesheet" type="text/css" />
+	<link href="<%=basePath%>css/detail.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="script/jquery.min.js"></script>
+	<script type="text/javascript" src="script/common.js"></script>
+	<script src="<%=basePath%>script/ablumn.js"></script>
+	<script src="<%=basePath%>script/plugins.js"></script>
+	<script src="<%=basePath%>script/detail.js"></script>
+	<link href="<%=basePath%>css/register.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript"
+		src="<%=basePath%>script/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="<%=basePath%>script/common.js"></script>
+	<script src="<%=basePath%>script/login.js"
+		type="text/javascript">
+	</script>
 </head>
 <script type="text/javascript">
 	function submit() {
@@ -55,7 +48,6 @@
 			alert("恭喜您,投资成功!");
 		}
 	}
-
 	end();
 </script>
 <body>

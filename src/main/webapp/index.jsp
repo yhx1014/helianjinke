@@ -8,18 +8,17 @@
 %>
 
 <html>
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link href="<%=basePath%>/css/common.css" rel="stylesheet"/>
-	<link href="<%=basePath%>/css/index.css" rel="stylesheet" type="text/css">
-	<script type="text/javascript" src="<%=basePath%>/script/jquery.min.js"></script>
-	<script type="text/javascript" src="<%=basePath%>/script/jquery.jcarousellite-1.0.1.js"></script>
-	<script src="<%=basePath%>/script/index.js"></script>
-	<script type="text/javascript" src="<%=basePath%>/script/common.js"></script>
-	<title>币币袋</title>
-</head>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link href="<%=basePath%>/css/common.css" rel="stylesheet"/>
+		<link href="<%=basePath%>/css/index.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="<%=basePath%>/script/jquery.min.js"></script>
+		<script type="text/javascript" src="<%=basePath%>/script/jquery.jcarousellite-1.0.1.js"></script>
+		<script src="<%=basePath%>/script/index.js"></script>
+		<script type="text/javascript" src="<%=basePath%>/script/common.js"></script>
+		<title>币币袋</title>
+	</head>
 <body>
-	<!-- 导航栏 -->
 	<jsp:include page="head.jsp"></jsp:include>
 	<!--banner-->
 	<div class="flexslider">
@@ -216,11 +215,11 @@
 												<li>
 													<div class="title">
 														<a target="_blank"><i class="icon icon-che"
-															title="车易贷"></i></a><a href="investInfo.do?bmid=${pro.id }"
-															class="f18" title="毕先生宝马320汽车质押贷款10万元" target="_blank">${pro.pname}<!-- 毕先生宝马320汽车质押贷款10万元 --></a>
+															title="车易贷"></i></a>
+															<a href="investInfo.do?bmid=${pro.id }"
+															class="f18" title="毕先生宝马320汽车质押贷款10万元" target="_blank">${pro.pname}</a>
 													</div>
-													<table width="100%" border="0" cellpadding="0"
-														cellspacing="0">
+													<table width="100%" border="0" cellpadding="0" cellspacing="0">
 														<tbody>
 															<tr>
 																<td width="260">借款金额<span class="f24 c-333">${pro.ptotalmoney}</span>元
@@ -246,9 +245,9 @@
 																				</div>
 																			</div>
 																		</div>
-																	</div></td>
+																	</div>
+																</td>
 																<td align="right">
-																	<!-- (<fmt:formatNumber value="${(pro.pmoney/pro.ptotalmoney)*100}" pattern="#.00"/>==100) -->
 																	<c:if test="${pro.pstate=='2' }">
 																		<a class="ui-btn btn-gray"
 																			href="investInfo.do?bmid=${pro.id }">还款中</a>
@@ -280,44 +279,6 @@
 			</div>
 		</div>
 	</div>
-
-<%-- 	<div class="partners wrap clearfix mrb30">
-		<div class="partners-inner ui-tab">
-			<div class="hd">
-				<div class="ui-tab-nav">
-					<i class="icon icon-cur" style="left: 151px;"></i>
-					<ul>
-						<li class=""><a href="#">合作机构</a></li>
-						<li class="active"><a href="#">友情链接</a></li>
-					</ul>
-				</div>
-			</div>
-			
-			<div class="bd">
-				<div class="ui-tab-cont">
-					<div class="ui-tab-item active">
-						<div class="img-scroll">
-							<div class="container">
-								<ul>
-									<li><img src="<%=basePath%>/images/logo_sbcvc.png"
-										width="152" height="52" alt="软银"></li>
-									<li><img src="<%=basePath%>/images/logo_abc.png"
-										width="152" height="52" alt="农业银行"></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="ui-tab-item">
-						<div class="links">
-							<a target="_blank" href="#">资本</a> 
-							<a target="_blank" href="http://www.bjzq.com.cn">北京证券网</a> 
-						</div>
-					</div>
-				</div>
-			</div>
-			
-		</div>
-	</div> --%>
 	<!--网站底部-->
 	<jsp:include page="bottom.jsp"></jsp:include>
 </html>

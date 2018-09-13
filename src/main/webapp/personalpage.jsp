@@ -81,7 +81,6 @@
             <ul>
               <li>用户名<span>${user.unickname}</span></li>
               <li>安全级别<span><i class="safe-level"><i class="onlevel" style="width:40%;" ></i></i></span> <a href="#">[低]</a></li>
-              <!-- <li>您还未开通第三方支付账户，请 <a class="pmain-log" href="#">立即开通</a>以确保您的正常使用和资金安全。 </li> -->
             </ul>
           </div>
         </div>

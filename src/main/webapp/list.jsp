@@ -10,18 +10,14 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix = "fmt"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="ft"%>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>币币袋</title>
-<meta name="keywords" content="" />
-<meta name="description" content="" />
-<link href="<%=basePath %>css/common.css" rel="stylesheet" />
-<link href="<%=basePath %>css/index.css" rel="stylesheet" type="text/css" />
-<link href="<%=basePath %>css/detail.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="<%=basePath %>script/jquery.min.js"></script>
-<script type="text/javascript" src="<%=basePath %>script/common.js"></script>
+	<title>币币袋</title>
+	<link href="<%=basePath %>css/common.css" rel="stylesheet" />
+	<link href="<%=basePath %>css/index.css" rel="stylesheet" type="text/css" />
+	<link href="<%=basePath %>css/detail.css" rel="stylesheet" type="text/css"/>
+	<script type="text/javascript" src="<%=basePath %>script/jquery.min.js"></script>
+	<script type="text/javascript" src="<%=basePath %>script/common.js"></script>
 </head>
 
 <script type="text/javascript">
@@ -34,11 +30,11 @@
 		//按条件查询
 		window.location.href="<%=basePath%>invest/investSel.do?item="+items+"&param="+param;
 	}
-
 </script>
 
 <body>
-  <!-- 导航栏 --><jsp:include page="head.jsp"></jsp:include>
+  <!-- 导航栏 -->
+  <jsp:include page="head.jsp"></jsp:include>
 <!--列表-->
 <div class="page-filter wrap">
   <div class="breadcrumbs"><a href="http://localhost:8080/p2p/index.jsp">首页</a>&gt;<span class="cur">散标投资列表</span></div>

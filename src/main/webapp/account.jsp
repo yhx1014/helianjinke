@@ -11,31 +11,29 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>币币袋</title>
-<meta name="keywords" content="" />
-<meta name="description" content="" />
-<link href="<%=basePath%>/css/common.css" rel="stylesheet" />
-<link rel="stylesheet" type="text/css" href="<%=basePath%>/css/user.css" />
-<link rel="stylesheet" type="text/css" href="<%=basePath%>/css/jquery.datetimepicker.css"/>
-<script type="text/javascript" src="<%=basePath%>/script/jquery.min.js"></script>
-<script type="text/javascript" src="<%=basePath%>/script/common.js"></script>
-<script src="<%=basePath%>/script/user.js" type="text/javascript"></script>
-<script type="text/javascript"
-	src="<%=basePath%>js/jquery-1.8.3.js"></script>
+	<title>币币袋</title>
+	<meta name="keywords" content=""/>
+	<meta name="description" content=""/>
+	<link href="<%=basePath%>/css/common.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="<%=basePath%>/css/user.css" />
+	<link rel="stylesheet" type="text/css" href="<%=basePath%>/css/jquery.datetimepicker.css"/>
+	<script type="text/javascript" src="<%=basePath%>/script/jquery.min.js"></script>
+	<script type="text/javascript" src="<%=basePath%>/script/common.js"></script>
+	<script src="<%=basePath%>/script/user.js" type="text/javascript"></script>
+	<script type="text/javascript"
+		src="<%=basePath%>js/jquery-1.8.3.js">
+	</script>
 </head>
 <body>
-<header>
- <!-- 导航栏 --><jsp:include page="head.jsp"></jsp:include>
 
-</header>
+<jsp:include page="head.jsp"></jsp:include>
+
 <!--个人中心-->
 <div class="wrapper wbgcolor">
   <div class="w1200 personal">
     <div class="credit-ad"><img src="images/clist1.jpg" width="1200" height="96"></div>
-   			 <!-- 导航栏 --><jsp:include page="left.jsp"></jsp:include>	
+   	    <jsp:include page="left.jsp"></jsp:include>	
     <script type="text/javascript">
-			//<![CDATA[
 				function showSpan(op){
 					$("#updateMonbileForm\\:updateMonbileFormauthCode").val(""); 
 					if(op=='alert-updateEmail'){
@@ -72,9 +70,6 @@
 			if (!args.validationFailed) {
 				$("#sendCode").hide();
 				$("#sendCodeGrey").show();
-				/* if(flag && $("#sendCode").is(":hidden")){
-					return;
-				} */
 				flag = true;
 				var mobileNumber = $("#checkMonbileForm\\:mobileNumber").val().replace(/(^\s*)|(\s*$)/g,"");
 				if("dx" == args2){
@@ -106,9 +101,6 @@
 			if (!args.validationFailed) {
 				$("#sendCode1").hide();
 				$("#sendCodeGrey1").show();
-				/* if(flag && $("#sendCode1").is(":hidden")){
-					return;
-				} */
 				flag = true;
 				var mobileNumber = $("#updateMonbileForm\\:mobileNumber2").val().replace(/(^\s*)|(\s*$)/g,"");
 				if("dx" == args2){
@@ -141,9 +133,6 @@
 			if (!args.validationFailed) {
 				$("#sendCode2").hide();
 				$("#sendCodeGrey2").show();
-				/* if(flag && $("#sendCode2").is(":hidden")){
-					return;
-				} */
 				flag = true;
 				var mobileNumber = $("#mobile").val();
 				if("dx" == args2){
@@ -213,14 +202,11 @@
 			$("#updatePassForm\\:password_message").remove();
 			$("#repassword_message").remove();
 		}
-		//]]>
 		</script>
     <style type="text/css">
 			.txt235{height:38px;border:1px solid #ccc;}
-		
-		</style>
+    </style>
     <script type="text/javascript">
-			//<![CDATA[
 			$(function(){
 				var  type = getUrlParam();
 				if(type =='2'){
@@ -264,10 +250,8 @@
 			    		"background-position-y":"-550px"
 			    	});
 		         }
-				//$("#activeEmail\\:activeEmailemail").attr({"readOnly":"true"});
 				"";
 			});
-			//]]>
 			</script>
     <div class="personal-main">
       <div class="personal-zhsz">
@@ -350,7 +334,6 @@
       </div>
     </div>
     <script type="text/javascript">
-			//<![CDATA[
 			           //验证手机号是否为空
 			           function checkCheckMobileFormMoible()
 			           {
@@ -434,7 +417,6 @@
 			   				}
 			   			}
 			   		});
-			//]]>
 		</script>
     <div class="alert-450" id="alert-checkMobile" style="display:none;">
       <div class="alert-title">
