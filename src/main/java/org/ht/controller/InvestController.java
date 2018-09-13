@@ -257,8 +257,7 @@ public class InvestController {
 			if (currpage != null && !"".equals(currpage)) {
 				currpages = Integer.parseInt(currpage);
 			}
-			// totalpage = (totalrow + pagerow - 1) / pagerow;
-
+			
 			outcount = totalrow % pagerow;
 			count = totalrow / pagerow;
 

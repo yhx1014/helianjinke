@@ -9,7 +9,7 @@
 
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link href="<%=basePath%>/css/common.css" rel="stylesheet"/>
 	<link href="<%=basePath%>/css/index.css" rel="stylesheet" type="text/css">
 	<script type="text/javascript" src="<%=basePath%>/script/jquery.min.js"></script>
@@ -17,53 +17,16 @@
 	<script src="<%=basePath%>/script/index.js"></script>
 	<script type="text/javascript" src="<%=basePath%>/script/common.js"></script>
 	<title>币币袋</title>
-	
-<style>
-	/*上下滚动 */
-	#scrollDiv {
-		width: 400px;
-		height: 30px;
-		line-height: 30px;
-		overflow: hidden;
-	}
-
-	#scrollDiv li {
-		height: 30px;
-		padding-left: 10px;
-	}
-</style>
-
-<script type="text/javascript">
-	// 上下滚动
-	function AutoScroll(obj) {
-		$(obj).find("ul:first").animate({
-			marginTop : "-25px"
-		}, 500, function() {
-			$(this).css({
-				marginTop : "0px"
-			}).find("li:first").appendTo(this);
-		});
-	}
-	$(document).ready(function() {
-		var myar = setInterval('AutoScroll("#scrollDiv")', 3000);
-		$("#scrollDiv").hover(function() {
-			clearInterval(myar);
-		}, function() {
-			myar = setInterval('AutoScroll("#scrollDiv")', 3000)
-		}); //当鼠标放上去的时候，滚动停止，鼠标离开的时候滚动开始
-	});
-</script>
 </head>
 <body>
 	<!-- 导航栏 -->
 	<jsp:include page="head.jsp"></jsp:include>
-	
 	<!--banner-->
 	<div class="flexslider">
 		<ul class="slides">
 			<c:forEach items="${sy}" var="nots">
 				<li style="background-image: url(${nots.noticepicture}); width: 100%; float: left; margin-right: -100%; position: relative; opacity: 0; display: block; z-index: 1; background-position: 50% 0px; background-repeat: no-repeat no-repeat;">
-					<a href="http://${nots.noticecontent }" target="_blank"></a>
+					<%-- <a href="http://${nots.noticecontent }" target="_blank"></a> --%>
 				</li>
 			</c:forEach>
 		</ul>
@@ -166,18 +129,15 @@
 			<div class="page-left fn-left">
 				<div class="mod-borrow">
 					<div class="hd">
-						<h2 class="pngbg">
-							<i class="icon icon-ttyx"></i>推荐项目
-						</h2>
+						<h2 class="pngbg"><i class="icon icon-ttyx"></i>推荐项目</h2>
 						<div class="fn-right f14 c-888">
 							常规发标时间每天<span class="c-555">10:00，13:00和20:00</span>，其余时间根据需要随机发
 						</div>
 					</div>
-					
 					<div class="bd">
 						<div class="des">
 							<span class="fn-left">期限1-29天，期限短，收益见效快</span><a
-								href="<%=basePath %>invest/investSel.do" class="fn-right">查看更多&gt;&gt;</a>
+								href="<%=basePath%>/invest/investSel.do" class="fn-right">查看更多&gt;&gt;</a>
 						</div>
 						<div class="borrow-list">
 							<ul>
@@ -213,13 +173,16 @@
 																</div>
 															</div>
 														</div></td>
-													<td align="right"><c:if test="${invest.pstate=='1' }">
-															<a class="ui-btn btn-gray"
-																href="investInfo.do?bmid=${invest.id }">立即投标</a>
-														</c:if> <c:if test="${invest.pstate=='2' }">
-															<a class="ui-btn btn-gray"
-																href="investInfo.do?bmid=${invest.id }">还款中</a>
-														</c:if></td>
+													<td align="right">
+														<c:if test="${invest.pstate=='1' }">
+																<a class="ui-btn btn-gray"
+																	href="investInfo.do?bmid=${invest.id }">立即投标</a>
+														</c:if> 
+														<c:if test="${invest.pstate=='2' }">
+																<a class="ui-btn btn-gray"
+																	href="investInfo.do?bmid=${invest.id }">还款中</a>
+														</c:if>
+													</td>
 												</tr>
 											</tbody>
 										</table>
@@ -314,106 +277,11 @@
 				</c:if>
 			</div>
 			<div class="page-right fn-right" style="top: 0px;">
-				<div class="mod-risk-tip">
-					<i class="icon icon-tip"></i><a href="#" class="c-orange">收益与风险并存，请理性选择平台</a>
-				</div>
-				<div class="mod mod-notice mrt20">
-					<div class="hd">
-						<h3>网站公告</h3>
-						<a href="/p2p/notice/notlist.do?ids=1" class="fn-right">更多&gt;</a>
-					</div>
-					<div class="bd">
-						<div class="article-list clearfix">
-							<ul>
-
-								<c:forEach items="${listss}" var="nots">
-									<li><a
-										href="${pageContext.request.contextPath}/notice/notget.do?ids=${nots.noticeid }"
-										title="${nots.noticetitle }">
-											${ft:substring(nots.noticetitle,0,13) } </a> <span class="date"><fmt:formatDate
-												value="${nots.noticelasttime }" /></span></li>
-								</c:forEach>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="mod mod-rank clearfix ui-tab mrt20">
-					<div class="hd">
-						<h3>排行榜</h3>
-						<div class="ui-tab-nav">
-							<i class="icon icon-cur"></i>
-							<ul>
-								<li class="active"><a href="#">收益</a></li>
-								<li><a href="#">投资</a></li>
-							</ul>
-							<a href="#" class="fn-right"> </a>
-						</div>
-					</div>
-					<div class="bd">
-						<div class="ui-tab-cont">
-							<div class="ui-tab-item active">
-								<ul class="rank-list">
-									<li><span class="fl"><em class="n1">01</em>gz******</span><span
-										class="fr">￥1,115,461.07</span></li>
-									<li><span class="fl"><em class="n2">02</em>米克******</span><span
-										class="fr">￥1,003,890.04</span></li>
-									<li><span class="fl"><em class="n3">03</em>灵儿******</span><span
-										class="fr">￥895,618.71</span></li>
-									<li><span class="fl"><em class="n4">04</em>li******</span><span
-										class="fr">￥795,154.06</span></li>
-								</ul>
-							</div>
-							<div class="ui-tab-item">
-								<ul class="rank-list">
-									<li><span class="fl"><em class="n1">01</em>黄世******</span><span
-										class="fr">￥78,714,974.00</span></li>
-									<li><span class="fl"><em class="n2">02</em>一诺******</span><span
-										class="fr">￥58,428,720.00</span></li>
-									<li><span class="fl"><em class="n3">03</em>hj******</span><span
-										class="fr">￥57,844,191.00</span></li>
-									<li><span class="fl"><em class="n4">04</em>老马******</span><span
-										class="fr">￥38,808,064.00</span></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="mod mod-report ui-tab clearfix mrt20">
-					<div class="hd">
-						<div class="ui-tab-nav">
-							<i class="icon icon-cur"></i>
-							<ul>
-								<li class="active"><a href="javascript:;">媒体报道</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="bd">
-						<div class="ui-tab-cont">
-							<div class="ui-tab-item active">
-								<div class="article-list">
-									<ul>
-										<c:forEach items="${meiti}" var="nots">
-											<li><a
-												href="/p2p/notice/notget.do?ids=${nots.noticeid }"
-												title="${nots.noticetitle }" target="_blank">${nots.noticetitle }</a></li>
-										</c:forEach>
-									</ul>
-								</div>
-							</div>
-
-						</div>
-					</div>
-				</div>
-				<div class="mrt20 mod">
-					<a href="<%=basePath%>/demo.html"><img
-						src="<%=basePath%>/images/pic_home_js.jpg" width="300" height="80"
-						alt="收益计算器" class="pic"></a>
-				</div>
 			</div>
 		</div>
 	</div>
 
-	<div class="partners wrap clearfix mrb30">
+<%-- 	<div class="partners wrap clearfix mrb30">
 		<div class="partners-inner ui-tab">
 			<div class="hd">
 				<div class="ui-tab-nav">
@@ -449,7 +317,7 @@
 			</div>
 			
 		</div>
-	</div>
+	</div> --%>
 	<!--网站底部-->
 	<jsp:include page="bottom.jsp"></jsp:include>
 </html>
