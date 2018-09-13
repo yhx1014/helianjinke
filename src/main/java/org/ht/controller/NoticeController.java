@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.ht.pojo.Notice;
 import org.ht.service.NoticeService;
 import org.ht.service.UsersService;
-import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 /**
  * 
- * @author 周旗 2017-2-23 10:19:37 网站消息通知控制层
+ * @author michael
  */
 @Controller
 @RequestMapping("notice")
@@ -30,12 +29,6 @@ public class NoticeController {
 	private NoticeService noticeService;
 	@Resource
 	private UsersService uService;
-
-	// @RequestMapping("tohoutai")
-	// public String tohoutai(){
-	//
-	// return "WEB-INF/view/indexs";
-	// }
 
 	// 去后台添加页面
 	@RequestMapping("toadd")
@@ -48,11 +41,10 @@ public class NoticeController {
 	// 去添加首页图片
 	@RequestMapping("addtupian")
 	public String addtupian() {
-
 		return "WEB-INF/view/noticeaddtupian";
 
 	}
-//sss
+	
 	// 查询首页图片
 	@RequestMapping("toaddlisttupian")
 	public String toaddlisttupian(Model model, String ids) {
@@ -100,9 +92,8 @@ public class NoticeController {
 
 	// 后台查询
 	@RequestMapping("notlists")
-	// public String notlists(Model model) {
 	public String notlists(HttpServletRequest request,Model model, String ids) {
-		List list =noticeService.noticelist(ids);
+		List<Notice> list =noticeService.noticelist(ids);
 		model.addAttribute("list", list);
 		jiazai(request);
 		return "WEB-INF/view/noticeaddlist";
@@ -220,7 +211,6 @@ public class NoticeController {
 		List<Notice> lists = noticeService.noticetop5meiti();
 		List<Notice> listss = noticeService.noticetop5sy();
 		
-		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>top5");
 		ServletContext context = request.getSession().getServletContext();
 		context.setAttribute("listss", list);
 		context.setAttribute("meiti", lists);
@@ -228,6 +218,7 @@ public class NoticeController {
 		context.setAttribute("size", uService.userList().size());
 	}
 
+	@SuppressWarnings("unused")
 	private void notgets(Model model, Integer ids) {
 		Notice notice = noticeService.noticeget(ids);
 		model.addAttribute("nots", notice);

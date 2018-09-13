@@ -1,19 +1,14 @@
 package org.ht.controller;
-
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import javax.annotation.Resource;
-import javax.jws.soap.SOAPBinding.Use;
 import javax.servlet.http.HttpSession;
-
 import org.ht.pojo.Certification;
 import org.ht.pojo.Users;
 import org.ht.service.CertificationService;
 import org.ht.service.UsersService;
-import org.ht.wallet.AccountTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -88,9 +83,10 @@ public class UsersController {
 	
 	{
         
-		AccountTest at = new AccountTest();
-		String accountId = at.createAccount();
-		System.out.println("****************************"+accountId+unickname+"************************");
+//		AccountTest at = new AccountTest();
+//		String accountId = at.createAccount();
+		String accountId="ox1000";
+//		System.out.println("****************************"+accountId+unickname+"************************");
 		users.setUnickname(unickname);
 		users.setUpassword(upassword);
 		users.setUphonenumber(uphonenumber);
@@ -111,8 +107,6 @@ public class UsersController {
 		// 返回到注册成功界面
 		return "register1";
 	}
-	
-	// 注册新用户 end
 
 	// 登录 start
 	@RequestMapping("login")

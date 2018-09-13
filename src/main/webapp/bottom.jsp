@@ -9,7 +9,7 @@
 %>
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 	</head>
 <body>
 <!--网站底部-->
@@ -19,22 +19,23 @@
       <dl>
        	<dt>关于我们</dt>
         <dd>
-        	<a href="/p2p/notice/notlist.do?ids=3">管理团队</a>
+        	<a href="#">管理团队</a>
         </dd>
       </dl>
       <dl>
         <dt>新手介绍</dt>
         <dd>
-        	<a href="/p2p/invest/investSel.do">我要投资</a>
+        <!-- /p2p/invest/investSel.do -->
+        	<a href="#">我要投资</a>
         </dd>
       </dl>
       <dl>
         <dt>费率介绍</dt>
-           <dd><a href="/p2p/contact.jsp">费率介绍</a></dd>
+           <dd><a href="#">费率介绍</a></dd>
       </dl>
       <dl>
         <dt>加入我们</dt>
-        <dd><a href="/p2p/contact.jsp">联系我们</a></dd>
+        <dd><a href="#">联系我们</a></dd>
       </dl>
     </div>
    

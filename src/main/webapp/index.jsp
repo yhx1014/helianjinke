@@ -17,6 +17,7 @@
 	<script src="<%=basePath%>/script/index.js"></script>
 	<script type="text/javascript" src="<%=basePath%>/script/common.js"></script>
 	<title>币币袋</title>
+	
 <style>
 	/*上下滚动 */
 	#scrollDiv {
@@ -57,13 +58,14 @@
 <body>
 	<!-- 导航栏 -->
 	<jsp:include page="head.jsp"></jsp:include>
+	
 	<!--banner-->
 	<div class="flexslider">
 		<ul class="slides">
 			<c:forEach items="${sy}" var="nots">
-				<li
-				style="background-image: url(${nots.noticepicture}); width: 100%; float: left; margin-right: -100%; position: relative; opacity: 0; display: block; z-index: 1; background-position: 50% 0px; background-repeat: no-repeat no-repeat;"
-				class=""><a href="http://${nots.noticecontent }" target="_blank"></a></li>
+				<li style="background-image: url(${nots.noticepicture}); width: 100%; float: left; margin-right: -100%; position: relative; opacity: 0; display: block; z-index: 1; background-position: 50% 0px; background-repeat: no-repeat no-repeat;">
+					<a href="http://${nots.noticecontent }" target="_blank"></a>
+				</li>
 			</c:forEach>
 		</ul>
 	</div>

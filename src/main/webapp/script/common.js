@@ -109,11 +109,6 @@ $(function(){
 		})
 	}
 })(jQuery);
-
-/*$(function(){
-	$('[placeholder]').placeholder();  
- });*/
- 
  
 //图片滚动插件 
 ;(function($){
@@ -178,7 +173,7 @@ $(function(){
 		}
 })(jQuery);
 
-/*tab切换*/
+//tab切换
 $(document).delegate(".ui-tab", "mouseenter",function() {
     $(this).delegate(".ui-tab-nav li","mouseover",function(){
 		var $icon = $(this).closest(".ui-tab-nav").find(".icon-cur");
@@ -191,7 +186,7 @@ $(document).delegate(".ui-tab", "mouseenter",function() {
 	})
 }),
 
-/*模拟下拉框*/
+//模拟下拉框
 $(document).delegate(".ui-select", "mouseenter",function(){ 
 	var input = $("input[type=hidden]",this),
 	    sleHd = $(".select-value",this),
@@ -213,7 +208,8 @@ $(document).delegate(".ui-select","mouseleave",function(){
 	$(this).removeClass("active");
 	$(".select-list",this).hide();
 }),
-/*下拉菜单*/
+
+//下拉菜单
 $(function(){
 	var $menu = $(".ui-menu");
 	$menu.hover(function(){
