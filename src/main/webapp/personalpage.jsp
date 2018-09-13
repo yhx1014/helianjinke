@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  
-<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
  <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -32,7 +32,7 @@
 <!--个人中心-->
 <div class="wrapper wbgcolor">
   <div class="w1200 personal">
-    <div class="credit-ad"><img src="<%=basePath%>/images/clist1.jpg" width="1200" height="96"></div>
+    <div class="credit-ad"><img src="<%=basePath%>/images/clist.jpg" width="1200" height="96"></div>
 		 <!-- 导航栏 -->
 		 <jsp:include page="left.jsp"></jsp:include>	
     <div class="personal-main">

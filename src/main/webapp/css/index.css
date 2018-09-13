@@ -54,7 +54,6 @@
 .borrow-list .ui-btn{width:88px;height:33px;text-align:center;line-height:33px;font-size:14px;display:inline-block;color:#FFF;}
 .borrow-list .time .ui-btn{}
 .borrow-list .time .f12{text-align:center;white-space:nowrap;}
-
 .page-right{width:300px;}
 .page-right .mod{background:#FFF;border:1px solid #ebebeb;}
 .page-right .mod .hd{height:49px;border-bottom:1px solid #DDD;padding:0 15px;line-height:49px;}
@@ -84,7 +83,6 @@
 
 .mod-risk-tip{background:#FFF;padding:10px;font-size:14px;color:#ff6b00;}
 .mod-risk-tip .icon-tip{width:14px;height:14px;background:url(../images/p2p_sprite.png) -390px 0;float:left;margin:3px 5px 0 0;}
-
 .mod-notice{border:1px solid #ebebeb;}
 .mod-notice .hd a:hover{text-decoration:underline;}
 .mod-notice li a{float:left;}

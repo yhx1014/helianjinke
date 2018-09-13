@@ -21,7 +21,9 @@ import org.springframework.web.multipart.MultipartFile;
 /**
  * 
  * @author michael
+ * 
  */
+
 @Controller
 @RequestMapping("notice")
 public class NoticeController {
@@ -38,7 +40,7 @@ public class NoticeController {
 
 	}
 
-	// 去添加首页图片
+	//去添加首页图片
 	@RequestMapping("addtupian")
 	public String addtupian() {
 		return "WEB-INF/view/noticeaddtupian";
@@ -55,7 +57,6 @@ public class NoticeController {
 	// 查询通知
 	@RequestMapping("toaddlist")
 	public String toaddlist() {
-
 		return "WEB-INF/view/noticeaddlist";
 	}
 	
@@ -69,8 +70,6 @@ public class NoticeController {
 		if ( 6==isd) {
 			return "redirect:toaddlisttupian.do?ids=6";
 		} 
-		
-	
 		return "redirect:notlists.do?ids="+isd;
 	}
 		
@@ -135,9 +134,9 @@ public class NoticeController {
 			@RequestParam(value = "ufile", required = false) MultipartFile file,
 			Model model, Notice notice) {
 		String path = request.getSession().getServletContext()
-				.getRealPath("file");// 获得上传的路径
-		String fileName = file.getOriginalFilename();// 获得上传的文件名
-		File targetFile = new File(path, fileName);// 创建上传到服务器的文件对象
+				.getRealPath("file");    // 获得上传的路径
+		String fileName = file.getOriginalFilename();    // 获得上传的文件名
+		File targetFile = new File(path, fileName);      // 创建上传到服务器的文件对象
 		try {
 			file.transferTo(targetFile);// 文件转储
 		} catch (IllegalStateException e) {
@@ -152,7 +151,7 @@ public class NoticeController {
 		noticeService.noticeadd(notice);
 
 		jiazai(request);
-//Sos
+		//sos
 		if ("6".equals(notice.getNoticetype())) {
 			return "redirect:toaddlisttupian.do?ids=" + notice.getNoticetype();
 		}
@@ -166,8 +165,7 @@ public class NoticeController {
 			Model model, Notice notice) {
 		
 		if (file.getSize() != 0) {
-			String path = request.getSession().getServletContext()
-					.getRealPath("file");// 获得上传的路径
+			String path = request.getSession().getServletContext().getRealPath("file");// 获得上传的路径
 			String fileName = file.getOriginalFilename();// 获得上传的文件名
 			File targetFile = new File(path, fileName);// 创建上传到服务器的文件对象
 			try {

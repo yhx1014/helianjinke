@@ -134,7 +134,6 @@ public class UsersController {
 		}
 	}
 	// 登录 end
-
 	// 退出start
 	@RequestMapping("exit")
 	public String exit(HttpSession session) {

@@ -54,7 +54,6 @@
 	});
 </script>
 </head>
-
 <body>
 	<!-- 导航栏 -->
 	<jsp:include page="head.jsp"></jsp:include>
@@ -82,6 +81,7 @@
 				directionNav : true,
 				pauseOnAction : false
 			});
+			
 			//产品列表滚动
 			var pLength = $('.pListContentBox > li').length;
 			var cishu = pLength - 4;
@@ -361,8 +361,6 @@
 										class="fr">￥895,618.71</span></li>
 									<li><span class="fl"><em class="n4">04</em>li******</span><span
 										class="fr">￥795,154.06</span></li>
-									<li><span class="fl"><em class="n5">05</em>豆芽******</span><span
-										class="fr">￥747,154.44</span></li>
 								</ul>
 							</div>
 							<div class="ui-tab-item">
@@ -375,8 +373,6 @@
 										class="fr">￥57,844,191.00</span></li>
 									<li><span class="fl"><em class="n4">04</em>老马******</span><span
 										class="fr">￥38,808,064.00</span></li>
-									<li><span class="fl"><em class="n5">05</em>写意******</span><span
-										class="fr">￥31,341,159.00</span></li>
 								</ul>
 							</div>
 						</div>

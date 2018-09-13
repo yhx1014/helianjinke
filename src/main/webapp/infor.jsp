@@ -14,7 +14,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>p2p网贷平台</title>
+<title>币币袋</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link href="<%=basePath%>css/common.css" rel="stylesheet" />
@@ -27,14 +27,14 @@
 <script src="<%=basePath%>script/ablumn.js"></script>
 <script src="<%=basePath%>script/plugins.js"></script>
 <script src="<%=basePath%>script/detail.js"></script>
-<link href="http://localhost:8080/p2p//css/common.css" rel="stylesheet" />
-<link href="http://localhost:8080/p2p//css/register.css"
+<link href="http://localhost:8080/p2p/css/common.css" rel="stylesheet" />
+<link href="http://localhost:8080/p2p/css/register.css"
 	rel="stylesheet" type="text/css" />
 <script type="text/javascript"
-	src="http://localhost:8080/p2p//script/jquery.min.js"></script>
+	src="http://localhost:8080/p2p/script/jquery.min.js"></script>
 <script type="text/javascript"
-	src="http://localhost:8080/p2p//script/common.js"></script>
-<script src="http://localhost:8080/p2p//script/login.js"
+	src="http://localhost:8080/p2p/script/common.js"></script>
+<script src="http://localhost:8080/p2p/script/login.js"
 	type="text/javascript"></script>
 </head>
 <script type="text/javascript">

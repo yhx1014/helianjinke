@@ -12,7 +12,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>p2p网贷平台</title>
+<title>币币袋</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link href="<%=basePath%>css/common.css" rel="stylesheet" />

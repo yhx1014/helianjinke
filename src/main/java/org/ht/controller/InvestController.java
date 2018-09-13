@@ -300,52 +300,47 @@ public class InvestController {
 
 	@RequestMapping("recommendShow")
 	public String recommendShow(HttpServletRequest req,Model model) {
+		
 		// 首页中显示推荐
 		Map<String, Object> parameters = new HashMap<String, Object>();
-		// 查询条件
-		// parameters.put("pandc", 2);
-		// parameters.put("candp", 1);
-		// parameters.put("bstate", "招标中");
-		// parameters.put("brecommend", "推荐");
 		
-		 System.out.println("******");
-                if(application == null){
-				List<Product> proList = new ArrayList<Product>();
+        if(application == null){
+		List<Product> proList = new ArrayList<Product>();
 
-				List<Biao> list = biaoS.findList(parameters);
-				if (list != null && list.size() > 0) {
-					parameters.put("pageSize", 2);
-					parameters.put("startPage", 0);
-					for (int i = 0; i < list.size(); i++) {
-						Biao biao = list.get(i);
-						parameters.put("biaoId", biao.getId());
-						List<Product> tlist = proS.selList(parameters);// 两条数据
-						for (int j = 0; j < tlist.size(); j++) {
-							proList.add(tlist.get(j));// 将每个类型的两条数据保存到一个list中
-						}
-					}
+		List<Biao> list = biaoS.findList(parameters);
+		if (list != null && list.size() > 0) {
+			parameters.put("pageSize", 2);
+			parameters.put("startPage", 0);
+			for (int i = 0; i < list.size(); i++) {
+				Biao biao = list.get(i);
+				parameters.put("biaoId", biao.getId());
+				List<Product> tlist = proS.selList(parameters);// 两条数据
+				for (int j = 0; j < tlist.size(); j++) {
+					proList.add(tlist.get(j));// 将每个类型的两条数据保存到一个list中
 				}
-					
-				parameters.remove("biaoId");
-				parameters.put("pcount", "");//推荐项目期限一个月以下
-				parameters.put("startT", "0");
-				parameters.put("endT", "30");
-				List<Product> tjl = proS.selList(parameters);
-				
-//				model.addAttribute("proList", proList);
-//				model.addAttribute("biaoList", list);
-				Map<String, Object> map = new HashMap<String, Object>();
-				map.put("rowName", "inmoney");// 查出投资总额
-				map.put("tableName", "investinfo");
-				
-				Double tm = investS.sumMoney(map);
-				
-				application = req.getSession().getServletContext();
-				application.setAttribute("proList", proList);
-				application.setAttribute("biaoList", list);
-				application.setAttribute("tjlist", tjl);
-				application.setAttribute("ztz", tm);
-		 }
+			}
+		}
+			
+		parameters.remove("biaoId");
+		parameters.put("pcount", "");    //推荐项目期限一个月以下
+		parameters.put("startT", "0");
+		parameters.put("endT", "30");
+		List<Product> tjl = proS.selList(parameters);
+		
+//		model.addAttribute("proList", proList);
+//		model.addAttribute("biaoList", list);
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("rowName", "inmoney");// 查出投资总额
+		map.put("tableName", "investinfo");
+		
+		Double tm = investS.sumMoney(map);
+		
+		application = req.getSession().getServletContext();
+		application.setAttribute("proList", proList);
+		application.setAttribute("biaoList", list);
+		application.setAttribute("tjlist", tjl);
+		application.setAttribute("ztz", tm);
+ }
 		
 		// List<Borrowmoney> list = service.pagingSel(parameters);
 		// model.addAttribute("list", list);

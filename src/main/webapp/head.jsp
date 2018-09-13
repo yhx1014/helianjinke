@@ -43,8 +43,8 @@
 			</ul>
 		</c:if>
     </div>
-  </div> 
-  <div class="header min-width">
+</div> 
+<div class="header min-width">
     <div class="container">
       <div class="fn-left logo"> 
          <a class="" href="<%=basePath%>invest/recommendShow.do"> 
@@ -58,11 +58,11 @@
         <li class="top-nav-safe"> <a href="#" onclick="keys();">我的资产</a> </li>
       </ul>
     </div>
-  </div>
+</div>
 </header>
 
-<script type="text/javascript">
-	function keys(){
+<script>
+    function keys(){
 		var id="${globaluser.uid}";
 		if(id!=""){
 			window.location.href="<%=basePath%>query.do?id=${globaluser.uid}";
