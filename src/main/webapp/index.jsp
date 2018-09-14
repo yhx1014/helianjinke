@@ -9,80 +9,32 @@
 
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link href="<%=basePath%>/css/common.css" rel="stylesheet"/>
 		<link href="<%=basePath%>/css/index.css" rel="stylesheet" type="text/css">
 		<script type="text/javascript" src="<%=basePath%>/script/jquery.min.js"></script>
 		<script type="text/javascript" src="<%=basePath%>/script/jquery.jcarousellite-1.0.1.js"></script>
-		<script src="<%=basePath%>/script/index.js"></script>
 		<script type="text/javascript" src="<%=basePath%>/script/common.js"></script>
+		<script src="<%=basePath%>/script/index.js"></script>
 		<title>币币袋</title>
 	</head>
-<body>
+	<body>
 	<jsp:include page="head.jsp"></jsp:include>
-	<!--banner-->
 	<div class="flexslider">
 		<ul class="slides">
 			<c:forEach items="${sy}" var="nots">
 				<li style="background-image: url(${nots.noticepicture}); width: 100%; float: left; margin-right: -100%; position: relative; opacity: 0; display: block; z-index: 1; background-position: 50% 0px; background-repeat: no-repeat no-repeat;">
-					<%-- <a href="http://${nots.noticecontent }" target="_blank"></a> --%>
 				</li>
 			</c:forEach>
 		</ul>
 	</div>
+	
 	<script src="${pageContext.request.contextPath}/script/jquery.flexslider-min.js"></script>
+	
 	<script>
 		$(function() {
-			//判断最新公告是否为空,为空加载通知
-			var list = "${listss}";
-			if (list == "") {
-				window.location = "${pageContext.request.contextPath}/notice/noticetop5.do";
-			}
-
 			$('.flexslider').flexslider({
 				directionNav : true,
 				pauseOnAction : false
-			});
-			
-			//产品列表滚动
-			var pLength = $('.pListContentBox > li').length;
-			var cishu = pLength - 4;
-			var n = 0;
-			$('.pListContentBox').css({
-				'width' : pLength * 245 + 'px'
-			});
-			if (pLength > 4) {
-				$('.pListRight').addClass('curr');
-			}
-			$('.pListRight').on('click', function() {
-				if (cishu > 0) {
-					n++;
-					cishu--;
-					$('.pListContentBox').animate({
-						'left' : '-' + n * 244 + 'px'
-					}, 500);
-					if (cishu == 0) {
-						$('.pListRight').removeClass('curr');
-					}
-					if (n > 0) {
-						$('.pListLeft').addClass('curr');
-					}
-				}
-			});
-			$('.pListLeft').on('click', function() {
-				if (n > 0) {
-					n--;
-					cishu++;
-					$('.pListContentBox').animate({
-						'left' : '-' + n * 244 + 'px'
-					}, 500);
-					if (n == 0) {
-						$('.pListLeft').removeClass('curr');
-					}
-					if (cishu > 0) {
-						$('.pListRight').addClass('curr');
-					}
-				}
 			});
 		});
 	</script>
@@ -146,7 +98,8 @@
 											<a target="_blank"><i class="icon icon-zhai"
 												title="${invest.ptype }"></i></a><a
 												href="investInfo.do?bmid=${invest.id }" class="f18"
-												title="${invest.pname }" target="_blank">${invest.pname }<!-- 金女士债权质押借款1万元 --></a>
+												title="${invest.pname }" target="_blank">${invest.pname }
+											</a>
 										</div>
 										<table width="100%" border="0" cellpadding="0" cellspacing="0">
 											<tbody>
@@ -225,8 +178,7 @@
 																<td width="260">借款金额<span class="f24 c-333">${pro.ptotalmoney}</span>元
 																</td>
 																<td width="165">年利率<span
-																	class="f24 c-orange relative">${pro.pincome}% <!--公益标 20150724 lj-->
-																		<!--公益标 20150724 lj-->
+																	class="f24 c-orange relative">${pro.pincome}% 
 																</span></td>
 																<td width="180" align="center">截至期限<span
 																	class="f24 c-333"><fmt:formatDate
@@ -241,7 +193,6 @@
 																					<fmt:formatNumber
 																						value="${(pro.pmoney/pro.ptotalmoney)*100}"
 																						pattern="#" />
-																					%
 																				</div>
 																			</div>
 																		</div>

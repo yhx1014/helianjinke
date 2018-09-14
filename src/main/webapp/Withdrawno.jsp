@@ -1,37 +1,30 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  
-<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
- <%
+<%@	taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>  
+<%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>  
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>币币袋</title>
-<meta name="keywords" content="" />
-<meta name="description" content="" />
-<link href="<%=basePath%>/css/common.css" rel="stylesheet" />
-<link rel="stylesheet" type="text/css" href="<%=basePath%>/css/user.css" />
-<link rel="stylesheet" type="text/css" href="<%=basePath%>/css/jquery.datetimepicker.css"/>
-<script type="text/javascript" src="<%=basePath%>/script/jquery.min.js"></script>
-<script type="text/javascript" src="<%=basePath%>/script/common.js"></script>
-<script src="<%=basePath%>/script/user.js" type="text/javascript"></script>
+	<title>币币袋</title>
+	<link href="<%=basePath%>/css/common.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="<%=basePath%>/css/user.css" />
+	<link rel="stylesheet" type="text/css" href="<%=basePath%>/css/jquery.datetimepicker.css"/>
+	<script type="text/javascript" src="<%=basePath%>/script/jquery.min.js"></script>
+	<script type="text/javascript" src="<%=basePath%>/script/common.js"></script>
+	<script src="<%=basePath%>/script/user.js" type="text/javascript"></script>
 </head>
-<body><header>
- <!-- 导航栏 --><jsp:include page="head.jsp"></jsp:include>
-</header>
-<!--个人中心-->
-<div class="wrapper wbgcolor">
-  <div class="w1200 personal">
-    <div class="credit-ad"><img src="images/clist1.jpg" width="1200" height="96"></div>
-    <!-- 导航栏 --><jsp:include page="left.jsp"></jsp:include>
+<body>
+	<jsp:include page="head.jsp"></jsp:include>
+	<div class="wrapper wbgcolor">
+    <div class="w1200 personal">
+    <div class="credit-ad"><img src="images/clist.jpg" width="1200" height="96"></div>
+    <!-- 导航栏 -->
+    <jsp:include page="left.jsp"></jsp:include>
     <script>
-		//<![CDATA[
 			function showSpan(op){
 				$("body").append("<div id='mask'></div>");
 				$("#mask").addClass("mask").css("display","block");
@@ -43,10 +36,8 @@
 				$("#mask").css("display","none");
 				$("#"+op).css("display","none");
 			}
-		//]]>
-		</script>
+    </script>
     <script type="text/javascript">
-		//<![CDATA[
 			function checkActualMoney()
 			{
 				var actualMoney=Number($("#form\\:actualMoney").val());
@@ -130,7 +121,6 @@
 			    	th.value = th.value.substr(0,th.value.length-1);
 			    }
 			}
-			//]]>
 		</script>
     <div class="personal-main">
       <div class="personal-deposit">
@@ -163,17 +153,6 @@
         </div>
       </div>
     </div>
-<%--     <div class="alert-450 alert-h220" id="alert-notOpenAccount" style="display: block;">
-      <div class="alert-title">
-        <h3>提示</h3>
-      </div>
-       <div class="alert-main">
-        <form id="notOpenAccountForm">
-          <p class="msg6" align="center"> 用户在充值或提现前，需开通第三方账户。<br>
-          <a href="<%=basePath %>thirdparty.jsp" id="openAccountAId" class="btn-ok txt-center">马上开通第三方账户</a>
-        </form>
-      </div>
-    </div> --%>
     <script type="text/javascript">
 			$("#form\\:actualMoney").focus(
 					   function(){
@@ -195,7 +174,7 @@
 					$(this).css({"font-size":"24px","font-weight":"bold","font-family":"Arial"});
 				}
 			</script>
-    <script type="text/javascript">
+     <script type="text/javascript">
 				var typeValue=$("#typeValue").html().trim();
 				var url=""
 				if(typeValue==1)
@@ -209,10 +188,12 @@
 				$("#openAccountAId").attr("href",url);
 				showSpan('alert-notOpenAccount');
 				countDown('show-number',10,url);
-			</script>
+	</script>
+	
     <div class="clear"></div>
   </div>
 </div>
 <!--网站底部-->
-<jsp:include page="bottom.jsp"></jsp:include>	</body>
+	<jsp:include page="bottom.jsp"></jsp:include>
+</body>
 </html>
