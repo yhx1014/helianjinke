@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
@@ -73,11 +75,11 @@
 							class="f30 c-orange">${Borrowmoney.pincome }%</span></li>
 						<li><span class="f16">借款期限</span><br> <span
 							class="f30 c-333"><fmt:formatDate
-									value="${Borrowmoney.pcount }" pattern="yyyy-MM-dd" /></span></li>
+							value="${Borrowmoney.pcount }" pattern="yyyy-MM-dd" /></span></li>
 						<li><span class="c-888">借款编号：</span>${Borrowmoney.id}<%-- ${Borrowmoney.bserial } --%></li>
 						<li><span class="c-888">发标日期：</span>
 						<fmt:formatDate value="${Borrowmoney.ppublishtime }"
-								pattern="yyyy-MM-dd" /></li>
+								pattern="yyyy-MM-dd"/></li>
 						<li><span class="c-888">保障方式：</span>${Borrowmoney.psaveway }</li>
 						<li><span class="c-888">还款方式：</span>${Borrowmoney.pway }</li>
 						<li><span class="c-888">需还本息：</span> <%-- ${ } --%>元</li>
