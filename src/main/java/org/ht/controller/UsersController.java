@@ -73,26 +73,27 @@ public class UsersController {
 		return "WEB-INF/view/bk_userslist";
 	}
 
-	//注册新用户 start
 	@RequestMapping("insert")
 	public String insert(Users users, Model model,
-			@RequestParam(value = "unickname", required = false) String unickname,
-			@RequestParam(value = "upassword", required = false) String upassword,
-			@RequestParam(value = "uphonenumber", required = false) String uphonenumber,
-			@RequestParam(value = "ethaddress", required = false) String ethaddress)
+		@RequestParam(value = "unickname", required = false) String unickname,
+		@RequestParam(value = "upassword", required = false) String upassword,
+		@RequestParam(value = "uphonenumber", required = false) String uphonenumber,
+		@RequestParam(value = "ethaddress", required = false) String ethaddress)
 	
 	{
         
-//		AccountTest at = new AccountTest();
-//		String accountId = at.createAccount();
-		String accountId="ox1000";
-//		System.out.println("****************************"+accountId+unickname+"************************");
+		//AccountTest at = new AccountTest();
+		//String accountId = at.createAccount();
+		
+		String accountId="0x000";
 		users.setUnickname(unickname);
 		users.setUpassword(upassword);
 		users.setUphonenumber(uphonenumber);
 		users.setEthaddress(accountId);
+		
 		// 将数据添加到数据库
-		usersservice.insert(users);//users.getUid()
+		usersservice.insert(users);
+		
 		Certification cer = new Certification();
 		cer.setCserial(users.getUid()+"");
 		cer.setCbalance("0");
@@ -104,8 +105,8 @@ public class UsersController {
 		cer.setCtotalmoney("0");
 		Certificat.insert(cer);
 		model.addAttribute("unickname", unickname);
-		// 返回到注册成功界面
-		return "register1";
+		
+		return "register_succ";
 	}
 
 	// 登录 start

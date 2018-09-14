@@ -12,19 +12,24 @@
 		<result column="cpaid" property="cpaid" jdbcType="VARCHAR"></result>
 		<result column="ctotalmoney" property="ctotalmoney" jdbcType="VARCHAR"></result>
 	</resultMap>
+	
 	<select id="selMoney" parameterType="java.lang.Integer" resultType="string">
 		select cbalance from certification where id = #{uid}
 	</select>
+	
 	<update id="updMoney" parameterType="map" >
 		update certification set cbalance = #{money} where id = #{uid}
 	</update>
+	
 	<update id="upmoney" parameterType="map">
 		update certification set cbalance = #{cbalance},ctotalmoney = #{ctotalmoney} where id = #{uid}
 	</update>
+	
 	<insert id="insert" parameterType="org.ht.pojo.Certification">
-  		insert into certification(cserial,cusername,crealname,cbalance,cfreeze,cdue,cpaid,ctotalmoney)
+  		 insert into certification(cserial,cusername,crealname,cbalance,cfreeze,cdue,cpaid,ctotalmoney)
   		 values(#{cserial},#{cusername},#{cusername},#{crealname},#{cbalance},#{cdue},#{cpaid},#{ctotalmoney});
   	</insert>
+  	
   	<select id="select" parameterType="java.lang.Integer" resultMap="rm">
   	select
 		*

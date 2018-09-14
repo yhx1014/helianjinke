@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="org.ht.dao.BiaoMapperDao">
- <!-- 以下两个<cache>标签二选一,第一个可以输出日志,第二个不输出日志 -->
+    
+    <!-- 以下两个<cache>标签二选一,第一个可以输出日志,第二个不输出日志 -->
     <cache type="org.mybatis.caches.ehcache.EhcacheCache" />
     <!--<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>-->
 	<select id="get" resultType="org.ht.pojo.Biao" parameterType="java.lang.Integer">
@@ -23,14 +24,14 @@
 		where id = #{id}
 	</delete>
 	<insert id="create" parameterType="org.ht.dao.BiaoMapperDao">
-		insert into biao ( bname)
+		insert into biao (bname)
 		values ( #{bname})
 	</insert>
 
 	<update id="update" parameterType="org.ht.dao.BiaoMapperDao">
 		update biao
 		<trim prefix="set" suffixOverrides=",">
-			<if test="bname != null and bname != '' ">
+			<if test="bname != null and bname !='' ">
 				bname= #{bname},
 			</if>
 		</trim>

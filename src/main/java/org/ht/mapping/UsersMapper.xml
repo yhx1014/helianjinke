@@ -12,15 +12,13 @@
 		<result column="uflip" property="uflip" jdbcType="VARCHAR" />
 		<result column="ufldate" property="ufldate" />
 		<result column="ureferrer" property="ureferrer" />
-		<result column="ureferrername" property="ureferrername"
-			jdbcType="VARCHAR" />
+		<result column="ureferrername" property="ureferrername" jdbcType="VARCHAR" />
 		<result column="ucardid" property="ucardid" jdbcType="VARCHAR"></result>
 		<result column="uhead" property="uhead" jdbcType="VARCHAR"></result>
 		<result column="userpaytoid" property="userpaytoid" jdbcType="VARCHAR" />
 		<result column="ucertnumber" property="ucertnumber" jdbcType="VARCHAR" />
 		<result column="upassword" property="upassword" jdbcType="VARCHAR" />
 		<result column="upwd_zd" property="upwd_zd" jdbcType="VARCHAR" />
-
 	</resultMap>
 
 	<select id="userList" resultMap="BaseResultMap" parameterType="java.lang.Integer">
@@ -38,6 +36,7 @@
 		unickname =
 		#{unickname,jdbcType=VARCHAR}
 	</select>
+	
 	<insert id="insert" parameterType="org.ht.pojo.Users" keyProperty="uid" useGeneratedKeys="true">
 		insert into users (
 		unickname,upassword,
@@ -48,11 +47,12 @@
 		#{unickname,jdbcType=VARCHAR}, #{upassword,jdbcType=VARCHAR},
 		#{uphonenumber,jdbcType=VARCHAR},sysdate(),#{ethaddress,jdbcType=VARCHAR})
 	</insert>
+	
 	<select id="queryUser" resultMap="BaseResultMap"
 		parameterType="map">
 			select * from users
 			 <if test="candp !=null and pandc !=null">
 		 		limit #{candp},#{pandc}
 			</if>
-		</select>
+	</select>
 </mapper>
