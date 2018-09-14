@@ -169,7 +169,7 @@
 						<div class="fn-right f14 c-888">
 							常规发标时间每天<span class="c-555">10:00</span>，其余时间根据需要随机发
 						</div>
-					</div>
+				     </div>
 					
 					<div class="bd">
 						<div class="des">
@@ -216,7 +216,8 @@
 														</c:if> <c:if test="${invest.pstate=='2' }">
 															<a class="ui-btn btn-gray"
 																href="investInfo.do?bmid=${invest.id }">还款中</a>
-														</c:if></td>
+														</c:if>
+													</td>
 												</tr>
 											</tbody>
 										</table>
