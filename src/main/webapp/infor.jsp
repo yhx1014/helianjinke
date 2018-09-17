@@ -14,24 +14,18 @@
 
 <html>
 <head>
-<title>币币袋</title>
+	<title>币币袋</title>
 	<link href="<%=basePath%>css/common.css" rel="stylesheet" />
 	<link href="<%=basePath%>css/index.css" rel="stylesheet" type="text/css" />
 	<link href="<%=basePath%>css/detail.css" rel="stylesheet" type="text/css" />
-	<script type="text/javascript" src="script/jquery.min.js"></script>
-	<script type="text/javascript" src="script/common.js"></script>
-	<script src="<%=basePath%>script/ablumn.js"></script>
+	<link href="<%=basePath%>css/register.css" rel="stylesheet" type="text/css" />
+	<script src="<%=basePath%>script/jquery.min.js"></script>
+	<script src="<%=basePath%>script/common.js"></script>
 	<script src="<%=basePath%>script/plugins.js"></script>
 	<script src="<%=basePath%>script/detail.js"></script>
-	<link href="<%=basePath%>css/register.css" rel="stylesheet" type="text/css" />
-	<script type="text/javascript"
-		src="<%=basePath%>script/jquery.min.js"></script>
-	<script type="text/javascript"
-		src="<%=basePath%>script/common.js"></script>
-	<script src="<%=basePath%>script/login.js"
-		type="text/javascript">
-	</script>
+	<script src="<%=basePath%>script/login.js"></script>
 </head>
+
 <script type="text/javascript">
 	function submit() {
 		var fr = document.getElementById("fr");
@@ -53,8 +47,7 @@
 	end();
 </script>
 <body>
-	<!-- 导航栏 --><jsp:include page="head.jsp"></jsp:include>
-	<!--信息详细-->
+	<jsp:include page="head.jsp"></jsp:include>
 	<div class="item-detail wrap">
 		<div class="breadcrumbs">
 			<a href="index.html">首页</a>&gt; <a href="#">散标投资列表</a>&gt; <span
@@ -94,19 +87,6 @@
 								${Borrowmoney.prange } </span></li>
 					</ul>
 				</div>
-				<!--   </form> -->
-
-				<div class="mod-right mod-status">
-					<div class="inner">
-						<div class="text">
-							待还本息：<span class="f24 c-333">40,400.00</span>元<br> 剩余期限：<span
-								class="f24 c-333">29天</span> <br> 下期还款日： <span
-								class="f20 c-333">2015-10-13</span>
-						</div>
-						<i class="icon icon-status icon-status1"></i>
-					</div>
-				</div>
-
 			</div>
 		</div>
 		<div class="item-detail-body clearfix mrt30 ui-tab">
@@ -139,15 +119,6 @@
 												${dt.dcontent }</p>
 										</c:if>
 									</c:forEach>
-
-									<!--                 <p class="MsoNormal" style="margin-left:0cm;text-indent:0cm;"> 借款人信息介绍：</p>
-                <p class="MsoNormal" style="margin-left:0cm;text-indent:0cm;"> 借款人赵女士，<span>1988</span>年出生，大专学历，未婚，户籍地址为四川省古蔺县，现居住于成都市成华区。</p>
-                <p class="MsoNormal" style="margin-left:0cm;text-indent:0cm;"> 借款人工作情况：</p>
-                <p class="MsoNormal" style="margin-left:0cm;text-indent:0cm;"> 赵女士为成都某服装店老板，月收入<span>2</span>万元，收入居住稳定。</p>
-                <p class="MsoNormal" style="margin-left:0cm;text-indent:0cm;"> 借款人资产介绍：</p>
-                <p class="MsoNormal" style="margin-left:0cm;text-indent:0cm;"> 赵女士有<span>1</span>辆全款长安福特福克斯汽车。</p>
-                <p class="MsoNormal" style="margin-left:0cm;text-indent:0cm;"> 详细资金用途：</p>
-                <p class="MsoNormal" style="margin-left:0cm;text-indent:0cm;"> 借款人申请汽车质押贷款，贷款用于资金周转。</p> -->
 								</div>
 							</dd>
 						</dl>
@@ -188,12 +159,6 @@
 												style="margin-left: 0cm; text-indent: 0cm;">${dt.dname }：${dt.dcontent }
 											</p>
 										</c:if>
-										<!--            <p class="MsoNormal" style="margin-left:0cm;text-indent:0cm;"> 调查：风控部对借款人各项信息进行了全面的电话征信，一切资料真实可靠。<span></span> </p>
-                <p class="MsoNormal" style="margin-left:0cm;text-indent:0cm;"> 抵押物：全款长安福特福克斯汽车，车牌号：川<span>AYY***</span>，新车购买于<span>2013</span>年，裸车价<span>14</span>万，评估价<span>5</span>万。 </p>
-                <p class="MsoNormal" style="margin-left:0cm;text-indent:0cm;"> 权证：汽车已入库、已办理相关手续等。 </p>
-                <p class="MsoNormal" style="margin-left:0cm;text-indent:0cm;"> 担保：质押物担保。 </p>
-                <p class="MsoNormal" style="margin-left:0cm;text-indent:0cm;"> 结论：此客户为老客户，上笔贷款<span>4</span>万元，标的号为<span>20150745682</span>，已结清，现因资金周转，再次申请贷款。借款人居住稳定，收入来源可靠，经风控综合评估，同意放款<span>4</span>万。 </p>
-                <p class="MsoNormal" style="margin-left:0cm;text-indent:0cm;"> 保障：借款逾期<span>48</span>小时内，易贷风险准备金先行垫付。 </p> -->
 									</c:forEach>
 								</div>
 								<div class="step clearfix">
@@ -205,71 +170,8 @@
 									</ul>
 								</div>
 								<div class="conclusion f16">
-									结论：经风控部综合评估， <span class="c-orange">同意放款40,000.00元；</span> <i
-										class="icon icon-status icon-status1"></i>
-								</div>
-							</dd>
-						</dl>
-						<dl class="item">
-							<dt>
-								<h3>权证信息</h3>
-							</dt>
-							<dd>
-								<div class="warrant">
-									<span class="f14 c-888">（注：为保护借款人的个人隐私信息，实物材料对部分信息进行了隐藏处理）</span>
-									<div class="album" id="album">
-										<div class="album-show">
-											<div class="loading" style="display: none;"></div>
-											<img src="images/news.jpg">
-										</div>
-										<div class="album-thumb">
-											<a href="javascript:;" class="btn btn-prev"></a> <a
-												href="javascript:;" class="btn btn-next"></a>
-											<div
-												style="visibility: visible; overflow: hidden; position: relative; z-index: 2; left: 0px; width: 1070px;"
-												class="container" id="albumThumb">
-												<ul
-													style="margin: 0px; padding: 0px; position: relative; list-style-type: none; z-index: 1; width: 1926px; left: 0px;">
-													<li
-														style="overflow: hidden; float: left; width: 164px; height: 108px;"><a
-														class="small_img" id="images/news.jpg"><img
-															src="images/news.jpg"></a></li>
-													<li
-														style="overflow: hidden; float: left; width: 164px; height: 108px;"><a
-														class="small_img" id="images/news.jpg"><img
-															src="images/news.jpg"></a></li>
-													<li
-														style="overflow: hidden; float: left; width: 164px; height: 108px;"><a
-														class="small_img" id="images/news.jpg"><img
-															src="images/news.jpg"></a></li>
-													<li
-														style="overflow: hidden; float: left; width: 164px; height: 108px;"><a
-														class="small_img" id="images/news.jpg"><img
-															src="images/news.jpg"></a></li>
-													<li
-														style="overflow: hidden; float: left; width: 164px; height: 108px;"><a
-														class="small_img" id="images/news.jpg"><img
-															src="images/news.jpg"></a></li>
-													<li
-														style="overflow: hidden; float: left; width: 164px; height: 108px;"><a
-														class="small_img" id="images/news.jpg"><img
-															src="images/news.jpg"></a></li>
-													<li
-														style="overflow: hidden; float: left; width: 164px; height: 108px;"><a
-														class="small_img" id="images/news.jpg"><img
-															src="images/news.jpg"></a></li>
-													<li
-														style="overflow: hidden; float: left; width: 164px; height: 108px;"><a
-														class="small_img" id="images/news.jpg"><img
-															src="images/news.jpg"></a></li>
-													<li
-														style="overflow: hidden; float: left; width: 164px; height: 108px;"><a
-														class="small_img" id="images/news.jpg"><img
-															src="images/news.jpg"></a></li>
-												</ul>
-											</div>
-										</div>
-									</div>
+									结论：经风控部综合评估， <span class="c-orange">同意放款40,000.00元；</span> 
+									<!-- <i class="icon icon-status icon-status1"></i> -->
 								</div>
 							</dd>
 						</dl>
@@ -366,80 +268,6 @@
 		</div>
 	</div>
 	<!--网站底部-->
-	<div id="footer" class="ft">
-		<div class="ft-inner clearfix">
-			<div class="ft-helper clearfix">
-				<dl>
-					<dt>关于我们</dt>
-					<dd>
-						<a href="公司简介.html">公司简介</a><a href="管理团队.html">管理团队</a><a
-							href="网站公告.html">网站公告</a>
-					</dd>
-				</dl>
-				<dl>
-					<dt>相关业务</dt>
-					<dd>
-						<a href="list.html">我要投资</a><a href="我要借款.html">我要借款</a>
-					</dd>
-				</dl>
-				<dl>
-					<dt>帮助中心</dt>
-					<dd>
-						<a href="帮助中心.html">新手入门</a><a href="个人中心首页.html">我的账户</a><a
-							href="list.html">债权转让</a>
-					</dd>
-				</dl>
-				<dl>
-					<dt>联系我们</dt>
-					<dd>
-						<a href="联系我们.html">联系我们</a>
-					</dd>
-				</dl>
-			</div>
-			<div class="ft-service">
-				<dl>
-					<dd>
-						<p>
-							<strong>400-660-1268</strong><br> 工作日 9:00-22:00<br>
-							官方交流群:<em>12345678</em><br> 工作日 9:00-22:00 / 周六 9:00-18:00<br>
-						</p>
-						<div class="ft-serv-handle clearfix">
-							<a class="icon-hdSprite icon-ft-sina a-move a-moveHover"
-								title="亿人宝新浪微博" target="_blank" href="#"></a><a
-								class="icon-hdSprite icon-ft-qqweibo a-move a-moveHover"
-								title="亿人宝腾讯微博" target="_blank" href="#"></a><a
-								class="icon-ft-qun a-move a-moveHover" title="亿人宝QQ群"
-								target="_blank" href="#"></a><a
-								class="icon-hdSprite icon-ft-email a-move a-moveHover mrn"
-								title="阳光易贷email" target="_blank" href="mailto:xz@yirenbao.com"></a>
-						</div>
-					</dd>
-				</dl>
-			</div>
-			<div class="ft-wap clearfix">
-				<dl>
-					<dt>官方二维码</dt>
-					<dd>
-						<span class="icon-ft-erweima"><img src="images/code.png"
-							style="display: inline;"></span>
-					</dd>
-				</dl>
-			</div>
-		</div>
-		<div class="ft-record">
-			<div class="ft-approve clearfix">
-				<a class="icon-approve approve-0 fadeIn-2s" target="_blank" href="#"></a><a
-					class="icon-approve approve-1 fadeIn-2s" target="_blank" href="#"></a><a
-					class="icon-approve approve-2 fadeIn-2s" target="_blank" href="#"></a><a
-					class="icon-approve approve-3 fadeIn-2s" target="_blank" href="#"></a>
-			</div>
-			<div class="ft-identity">
-				©2015 亿人宝 All rights reserved&nbsp;&nbsp;&nbsp;<span
-					class="color-e6">|</span>&nbsp;&nbsp;&nbsp;安徽省亿人宝投资管理有限公司&nbsp;&nbsp;&nbsp;<span
-					class="color-e6">|</span>&nbsp;&nbsp;&nbsp;<a target="_blank"
-					href="http://www.miitbeian.gov.cn/">皖ICP备12345678号-1</a>
-			</div>
-		</div>
-	</div>
+	<jsp:include page="bottom.jsp"></jsp:include>
 </body>
 </html>

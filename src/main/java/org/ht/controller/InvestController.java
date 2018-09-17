@@ -327,21 +327,29 @@ public class InvestController {
 	@RequestMapping("investInfo")
 	public String investInfo(
 			String bmid,String currpage,
-			Model model, HttpServletRequest req) {// Borrowmoney bm
+			Model model, HttpServletRequest req) {
+		
 		System.out.println(bmid.toString());
+		
 		int pagerow = 5;// 每页5行
 		int currpages = 1;// 当前页
 		int totalpage = 0;// 总页数
 		int totalrow = 0;// 总行数
-
 		int outcount = 0;// 不够一页的数据条数
 		int count = 0;//
 
-		Map<String, Object> parameters = new HashMap<String, Object>();// 查询条件
+		Map<String, Object> parameters = new HashMap<String, Object>();
+		// 查询条件
 		parameters.put("bid", bmid);
-		List<InvestInfo> page = investS.investS(parameters);// 查出数据条数
-		totalrow = page.size();// 获取总行数
+
+		List<InvestInfo> page = investS.investS(parameters);
+		
+		// 查出数据条数
+		totalrow = page.size();
+		
+		// 获取总行数
 		System.out.println("此标的投资信息记录条数"+totalrow);
+		
 		if (currpage != null && !"".equals(currpage)) {
 			currpages = Integer.parseInt(currpage);
 		}
@@ -366,6 +374,7 @@ public class InvestController {
 		if(candp < 0){
 			candp = 0;
 		}
+		
 		parameters.put("pandc", 5);
 		parameters.put("candp", candp);
 		
@@ -377,7 +386,7 @@ public class InvestController {
 		model.addAttribute("bmid", bmid);
 		model.addAttribute("record", lists);
 
-		// 查出一些总额
+		//查出一些总额
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("rowName", "inmoney");// 查出投资总额
 		map.put("tableName", "investinfo");
@@ -407,18 +416,21 @@ public class InvestController {
 		bms.setAttribute("Details", list);
 
 		System.out.println("pro.getPstate()获取到的值为   " + pro.getPstate());
+		
 		long days = (pro.getPcount().getTime() - pro.getPtime().getTime())
 				/ (24 * 60 * 60 * 1000);
 		bms.setAttribute("days", days);
+		
 		if (pro.getPstate().equals("1")) {
 			Users us = (Users) req.getSession().getAttribute("globaluser");
 			if(us != null){
 				String kymoney = cs.selectM(us.getUid());
-				System.out.println("进入到输入金额页面  用户余额"+kymoney);
+				System.out.println("进入到输入金额页面  用户余额" + kymoney);
 				bms.setAttribute("kymoney", kymoney);
 			}
 			return "inforadd";
 		} else {
+			
 			System.out.println("进入到显示页面");
 			return "infor";
 		}
