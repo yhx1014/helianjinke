@@ -21,7 +21,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 /**
  * 
- * @author 周旗 2017年3月13日08:53:48 测试类
+ * @author michael 2017年3月13日08:53:48 测试类
  */
 @Controller
 @RequestMapping("")

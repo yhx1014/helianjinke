@@ -4,32 +4,32 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="ft"%>
 <%
 	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path;
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="<%=basePath%>/css/common.css" rel="stylesheet"/>
-<link href="<%=basePath%>/css/index.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="<%=basePath%>/script/jquery.min.js"></script>
-<script type="text/javascript" src="<%=basePath%>/script/jquery.jcarousellite-1.0.1.js"></script>
-<script src="<%=basePath%>/script/index.js"></script>
-<script type="text/javascript" src="<%=basePath%>/script/common.js"></script>
+<link href="<%=basePath%>css/common.css" rel="stylesheet"/>
+<link href="<%=basePath%>css/index.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="<%=basePath%>script/jquery.min.js"></script>
+<script type="text/javascript" src="<%=basePath%>script/jquery.jcarousellite-1.0.1.js"></script>
+<script src="<%=basePath%>script/index.js"></script>
+<script type="text/javascript" src="<%=basePath%>script/common.js"></script>
+
 <title>币币袋</title>
 <style>
 /*上下滚动*/
-#scrollDiv {
-	width: 400px;
-	height: 30px;
-	line-height: 30px;
-	overflow: hidden;
-}
-
-#scrollDiv li {
-	height: 30px;
-	padding-left: 10px;
-}
+	#scrollDiv {
+		width: 400px;
+		height: 30px;
+		line-height: 30px;
+		overflow: hidden;
+	}
+	
+	#scrollDiv li {
+		height: 30px;
+		padding-left: 10px;
+	}
 </style>
 
 <script type="text/javascript">
@@ -161,72 +161,6 @@
 	<div class="main clearfix mrt30" data-target="sideMenu">
 		<div class="wrap">
 			<div class="page-left fn-left">
-				<div class="mod-borrow">
-					<div class="hd">
-						<h2 class="pngbg">
-							<i class="icon icon-ttyx"></i>推荐项目
-						</h2>
-						<div class="fn-right f14 c-888">
-							常规发标时间每天<span class="c-555">10:00</span>，其余时间根据需要随机发
-						</div>
-				     </div>
-					
-					<div class="bd">
-						<div class="des">
-							<span class="fn-left">期限1-29天，期限短，收益见效快</span>
-							<a href="<%=basePath %>invest/investSel.do" class="fn-right">查看更多&gt;&gt;</a>
-						</div>
-						<div class="borrow-list">
-							<ul>
-								<c:forEach items="${tjlist }" var="invest" varStatus="status">
-									<li>
-										<div class="title">
-											<a target="_blank"><i class="icon icon-zhai"
-												title="${invest.ptype }"></i></a><a
-												href="investInfo.do?bmid=${invest.id }" class="f18"
-												title="${invest.pname }" target="_blank">${invest.pname }<!-- 金女士债权质押借款1万元 --></a>
-										</div>
-										<table width="100%" border="0" cellpadding="0" cellspacing="0">
-											<tbody>
-												<tr>
-													<td width="260">借款金额<span class="f24 c-333">${invest.ptotalmoney }<!-- 10000.00 --></span>元
-													</td>
-													<td width="165">年利率<span class="f24 c-orange">${invest.pincome }%<!-- 10.70% -->
-													</span></td>
-													<td width="180" align="center">截止期限<span
-														class="f24 c-333"><fmt:formatDate
-																value="${invest.ptime}" pattern="yyyy-MM-dd" /></span>
-													</td>
-													<td><div class="circle">
-															<div class="left progress-bar">
-																<div
-																	class="progress-bgPic progress-bfb<fmt:formatNumber value="${(invest.pmoney/invest.ptotalmoney)*10<1?1:(invest.pmoney/invest.ptotalmoney)*10}" pattern="#"/>">
-																	<div class="show-bar">
-																		<fmt:formatNumber
-																			value="${(invest.pmoney/invest.ptotalmoney)*100}"
-																			pattern="#" />
-																		%
-																	</div>
-																</div>
-															</div>
-														</div></td>
-													<td align="right"><c:if test="${invest.pstate=='1' }">
-															<a class="ui-btn btn-gray"
-																href="investInfo.do?bmid=${invest.id }">立即投标</a>
-														</c:if> <c:if test="${invest.pstate=='2' }">
-															<a class="ui-btn btn-gray"
-																href="investInfo.do?bmid=${invest.id }">还款中</a>
-														</c:if>
-													</td>
-												</tr>
-											</tbody>
-										</table>
-									</li>
-								</c:forEach>
-							</ul>
-						</div>
-					</div>
-				</div>
 			    <c:if test="${biaoList.size() > 0 }"> 
 					<c:forEach items="${biaoList }" var="biao">
 						<div class="mod-borrow mrt20">

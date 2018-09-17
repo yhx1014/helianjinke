@@ -63,15 +63,17 @@
 		<if test="biaoId != null and biaoId !=''">
 			and p.ptype = #{biaoId}
 		</if>
-		<if test="pincome !=null and endR != null and endR != ''"><!-- and params.pincome !='' 收益利率 --><!-- #{params.startR} &lt; pincome &lt; #{params.endR} -->
+		<if test="pincome !=null and endR != null and endR != ''">
+		<!-- and params.pincome !='' 收益利率 --><!-- #{params.startR} &lt; pincome &lt; #{params.endR} -->
 			and p.pincome between #{startR} and #{endR}
 		</if>
-		<if test="pincome !=null and (endR == null || endR == '')"><!-- #{params.startR} &lt; pincome &lt; (select max(pincome) 
-				from product) -->
+		<if test="pincome !=null and (endR == null || endR == '')">
+		<!-- #{params.startR} &lt; pincome &lt; (select max(pincome) from product) -->
 			and p.pincome between #{startR} and (select max(pincome) from
 			product)
 		</if>
-		<if test="pcount != null and endT != null and endT != ''"><!-- 还款期限 #{params.startT} &lt; (select to_days(pcount) - to_days(ptime) 
+		<if test="pcount != null and endT != null and endT != ''">
+		<!-- 还款期限 #{params.startT} &lt; (select to_days(pcount) - to_days(ptime) 
 				from product pt where pt.id = p.id) &lt; #{params.endT} -->
 			and (select to_days(pcount) - to_days(ptime) from product pt where
 			pt.id = p.id) between #{startT} and #{endT}

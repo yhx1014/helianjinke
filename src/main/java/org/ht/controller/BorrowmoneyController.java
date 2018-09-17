@@ -184,7 +184,7 @@ public class BorrowmoneyController {
 		return str + "bk_money_detail";
 	}
 
-	// 周旗 2017年3月3日10:44:13__________json添加还款(前台)
+	// michael 2017年3月3日10:44:13__________json添加还款(前台)
 	@RequestMapping("toaddborr")
 	@ResponseBody
 	public String toadd(Borrowmoney borrowmoney) {
@@ -192,7 +192,7 @@ public class BorrowmoneyController {
 		return "";
 	}
 
-	// 周旗 __________还款(查询所有需要还款的还款)
+	// michael __________还款(查询所有需要还款的还款)
 	@RequestMapping("tohk")
 	public String updhuankuan(Model model) {
 		System.out.println(service.updhuankuan().size() + ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
@@ -201,7 +201,7 @@ public class BorrowmoneyController {
 		return str + "bk_huankuanlist";
 	}
 
-	// 周旗 __________去查看还款详情页面
+	// michael __________去查看还款详情页面
 	@RequestMapping("tohuankuanupd")
 	public String tohuankuan(Model model, @RequestParam(value = "id") Integer ids) {
 		Borrowmoney borr = service.get(ids);
@@ -211,7 +211,7 @@ public class BorrowmoneyController {
 		return str + "bk_huankuanupdeta";
 	}
 
-	// 周旗 __________修改还款状态
+	// michael __________修改还款状态
 	@RequestMapping("tohuankuanupds")
 	public String tohuankuanupd(Model model, @RequestParam(value = "ids") Integer ids,
 			@RequestParam(value = "id") Integer id) {
@@ -220,7 +220,7 @@ public class BorrowmoneyController {
 		return "redirect:tohuankuanupd.do?id=" + id;
 	}
 
-	// 周旗 __________json
+	// michael __________json
 	@RequestMapping("tohuankuanupdison")
 	@ResponseBody
 	public List<Borrowcord> tohuankuanjson(@RequestParam(value = "id") Integer ids) {
@@ -228,7 +228,7 @@ public class BorrowmoneyController {
 		return list;
 	}
 
-	// 周旗 点击同意时进入借款信息确认见面
+	// michael 点击同意时进入借款信息确认见面
 	@RequestMapping("borqr")
 	public String borqr(Model model, @RequestParam(value = "ids") Integer ids) {
 		Borrowmoney borro = service.borrowget(ids);
@@ -236,7 +236,7 @@ public class BorrowmoneyController {
 		return str + "bk_huankuanget";
 	}
 
-	// 周旗 点击同意时进入借款信息确认见面 (去修改)
+	// michael 点击同意时进入借款信息确认见面 (去修改)
 	@RequestMapping("borxg")
 	public String borxg(Model model, Borrowmoney borrowmoney) {
 		//修改状态

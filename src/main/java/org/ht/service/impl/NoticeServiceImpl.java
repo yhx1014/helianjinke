@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 
- * @author 周旗 网站消息通告 控制层
+ * @author michael 网站消息通告 控制层
  * 
  */
 @Service

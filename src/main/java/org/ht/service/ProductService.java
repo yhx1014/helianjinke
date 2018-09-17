@@ -20,7 +20,6 @@ public interface ProductService {
 	
 	void  updateProgres(List<Product>  product);
 	void  updateStatus(List<Product>  product);
-	
 	List<Product> selList(Map<String, Object> map);
 	
 	/**

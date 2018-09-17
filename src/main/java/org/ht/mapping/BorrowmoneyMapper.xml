@@ -170,7 +170,7 @@
 		where id = #{id}
 	</update>
 
-	<!--周旗 -->
+	<!--michael -->
 	<insert id="toaddborr" parameterType="org.ht.pojo.Borrowmoney">
 		insert into borrowmoney
 		(

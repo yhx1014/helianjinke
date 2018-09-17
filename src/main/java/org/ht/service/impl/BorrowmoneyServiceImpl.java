@@ -84,7 +84,7 @@ public class BorrowmoneyServiceImpl implements BorrowmoneyService {
 		return dao.pagingList(map);
 	}
 
-	// 周旗 2017年3月3日10:41:28
+	// michael 2017年3月3日10:41:28
 	@Override
 	public void toaddborr(Borrowmoney borrowmoney) {
 		dao.toaddborr(borrowmoney);

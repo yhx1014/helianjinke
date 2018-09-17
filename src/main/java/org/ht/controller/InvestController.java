@@ -38,8 +38,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("/invest")
 public class InvestController {
+	
 	@Resource
 	private InvestService investS;
+	
 	@Resource
 	// private BorrowmoneyService service;
 	private ProductService proS;
@@ -62,31 +64,6 @@ public class InvestController {
 	@RequestMapping("investSel")
 	public String investSel(HttpServletRequest req, Model model, String item,
 			String param, String currpage) {
-		// 查询出标列表 @RequestParam(value =
-		// "currpage", required = false)
-		// Borrowmoney borrowmoney=new Borrowmoney();
-		// PageInfo<Borrowmoney> page = service.findList(borrowmoney, 1, 1);
-		// List<Borrowmoney> list = page.getList();
-		// System.out.println(">>>>>>>>>>>>>>>>>>>>总标数"+list.size()+list.toString());
-		// model.addAttribute("list", list);
-//		String lastUrl = req.getHeader("Referer");//获取跳转过来页面的url
-//		System.out.println("上一个页面的URL"+lastUrl);
-//		String nowUrl = "http://localhost:8080/p2p/invest/investSel.do";
-//		boolean bl = false;
-//		if(lastUrl != null){
-//			bl = lastUrl.matches(nowUrl+"[\\s\\S]*");//正则表达式匹配nowUrl字符后的任意字符串
-//		}
-//		
-//		System.out.println("匹配的结果： "+bl);
-//		if(!bl){//!lastUrl.equals(nowUrl)
-//			/////////////////此段代码可清除所有session
-//			  Enumeration em = req.getSession().getAttributeNames();
-//			  while(em.hasMoreElements()){
-//				req.getSession().removeAttribute(em.nextElement().toString());
-//			  }
-//			  //////////////
-//		}
-	
 		int pagerow = 5;// 每页5行
 		int currpages = 1;// 当前页
 		int totalpage = 0;// 总页数
@@ -215,6 +192,7 @@ public class InvestController {
 			if (currpage != null && !"".equals(currpage)) {
 				currpages = Integer.parseInt(currpage);
 			}
+			
 			// totalpage = (totalrow + pagerow - 1) / pagerow;
 
 			outcount = totalrow % pagerow;
@@ -299,28 +277,35 @@ public class InvestController {
 
 	@RequestMapping("recommendShow")
 	public String recommendShow(HttpServletRequest req,Model model) {
-		// 首页中显示推荐
+		//首页中显示推荐
 		Map<String, Object> parameters = new HashMap<String, Object>();
+		
 	    if(application == null){
 			List<Product> proList = new ArrayList<Product>();
 			List<Biao> list = biaoS.findList(parameters);
 			if (list != null && list.size() > 0) {
 				parameters.put("pageSize", 2);
 				parameters.put("startPage", 0);
+				
 				for (int i = 0; i < list.size(); i++) {
 					Biao biao = list.get(i);
 					parameters.put("biaoId", biao.getId());
-					List<Product> tlist = proS.selList(parameters);// 两条数据
+					
+					List<Product> tlist = proS.selList(parameters);
+					//两条数据
+					
 					for (int j = 0; j < tlist.size(); j++) {
-						proList.add(tlist.get(j));// 将每个类型的两条数据保存到一个list中
+						proList.add(tlist.get(j));
+						// 将每个类型的两条数据保存到一个list中
 					}
 				}
 			}
-				
+			
 			parameters.remove("biaoId");
 			parameters.put("pcount", "");    //推荐项目期限一个月以下
 			parameters.put("startT", "0");
 			parameters.put("endT", "30");
+			
 			List<Product> tjl = proS.selList(parameters);
 			
 			Map<String, Object> map = new HashMap<String, Object>();
@@ -344,12 +329,6 @@ public class InvestController {
 			String bmid,String currpage,
 			Model model, HttpServletRequest req) {// Borrowmoney bm
 		System.out.println(bmid.toString());
-		// Borrowmoney bm = service.get(Integer.parseInt(bmid));
-		// System.out.println(bm.toString());
-		// model.addAttribute("Borrowmoney", bm);
-		// HttpSession bms = req.getSession();
-		// bms.setAttribute("Borrowmoney", bm);
-////////////////////////////////////
 		int pagerow = 5;// 每页5行
 		int currpages = 1;// 当前页
 		int totalpage = 0;// 总页数
@@ -416,7 +395,6 @@ public class InvestController {
 		Map<String, Object> bmap = new HashMap<String, Object>();
 		List<Biao> biao = biaoS.findList(bmap);
 		model.addAttribute("biao", biao);
-//////////////////////////////////////////
 		
 		
 		Product pro = proS.get(Integer.parseInt(bmid));

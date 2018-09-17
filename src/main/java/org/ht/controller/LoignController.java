@@ -24,7 +24,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 /**
  * 
- * @author 周旗 2017-2-23 10:19:37 网站消息通知控制层
+ * @author michael 2017-2-23 10:19:37 网站消息通知控制层
  */
 @Controller
 @RequestMapping("log")

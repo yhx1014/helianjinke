@@ -10,7 +10,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix = "fmt"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="ft"%>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html">
 <head>
 	<title>币币袋</title>
 	<link href="<%=basePath %>css/common.css" rel="stylesheet" />
@@ -23,7 +23,6 @@
 <script type="text/javascript">
 	function test(index){
 		alert(index);
-		//var l = "${list}"; //一定要用双引号才能获取到
 	}
 	
 	function Select(items,param){
@@ -84,38 +83,13 @@
               </ul>
             </dd>
           </dl>
-         <%--  <dl class="repayment">
-            <dt>还款方式</dt>
-            <dd>
-              <ul id="rway">
-                <li class="n1"><a <c:if test="${pway=='' || pway == null}">class="active"</c:if> id="repay_style_0" style="cursor:pointer" onclick="Select('repayway','-1');">不限</a></li>
-                <li class="n2"><a <c:if test="${pway=='到期还本付息' }">class="active"</c:if> id="repay_style_1" style="cursor:pointer" onclick="Select('repayway','1');">到期还本付息</a> </li>
-                <li class="n2"><a <c:if test="${pway=='按月付息,到期还本' }">class="active"</c:if> id="repay_style_2" style="cursor:pointer" onclick="Select('repayway','2');">按月付息,到期还本</a> </li>
-                <li class="n2"><a <c:if test="${pway=='等额本息' }">class="active"</c:if> id="repay_style_3" style="cursor:pointer" onclick="Select('repayway','3');">等额本息</a> </li>
-              </ul>
-            </dd>
-          </dl> --%>
         </div>
-      </div>
-      <div class="common-problem">
-        <h3>常见问题</h3>
-        <ul>
-          <li><a href="#">什么是币币袋？</a></li>
-          <li><a href="#">关于"币币袋"产品的说明</a></li>
-          <li><a href="#">币币袋收费标准</a></li>
-        </ul>
       </div>
     </div>
   </div>
   <div class="invest-list mrt30 clearfix">
     <div class="hd">
       <h3>投资列表</h3>
-<!--       <div class="count">
-        <ul>
-          <li class="line">散标投资交易金额&nbsp;&nbsp;<span class="f20 bold">73.54亿元</span></li>
-          <li>累计赚取收益&nbsp;&nbsp;<span class="f20 bold">2.52亿元</span></li>
-        </ul>
-      </div> -->
     </div>
     <div class="bd">
       <div class="invest-table clearfix">
@@ -162,7 +136,8 @@
             		<c:if test="${invest.pstate=='2' }">募集完成</c:if>
             		<c:if test="${invest.pstate=='3' }">还款中</c:if>
             	</a> 
-            </li><!-- -------onClick=test('${invest }');-----------investInfo.do"?bm=${invest }"-----------------------------注意此处是按照表中的字符串类型字段来判断的 -->
+            </li>
+            <!-- -------onClick=test('${invest }');-----------investInfo.do"?bm=${invest }"-----------------------------注意此处是按照表中的字符串类型字段来判断的 -->
             
           </ul>
         </div>
@@ -170,21 +145,12 @@
         </c:forEach>
         <!------------投资列表-------------->
       </div>
-      <div class="pagination clearfix mrt30"> <span class="page"><a href="investSel.do?currpage=1" onclick=""><!-- javascript:void(0); -->首页</a><a href="investSel.do?currpage=${currpages-1 }" onclick="">上一页</a><c:forEach begin="1" end="${totalpage }" step="1" varStatus="bindex">&nbsp;<a class="curr" onclick="" href="investSel.do?currpage=${bindex.count }">${bindex.count }</a></c:forEach><a href="investSel.do?currpage=${currpages+1 }" onclick="">下一页</a><a href="investSel.do?currpage=${totalpage }" onclick="">尾页</a>&nbsp;<em>共${totalpage }页&nbsp;</em></span>
-<%--         <dl class="page-select">
-          <dt><span>1</span><i class="icon icon-down"></i></dt>
-          <dd style="display: none;">
-            <ul name="nump" id="jsnump">
-              <li><a href="##" onclick="page_jump(&quot;this&quot;1)">1</a></li>
-              <li><a href="##" onclick="page_jump(&quot;this&quot;2)">2</a></li>
-              <li><a href="##" onclick="page_jump(&quot;this&quot;3)">3</a></li>
-            </ul>
-          </dd>
-        </dl> --%>
+      <div class="pagination clearfix mrt30"> <span class="page"><a href="investSel.do?currpage=1" onclick="">
       </div>
     </div>
   </div>
 </div>
-<!-- 导航栏 --><jsp:include page="bottom.jsp"></jsp:include>
+<!-- 导航栏 -->
+<jsp:include page="bottom.jsp"></jsp:include>
 </body>
 </html>

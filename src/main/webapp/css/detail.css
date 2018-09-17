@@ -83,7 +83,8 @@
 .invest-filter .common-problem li a{color:#888;font-size:14px;}
 .invest-filter .common-problem li a:hover{ text-decoration:underline;color:#7faf2a;}
 .filter-inner{padding:20px 0;border:1px solid #ebebeb;}
-.filter-item{float:left;width:880px;padding:0 0 10px 25px;border-right:1px solid #DDD;font-size:14px;}
+.filter-item{float:left;width:880px;padding:0 0 10px 25px;font-size:14px;}
+/* .filter-item{float:left;width:880px;padding:0 0 10px 25px;border-right:1px solid #DDD;font-size:14px;} */
 .filter-item dl{margin:15px 0 0; overflow:hidden;zoom:1;}
 .filter-item dt{width:100px;float:left;line-height:25px;}
 .filter-item dd{float:left;}
