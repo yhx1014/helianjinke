@@ -62,17 +62,16 @@ public class InvestController {
 	ServletContext application = null;
 	
 	@RequestMapping("investSel")
-	public String investSel(HttpServletRequest req, Model model, String item,
-			String param, String currpage) {
+	public String investSel(HttpServletRequest req, Model model, String item,String param, String currpage) {
 		int pagerow = 5;// 每页5行
 		int currpages = 1;// 当前页
 		int totalpage = 0;// 总页数
 		int totalrow = 0;// 总行数
-
 		int outcount = 0;// 不够一页的数据条数
 		int count = 0;//
-
-		if (item != null && !item.equals("")) {//!lastUrl.equals(nowUrl)  && bl
+		
+		if (item != null && !item.equals("")) {
+			//!lastUrl.equals(nowUrl)  && bl
 			Map<String, Object> map = new HashMap<String, Object>();
 			if (hs == null) {
 				hs = req.getSession();
@@ -163,7 +162,7 @@ public class InvestController {
 				}
 
 			}
-			// +hs.getAttribute("endR")==null"": +hs.getAttribute("endT")
+			
 			System.out.println("session中的标主键 " + hs.getAttribute("biaoId") + ""
 					+ "session中的利率开始点  " + hs.getAttribute("startR")
 					+ "session中的期限开始点" + hs.getAttribute("startT")
@@ -171,6 +170,7 @@ public class InvestController {
 			System.out.println("map中的标主键 " + map.get("biaoId") + "利率开始点 "
 					+ map.get("startR") + "期限开始点 " + map.get("startT")
 					+ "还款方式 " + map.get("way"));
+			
 			if (hs != null) {
 				map.put("pincome", hs.getAttribute("pincome"));
 				map.put("pcount", hs.getAttribute("pcount"));
@@ -182,19 +182,19 @@ public class InvestController {
 				map.put("endT", hs.getAttribute("endT"));
 				map.put("pway", hs.getAttribute("pway"));
 			}
+			
 			System.out.println("map中的标主键 " + map.get("biaoId") + "利率开始点 "
 					+ map.get("startR") + "期限开始点 " + map.get("startT")
 					+ "还款方式 " + map.get("pway"));
 
 			List<Product> page = proS.selList(map);
 
-			totalrow = page.size();// 获取总行数
+			totalrow = page.size();
+			// 获取总行数
 			if (currpage != null && !"".equals(currpage)) {
 				currpages = Integer.parseInt(currpage);
 			}
 			
-			// totalpage = (totalrow + pagerow - 1) / pagerow;
-
 			outcount = totalrow % pagerow;
 			count = totalrow / pagerow;
 
@@ -267,7 +267,7 @@ public class InvestController {
 			model.addAttribute("totalpage", totalpage);
 			model.addAttribute("list", list);
 		}
-
+		
 		Map<String, Object> map = new HashMap<String, Object>();
 		List<Biao> biao = biaoS.findList(map);
 		model.addAttribute("biao", biao);
@@ -325,12 +325,9 @@ public class InvestController {
 	}
 
 	@RequestMapping("investInfo")
-	public String investInfo(
-			String bmid,String currpage,
-			Model model, HttpServletRequest req) {
+	public String investInfo(String bmid,String currpage,Model model, HttpServletRequest req) {
 		
 		System.out.println(bmid.toString());
-		
 		int pagerow = 5;// 每页5行
 		int currpages = 1;// 当前页
 		int totalpage = 0;// 总页数
@@ -430,7 +427,6 @@ public class InvestController {
 			}
 			return "inforadd";
 		} else {
-			
 			System.out.println("进入到显示页面");
 			return "infor";
 		}
@@ -441,14 +437,12 @@ public class InvestController {
 			@RequestParam(value = "money", required = false) String money,
 			HttpServletRequest req,Model model) {
 		// 投标
-										// @RequestParam(value="",requested=false)
-										// InvestInfo ii
+		// @RequestParam(value="",requested=false)
+		// InvestInfo ii
 		HttpSession hs = req.getSession();
 		// Borrowmoney bm = (Borrowmoney) hs.getAttribute("Borrowmoney");
 		// System.out.println(bm.getBlimit());
-
 		Product pro = (Product) hs.getAttribute("Product");
-
 		InvestInfo ii = new InvestInfo();
 		Users user = (Users) hs.getAttribute("globaluser");
 		// inid; //'投资信息表主键',
@@ -520,7 +514,6 @@ public class InvestController {
 			}
 			hs.setAttribute("end", "end");
 		}
-		
 		return "redirect:investInfo.do?bmid="+pro.getId();
 	}
 

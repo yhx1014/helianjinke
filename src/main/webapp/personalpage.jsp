@@ -33,11 +33,14 @@
 <div class="wrapper wbgcolor">
   <div class="w1200 personal">
     <div class="credit-ad"><img src="<%=basePath%>/images/clist.jpg" width="1200" height="96"></div>
-		 <!-- 导航栏 -->
-		 <jsp:include page="left.jsp"></jsp:include>	
+	 <!-- 导航栏 -->
+	 <jsp:include page="left.jsp"></jsp:include>
+	 
     <div class="personal-main">
+
     <link rel="stylesheet" type="text/css" href="css/fileupload.less.css"/>
-        <style type="text/css">
+    
+    <style>
 		.ui-fileupload-choose{
 			background:none;
 			width: 90px; height: 90px;
@@ -51,21 +54,26 @@
 			width:0px;height:0px;
 		} 
 	</style>
+    
+
       <div class="pmain-profile">
-        <div class="pmain-welcome"> <span class="fl"><span id="outLogin">晚上好，</span>${user.unickname} 喝一杯下午茶，让心情放松一下~</span> 
+        <div class="pmain-welcome"> <span class="fl"><span id="outLogin">晚上好，</span>${user.unickname} 休息一下，让心情放松一下~</span> 
 	        <span class="fr">注册时间：
 	         <fmt:formatDate value="${user.uregisterdate}" pattern="yyyy-MM-dd HH:mm:ss"></fmt:formatDate>
 	        </span>
         </div>
         <div class="pmain-user">
           <div class="user-head"> <span id="clickHeadImage" class="head-img" title="点击更换头像">
-            	<form  method="post" action="">
-              <input type="hidden" name="userPhotoUploadForm" value="userPhotoUploadForm">
-              <span id="userPhotoUploadForm:photo"><img id="userPhotoUploadForm:photoImage" src="images/touxiang.png" alt="" style="width:88px;height:88px;z-index:0;"> <i class="headframe" style="z-index:0;"></i>-
+              <form  method="post" action="">
+              	<input type="hidden" name="userPhotoUploadForm" value="userPhotoUploadForm">
+              	<span id="userPhotoUploadForm:photo"><img id="userPhotoUploadForm:photoImage" src="images/touxiang.png" alt="" style="width:88px;height:88px;z-index:0;"> <i class="headframe" style="z-index:0;"></i>-
+              
               <div id="userPhotoUploadForm:shangchuan-btn" class="ui-fileupload ui-widget" style="z-index:0;">
-                <div class="ui-fileupload-buttonbar ui-corner-top"><span class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left ui-fileupload-choose" role="button"><span class="ui-button-icon-left ui-icon ui-c ui-icon-plusthick"></span><span class="ui-button-text ui-c"></span>
-					<!--<input type="file" id="userPhotoUploadForm:shangchuan-btn_input" name="userPhotoUploadForm:shangchuan-btn_input" style="z-index:0;">--> 
-				 </span></div>
+                <div class="ui-fileupload-buttonbar ui-corner-top">
+	                 <span class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left ui-fileupload-choose" role="button"><span class="ui-button-icon-left ui-icon ui-c ui-icon-plusthick"></span><span class="ui-button-text ui-c"></span>
+						<!--<input type="file" id="userPhotoUploadForm:shangchuan-btn_input" name="userPhotoUploadForm:shangchuan-btn_input" style="z-index:0;">--> 
+					 </span>
+				 </div>
                 <div class="ui-fileupload-content ui-widget-content ui-corner-bottom">
                   <table class="ui-fileupload-files">
                     <tbody>

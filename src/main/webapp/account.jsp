@@ -1,37 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  
-<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>  
  <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>  
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
-	<title>币币袋</title>
-	<meta name="keywords" content=""/>
-	<meta name="description" content=""/>
-	<link href="<%=basePath%>/css/common.css" rel="stylesheet" />
-	<link rel="stylesheet" type="text/css" href="<%=basePath%>/css/user.css" />
-	<link rel="stylesheet" type="text/css" href="<%=basePath%>/css/jquery.datetimepicker.css"/>
-	<script type="text/javascript" src="<%=basePath%>/script/jquery.min.js"></script>
-	<script type="text/javascript" src="<%=basePath%>/script/common.js"></script>
-	<script src="<%=basePath%>/script/user.js" type="text/javascript"></script>
-	<script type="text/javascript"
-		src="<%=basePath%>js/jquery-1.8.3.js">
-	</script>
-</head>
+	<head>
+		<title>币币袋</title>
+		<meta name="keywords" content=""/>
+		<meta name="description" content=""/>
+		<link href="<%=basePath%>/css/common.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="<%=basePath%>/css/user.css" />
+		<link rel="stylesheet" type="text/css" href="<%=basePath%>/css/jquery.datetimepicker.css"/>
+		<script type="text/javascript" src="<%=basePath%>/script/jquery.min.js"></script>
+		<script type="text/javascript" src="<%=basePath%>/script/common.js"></script>
+		<script src="<%=basePath%>/script/user.js" type="text/javascript"></script>
+		<script type="text/javascript" src="<%=basePath%>js/jquery-1.8.3.js">
+		</script>
+	</head>
 <body>
 
 <jsp:include page="head.jsp"></jsp:include>
 
-<!--个人中心-->
 <div class="wrapper wbgcolor">
   <div class="w1200 personal">
-    <div class="credit-ad"><img src="images/clist1.jpg" width="1200" height="96"></div>
+    <div class="credit-ad"><img src="images/clist.jpg" width="1200" height="96"></div>
    	    <jsp:include page="left.jsp"></jsp:include>	
     <script type="text/javascript">
 				function showSpan(op){

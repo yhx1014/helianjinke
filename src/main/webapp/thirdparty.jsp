@@ -27,7 +27,7 @@
 <!--个人中心-->
 <div class="wrapper wbgcolor">
   <div class="w1200 personal">
-    <div class="credit-ad"><img src="<%=basePath%>images/clist1.jpg" width="1200" height="96"></div>
+    <div class="credit-ad"><img src="<%=basePath%>images/clist.jpg" width="1200" height="96"></div>
     <!-- 导航栏 --><jsp:include page="left.jsp"></jsp:include>	
     <style>
 		        /*获取验证码*/
@@ -280,7 +280,7 @@
 </div>
  <!--网站底部-->
 	 <!-- 导航栏 --><jsp:include page="bottom.jsp"></jsp:include>	
-<script src="<%=basePath%>script/jquery.datetimepicker.js" type="text/javascript"></script>
-<script src="<%=basePath%>script/datepicker.js" type="text/javascript"></script>
+	<script src="<%=basePath%>script/jquery.datetimepicker.js" type="text/javascript"></script>
+	<script src="<%=basePath%>script/datepicker.js" type="text/javascript"></script>
 </body>
 </html>

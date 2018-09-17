@@ -7,7 +7,7 @@
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
 <head>
 	<title>币币袋</title>
@@ -85,7 +85,6 @@ $(document).ready(function(){
 					<form id="form" name="form" method="post" action="">
 						<input type="hidden" name="form" value="form"> <span
 							id="form:dataTable"> <script type="text/javascript">
-								//<![CDATA[
 								$(function() {
 									$("#pxtxx-list li")
 											.click(
@@ -128,8 +127,6 @@ $(document).ready(function(){
 														}
 													});
 								});
-
-								//]]>
 							</script>
 							<div id="pxtxx-tab" class="pxtxx-tab">
 								
@@ -181,10 +178,8 @@ $(document).ready(function(){
 					</div>
 				</center>
 			</div>
-
 			<div class="clear"></div>
 		</div>
-
 	</div>
 
 	<!--网站底部-->

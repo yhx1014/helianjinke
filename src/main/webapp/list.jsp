@@ -111,18 +111,17 @@
         
         <!------------投资列表-------------->
         <c:forEach items="${list}" var="invest" varStatus="status">
-        
         <div class="item">
           <ul>
             <li class="col-330 col-t">
-            	<a href="investInfo.do?bmid=${invest.id }" target="_blank">
+            	<a href="investInfo.do?bmid=${invest.id}" target="_blank">
             		<i class="icon icon-xin" title="类型"></i>
             	</a>
-            	<a class="f18" href="investInfo.do?bmid=${invest.id }" title="${invest.pname }" target="_blank"> ${ft:substring(invest.pname,0,8) } 
+            	<a class="f18" href="investInfo.do?bmid=${invest.id}" title="${invest.pname }" target="_blank"> ${ft:substring(invest.pname,0,8) } 
             	</a>
             </li>
             <li class="col-180"><span class="f20 c-333">${invest.ptotalmoney }</span>元</li>
-            <li class="col-110 relative"><span class="f20 c-orange">${invest.pincome }%<%-- ${invest.brate } --%></span></li>
+            <li class="col-110 relative"><span class="f20 c-orange">${invest.pincome }%</span></li>
             <li class="col-150"><span class="f20 c-333"><fmt:formatDate value="${invest.pcount }" pattern="yyyy-MM-dd "/></span></li>
             <li class="col-150">${invest.pway }</li>
             <li class="col-120">
@@ -135,7 +134,7 @@
               </div>
             </li>
             <li class="col-120-2"> 
-            	<a class="ui-btn btn-gray"  href="investInfo.do?bmid=${invest.id }"> 
+            	<a class="ui-btn btn-gray"  href="investInfo.do?bmid=${invest.id}"> 
             		<c:if test="${invest.pstate=='1' }">立即投标</c:if>
             		<c:if test="${invest.pstate=='2' }">募集完成</c:if>
             		<c:if test="${invest.pstate=='3' }">还款中</c:if>

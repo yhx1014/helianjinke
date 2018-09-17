@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -10,25 +9,24 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="ft" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>币币袋</title>
-<meta name="keywords" content="" />
-<meta name="description" content="" />
-<link href="<%=basePath%>css/common.css" rel="stylesheet" />
-<link rel="stylesheet" type="text/css" href="<%=basePath%>css/user.css" />
-<script type="text/javascript" src="<%=basePath%>script/jquery.min.js"></script>
-<script type="text/javascript" src="<%=basePath%>script/common.js"></script>
-<script src="<%=basePath%>script/user.js" type="text/javascript"></script>
+	<title>币币袋</title>
+	<link href="<%=basePath%>css/common.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="<%=basePath%>css/user.css" />
+	<script type="text/javascript" src="<%=basePath%>script/jquery.min.js"></script>
+	<script type="text/javascript" src="<%=basePath%>script/common.js"></script>
+	<script src="<%=basePath%>script/user.js" type="text/javascript"></script>
 </head>
+
 <body>
-<!-- 导航栏 --><jsp:include page="head.jsp"></jsp:include>
+<jsp:include page="head.jsp"></jsp:include>
+
 <!--个人中心-->
 <div class="wrapper wbgcolor">
   <div class="w1200 personal">
-    <div class="credit-ad"><img src="<%=basePath%>images/clist1.jpg" width="1200" height="96"></div>
+    <div class="credit-ad"><img src="<%=basePath%>images/clist.jpg" width="1200" height="96"></div>
 	<jsp:include page="left.jsp"></jsp:include>
     <style type="text/css">
 		.invest-tab .on  a{color:#fff;}

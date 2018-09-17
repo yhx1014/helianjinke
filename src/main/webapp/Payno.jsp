@@ -8,55 +8,50 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>  
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>币币袋</title>
-<meta name="keywords" content="" />
-<meta name="description" content="" />
-<link href="<%=basePath%>/css/common.css" rel="stylesheet" />
-<link rel="stylesheet" type="text/css" href="<%=basePath%>/css/user.css" />
-<link rel="stylesheet" type="text/css" href="<%=basePath%>/css/jquery.datetimepicker.css"/>
-<script type="text/javascript" src="<%=basePath%>/script/jquery.min.js"></script>
-<script type="text/javascript" src="<%=basePath%>/script/common.js"></script>
-<script src="<%=basePath%>/script/user.js" type="text/javascript"></script>
-</head>
+	<head>
+		<title>币币袋</title>
+		<link href="<%=basePath%>/css/common.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="<%=basePath%>/css/user.css" />
+		<link rel="stylesheet" type="text/css" href="<%=basePath%>/css/jquery.datetimepicker.css"/>
+		<script type="text/javascript" src="<%=basePath%>/script/jquery.min.js"></script>
+		<script type="text/javascript" src="<%=basePath%>/script/common.js"></script>
+		<script src="<%=basePath%>/script/user.js" type="text/javascript"></script>
+	</head>
 <body>
-<header>
- <!-- 导航栏 --><jsp:include page="head.jsp"></jsp:include>
-</header>
+    <jsp:include page="head.jsp"></jsp:include>
+    
 <!--个人中心-->
 <div class="wrapper wbgcolor">
 			<div class="w1200 personal">
-		    	<div class="credit-ad"><img src="images/clist1.jpg" width="1000" height="80"></div>
+		    	<div class="credit-ad"><img src="images/clist.jpg" width="1000" height="80"></div>
 		         <!-- 导航栏 -->
 		         <jsp:include page="left.jsp"></jsp:include>
 		<script>
-		$(function(){
-		    $('.quick-tit').click(function(){
-		      
-		      $(this).addClass('pay-cur');
-		      $(this).siblings().removeClass('pay-cur');
-		      $('.quick-main').show();
-		      $('.online-main').hide();
-		      
-		      $(".pay-tipcon").hide();
-		      $(".pay-tipcon2").show();
-
-		    })
-
-		    $('.online-tit').click(function(){
-		      
-		      $(this).addClass('pay-cur');
-		      $(this).siblings().removeClass('pay-cur');
-		      $('.quick-main').hide();
-		      $('.online-main').show();
-
-		      $(".pay-tipcon2").hide();
-		      $(".pay-tipcon").show();
-		    })
-	  });
+			$(function(){
+			    $('.quick-tit').click(function(){
+			      
+			      $(this).addClass('pay-cur');
+			      $(this).siblings().removeClass('pay-cur');
+			      $('.quick-main').show();
+			      $('.online-main').hide();
+			      
+			      $(".pay-tipcon").hide();
+			      $(".pay-tipcon2").show();
+	
+			    })
+	
+			    $('.online-tit').click(function(){
+			      
+			      $(this).addClass('pay-cur');
+			      $(this).siblings().removeClass('pay-cur');
+			      $('.quick-main').hide();
+			      $('.online-main').show();
+	
+			      $(".pay-tipcon2").hide();
+			      $(".pay-tipcon").show();
+			    })
+		  });
 			function showSpan(op){
 				$("body").append("<div id='mask'></div>");
 				$("#mask").addClass("mask").css("display","block");

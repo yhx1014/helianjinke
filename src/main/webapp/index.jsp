@@ -7,14 +7,14 @@
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="<%=basePath%>css/common.css" rel="stylesheet"/>
-<link href="<%=basePath%>css/index.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="<%=basePath%>script/jquery.min.js"></script>
-<script type="text/javascript" src="<%=basePath%>script/jquery.jcarousellite-1.0.1.js"></script>
-<script src="<%=basePath%>script/index.js"></script>
-<script type="text/javascript" src="<%=basePath%>script/common.js"></script>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link href="<%=basePath%>css/common.css" rel="stylesheet"/>
+		<link href="<%=basePath%>css/index.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="<%=basePath%>script/jquery.min.js"></script>
+		<script type="text/javascript" src="<%=basePath%>script/jquery.jcarousellite-1.0.1.js"></script>
+		<script src="<%=basePath%>script/index.js"></script>
+		<script type="text/javascript" src="<%=basePath%>script/common.js"></script>
 
 <title>币币袋</title>
 <style>
