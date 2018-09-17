@@ -439,7 +439,8 @@ public class InvestController {
 	@RequestMapping("investAdd")
 	public String investAdd(
 			@RequestParam(value = "money", required = false) String money,
-			HttpServletRequest req,Model model) {// 投标
+			HttpServletRequest req,Model model) {
+		// 投标
 										// @RequestParam(value="",requested=false)
 										// InvestInfo ii
 		HttpSession hs = req.getSession();
