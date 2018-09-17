@@ -173,8 +173,8 @@
 					
 					<div class="bd">
 						<div class="des">
-							<span class="fn-left">期限1-29天，期限短，收益见效快</span><a
-								href="<%=basePath %>invest/investSel.do" class="fn-right">查看更多&gt;&gt;</a>
+							<span class="fn-left">期限1-29天，期限短，收益见效快</span>
+							<a href="<%=basePath %>invest/investSel.do" class="fn-right">查看更多&gt;&gt;</a>
 						</div>
 						<div class="borrow-list">
 							<ul>
