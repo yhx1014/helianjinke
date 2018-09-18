@@ -64,16 +64,16 @@ $(document).ready(function(){
 });
 </script>
 <body>
-	<jsp:include page="head.jsp">
+	<jsp:include page="head.jsp"></jsp:include>
 	<!--个人中心-->
 	<div class="wrapper wbgcolor">
 		<div class="w1200 personal">
 			<div class="credit-ad">
-				<img src="images/clist1.jpg" width="1200" height="96">
+				<img src="images/clist.jpg" width="1200" height="96">
 			</div>
 			<div id="personal-left" class="personal-left">
 				<ul>
-					<!-- 导航栏 --><jsp:include page="left.jsp"></jsp:include>
+					<jsp:include page="left.jsp"></jsp:include>
 				</ul>
 			</div>
 			<label id="typeValue" style="display: none;"> </label>
@@ -166,17 +166,17 @@ $(document).ready(function(){
 
 					</form>
 				</div>
-				<center>
-					<div class="btn-group" align="center">
-						共${totalPage}/${currpage}页    <a href="<%=basePath%>queryDope.do?currpage=1">首页</a>
-						<a href="<%=basePath%>queryDope.do?currpage=${currpage-1}">上一页</a>
-							<c:forEach begin="1" end="${totalPage}" var="i">
-	  							<font size="1"><a href="<%=basePath%>queryDope.do?currpage=${i}">${i}</a></font>
-	  						</c:forEach>
-						<a href="<%=basePath%>queryDope.do?currpage=${currpage-1}">下一页</a>
-						     <a href="<%=basePath%>queryDope.do?currpage=${totalPage}">末页</a>
-					</div>
-				</center>
+			<center>
+				<div class="btn-group" align="center">
+					共${totalPage}/${currpage}页    <a href="<%=basePath%>queryDope.do?currpage=1">首页</a>
+					<a href="<%=basePath%>queryDope.do?currpage=${currpage-1}">上一页</a>
+						<c:forEach begin="1" end="${totalPage}" var="i">
+  							<font size="1"><a href="<%=basePath%>queryDope.do?currpage=${i}">${i}</a></font>
+  						</c:forEach>
+					<a href="<%=basePath%>queryDope.do?currpage=${currpage-1}">下一页</a>
+					     <a href="<%=basePath%>queryDope.do?currpage=${totalPage}">末页</a>
+				</div>
+			</center>
 			</div>
 			<div class="clear"></div>
 		</div>

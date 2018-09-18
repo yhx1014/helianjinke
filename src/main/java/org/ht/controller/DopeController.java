@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class DopeController {
 	@Autowired
 	private DopeService service;
-	
 	//分页查询
 	@RequestMapping("queryDope")
 	public String queryDope(Model model,@RequestParam(value="currpage",required=false)String conent){
@@ -57,7 +56,7 @@ public class DopeController {
 		System.out.println("传来的id:"+items);
 		String[] item=items.split(",");
 		
-		List list=new ArrayList<>();
+		List<Object> list=new ArrayList<>();
 		for (int i = 0; i < item.length; i++) {
 			list.add(item[i]);
 		}
