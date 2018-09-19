@@ -46,8 +46,8 @@ public class LimitController {
 			HttpServletRequest requeset,
 			Model model){
 		//根据ID查询权限
-		List list = limitService.limitByeid(eid);
-		List list2 = new ArrayList();
+		List<?> list = limitService.limitByeid(eid);
+		List<String> list2 = new ArrayList<String>();
 		for (int i = 0; i < list.size(); i++) {
 			Limi limi = (Limi) list.get(i);
 			list2.add(limi.getMid());

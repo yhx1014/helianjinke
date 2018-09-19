@@ -28,7 +28,6 @@ public class TradeController {
 	@Autowired
 	private TradeService td;
 
-	
 	@RequestMapping("trade")
 	public String  bankcard(Model m ,@RequestParam(value = "currpage", required = false) String currpage
 			,@RequestParam(value = "uname", required = false) String uname

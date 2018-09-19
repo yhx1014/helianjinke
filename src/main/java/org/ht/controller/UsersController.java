@@ -139,7 +139,7 @@ public class UsersController {
 	@RequestMapping("exit")
 	public String exit(HttpSession session) {
 
-		Enumeration em = session.getAttributeNames();
+		Enumeration<?> em = session.getAttributeNames();
 		while (em.hasMoreElements()) {
 			session.removeAttribute(em.nextElement().toString());
 		}

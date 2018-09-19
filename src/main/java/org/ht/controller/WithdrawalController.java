@@ -6,22 +6,18 @@ import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.swing.JFileChooser;
-
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;
 import org.apache.poi.hssf.usermodel.HSSFDataFormat;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.ht.pojo.Approveitem;
 import org.ht.pojo.Employee;
 import org.ht.pojo.Withdrawal;
-import org.ht.service.ApproveService;
 import org.ht.service.WithdrawalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,7 +25,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("wd")
@@ -38,6 +33,7 @@ public class WithdrawalController {
 	@Autowired
 	private WithdrawalService ws;
 
+	@SuppressWarnings("unchecked")
 	@RequestMapping("wlist")
 	public String withdrawallist(
 			Model m,
@@ -114,43 +110,44 @@ public class WithdrawalController {
 		}
 		return "redirect:wlist.do";
 	}
+	
 	//审核通过
-		@RequestMapping("shen")
-		public String shen(@RequestParam(value = "gg", required = false) int gg,
-				@RequestParam(value = "wid", required = false) int wid,HttpServletRequest req){
-			HttpSession session = req.getSession();
-			Employee emp = (Employee) session.getAttribute("globalemp");
-			String shname = emp.getEname();
-			if(gg==0){
-				//失败 需要改成失败  并且修改转账时间，审核人时间，审核人 
-				ws.updwiths(gg, wid, shname); 
-				//退钱
-				Withdrawal wone =  ws.selectone(wid);
-				Integer txmoney = Integer.parseInt(wone.getTxmoney());//体检金额
-				Integer uid = wone.getuID();//用户id
-				ws.updmoney(txmoney, uid);
-				int i=0;
-				//添加失败的交易记录
-				ws.intmoney(wone, i);
-			}else if(gg==2){
-				//成功    需要改成转账中  并且修改转账时间，审核人时间，审核人
-				
-				ws.updwiths(gg, wid, shname);
-				
-			}
-			return "redirect:wlist.do";
+	@RequestMapping("shen")
+	public String shen(@RequestParam(value = "gg", required = false) int gg,
+		@RequestParam(value = "wid", required = false) int wid,HttpServletRequest req){
+		HttpSession session = req.getSession();
+		Employee emp = (Employee) session.getAttribute("globalemp");
+		String shname = emp.getEname();
+		if(gg==0){
+			//失败 需要改成失败  并且修改转账时间，审核人时间，审核人 
+			ws.updwiths(gg, wid, shname); 
+			//退钱
+			Withdrawal wone =  ws.selectone(wid);
+			Integer txmoney = Integer.parseInt(wone.getTxmoney());//体检金额
+			Integer uid = wone.getuID();//用户id
+			ws.updmoney(txmoney, uid);
+			int i=0;
+			//添加失败的交易记录
+			ws.intmoney(wone, i);
+		}else if(gg==2){
+			//成功    需要改成转账中  并且修改转账时间，审核人时间，审核人
+			
+			ws.updwiths(gg, wid, shname);
+			
 		}
+		return "redirect:wlist.do";
+	}
 	/**
 	 * 导出excel
-	 * 
 	 * @throws IOException
 	 */
 	@RequestMapping("putexcel")
 	public String putexcel(HttpServletResponse response) throws IOException {
+		@SuppressWarnings("resource")
 		HSSFWorkbook workBook = new HSSFWorkbook();
 		HSSFSheet sheet = workBook.createSheet("提现管理");
 		HSSFRow titleRow = sheet.createRow(0);
-		// 标题行
+		//标题行
 		HSSFCell cell1 = titleRow.createCell(0);
 		cell1.setCellValue("用户ID");
 		HSSFCell cell2 = titleRow.createCell(1);
@@ -203,8 +200,7 @@ public class WithdrawalController {
 
 			HSSFCellStyle dateStyle = workBook.createCellStyle();
 			HSSFDataFormat dateFormat = workBook.createDataFormat();
-			dateStyle
-					.setDataFormat(dateFormat.getFormat("yyyy-MM-dd HH:mm:ss"));
+			dateStyle.setDataFormat(dateFormat.getFormat("yyyy-MM-dd HH:mm:ss"));
 			txtime.setCellStyle(dateStyle);
 
 			txtime.setCellValue(wi.getTxtime());
@@ -227,7 +223,6 @@ public class WithdrawalController {
 		String path = chooser.getSelectedFile().getPath();	
 		
 		if(path!=null&&!path.equals("")){
-		
 			FileOutputStream fos = new FileOutputStream(
 					path+"\\提现信息.xls");
 			workBook.write(fos);

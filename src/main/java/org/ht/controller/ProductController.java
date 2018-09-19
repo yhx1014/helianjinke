@@ -137,12 +137,9 @@ public class ProductController {
 		ii.setStartPage(startPage);
 		ii.setPageSize(pagerow);
 
+		@SuppressWarnings("unchecked")
 		List<InvestInfo> list2 = InvestService.getDtail(BeanUtils.toMap(ii));
 		System.out.println(list2.size());
-		// 更新进度
-		// service.updateProgres(list2);
-		// 更新状态
-		// service.updateStatus(list2);
 		model.addAttribute("us", ulist);
 		model.addAttribute("bid", bid);
 		model.addAttribute("list", list2);

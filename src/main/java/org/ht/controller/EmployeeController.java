@@ -1,13 +1,8 @@
 package org.ht.controller;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
-import org.apache.log4j.Logger;
 import org.ht.pojo.Dept;
 import org.ht.pojo.Employee;
 import org.ht.pojo.Limi;
@@ -25,7 +20,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping("employee")
 public class EmployeeController {
-	private Logger log = Logger.getLogger(this.getClass());
 	@Autowired
 	private EmployeeService employeeService;
 	@Autowired	
@@ -74,8 +68,8 @@ public class EmployeeController {
 			// 登录成功
 			System.out.println("登录成功");
 			//查询权限
-			List limitlist = limitService.limitByeid(emp.getEid());
-			List list2 = new ArrayList();
+			List<?> limitlist = limitService.limitByeid(emp.getEid());
+			List<String> list2 = new ArrayList<String>();
 			for (int i = 0; i < limitlist.size(); i++) {
 				Limi limi = (Limi) limitlist.get(i);
 				list2.add(limi.getMid());

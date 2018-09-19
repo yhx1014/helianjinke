@@ -18,7 +18,6 @@
 
 <title>币币袋</title>
 <style>
-/*上下滚动*/
 	#scrollDiv {
 		width: 400px;
 		height: 30px;
@@ -49,7 +48,7 @@
 			clearInterval(myar);
 		}, function() {
 			myar = setInterval('AutoScroll("#scrollDiv")', 3000)
-		}); //当鼠标放上去的时候，滚动停止，鼠标离开的时候滚动开始
+		}); 
 	});
 </script>
 </head>
@@ -80,6 +79,7 @@
 				directionNav : true,
 				pauseOnAction : false
 			});
+			
 			//产品列表滚动
 			var pLength = $('.pListContentBox > li').length;
 			var cishu = pLength - 4;
@@ -122,6 +122,7 @@
 			});
 		});
 	</script>
+	
 <script type="text/javascript">
 	var gaintop;
 	$(function() {
@@ -186,17 +187,16 @@
 													<div class="title">
 														<a target="_blank"><i class="icon icon-che"
 															title="车易贷"></i></a><a href="investInfo.do?bmid=${pro.id }"
-															class="f18" title="毕先生宝马320汽车质押贷款10万元" target="_blank">${pro.pname}<!-- 毕先生宝马320汽车质押贷款10万元 --></a>
+															class="f18" title="毕先生宝马320汽车质押贷款10万元" target="_blank">${pro.pname}</a>
 													</div>
 													<table width="100%" border="0" cellpadding="0"
 														cellspacing="0">
 														<tbody>
 															<tr>
-																<td width="260">借款金额<span class="f24 c-333">${pro.ptotalmoney}</span>元
+																<td width="260">借款金额<span class="f24 c-333">${pro.ptotalmoney}</span>
 																</td>
 																<td width="165">年利率<span
-																	class="f24 c-orange relative">${pro.pincome}% <!--公益标 20150724 lj-->
-																		<!--公益标 20150724 lj-->
+																	class="f24 c-orange relative">${pro.pincome}% 
 																</span></td>
 																<td width="180" align="center">截至期限<span
 																	class="f24 c-333"><fmt:formatDate
@@ -204,32 +204,30 @@
 																</td>
 																<td><div class="circle">
 																		<div class="left progress-bar">
-																			<!-- (pro.pmoney/pro.ptotalmoney) -->
 																			<div
 																				class="progress-bgPic progress-bfb<fmt:formatNumber value="${(pro.pmoney/pro.ptotalmoney)*10<1?1:(pro.pmoney/pro.ptotalmoney)*10}" pattern="#"/>">
 																				<div class="show-bar">
 																					<fmt:formatNumber
 																						value="${(pro.pmoney/pro.ptotalmoney)*100}"
-																						pattern="#" />
+																						pattern="#"/>
 																					%
 																				</div>
 																			</div>
 																		</div>
 																	</div></td>
+																	
 																<td align="right">
-																	<!-- (<fmt:formatNumber value="${(pro.pmoney/pro.ptotalmoney)*100}" pattern="#.00"/>==100) -->
-																	<c:if test="${pro.pstate=='2' }">
-																		<a class="ui-btn btn-gray"
-																			href="investInfo.do?bmid=${pro.id }">还款中</a>
-																	</c:if> <c:if test="${pro.pstate=='1' }">
-																		<a class="ui-btn btn-gray"
-																			href="investInfo.do?bmid=${pro.id }">立即投标</a>
-																	</c:if> <c:if test="${pro.pstate=='3' }">
-																		<a class="ui-btn btn-gray"
-																			href="investInfo.do?bmid=${pro.id }">已失效</a>
-																	</c:if> <c:if test="${pro.pstate=='4' }">
-																		<a class="ui-btn btn-gray"
-																			href="investInfo.do?bmid=${pro.id }">已筹完</a>
+																	<c:if test="${pro.pstate=='2'}">
+																		<a class="ui-btn btn-gray" href="investInfo.do?bmid=${pro.id }">还款中</a>
+																	</c:if> 
+																	<c:if test="${pro.pstate=='1'}">
+																		<a class="ui-btn btn-gray" href="investInfo.do?bmid=${pro.id }">立即投标</a>
+																	</c:if> 
+																	<c:if test="${pro.pstate=='3'}">
+																		<a class="ui-btn btn-gray" href="investInfo.do?bmid=${pro.id }">已失效</a>
+																	</c:if> 
+																	<c:if test="${pro.pstate=='4'}">
+																		<a class="ui-btn btn-gray" href="investInfo.do?bmid=${pro.id }">已筹完</a>
 																	</c:if>
 																</td>
 															</tr>

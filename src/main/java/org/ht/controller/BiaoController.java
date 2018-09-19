@@ -3,7 +3,6 @@ package org.ht.controller;
 import java.util.List;
 
 import org.ht.pojo.Biao;
-import org.ht.pojo.Product;
 import org.ht.service.BiaoService;
 import org.ht.util.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import com.github.pagehelper.PageInfo;
 
 @Controller
 @RequestMapping("biao")

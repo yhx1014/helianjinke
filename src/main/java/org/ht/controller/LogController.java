@@ -19,7 +19,7 @@ public class LogController {
 
 	@RequestMapping("/list")
 	public String list() {
-
+		
 		System.out.println("查询日志   》》》》》》》》》》》》");
 
 		Log log = new Log();
