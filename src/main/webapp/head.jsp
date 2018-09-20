@@ -7,9 +7,6 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-<!DOCTYPE html>
-<html>
-<body>
 <header>
 <div class="header-top min-width">
     <div class="container fn-clear">
@@ -17,12 +14,12 @@
 			<ul class="fn-right header-top-ul">
 				<li>
 					<div class="">
-						<a href="register.jsp" class="c-orange" title="免费注册">免费注册</a>
+						<a href="<%=basePath%>register.jsp" class="c-orange" title="免费注册">免费注册</a>
 					</div>
 				</li>
 				<li>
 					<div class="">
-						<a href="login.jsp" class="js-login" title="登录">登录</a>
+						<a href="<%=basePath%>login.jsp" class="js-login" title="登录">登录</a>
 					</div>
 				</li>
 			</ul>
@@ -72,5 +69,3 @@
 		}
 	}
 </script>
-</body>
-</html>

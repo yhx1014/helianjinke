@@ -56,6 +56,7 @@
 <body>
 	<!-- 导航栏 -->
 	<jsp:include page="head.jsp"></jsp:include>
+	
 	<!--banner-->
 	<div class="flexslider">
 		<ul class="slides">

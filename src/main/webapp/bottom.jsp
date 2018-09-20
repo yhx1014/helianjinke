@@ -7,12 +7,7 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-	</head>
-<body>
-<!--网站底部-->
+
 <div id="footer" class="ft">
   <div class="ft-inner clearfix">
     <div class="ft-helper clearfix">
@@ -61,7 +56,5 @@
   <div class="ft-identity">©2018 原力协议  All rights reserved&nbsp;&nbsp;&nbsp;<span class="color-e6">|</span>&nbsp;&nbsp;&nbsp;北京市和链金科科技有限公司&nbsp;&nbsp;&nbsp;<span class="color-e6">|</span>&nbsp;&nbsp;&nbsp;<a target="_blank" href="">京ICP备88888888号-8</a></div>
   </div>
 </div>
-	<script src="<%=basePath%>script/jquery.datetimepicker.js" type="text/javascript"></script>
-	<script src="<%=basePath%>script/datepicker.js" type="text/javascript"></script>
-</body>
-</html>
+<script src="<%=basePath%>script/jquery.datetimepicker.js" type="text/javascript"></script>
+<script src="<%=basePath%>script/datepicker.js" type="text/javascript"></script>
