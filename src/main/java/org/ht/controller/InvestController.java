@@ -327,7 +327,7 @@ public class InvestController {
 	@RequestMapping("investInfo")
 	public String investInfo(String bmid,String currpage,Model model, HttpServletRequest req) {
 		
-		System.out.println(bmid.toString());
+		System.out.println("bmid值为："+bmid.toString());
 		int pagerow = 5;// 每页5行
 		int currpages = 1;// 当前页
 		int totalpage = 0;// 总页数
@@ -340,13 +340,9 @@ public class InvestController {
 		parameters.put("bid", bmid);
 
 		List<InvestInfo> page = investS.investS(parameters);
-		
 		// 查出数据条数
 		totalrow = page.size();
-		
 		// 获取总行数
-		System.out.println("此标的投资信息记录条数"+totalrow);
-		
 		if (currpage != null && !"".equals(currpage)) {
 			currpages = Integer.parseInt(currpage);
 		}
@@ -408,6 +404,7 @@ public class InvestController {
 		bms.setAttribute("Borrowmoney", pro);
 
 		List<Details> list = detS.detailslist(pro.getId());
+		
 		System.out.println("标详情列表大小" + list.size());
 		bms.setAttribute("Product", pro);
 		bms.setAttribute("Details", list);
@@ -416,6 +413,7 @@ public class InvestController {
 		
 		long days = (pro.getPcount().getTime() - pro.getPtime().getTime())
 				/ (24 * 60 * 60 * 1000);
+		
 		bms.setAttribute("days", days);
 		
 		if (pro.getPstate().equals("1")) {
@@ -610,7 +608,8 @@ public class InvestController {
 
 	public static void main(String s[]) {
 		Date date = new Date();
-		long dl = date.getTime();// 将日期转换成毫秒数
+		long dl = date.getTime();
+		// 将日期转换成毫秒数
 		System.out.println(dl + "");
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		Date d = new Date();

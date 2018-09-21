@@ -11,10 +11,6 @@ public interface DetailsService {
 	int delete(Integer id);
 	void deleteByPid(Integer id);
 	int create(Details details);
-
 	Details get(Integer id);
-
 	int update(Details record);
-
-	 
 }

@@ -40,11 +40,11 @@
 	</select>
 	<insert id="create" parameterType="org.ht.pojo.InvestInfo">
 	<!-- 不能用单引号 mysql和oracle sql server 不一样主键自增要指明其他字段-->
- 		insert into investinfo (userid,brrowid,inmoney,instatus,instyle,brrowstatus,interest,profitmodel,profitmoney,indate,replaydate,markstatus) values (#{userid},#{brrowid},#{inmoney},#{instatus},#{instyle},#{brrowstatus},#{interest},#{profitmodel},#{profitmoney},current_timestamp(),#{replaydate},#{markstatus}) 
-<!--  			insert into investinfo (userid,brrowid,inmoney,interest,profitmoney,indate,replaydate,markstatus) values (#{userid},#{brrowid},#{inmoney},#{interest},#{profitmoney},current_timestamp(),#{replaydate},#{markstatus}) 
- --> 	</insert>
+ 		insert into investinfo (userid,brrowid,inmoney,instatus,instyle,brrowstatus,interest,profitmodel,profitmoney,indate,replaydate,markstatus) values (#{userid},#{brrowid},#{inmoney},#{instatus},#{instyle},#{brrowstatus},#{interest},#{profitmodel},#{profitmoney},current_timestamp(),#{replaydate},#{markstatus})
+     </insert>
 	
-	<select id="getSum" parameterType="map" resultType="Double"><!-- ${tableName} 不能用#{}-->
+	<select id="getSum" parameterType="map" resultType="Double">
+	    <!-- ${tableName} 不能用#{}-->
 		select sum(${rowName}) from ${tableName} where 1 = 1
 		<if test="uid != null">
 			and userid = #{uid}	

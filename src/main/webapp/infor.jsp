@@ -1,10 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-	
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
-			+ path + "/";
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()+ path + "/";
 %>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -18,7 +15,7 @@
 	<link href="<%=basePath%>css/common.css" rel="stylesheet" />
 	<link href="<%=basePath%>css/index.css" rel="stylesheet" type="text/css" />
 	<link href="<%=basePath%>css/detail.css" rel="stylesheet" type="text/css" />
-	<link href="<%=basePath%>css/register.css" rel="stylesheet" type="text/css" />
+	<link href="<%=basePath%>css/register.css" rel="stylesheet" type="text/css" />	
 	<script src="<%=basePath%>script/jquery.min.js"></script>
 	<script src="<%=basePath%>script/common.js"></script>
 	<script src="<%=basePath%>script/plugins.js"></script>
@@ -35,53 +32,55 @@
 
 	function investA() {
 		var money = document.getElementById("amount").value;
-		//		alert(money);
 		window.location.href = "investAdd.do?money=" + money;
 	}
 
-	function end() {//投资完返回此界面弹出提示
+	function end() {
 		if ("${end}" != null && "${end}" == "end") {
-			alert("恭喜您,投资成功!");
+			alert("恭喜,投资成功!");
 		}
 	}
 	end();
 </script>
+
 <body>
 	<jsp:include page="head.jsp"></jsp:include>
+	
 	<div class="item-detail wrap">
 		<div class="breadcrumbs">
-			<a href="index.html">首页</a>&gt; <a href="#">散标投资列表</a>&gt; <span
-				class="cur">项目详情</span>
+			<a href="index.html">首页</a>&gt; <a href="#">散标投资列表</a>&gt; 
+			<span class="cur">项目详情</span>
 		</div>
 		<div class="item-detail-head clearfix" data-target="sideMenu">
-			<div class="hd">
+<%-- 			<div class="hd">
 				<i class="icon icon-che" title="车易贷"></i>
 				<h2>${Borrowmoney.pname }</h2>
-			</div>
+			</div> --%>
 			<div class="bd clearfix">
-				<!--   <form id="fr" action="investAdd.do" method="post" onsubmit="return false"> -->
 				<div class="data">
 					<ul>
-						<li><span class="f16">借款金额</span><br> <span
-							class="f30 c-333" id="account">${Borrowmoney.ptotalmoney }元</span></li>
-						<li class="relative"><span class="f16">年利率</span><br> <span
-							class="f30 c-orange">${Borrowmoney.pincome }%</span></li>
-						<li><span class="f16">借款期限</span><br> <span
+						<li><span class="f16">借币数量</span><br> 
+						<span class="f30 c-333" id="account">${Borrowmoney.ptotalmoney }元</span></li>
+						<li class="relative"><span class="f16">年利率</span><br> 
+						<span class="f30 c-orange">${Borrowmoney.pincome }%</span></li>
+						<li><span class="f16">借币期限</span><br> <span
 							class="f30 c-333"><fmt:formatDate
 							value="${Borrowmoney.pcount }" pattern="yyyy-MM-dd" /></span></li>
-						<li><span class="c-888">借款编号：</span>${Borrowmoney.id}<%-- ${Borrowmoney.bserial } --%></li>
 						<li><span class="c-888">发标日期：</span>
 						<fmt:formatDate value="${Borrowmoney.ppublishtime }"
 								pattern="yyyy-MM-dd"/></li>
 						<li><span class="c-888">保障方式：</span>${Borrowmoney.psaveway }</li>
 						<li><span class="c-888">还款方式：</span>${Borrowmoney.pway }</li>
-						<li><span class="c-888">需还本息：</span> <%-- ${ } --%>元</li>
+						<li><span class="c-888">需还本息：</span> <%-- ${ } --%></li>
 						<li><span class="c-888">借款用途：</span>${Borrowmoney.puse }</li>
 						<li class="colspan"><span class="c-888 fl">投标进度：</span>
 							<div class="progress-bar fl">
 								<span
-									style="width:${(Borrowmoney.pmoney/Borrowmoney.ptotalmoney)*(100)}%"></span>
-							</div> <span class="c-green"><fmt:formatNumber value="${(Borrowmoney.pmoney/Borrowmoney.ptotalmoney)*(100)}" pattern="#.##"/>%</span>
+									style="width:${(Borrowmoney.pmoney/Borrowmoney.ptotalmoney)*(100)}%">
+								</span>
+							</div> 
+							    <span class="c-green">
+							    	<fmt:formatNumber value="${(Borrowmoney.pmoney/Borrowmoney.ptotalmoney)*(100)}" pattern="#.##"/>%</span>
 						</li>
 						<li><span class="c-888">投资范围：</span> <span id="account_range">
 								${Borrowmoney.prange } </span></li>
@@ -129,7 +128,7 @@
 							<dd>
 								<div class="verify clearfix">
 									<ul>
-										<li><i class="icon icon-4"></i><br> 身份证</li>
+		       							<li><i class="icon icon-4"></i><br> 身份证</li>
 										<li><i class="icon icon-5"></i><br> 户口本</li>
 										<li><i class="icon icon-6"></i><br> 结婚证</li>
 										<li><i class="icon icon-7"></i><br> 工作证明</li>
@@ -137,23 +136,18 @@
 										<li><i class="icon icon-9"></i><br> 收入证明</li>
 										<li><i class="icon icon-10"></i><br> 征信报告</li>
 										<li><i class="icon icon-11"></i><br> 亲属调查</li>
-										<li><i class="icon icon-19"></i><br> 行驶证</li>
-										<li><i class="icon icon-20"></i><br> 车辆登记证</li>
-										<li><i class="icon icon-21"></i><br> 车辆登记发票</li>
-										<li><i class="icon icon-22"></i><br> 车辆交强险</li>
-										<li><i class="icon icon-23"></i><br> 车辆商业保险</li>
-										<li><i class="icon icon-24"></i><br> 车辆评估认证</li>
+
 									</ul>
 								</div>
 							</dd>
-						</dl>
+                        </dl>
 						<dl class="item">
 							<dt>
 								<h3>风控步骤</h3>
 							</dt>
 							<dd>
 								<div class="text">
-									<c:forEach items="${Details }" var="dt">
+									<c:forEach items="${Details}" var="dt">
 										<c:if test="${dt.dtype==1 }">
 											<p class="MsoNormal"
 												style="margin-left: 0cm; text-indent: 0cm;">${dt.dname }：${dt.dcontent }
@@ -166,12 +160,10 @@
 										<li><i class="icon icon-1"></i>资料审核</li>
 										<li><i class="icon icon-2"></i>实地调查</li>
 										<li><i class="icon icon-3"></i>资产评估</li>
-										<li class="no"><i class="icon icon-4"></i>发布借款</li>
 									</ul>
 								</div>
 								<div class="conclusion f16">
 									结论：经风控部综合评估， <span class="c-orange">同意放款40,000.00元；</span> 
-									<!-- <i class="icon icon-status icon-status1"></i> -->
 								</div>
 							</dd>
 						</dl>
@@ -188,7 +180,7 @@
 									<th>投标金额</th>
 									<th>投标时间</th>
 									<th>投标类型</th>
-								</tr>
+                                </tr>
 							</tbody>
 							<tbody id="repayment_content">
 								<c:if test="${record.size() > 0 }">
@@ -197,7 +189,7 @@
 											<td>${fn:substring(record.uname,0,1)}
 												<c:forEach begin="1" end="${fn:length(fn:substring(record.uname,1,fn:length(record.uname)))}" step="1">
 												*
-												</c:forEach><!-- 筱*** -->
+												</c:forEach>
 											</td>
 											<td><span class="c-orange">￥${record.inmoney }</span></td>
 											<td><fmt:formatDate value="${record.indate }"
