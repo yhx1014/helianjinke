@@ -38,10 +38,10 @@
 			<div class="registerCont">
 				<form action="<%=basePath%>/users/insert.do" method="post">
 					<ul>
-						<li><span class="dis">用户名:</span> <input type="text"
-							onblur="return checkunickname();" name="unickname" id="userName"
-							class="input _userName" maxlength="10" tabindex="1"> <span
-							id="userNameAlt" data-info="6-10个字符，字母开头，字母、数字组成">6-10个字符，字母开头，字母、数字组成</span></li>
+						<li class="telNumber"><span class="dis">手机号码:</span> <input
+							type="text" class="input _phoneNum" id="phone"
+							onblur="return phone();"
+							name="uphonenumber" tabindex="1" maxlength="11"></li>
 						<li><span class="dis">密码:</span> <input type="password"
 							 onblur="return checkupassword();"
 							 name="upassword" id="password" class="input _password"
@@ -53,10 +53,7 @@
 							class="input _repeatPassword" maxlength="16" tabindex="1">
 							<span id="repeatPasswordAlt" data-info="请再次输入密码">请再次输入密码</span></li>
 
-						<li class="telNumber"><span class="dis">手机号码:</span> <input
-							type="text" class="input _phoneNum" id="phone"
-							onblur="return phone();"
-							name="uphonenumber" tabindex="1" maxlength="11">
+						
 						<li class="agree"><input name="protocol" id="protocol"
 							type="checkbox" value="" checked="checked"> 我同意《<a
 							href="" target="_black">原力注册协议</a>》 <span id="protocolAlt"
@@ -116,20 +113,20 @@
 		var unickname = document.getElementById("userName").value;
 		var k = new RegExp("^(?!_)(?!.*?_$)[a-zA-Z0-9_\u4e00-\u9fa5]+$");
 		if (unickname == "" || unickname == null) {
-			alert("请输入名字");
+			//alert("请输入名字");
 			return false;
 		}
 		if (k.test(unickname) != true) {
-			alert("名字不能含有非法字符");
+			//alert("名字不能含有非法字符");
 			document.getElementById("userName").value = "";
 			return false;
 		}
 		if (unickname.length < 6) {
-			alert("用户名过短!!!");
+			//alert("用户名过短!!!");
 			return false;
 		}
 		if (unickname.length > 10) {
-			alert("用户名过长!!!");
+			//alert("用户名过长!!!");
 			return false;
 		}
 		$.post('${pageContext.request.contextPath}/users/findByName.do', {
@@ -146,15 +143,15 @@
 	function checkupassword(){
 		var password = document.getElementById("password").value;
 		if (password == "" || password == null) {
-			alert("请输入密码");
+			//alert("请输入密码");
 			return false;
 		}
 		if (password.length < 6) {
-			alert("密码过短!!!");
+			//alert("密码过短!!!");
 			return false;
 		}
 		if (password.length > 16) {
-			alert("密码过长!!!");
+			//alert("密码过长!!!");
 			return false;
 		}
 	}
@@ -162,19 +159,19 @@
 		var repeatPassword = document.getElementById("repeatPassword").value;
 		var password = document.getElementById("password").value;
 		if (repeatPassword == "" || repeatPassword == null) {
-			alert("请输入密码");
+			//alert("请输入密码");
 			return false;
 		}
 		if (repeatPassword.length < 6) {
-			alert("密码过短!!!");
+			//alert("密码过短!!!");
 			return false;
 		}
 		if (repeatPassword.length > 16) {
-			alert("密码过长!!!");
+			//alert("密码过长!!!");
 			return false;
 		}
 		if(password!=repeatPassword){
-			 window.alert("您输入的新密码与确认密码确认不一致"); 
+			 //alert("您输入的新密码与确认密码确认不一致"); 
 			 return false; 
 		}
 	}
@@ -182,11 +179,11 @@
 		var phone = document.getElementById("phone").value;
 		var e =/^1(3|4|5|7|8)\d{9}$/;
 		if(phone.length!=11){
-			alert("请输入11位的手机号码");
+			//alert("请输入11位的手机号码");
 			return false; 
 		}
 		if(e.test(phone)==false){
-			 alert("手机号码有误，请重填"); 
+			 //alert("手机号码有误，请重填"); 
 		     return false; 
 		}
 	}

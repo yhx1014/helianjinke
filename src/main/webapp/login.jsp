@@ -5,7 +5,8 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 	<head>
 		<title>币币袋</title>
 		<link href="<%=basePath%>css/common.css" rel="stylesheet" />
@@ -17,32 +18,43 @@
 
 <body>
 	<jsp:include page="head.jsp"></jsp:include>	
+	<style>
+		.registerCont #loginform  .input{padding-left:8px;width:400px;}
+		#LonginForm a{display:inline;background:none;color:#0d95dd;font-size:14px;}
+	</style>
 	<div class="wrap">
 		<form id="LonginForm" name="LonginForm" action="<%=basePath%>/users/login.do" method="post">
 			<div class="tdbModule loginPage">
 				<div class="registerTitle">用户登录</div>
 				<div class="registerCont">
-					<ul>
+					<ul id="loginform">
 						<li class="error"><span id="prrintInfo" data-info=""><span>${status}</span></span>
 						</li>
-						<li><span class="dis">用户名：</span><input class="input"
-							type="text" onblur="userNameJy()" name="unickname" id="userName"
-							maxlength="24" tabindex="1" autocomplete="off"> <a
-							id="sssdfasdfas" href="#" class="blue">注册用户</a></li>
-						<li><span class="dis">密码：</span><input class="input"
+						<li><span class="dis">用户名：</span>
+							<input class="input"
+							type="text" onblur="" name="unickname" id="userName"
+							maxlength="24" tabindex="1" autocomplete="off" placeholder="手机或邮箱" />
+						</li>
+						<li><span class="dis">密码：</span>
+							<input class="input"
 							type="password" name="upassword" id="password" maxlength="24"
-							tabindex="1" autocomplete="off"> <a href="#" id="pawHide"
-							class="blue">忘记密码</a></li>
-						<li><span class="dis">验证码：</span><input type="text"
-							onkeyup="verify(this)" id="jpgVerify" style="width: 166px;"
+							tabindex="1" autocomplete="off" placeholder="请输入密码" /> 
+						</li>
+						<li><span class="dis">验证码：</span>
+						<input type="text"
+							onkeyup="verify(this)" id="jpgVerify" style="width: 310px;"
 							class="input" name="yzm" data-msg="验证码" maxlength="4"
 							tabindex="1" autocomplete="off"> <img
 							src="<%=basePath%>/images/code.jpg" id="yanzheng" alt="点击更换验证码" title="点击更换验证码"
-							style="cursor: pointer;" class="valign"> <a
-							href="javascript:void(0);" onclick="changge();" class="blue">看不清？换一张</a>
+							style="cursor: pointer;" class="valign" onclick="this.src=''";>
 						</li>
-						<li class="btn"><input type="submit" class="radius1"
-							value="立即登录" ></li>
+						<li class="btn">
+							<input type="submit" class="radius1" style="width:400px;" value="立即登录">
+							<table width="400">
+								<tr><td width="300">还没有账号？ <a href="###" target="_blank">立即注册</a></td>
+								<td align="right"><a href="###" target="_blank">忘记密码?</a></td></tr>
+							</table>
+						</li>
 					</ul>
 				</div>
 			</div>
