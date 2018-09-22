@@ -32,7 +32,7 @@
 	</select>
 	<select id="byNameFindUsers" resultMap="BaseResultMap"
 		parameterType="org.ht.pojo.Users">
-		select * from Users where
+		select * from users where
 		unickname =
 		#{unickname,jdbcType=VARCHAR}
 	</select>

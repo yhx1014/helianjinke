@@ -151,13 +151,6 @@
 		</dependency>
 
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
 			<version>7.0</version>
@@ -181,7 +174,6 @@
 			<artifactId>junit</artifactId>
 			<version>4.11</version>
 			<!-- 表示开发的时候引入，发布的时候不会加载此包 -->
-			<scope>test</scope>
 		</dependency>
 		<!-- spring核心包 -->
 		<dependency>
@@ -407,6 +399,18 @@
 	</dependencies>
 	<!-- 解决JAX-RS (REST Web Services) 2.0 requires Java 1.6 or newer 问题 -->
 	<build>
+		<resources>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.properties</include>
+					<include>**/*.xml</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
