@@ -23,7 +23,7 @@
     
 <!--个人中心-->
 <div class="wrapper wbgcolor">
-			<div class="w1200 personal">
+		<div class="w1200 personal">
 		    	<div class="credit-ad"><img src="images/clist.jpg" width="1000" height="80"></div>
 		         <!-- 导航栏 -->
 		         <jsp:include page="left.jsp"></jsp:include>

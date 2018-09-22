@@ -56,7 +56,7 @@ b,h1,h2,h3,h4,h5{font-size:100%;font-weight:normal}
 .header .container{position:relative}
 .header .logo{height:35px;margin-top:17px;width:330px}
 .header .logo p{text-indent:0}
-.top-nav{position:absolute;right:0;top:33px;margin-bottom:0}
+.top-nav{position:absolute;left:150px;top:33px;margin-bottom:0}
 .top-nav li{float:left;margin-left:58px}
 .top-nav li.on a{color:#0d95dd}
 .top-nav a{font-size:16px;color:#3e3e3e;text-decoration:none}
