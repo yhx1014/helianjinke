@@ -68,7 +68,7 @@
 			window.location.href="<%=basePath%>query.do?id=${globaluser.uid}";
 		}else {
 			alert("请先登入!");
-			window.location.href="login.jsp";
+			window.location.href="<%=basePath%>login.jsp";
 		}
 	}
 </script>
