@@ -33,8 +33,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   					if(date=="0"){
   						alert("登陆失败！");
   					}else{
-  						//alert("登陆成功！");
-						
 						location.href="menu_S.do";
   					}
   				});
@@ -44,11 +42,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
 
   <body>
-
-      <!-- **********************************************************************************************************************************************************
-      MAIN CONTENT
-      *********************************************************************************************************************************************************** -->
-
 	  <div id="login-page">
 	  	<div class="container">
 
