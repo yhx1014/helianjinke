@@ -24,24 +24,29 @@
 <script type="text/javascript" src="<%=basePath%>script/placeholders.min.js"></script>
 
 </head>
-<body background="imagets/background.jpeg">
-	<!-- 导航栏 --><jsp:include page="head.jsp"></jsp:include>
-	<!--注册-->
+<body>
+	<jsp:include page="head.jsp"></jsp:include>
 	<div class="wrap">
 		<div class="tdbModule register">
-			<div class="registerTitle">注册账户</div>
-			<div class="registerLc1">
+			<div class="registerTitle">注册</div>
+<!-- 			<div class="registerLc1">
 				<p class="p1">填写账户信息</p>
 				<p class="p2">验证手机信息</p>
 				<p class="p3">注册成功</p>
-			</div>
+			</div> -->
+			
 			<div class="registerCont">
 				<form action="<%=basePath%>/users/insert.do" method="post">
 					<ul>
-						<li class="telNumber"><span class="dis">手机号码:</span> <input
+						<li class="telNumber"><span class="dis">手机号码:</span> 
+						<input
 							type="text" class="input _phoneNum" id="phone"
 							onblur="return phone();"
 							name="uphonenumber" tabindex="1" maxlength="11"></li>
+						<li><span class="dis">短信验证码:</span> <input type="text"
+							 onblur="return checkyanzhengma();"
+							 class="input _password"
+							maxlength="16" tabindex="1"></li>
 						<li><span class="dis">密码:</span> <input type="password"
 							 onblur="return checkupassword();"
 							 name="upassword" id="password" class="input _password"
@@ -52,12 +57,9 @@
 							onblur="return checkupassword1();" id="repeatPassword"
 							class="input _repeatPassword" maxlength="16" tabindex="1">
 							<span id="repeatPasswordAlt" data-info="请再次输入密码">请再次输入密码</span></li>
-
-						
 						<li class="agree"><input name="protocol" id="protocol"
-							type="checkbox" value="" checked="checked"> 我同意《<a
-							href="" target="_black">原力注册协议</a>》 <span id="protocolAlt"
-							data-info="请查看协议">请查看协议</span></li>
+							type="checkbox" value="" checked="checked"> 我已阅读并同意《<a
+							href="" target="_black">服务协议</a>》</li>
 						<li class="btn"><input type="submit" class="radius_Submit" /></li>
 					</ul>
 				</form>
