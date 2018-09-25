@@ -11,9 +11,6 @@
 		<title>币币袋</title>
 		<link href="<%=basePath%>css/common.css" rel="stylesheet" />
 		<link href="<%=basePath%>css/register.css" rel="stylesheet" type="text/css">
-		<script type="text/javascript" src="<%=basePath%>script/jquery.min.js"></script>
-		<script type="text/javascript" src="<%=basePath%>script/common.js"></script>
-		<script src="<%=basePath%>script/login.js" type="text/javascript"></script>
 	</head>
 
 <body>
@@ -23,7 +20,7 @@
 		#LonginForm a{display:inline;background:none;color:#0d95dd;font-size:14px;}
 	</style>
 	<div class="wrap">
-		<form id="LonginForm" name="LonginForm" action="<%=basePath%>/users/login.do" method="post">
+		<form id="LonginForm" name="LonginForm" action="<%=basePath%>users/login.do" method="post">
 			<div class="tdbModule loginPage">
 				<div class="registerTitle">用户登录</div>
 				<div class="registerCont">

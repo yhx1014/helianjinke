@@ -15,7 +15,6 @@
 		<script type="text/javascript" src="<%=basePath%>script/jquery.jcarousellite-1.0.1.js"></script>
 		<script src="<%=basePath%>script/index.js"></script>
 		<script type="text/javascript" src="<%=basePath%>script/common.js"></script>
-
 <title>币币袋</title>
 <style>
 	#scrollDiv {
@@ -54,9 +53,7 @@
 </head>
 
 <body>
-	<!-- 导航栏 -->
 	<jsp:include page="head.jsp"></jsp:include>	
-	<!--banner-->
 	<div class="flexslider">
 		<ul class="slides">
 			<c:forEach items="${sy}" var="nots">

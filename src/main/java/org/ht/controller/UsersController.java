@@ -104,7 +104,7 @@ public class UsersController {
 		Certificat.insert(cer);
 		model.addAttribute("unickname", unickname);
 		System.out.println(users.getUphonenumber());
-		return "register_succ";
+		return "index";
 	}
 
 	// 登录 start
