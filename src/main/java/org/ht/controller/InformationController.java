@@ -49,17 +49,6 @@ public class InformationController {
 		model.addAttribute("user", user);
 		return "personalpage";
 	}
-
-	@RequestMapping("other")
-	public String other(@RequestParam(value = "id", required = false) String id, Model model) {
-		Map<String, Object> map = new HashMap<>();
-		map.put("id", id);
-		Users user = infor.query(map);
-		model.addAttribute("user", user);
-		return "index";
-	}
-
-	
 	// 账户信息查询
 	@RequestMapping("find")
 	public String find(@RequestParam(value = "id", required = false) String id, Model model,

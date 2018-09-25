@@ -8,36 +8,31 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>  
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>币币袋</title>
-<meta name="keywords" content="" />
-<meta name="description" content="" />
-<link href="<%=basePath%>css/common.css" rel="stylesheet" />
-<link rel="stylesheet" type="text/css" href="<%=basePath%>css/user.css" />
-<link rel="stylesheet" type="text/css" href="<%=basePath%>css/jquery.datetimepicker.css"/>
-<script type="text/javascript" src="<%=basePath%>script/jquery.min.js"></script>
-<script type="text/javascript" src="<%=basePath%>script/common.js"></script>
-<script src="<%=basePath%>script/user.js" type="text/javascript"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>币币袋</title>
+	<link href="<%=basePath%>css/common.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="<%=basePath%>css/user.css" />
+	<link rel="stylesheet" type="text/css" href="<%=basePath%>css/jquery.datetimepicker.css"/>
+	<script type="text/javascript" src="<%=basePath%>script/jquery.min.js"></script>
+	<script type="text/javascript" src="<%=basePath%>script/common.js"></script>
+	<script src="<%=basePath%>script/user.js" type="text/javascript"></script>
 </head>
 <body>
- <!-- 导航栏 --><jsp:include page="head.jsp"></jsp:include>	
-<!--个人中心-->
+    <jsp:include page="head.jsp"></jsp:include>	
 <div class="wrapper wbgcolor">
   <div class="w1200 personal">
-    <div class="credit-ad"><img src="<%=basePath%>images/clist.jpg" width="1200" height="96"></div>
-    <!-- 导航栏 --><jsp:include page="left.jsp"></jsp:include>	
+    <jsp:include page="left.jsp"></jsp:include>	
     <style>
 		        /*获取验证码*/
 				a.hqyzm{ float:left; background:#ea524a; width:125px; height:35px; line-height:35px; font-size:14px; margin-left:6px; text-align:center; color:#fff; border-radius:2px;}
 				a.hqyzm:hover{color:#fff;background:#ff8882;}
 				/*获取验证码后在倒计时中的样式*/
 				a.hqyzmAfter{float:left; background:#c0c0c0; width:125px; height:35px; line-height:35px; font-size:14px; margin-left:6px; text-align:center; color:#fff; border-radius:2px;}
-	   </style>
+	</style>
+	
     <script type="text/javascript">
-			//<![CDATA[
 			    var flag = false;
 				function sCode(xhr, status, args, args2) {
 					if (!args.validationFailed) {
@@ -96,7 +91,6 @@
 					$("#mask").css("display","none");
 					$("#"+op).css("display","none");
 			}
-			//]]>
 		</script>
     <input id="investorValiCodeError" type="hidden" name="investorValiCodeError">
     <div class="personal-main">

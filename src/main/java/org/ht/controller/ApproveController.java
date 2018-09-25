@@ -7,7 +7,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import org.ht.pojo.Approveitem;
 import org.ht.pojo.Certifrecord;
 import org.ht.pojo.Clapplyfor;
@@ -291,7 +290,6 @@ public class ApproveController {
 	
 	@RequestMapping("infoAuditByuser")
 	private String infoAuditByuser(Model model,Certifrecord cr){
-		//System.out.println("userid==="+cr.getCruserid());
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		List<Userauditor> userauditors = userauditorService.queryUseraubitor(parameters);
 		parameters.put("cruserid",cr.getCruserid());
@@ -300,7 +298,6 @@ public class ApproveController {
 		Users user =  informationService.query(parameters);
 		
 		List<Approveitem> approvesall = approveService.queryApproves(parameters);
-		//System.out.println("user==="+user.getUname()+"  approvesall==="+approvesall.size()+"  certifrecords==="+certifrecords.size());
 		model.addAttribute("certrecod",certifrecords);
 		model.addAttribute("user",user);
 		model.addAttribute("approve",approvesall);
@@ -313,8 +310,6 @@ public class ApproveController {
 	@ResponseBody
 	private String updateInfoAudit(Certifrecord cr){
 		String code="200";
-		//"cruserid":userid,"craiid":crtype,"crviewpoint":viewpoint,"crintegral":integral,"crispass":ispass,"crauditor":auditor
-		//System.out.println("cruserid=="+cr.getCruserid()+"   craiid=="+cr.getCraiid()+"   crviewpoint=="+cr.getCrviewpoint()+"   crintegral=="+cr.getCrintegral()+"   crispass=="+cr.getCrispass()+"   crauditor=="+cr.getCrauditor());
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		Date date = new Date();
 		parameters.put("cruserid",cr.getCruserid());

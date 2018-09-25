@@ -26,7 +26,6 @@
 <!--个人中心-->
 <div class="wrapper wbgcolor">
   <div class="w1200 personal">
-    <div class="credit-ad"><img src="<%=basePath%>images/clist.jpg" width="1200" height="96"></div>
 	<jsp:include page="left.jsp"></jsp:include>
     <style type="text/css">
 		.invest-tab .on  a{color:#fff;}

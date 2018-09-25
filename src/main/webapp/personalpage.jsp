@@ -8,55 +8,44 @@
 			+ path + "/";
 %>   
 <html>
-<head>
-<title>币币袋</title>
-	<link href="<%=basePath%>css/common.css" rel="stylesheet" />
-	<link rel="stylesheet" type="text/css" href="<%=basePath%>css/user.css" />
-	<link rel="stylesheet" type="text/css" href="<%=basePath%>css/jquery.datetimepicker.css"/>
-	<script type="text/javascript" src="<%=basePath%>script/jquery.min.js"></script>
-	<script type="text/javascript" src="<%=basePath%>script/common.js"></script>
-	<script src="<%=basePath%>script/user.js" type="text/javascript"></script>
-</head>
+	<head>
+		<title>币币袋</title>
+		<link href="<%=basePath%>css/common.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="<%=basePath%>css/user.css" />
+		<link rel="stylesheet" type="text/css" href="<%=basePath%>css/jquery.datetimepicker.css"/>
+		<script type="text/javascript" src="<%=basePath%>script/jquery.min.js"></script>
+		<script type="text/javascript" src="<%=basePath%>script/common.js"></script>
+		<script src="<%=basePath%>script/user.js" type="text/javascript"></script>
+	</head>
 <body>
- <!-- 导航栏 -->
- <jsp:include page="head.jsp"></jsp:include>	
-<!--个人中心-->
+	<jsp:include page="head.jsp"></jsp:include>	
 <div class="wrapper wbgcolor">
   <div class="w1200 personal">
-    <%-- <div class="credit-ad"><img src="<%=basePath%>/images/clist.jpg" width="1200" height="96"></div> --%>
-	 <!-- 导航栏 -->
-	 <jsp:include page="left.jsp"></jsp:include>
-    <div class="personal-main">
-    <link rel="stylesheet" type="text/css" href="css/fileupload.less.css"/>
-    <style>
-		.ui-fileupload-choose{
-			background:none;
-			width: 90px; height: 90px;
-			border:0px none;
-		}
-		.ui-fileupload-choose input{
-			width:100%;height:100%;
-		}
-		.ui-icon{
-			background:none;
-			width:0px;height:0px;
-		} 
-	</style>
+	<jsp:include page="left.jsp"></jsp:include>
+    	<div class="personal-main">
+	    <style>
+			.ui-fileupload-choose{
+				background:none;
+				width: 90px; height: 90px;
+				border:0px none;
+			}
+			.ui-fileupload-choose input{
+				width:100%;height:100%;
+			}
+			.ui-icon{
+				background:none;
+				width:0px;height:0px;
+			} 
+		</style>
     
-
       <div class="pmain-profile">
-        <div class="pmain-welcome"> <span class="fl"><span id="outLogin">晚上好，</span>${user.unickname} 休息一下，让心情放松一下~</span> 
-	        <span class="fr">注册时间：
-	         <fmt:formatDate value="${user.uregisterdate}" pattern="yyyy-MM-dd HH:mm:ss"></fmt:formatDate>
-	        </span>
-        </div>
         <div class="pmain-user">
           <div class="user-head"> <span id="clickHeadImage" class="head-img" title="点击更换头像">
               <form  method="post" action="">
               	<input type="hidden" name="userPhotoUploadForm" value="userPhotoUploadForm">
-              	<span id="userPhotoUploadForm:photo"><img id="userPhotoUploadForm:photoImage" src="images/touxiang.png" alt="" style="width:88px;height:88px;z-index:0;"> <i class="headframe" style="z-index:0;"></i>-
-              
-              <div id="userPhotoUploadForm:shangchuan-btn" class="ui-fileupload ui-widget" style="z-index:0;">
+              	<span id="userPhotoUploadForm:photo">
+              		<img id="userPhotoUploadForm:photoImage" src="images/head.png" alt="" style="width:88px;height:88px;z-index:0;"> <i class="headframe" style="z-index:0;"></i>-
+              		<div id="userPhotoUploadForm:shangchuan-btn" class="ui-fileupload ui-widget" style="z-index:0;">
                 <div class="ui-fileupload-buttonbar ui-corner-top">
 	                 <span class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left ui-fileupload-choose" role="button"><span class="ui-button-icon-left ui-icon ui-c ui-icon-plusthick"></span><span class="ui-button-text ui-c"></span>
 						<!--<input type="file" id="userPhotoUploadForm:shangchuan-btn_input" name="userPhotoUploadForm:shangchuan-btn_input" style="z-index:0;">--> 
@@ -88,32 +77,6 @@
           </ul>
         </div>
       </div>
-      <script type="text/javascript">
-			       $(function(){
-			    	   $("#clickHeadImage").click(function(){
-			    		   $(this).find('span').removeClass('ui-state-hover');
-			    		   document.getElementById("userPhotoUploadForm:shangchuan-btn_input").click();
-			    	   });
-			    	   var safeLevel = "低";
-			    	   if(safeLevel=="高"){
-			    		   $(".pmain-user .user-info li .safe-level .onlevel").css("background-color","#f1483c");
-			    	   }
-			    	   
-			    	   $("#clickHeadImage span").hover(function(){
-			    		   $(this).removeClass('ui-state-hover');
-			    	   });
-			    	   
-			    	   var myDate = new Date();
-			    	   var h = myDate.getHours();
-			    	   if(h>11 && h<19){
-			    	   	 $("#outLogin").html("下午好，");
-			    	   }else if(h>18){
-			    	   	 $("#outLogin").html("晚上好，");
-			    	   }else{
-			    	   	 $("#outLogin").html("上午好，");
-			    	   }
-			       });
-		</script>
       <div class="pmain-connent">
         <div id="pmain-contab" class="pmain-contab">
           <ul>
@@ -128,12 +91,6 @@
             <div class="pmain-contitle"> <span class="pmain-titledate">计划回款时间</span><span class="pmain-titleproject">项目</span><span class="pmain-titletype">类型</span><span class="pmain-titlemoney">回款金额</span> </div>
             <ul style="float:left;">
               <li><span class="pmain-titledate">2015-10-20</span><span class="pmain-titleproject">宝马汽车借贷业务</span><span class="pmain-titletype">债权转让</span><span class="pmain-titlemoney">10.00</span></li>
-              <li><span class="pmain-titledate">2015-10-20</span><span class="pmain-titleproject">宝马汽车借贷业务</span><span class="pmain-titletype">债权转让</span><span class="pmain-titlemoney">10.00</span></li>
-			  <li><span class="pmain-titledate">2015-10-20</span><span class="pmain-titleproject">宝马汽车借贷业务</span><span class="pmain-titletype">债权转让</span><span class="pmain-titlemoney">10.00</span></li>
-              <!--<div style=" width:
-										760px;height:200px;padding-top:100px; text-align:center;color:#d4d4d4; font-size:16px;">
-										 <img src="<%=basePath%>/images/nondata.png" width="60" height="60"><br><br>
-										   暂无回款计划</div>-->
             </ul>
             <div class="pmain-morebtn" style="border-top:0;margin-top:0"></div>
           </div>
