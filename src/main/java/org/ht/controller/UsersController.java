@@ -84,10 +84,14 @@ public class UsersController {
 		//AccountTest at = new AccountTest();
 		//String accountId = at.createAccount();
 		String accountId="0x000";
-		users.setUnickname(unickname);
+		users.setUnickname("yuhongxue");
+		//users.setUnickname(unickname);
 		users.setUpassword(upassword);
 		users.setUphonenumber(uphonenumber);
 		users.setEthaddress(accountId);
+		
+		System.out.println(users.getUphonenumber());
+		
 		
 		// 将数据添加到数据库
 		usersservice.insert(users);
@@ -103,6 +107,7 @@ public class UsersController {
 		Certificat.insert(cer);
 		
 		model.addAttribute("unickname", unickname);
+		System.out.println(users.getUphonenumber());
 		return "register_succ";
 	}
 
