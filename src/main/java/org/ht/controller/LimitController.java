@@ -2,8 +2,6 @@ package org.ht.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.ht.pojo.Dept;

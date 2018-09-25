@@ -19,11 +19,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping("users")
 public class UsersController {
-
 	@Autowired
 	private UsersService usersservice;
 	@Autowired
-	
 	@Resource
 	private CertificationService Certificat;
 
@@ -92,7 +90,6 @@ public class UsersController {
 		
 		System.out.println(users.getUphonenumber());
 		
-		
 		// 将数据添加到数据库
 		usersservice.insert(users);
 		Certification cer = new Certification();
@@ -105,7 +102,6 @@ public class UsersController {
 		cer.setCpaid("0");
 		cer.setCtotalmoney("0");
 		Certificat.insert(cer);
-		
 		model.addAttribute("unickname", unickname);
 		System.out.println(users.getUphonenumber());
 		return "register_succ";
@@ -129,7 +125,6 @@ public class UsersController {
 			return "login";
 		} else {
 			// 登录成功
-
 			model.addAttribute("users", user);
 			// 将登入信息保存到session中
 			session.setAttribute("globaluser", user);

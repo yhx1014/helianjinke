@@ -61,8 +61,9 @@
 		<ul class="slides">
 			<c:forEach items="${sy}" var="nots">
 				<li
-				style="background-image: url(${nots.noticepicture}); width: 100%; float: left; margin-right: -100%; position: relative; opacity: 0; display: block; z-index: 1; background-position: 50% 0px; background-repeat: no-repeat no-repeat;"
-				class=""><a href="http://${nots.noticecontent }" target="_blank"></a></li>
+					style="background-image: url(${nots.noticepicture}); width: 100%; float: left; margin-right: -100%; position: relative; opacity: 0; display: block; z-index: 1; background-position: 50% 0px; background-repeat: no-repeat no-repeat;"
+					class=""><a href="http://${nots.noticecontent }" target="_blank"></a>
+				</li>
 			</c:forEach>
 		</ul>
 	</div>
