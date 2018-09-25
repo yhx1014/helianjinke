@@ -1,7 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  
-<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
  <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -24,9 +23,7 @@
 <!--个人中心-->
 <div class="wrapper wbgcolor">
 		<div class="w1200 personal">
-		    	<div class="credit-ad"><img src="images/clist.jpg" width="1000" height="80"></div>
-		         <!-- 导航栏 -->
-		         <jsp:include page="left.jsp"></jsp:include>
+		   <jsp:include page="left.jsp"></jsp:include>
 		<script>
 			$(function(){
 			    $('.quick-tit').click(function(){

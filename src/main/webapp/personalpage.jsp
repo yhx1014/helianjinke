@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
  <%
@@ -10,19 +9,13 @@
 %>   
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-
-
 <title>币币袋</title>
-<meta name="keywords" content="" />
-<meta name="description" content="" />
-<link href="<%=basePath%>css/common.css" rel="stylesheet" />
-<link rel="stylesheet" type="text/css" href="<%=basePath%>css/user.css" />
-<link rel="stylesheet" type="text/css" href="<%=basePath%>css/jquery.datetimepicker.css"/>
-<script type="text/javascript" src="<%=basePath%>script/jquery.min.js"></script>
-<script type="text/javascript" src="<%=basePath%>script/common.js"></script>
-<script src="<%=basePath%>script/user.js" type="text/javascript"></script>
-
+	<link href="<%=basePath%>css/common.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="<%=basePath%>css/user.css" />
+	<link rel="stylesheet" type="text/css" href="<%=basePath%>css/jquery.datetimepicker.css"/>
+	<script type="text/javascript" src="<%=basePath%>script/jquery.min.js"></script>
+	<script type="text/javascript" src="<%=basePath%>script/common.js"></script>
+	<script src="<%=basePath%>script/user.js" type="text/javascript"></script>
 </head>
 <body>
  <!-- 导航栏 -->
@@ -30,14 +23,11 @@
 <!--个人中心-->
 <div class="wrapper wbgcolor">
   <div class="w1200 personal">
-    <div class="credit-ad"><img src="<%=basePath%>/images/clist.jpg" width="1200" height="96"></div>
+    <%-- <div class="credit-ad"><img src="<%=basePath%>/images/clist.jpg" width="1200" height="96"></div> --%>
 	 <!-- 导航栏 -->
 	 <jsp:include page="left.jsp"></jsp:include>
-	 
     <div class="personal-main">
-
     <link rel="stylesheet" type="text/css" href="css/fileupload.less.css"/>
-    
     <style>
 		.ui-fileupload-choose{
 			background:none;

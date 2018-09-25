@@ -27,7 +27,6 @@ import org.ht.util.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-//import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -93,10 +92,6 @@ public class ApproveController {
 		parameters.put("pandc", pagerow);
 		parameters.put("candp", candp);
 		List<Approveitem> approves = approveService.queryApproves(parameters);
-		// for (Approveitem approveitem : approves) {
-		// System.out.println(approveitem.getApproveitemInfo());
-		// }
-
 		model.addAttribute("approveitems", approves);
 		model.addAttribute("totalrow", totalrow);
 		model.addAttribute("currpages", currpages);
@@ -113,8 +108,6 @@ public class ApproveController {
 
 	@RequestMapping("addApprove")
 	private ModelAndView addApprove(Approveitem ai) {
-		// System.out.println("进来了abandonApprove
-		// Approveitem=="+ai.getApproveitemInfo());
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		parameters.put("ainame", ai.getAiname());
 		parameters.put("aitype", ai.getAitype());
@@ -142,9 +135,6 @@ public class ApproveController {
 
 	@RequestMapping("updateApprove")
 	private ModelAndView updateApprove(Approveitem ai) {
-
-		// System.out.println("进来了abandonApprove aiid=="+ai.getAiid()+"
-		// aistate=="+ai.getAistate());
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		parameters.put("aiid", ai.getAiid());
 		parameters.put("ainame", ai.getAiname());
@@ -153,7 +143,7 @@ public class ApproveController {
 		approveService.updateApproves(parameters);
 		return new ModelAndView("redirect:traverseApproves.do");
 	}
-	//认证项的管理 头部
+//认证项的管理 头部
 //==============================================================================
 	
 //==============================================================================
@@ -186,7 +176,6 @@ public class ApproveController {
 			
 		}
 		//查询出未分配审核人1的积分，和待审核条数
-		
 		List<Certifrecord> cr = null;
 		
 		if(certifrecords!=null){
@@ -236,7 +225,6 @@ public class ApproveController {
 	@ResponseBody
 	public String affirmCrauditor(Userauditor ua){
 		String code="200";
-		//System.out.println("进来了affirmCrauditor  auditorid=="+ua.getUauditorid()+"  auditor=="+ua.getUauditor()+" userid=="+ua.getUserid()+"  username=="+ua.getUsername());
 		Map<String, Object> parameters = new HashMap<String, Object>();
 			parameters.put("userid",ua.getUserid());
 			parameters.put("username",ua.getUsername());
@@ -308,7 +296,6 @@ public class ApproveController {
 		List<Userauditor> userauditors = userauditorService.queryUseraubitor(parameters);
 		parameters.put("cruserid",cr.getCruserid());
 		parameters.put("id",cr.getCruserid());
-		parameters.put("craiid",cr.getCraiid());
 		List<Certifrecord> certifrecords = certifrecordService.queryCertifrecord(parameters);
 		Users user =  informationService.query(parameters);
 		
@@ -343,6 +330,7 @@ public class ApproveController {
 		}
 		return code;
 	}
+	
 	@RequestMapping("approveStatistics")
 	private String approveStatistics(Model model, Certifrecord cr,@RequestParam(value = "currpage", required = false) String currpage){
 		int pagerow = 5;// 每页5行
@@ -375,9 +363,6 @@ public class ApproveController {
 				}
 			}
 			
-		
-		
-		
 		Integer candp = (currpages - 1) * pagerow;
 		parameters.put("pandc", pagerow);
 		parameters.put("candp", candp);
@@ -391,10 +376,10 @@ public class ApproveController {
 		model.addAttribute("totalpage", totalpage);
 		model.addAttribute("username",cr.getCrusername());
 		model.addAttribute("apid", cr.getCraiid());
-		//System.out.println("userssize=="+users.size()+"  certifrecordssize=="+certifrecords.size()+"  approvesallsize=="+approvesall.size());
 		return str+"approvestatistics";
 	}
-	//资料认证 end
+	
+//资料认证 end
 //============================================================================================================================================	
 	
 //============================================================================================================================================	
@@ -475,9 +460,7 @@ public class ApproveController {
 		String code="200";
 		int updateCode =0;
 		updateCode = clapplyforService.updateClapplyforState(BeanUtils.toMap(ca));
-		//System.out.println("clpid=="+ca.getClpid()+"   clpubcid=="+ca.getClpubcid()+"   clpporiginal=="+ca.getClpporiginal()+"   clpf=="+ca.getClpf()+"   clpstate=="+ca.getClpstate());
 		if(ca.getClpstate().equals("1")){//审核通过，修改申请表状态，增加信用额度
-			
 			Creditlimit creditlimit = new Creditlimit();
 			creditlimit.setCllimit(ca.getClpporiginal()+ca.getClpf());
 			creditlimit.setCrbankcard(ca.getClpubcid());

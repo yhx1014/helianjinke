@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
  <%
@@ -10,16 +9,12 @@
 %>   
 
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-</head>
 <body>
-
 <div id="personal-left" class="personal-left">
       <ul>
         <li class="pleft-cur"><span><a href="query.do?id=${user.uid}"><i class="dot dot1"></i>账户总览</a></span></li>
         <li><span><a style="font-size:14px;text-align:center;width:115px;padding-right:35px;" href="">资金记录</a></span></li>
-        <li><span><a style="font-size:14px;text-align:center;width:115px;padding-right:35px;" href="<%=basePath %>invest/investRecord.do">投资记录</a></span></li>
+        <li><span><a style="font-size:14px;text-align:center;width:115px;padding-right:35px;" href="<%=basePath%>invest/investRecord.do">投资记录</a></span></li>
         <li><span><a style="font-size:14px;text-align:center;width:115px;padding-right:35px;" href="">回款计划</a></span></li>
         <li class=""><span><a href="<%=basePath%>thirdparty.jsp"><i class="dot dot02"></i>身份证信息</a> </span> </li>
         <c:if test="${globaluser.ucertnumber==null}">

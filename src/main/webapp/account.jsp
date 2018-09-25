@@ -28,7 +28,6 @@
 
 <div class="wrapper wbgcolor">
   <div class="w1200 personal">
-    <div class="credit-ad"><img src="images/clist.jpg" width="1200" height="96"></div>
    	    <jsp:include page="left.jsp"></jsp:include>	
     <script type="text/javascript">
 				function showSpan(op){

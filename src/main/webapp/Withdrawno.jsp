@@ -21,7 +21,6 @@
 	<jsp:include page="head.jsp"></jsp:include>
 	<div class="wrapper wbgcolor">
     <div class="w1200 personal">
-    <div class="credit-ad"><img src="images/clist.jpg" width="1200" height="96"></div>
     <!-- 导航栏 -->
     <jsp:include page="left.jsp"></jsp:include>
     <script>
