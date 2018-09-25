@@ -87,9 +87,6 @@ public class UsersController {
 		users.setUpassword(upassword);
 		users.setUphonenumber(uphonenumber);
 		users.setEthaddress(accountId);
-		
-		System.out.println(users.getUphonenumber());
-		
 		// 将数据添加到数据库
 		usersservice.insert(users);
 		Certification cer = new Certification();

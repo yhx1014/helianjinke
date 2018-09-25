@@ -96,30 +96,17 @@
           </div>
           <div class="pmain-conmain2" style=" display:none;">
             <div class="pmain-contitle"> <span class="pmain-titledate">交易时间</span><span class="pmain-w100">交易类型</span><span class="pmain-w120">交易金额</span><span class="pmain-w120">余额</span><span class="pmain-w200">备注</span> </div>
-            <ul style="float:left;">
-              <li><span class="pmain-titledate">2015-10-20</span><span class="pmain-w100">债权转让</span><span class="pmain-w120 pmain-money">10.00</span><span class="pmain-w120 pmain-money">10.00</span><span class="pmain-w200">备注</span></li>
-              <!--<div style=" width:760px;height:200px;padding-top:100px; text-align:center;color:#d4d4d4; font-size:16px;">
-										 <img src="<%=basePath%>/images/nondata.png" width="60" height="60"><br><br>
-										   暂无资金记录</div>-->
-            </ul>
             <div class="pmain-morebtn" style="border-top:0;margin-top:0"></div>
-          </div>
+             </div>
           <div class="pmain-conmain3" style=" display:none;">
             <div class="pmain-contitle"> <span class="pmain-titledate">交易时间</span><span class="pmain-w210">项目</span><span class="pmain-w80">状态</span><span class="pmain-whb200">我的投资</span><span class="pmain-whb110">我的收益</span> </div>
-            <ul style="float:left;">
-              <li><span class="pmain-titledate">2015-10-20</span><span class="pmain-w210">债权转让</span><span class="pmain-w80 pmain-money">10.00</span><span class="pmain-whb200 pmain-money">10.00</span><span class="pmain-whb110">备注</span></li>
-              <!--	<div style=" width:760px;height:200px;padding-top:100px; text-align:center;color:#d4d4d4; font-size:16px;">
-										    <img src="<%=basePath%>/images/nondata.png" width="60" height="60"><br><br>
-										   暂无投资记录</div>-->
-            </ul>
-            <div class="pmain-morebtn" style="border-top:0;margin-top:0"></div>
           </div>
         </div>
       </div>
     </div>
-    <div class="clear"></div>
-  </div>
 </div>
+
+
 <!--网站底部-->
 	 <!-- 导航栏 --><jsp:include page="bottom.jsp"></jsp:include>	
 
