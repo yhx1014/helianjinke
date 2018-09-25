@@ -12,7 +12,7 @@ public interface UsersService {
 	List<Users> userList();
 	int insert(Users users);
     List<Users> queryUserslimits(String unickname);
-
+    
 	Users byNameFindUsers(@Param("unickname") String unickname, @Param("upassword") String upassword);
 	/**
 	 * @author

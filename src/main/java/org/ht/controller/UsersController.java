@@ -144,7 +144,6 @@ public class UsersController {
 	@RequestMapping("findByName")
 	@ResponseBody
 	public int findByName(@RequestParam(value = "unickname", required = false) String unickname){
-		System.out.println("unickname"+unickname);
 		List<Users> ulist = usersservice.queryUserslimits(unickname);
 		if(ulist.size()>0){
 			return 2;
@@ -152,5 +151,4 @@ public class UsersController {
 			return 1;
 		}
 	}
-
 }
