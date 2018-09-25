@@ -3,17 +3,13 @@ package org.ht.service.impl;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import org.ht.dao.BorrowmoneyDao;
-import org.ht.pojo.Approveitem;
 import org.ht.pojo.Borrowmoney;
-import org.ht.pojo.Withdrawal;
 import org.ht.service.BorrowmoneyService;
 import org.ht.util.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
@@ -53,6 +49,7 @@ public class BorrowmoneyServiceImpl implements BorrowmoneyService {
 		pageNo = pageNo == null ? 1 : pageNo;
 		pageSize = pageSize == null ? 3 : pageSize;
 		PageHelper.startPage(pageNo, pageSize);
+		@SuppressWarnings("unchecked")
 		List<Borrowmoney> list = dao.findList(BeanUtils.toMap(params));
 
 		PageInfo<Borrowmoney> page = new PageInfo<Borrowmoney>(list);

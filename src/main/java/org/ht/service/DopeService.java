@@ -10,7 +10,7 @@ public interface DopeService {
 	//分页查询
 	public List<Dope> findDope(Map<String, Object> map);
 	//查询总行数
-	public List total();
+	public List<?> total();
 	//删除
 	public void batchDeletes(Integer did);
 }

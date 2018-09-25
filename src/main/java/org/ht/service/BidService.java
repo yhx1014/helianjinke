@@ -2,8 +2,6 @@ package org.ht.service;
 
 import java.util.List;
 
-import org.ht.pojo.Borrowcord;
-import org.ht.pojo.Borrowmoney;
 import org.ht.pojo.InvestInfo;
 import org.ht.pojo.Product;
 
