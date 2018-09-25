@@ -81,10 +81,8 @@ public class UsersController {
 		@RequestParam(value = "ethaddress", required = false) String ethaddress)
 	
 	{
-        
 		//AccountTest at = new AccountTest();
 		//String accountId = at.createAccount();
-		
 		String accountId="0x000";
 		users.setUnickname(unickname);
 		users.setUpassword(upassword);
@@ -93,7 +91,6 @@ public class UsersController {
 		
 		// 将数据添加到数据库
 		usersservice.insert(users);
-		
 		Certification cer = new Certification();
 		cer.setCserial(users.getUid()+"");
 		cer.setCbalance("0");
@@ -104,8 +101,8 @@ public class UsersController {
 		cer.setCpaid("0");
 		cer.setCtotalmoney("0");
 		Certificat.insert(cer);
-		model.addAttribute("unickname", unickname);
 		
+		model.addAttribute("unickname", unickname);
 		return "register_succ";
 	}
 
@@ -134,11 +131,11 @@ public class UsersController {
 			return "index";
 		}
 	}
+	
 	// 登录 end
 	// 退出start
 	@RequestMapping("exit")
 	public String exit(HttpSession session) {
-
 		Enumeration<?> em = session.getAttributeNames();
 		while (em.hasMoreElements()) {
 			session.removeAttribute(em.nextElement().toString());

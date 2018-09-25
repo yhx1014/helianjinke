@@ -19,8 +19,8 @@
 <script type="text/javascript" src="<%=basePath%>script/common.js"></script>
 </head>
 <body>
- <!-- 导航栏 --><jsp:include page="head.jsp"></jsp:include>
 
+<!-- 导航栏 --><jsp:include page="head.jsp"></jsp:include>
 <!--注册-->
 <div class="wrap">
   <div class="tdbModule register">

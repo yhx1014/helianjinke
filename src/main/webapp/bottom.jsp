@@ -87,17 +87,5 @@
 		<div style="color:#fff;text-align:center;font-size:12px;">备案号,slfdjsldjfls基拉数据的备案号,slfdjsldjfls基拉数据的</div>
 	</div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
 <script src="<%=basePath%>script/jquery.datetimepicker.js" type="text/javascript"></script>
 <script src="<%=basePath%>script/datepicker.js" type="text/javascript"></script>
