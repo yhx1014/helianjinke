@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
- <%
+<%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
 			+ request.getServerName() + ":" + request.getServerPort()
@@ -19,7 +19,7 @@
 	</head>
 <body>
 	<jsp:include page="head.jsp"></jsp:include>	
-<div class="wrapper wbgcolor">
+  <div class="wrapper wbgcolor">
   <div class="w1200 personal">
 	<jsp:include page="left.jsp"></jsp:include>
     	<div class="personal-main">
@@ -105,10 +105,6 @@
       </div>
     </div>
 </div>
-
-
-<!--网站底部-->
-	 <!-- 导航栏 --><jsp:include page="bottom.jsp"></jsp:include>	
-
+	 <jsp:include page="bottom.jsp"></jsp:include>	
 </body>
 </html>
