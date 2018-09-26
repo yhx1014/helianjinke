@@ -146,14 +146,6 @@ public class InvestController {
 				}
 			}
 			
-			/*System.out.println("session中的标主键 " + hs.getAttribute("biaoId") + ""
-					+ "session中的利率开始点  " + hs.getAttribute("startR")
-					+ "session中的期限开始点" + hs.getAttribute("startT")
-					+ "session中的还款方式" + hs.getAttribute("way"));
-			System.out.println("map中的标主键 " + map.get("biaoId") + "利率开始点 "
-					+ map.get("startR") + "期限开始点 " + map.get("startT")
-					+ "还款方式 " + map.get("way"));*/
-			
 			if (hs != null) {
 				map.put("pincome", hs.getAttribute("pincome"));
 				map.put("pcount", hs.getAttribute("pcount"));
@@ -279,19 +271,15 @@ public class InvestController {
 					}
 				}
 			}
-			
 			parameters.remove("biaoId");
 			parameters.put("pcount", "");    //推荐项目期限一个月以下
 			parameters.put("startT", "0");
 			parameters.put("endT", "30");
-			
 			List<Product> tjl = proS.selList(parameters);
-			
 			Map<String, Object> map = new HashMap<String, Object>();
 			map.put("rowName", "inmoney");    // 查出投资总额
 			map.put("tableName", "investinfo");
 			Double tm = investS.sumMoney(map);
-			
 			application = req.getSession().getServletContext();
 			application.setAttribute("proList", proList);
 			application.setAttribute("biaoList", list);

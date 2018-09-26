@@ -6,9 +6,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
-
 import org.ht.pojo.Approveitem;
 import org.ht.pojo.Certification;
 import org.ht.pojo.Certifrecord;
@@ -42,7 +40,9 @@ public class InformationController {
 
 	// 我的账户
 	@RequestMapping("query")
-	public String query(@RequestParam(value = "id", required = false) String id, Model model) {
+	public String query(
+			@RequestParam(value = "id", required = false) String id, Model model) 
+	{
 		Map<String, Object> map = new HashMap<>();
 		map.put("id", id);
 		Users user = infor.query(map);
