@@ -7,7 +7,7 @@
 %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <title>币币袋</title>
@@ -49,8 +49,6 @@
 
 <body>
 	<jsp:include page="head.jsp"></jsp:include>
-
-
 <div class="bor_con_wper">
 	  <div class="bor_con px1000">
 	  	    <div class="bor_detail">

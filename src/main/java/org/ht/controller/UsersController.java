@@ -1,8 +1,6 @@
 package org.ht.controller;
 import java.util.Enumeration;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import org.ht.pojo.Certification;
@@ -24,53 +22,7 @@ public class UsersController {
 	@Autowired
 	@Resource
 	private CertificationService Certificat;
-
-	@RequestMapping("list")
-	public String list(Model model,Users users,
-			@RequestParam(value = "currpage", required = false) String currpage,
-			@RequestParam(value = "unickname", required = false) String unickname) {
-		// 查询所有
-		int pagerow = 6;// 每页5行
-		int currpages = 1;// 当前页
-		int totalpage = 0;// 总页数
-		int totalrow = 0;// 总行数
-
-		Map<String, Object> parameters = new HashMap<String, Object>();
-		totalrow = usersservice.userList().size();//获取总行数
-		
-		if (currpage != null && !"".equals(currpage)) {
-			currpages = Integer.parseInt(currpage);
-		}
-		totalpage = (totalrow + pagerow - 1) / pagerow;
-
-		if (currpages < 1) {
-			currpages = 1;
-		}
-		if (currpages > totalpage) {
-			currpages = totalpage;
-		}
-		Integer candp = (currpages - 1) * pagerow;
-		parameters.put("pandc", pagerow);
-		parameters.put("candp", candp);
-		List<Users> ulist = usersservice.queryUserslimits(parameters);
-		if (unickname!=null) {
-			ulist=usersservice.queryUserslimits(unickname);
-			model.addAttribute("sta",1);
-			
-		}
-		if (ulist.size()==0) {
-			model.addAttribute("stas",1);
-		}else{
-			model.addAttribute("stas",0);
-		}
-		model.addAttribute("ulist", ulist);
-		model.addAttribute("totalrow", totalrow);
-		model.addAttribute("currpage", currpages);
-		model.addAttribute("totalpage", totalpage);
-
-		return "WEB-INF/view/bk_userslist";
-	}
-
+	
 	@RequestMapping("insert")
 	public String insert(Users users, Model model,
 		@RequestParam(value = "unickname", required = false) String unickname,
