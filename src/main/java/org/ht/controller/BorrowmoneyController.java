@@ -244,7 +244,6 @@ public class BorrowmoneyController {
 		return "redirect:check.do";
 	}
 
-	// hjy
 	@RequestMapping("hjyList")
 	public String hjyList(Model m, @RequestParam(value = "currpage", required = false) String currpage) {
 		Map<String, Object> wmap = service.selecthjy(currpage);
@@ -257,7 +256,6 @@ public class BorrowmoneyController {
 		return str + "Borrowmoneylist";
 	}
 
-	// hjy
 	@RequestMapping("bajax")
 	@ResponseBody
 	public Borrowmoney ajax(@RequestParam(value = "id", required = false) int id) {

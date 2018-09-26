@@ -1,13 +1,8 @@
 package org.ht.dao;
 
-
-
 import java.util.List;
 import java.util.Map;
-
-import org.ht.pojo.Approveitem;
 import org.ht.pojo.Withdrawal;
-
 
 public interface WithdrawalDao {
 	List<Withdrawal> withdrawallist(Map<String, Object> map);

@@ -2,10 +2,7 @@ package org.ht.dao;
 
 import java.util.List;
 import java.util.Map;
-
 import org.ht.pojo.Trade;
-
-
 
 public interface TradeDao {
 	List<Trade> selecttd(Map<String , Object> map);
