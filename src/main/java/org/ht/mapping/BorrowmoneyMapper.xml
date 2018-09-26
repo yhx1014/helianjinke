@@ -2,10 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="org.ht.dao.BorrowmoneyDao">
 	<sql id="Base_Column_List">
-		id, bserial, busername, brelname, bpass, btype, btitle,
-		bmoney, brate,
-		btimelimit,blimit, bstate,
-		brecommend,bleixing,beizhu1,beizhu2
+		id, buserid, brelname, bpnumber, bmailbox, bmortgagetype, bmortgagecount,
+		bpaytype, bcommission,btype
+		bcount,binterval, brate
 	</sql>
 
 	<select id="findList" resultType="org.ht.pojo.Borrowmoney">
@@ -29,7 +28,6 @@
 	</select>
 
 
-	<!-- ygx -->
 	<select id="pagingList" resultType="org.ht.pojo.Borrowmoney"
 		parameterType="map">
 		SELECT *
@@ -75,10 +73,7 @@
 			limit #{candp},#{pandc}
 		</if>
 
-	</select><!-- ORDER BY id DESC -->
-
-	<!-- <select id="recommendShow">首页显示固定条数的推荐项目 select * from Borrowmoney 
-		where brecommend </select> -->
+	</select>
 
 	<select id="get" resultType="org.ht.pojo.Borrowmoney"
 		parameterType="java.lang.Integer">
@@ -93,29 +88,15 @@
 		id = #{id}
 	</delete>
 	<insert id="create" parameterType="org.ht.pojo.Borrowmoney">
-		insert into borrowmoney
-		(bserial, busername,
-		brelname, bpass, btype,
-		btitle, bmoney, brate,
-		btimelimit, blimit, bstate,
-		brecommend,bleixing,beizhu1,beizhu2)
+		insert into borrow
+		(bmortgagetype, bmortgagecount,
+		bpaytype, bcommission)
 		values
 		(
-		#{bserial},
-		#{busername},
-		#{brelname},
-		#{bpass},
-		#{btype},
-		#{btitle},
-		#{bmoney},
-		#{brate},
-		#{btimelimit},
-		#{blimit},
-		#{bstate},
-		#{brecommend},
-		#{bleixing},
-		#{beizhu1},
-		#{beizhu2}
+		#{bmortgagetype},
+		#{bmortgagecount},
+		#{bpaytype},
+		#{bcommission}
 		)
 	</insert>
 	<update id="update" parameterType="org.ht.pojo.Borrowmoney">

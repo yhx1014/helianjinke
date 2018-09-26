@@ -16,7 +16,6 @@ import org.apache.poi.hssf.usermodel.HSSFDataFormat;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.ht.pojo.Employee;
 import org.ht.pojo.Withdrawal;
 import org.ht.service.WithdrawalService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -111,32 +110,6 @@ public class WithdrawalController {
 		return "redirect:wlist.do";
 	}
 	
-	//审核通过
-	@RequestMapping("shen")
-	public String shen(@RequestParam(value = "gg", required = false) int gg,
-		@RequestParam(value = "wid", required = false) int wid,HttpServletRequest req){
-		HttpSession session = req.getSession();
-		Employee emp = (Employee) session.getAttribute("globalemp");
-		String shname = emp.getEname();
-		if(gg==0){
-			//失败 需要改成失败  并且修改转账时间，审核人时间，审核人 
-			ws.updwiths(gg, wid, shname); 
-			//退钱
-			Withdrawal wone =  ws.selectone(wid);
-			Integer txmoney = Integer.parseInt(wone.getTxmoney());//体检金额
-			Integer uid = wone.getuID();//用户id
-			ws.updmoney(txmoney, uid);
-			int i=0;
-			//添加失败的交易记录
-			ws.intmoney(wone, i);
-		}else if(gg==2){
-			//成功    需要改成转账中  并且修改转账时间，审核人时间，审核人
-			
-			ws.updwiths(gg, wid, shname);
-			
-		}
-		return "redirect:wlist.do";
-	}
 	/**
 	 * 导出excel
 	 * @throws IOException

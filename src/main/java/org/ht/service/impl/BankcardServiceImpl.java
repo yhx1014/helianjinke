@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.ht.dao.BankcardDao;
-import org.ht.pojo.Bankcard;
 import org.ht.service.BankcardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -44,15 +43,10 @@ public class BankcardServiceImpl implements BankcardService {
 		map.put("yyy", findmap.get("yyy"));
 		map.put("yyyy", findmap.get("yyyy"));
 		map.put("zname", findmap.get("zname"));
-		List<Bankcard> lbc = bdao.selectbc(map);
-		ma.put("lbc", lbc);
 		ma.put("pagerow", pagerow);
 		ma.put("currpages", currpages);
 		ma.put("totalpage", totalpage);
 		ma.put("totalrow", totalrow);
 		return ma;
 	}
-
-	
-
 }

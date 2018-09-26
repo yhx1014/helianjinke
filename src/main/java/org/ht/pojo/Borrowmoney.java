@@ -1,209 +1,144 @@
 package org.ht.pojo;
 
-import java.io.Serializable;
 
 public class Borrowmoney  extends BaseDomain {
+	private static final long serialVersionUID = 1L;
 	private Integer id;
-	private Integer startPage;
-	private Integer pageSize;
-	private Integer bleixing;
-
-	private String bserial;
-
-	private String busername;
-
-	private String brelname;
-
-	private String bpass;
-
+	private Integer buserid;
+	private Integer brelname;
+	private Integer bpnumber;
+	private String bmailbox;
+	private String bmortgagetype;
+	private String bmortgagecount;
+	private String bpaytype;
+	private String bcommission;
 	private String btype;
-
-	private String btitle;
-
-	private String bmoney;
-
+	private String bcount;
+	private String binterval;
 	private String brate;
-
-	private String btimelimit;
-
-	private String blimit;
-
-	private String bstate;
-
-	private String brecommend;
-
-	private String beizhu1;
-	
-	private String beizhu2;
-	
-	
-	
 	private Biao biao;
 	
-	
-	
-	public Biao getBiao() {
-		return biao;
-	}
-
-	public void setBiao(Biao biao) {
-		this.biao = biao;
-	}
-
-	public Borrowmoney() {
-		// TODO Auto-generated constructor stub
-	}
-
 	public Integer getId() {
 		return id;
 	}
-
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
-	public Integer getStartPage() {
-		return startPage;
+	public Integer getBuserid() {
+		return buserid;
 	}
-
-	public void setStartPage(Integer startPage) {
-		this.startPage = startPage;
+	public void setBuserid(Integer buserid) {
+		this.buserid = buserid;
 	}
-
-	public Integer getPageSize() {
-		return pageSize;
-	}
-
-	public void setPageSize(Integer pageSize) {
-		this.pageSize = pageSize;
-	}
-
-	public Integer getBleixing() {
-		return bleixing;
-	}
-
-	public void setBleixing(Integer bleixing) {
-		this.bleixing = bleixing;
-	}
-
-	public String getBserial() {
-		return bserial;
-	}
-
-	public void setBserial(String bserial) {
-		this.bserial = bserial;
-	}
-
-	public String getBusername() {
-		return busername;
-	}
-
-	public void setBusername(String busername) {
-		this.busername = busername;
-	}
-
-	public String getBrelname() {
+	public Integer getBrelname() {
 		return brelname;
 	}
-
-	public void setBrelname(String brelname) {
+	public void setBrelname(Integer brelname) {
 		this.brelname = brelname;
 	}
-
-	public String getBpass() {
-		return bpass;
+	public Integer getBpnumber() {
+		return bpnumber;
 	}
-
-	public void setBpass(String bpass) {
-		this.bpass = bpass;
+	public void setBpnumber(Integer bpnumber) {
+		this.bpnumber = bpnumber;
 	}
-
+	public String getBmailbox() {
+		return bmailbox;
+	}
+	public void setBmailbox(String bmailbox) {
+		this.bmailbox = bmailbox;
+	}
+	public String getBmortgagetype() {
+		return bmortgagetype;
+	}
+	public void setBmortgagetype(String bmortgagetype) {
+		this.bmortgagetype = bmortgagetype;
+	}
+	public String getBmortgagecount() {
+		return bmortgagecount;
+	}
+	public void setBmortgagecount(String bmortgagecount) {
+		this.bmortgagecount = bmortgagecount;
+	}
+	public String getBpaytype() {
+		return bpaytype;
+	}
+	public void setBpaytype(String bpaytype) {
+		this.bpaytype = bpaytype;
+	}
+	public String getBcommission() {
+		return bcommission;
+	}
+	public void setBcommission(String bcommission) {
+		this.bcommission = bcommission;
+	}
 	public String getBtype() {
 		return btype;
 	}
-
 	public void setBtype(String btype) {
 		this.btype = btype;
 	}
-
-	public String getBtitle() {
-		return btitle;
+	public String getBcount() {
+		return bcount;
 	}
-
-	public void setBtitle(String btitle) {
-		this.btitle = btitle;
+	public void setBcount(String bcount) {
+		this.bcount = bcount;
 	}
-
-	public String getBmoney() {
-		return bmoney;
+	public String getBinterval() {
+		return binterval;
 	}
-
-	public void setBmoney(String bmoney) {
-		this.bmoney = bmoney;
+	public void setBinterval(String binterval) {
+		this.binterval = binterval;
 	}
-
 	public String getBrate() {
 		return brate;
 	}
-
 	public void setBrate(String brate) {
 		this.brate = brate;
 	}
-
-	public String getBtimelimit() {
-		return btimelimit;
+	public Biao getBiao() {
+		return biao;
+	}
+	public void setBiao(Biao biao) {
+		this.biao = biao;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
-	public void setBtimelimit(String btimelimit) {
-		this.btimelimit = btimelimit;
-	}
-
-	public String getBlimit() {
-		return blimit;
-	}
-
-	public void setBlimit(String blimit) {
-		this.blimit = blimit;
-	}
-
-	public String getBstate() {
-		return bstate;
-	}
-
-	public void setBstate(String bstate) {
-		this.bstate = bstate;
-	}
-
-	public String getBrecommend() {
-		return brecommend;
-	}
-
-	public void setBrecommend(String brecommend) {
-		this.brecommend = brecommend;
-	}
-
-	public String getBeizhu1() {
-		return beizhu1;
-	}
-
-	public void setBeizhu1(String beizhu1) {
-		this.beizhu1 = beizhu1;
-	}
-
-	public String getBeizhu2() {
-		return beizhu2;
-	}
-
-	public void setBeizhu2(String beizhu2) {
-		this.beizhu2 = beizhu2;
-	}
+	
 	@Override
 	public String toString() {
-		return "Borrowmoney [id=" + id + ", startPage=" + startPage + ", pageSize=" + pageSize + ", bleixing="
-				+ bleixing + ", bserial=" + bserial + ", busername=" + busername + ", brelname=" + brelname + ", bpass="
-				+ bpass + ", btype=" + btype + ", btitle=" + btitle + ", bmoney=" + bmoney + ", brate=" + brate
-				+ ", btimelimit=" + btimelimit + ", blimit=" + blimit + ", bstate=" + bstate + ", brecommend="
-				+ brecommend + ", beizhu1=" + beizhu1 + ", beizhu2=" + beizhu2 + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("Borrowmoney [id=");
+		builder.append(id);
+		builder.append(", buserid=");
+		builder.append(buserid);
+		builder.append(", brelname=");
+		builder.append(brelname);
+		builder.append(", bpnumber=");
+		builder.append(bpnumber);
+		builder.append(", bmailbox=");
+		builder.append(bmailbox);
+		builder.append(", bmortgagetype=");
+		builder.append(bmortgagetype);
+		builder.append(", bmortgagecount=");
+		builder.append(bmortgagecount);
+		builder.append(", bpaytype=");
+		builder.append(bpaytype);
+		builder.append(", bcommission=");
+		builder.append(bcommission);
+		builder.append(", btype=");
+		builder.append(btype);
+		builder.append(", bcount=");
+		builder.append(bcount);
+		builder.append(", binterval=");
+		builder.append(binterval);
+		builder.append(", brate=");
+		builder.append(brate);
+		builder.append(", biao=");
+		builder.append(biao);
+		builder.append("]");
+		return builder.toString();
 	}
-
 }

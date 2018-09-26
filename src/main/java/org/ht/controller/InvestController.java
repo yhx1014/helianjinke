@@ -37,83 +37,82 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("/invest")
 public class InvestController {
-	
 	@Resource
 	private InvestService investS;
-	
 	@Resource
-	// private BorrowmoneyService service;
 	private ProductService proS;
-
 	@Resource
 	private DetailsService detS;
-
 	@Resource
 	private BiaoService biaoS;
-
 	@Resource
 	private CertificationService cs;
-	
 	@Resource
 	private TradeService tradeS;
-	
 	HttpSession hs = null;
 	ServletContext application = null;
 	
 	@RequestMapping("investSel")
 	public String investSel(HttpServletRequest req, Model model, String item,String param, String currpage) {
-		int pagerow = 5;// 每页5行
-		int currpages = 1;// 当前页
-		int totalpage = 0;// 总页数
-		int totalrow = 0;// 总行数
-		int outcount = 0;// 不够一页的数据条数
-		int count = 0;//
+		int pagerow = 5;//每页5行
+		int currpages = 1;//当前页
+		int totalpage = 0;//总页数
+		int totalrow = 0;//总行数
+		int outcount = 0;//不够一页的数据条数
+		int count = 0;
 		
 		if (item != null && !item.equals("")) {
-			//!lastUrl.equals(nowUrl)  && bl
 			Map<String, Object> map = new HashMap<String, Object>();
 			if (hs == null) {
 				hs = req.getSession();
 			}
-			if (item.equals("itemtype")) {// 项目类型
-				if (param.equals("-1")) {// 不限
+			if (item.equals("itemtype")) {
+				// 项目类型
+				if (param.equals("-1")) {
+					// 不限
 					if (hs.getAttribute("biaoId") != null) {
-						System.out.println("进来了");
 						hs.removeAttribute("biaoId");
 					}
 				} else{
 					hs.setAttribute("biaoId", param);
 				}
 			}
-			if (item.equals("rate")) {// 利率
-				if (param.equals("-1")) {// 不限
+			if (item.equals("rate")) {
+				// 利率
+				if (param.equals("-1")) {
+					// 不限
 					if (hs.getAttribute("pincome") != null) {
 						hs.setAttribute("startR", "-1");
 						hs.removeAttribute("pincome");
 					}
 				}
-				if (param.equals("1")) {// 12%以下
+				if (param.equals("1")) {
+					// 12%以下
 					hs.setAttribute("startR", "0");
 					hs.setAttribute("endR", "12");
 					hs.setAttribute("pincome", "");
 				}
-				if (param.equals("2")) {// 12%-14%
+				if (param.equals("2")) {
+					// 12%-14%
 					hs.setAttribute("startR", "12");
 					hs.setAttribute("endR", "14");
 					hs.setAttribute("pincome", "");
 				}
-				if (param.equals("3")) {// 14%-16%
+				if (param.equals("3")) {
+					//14%-16%
 					hs.setAttribute("startR", "14");
 					hs.setAttribute("endR", "16");
 					hs.setAttribute("pincome", "");
 				}
-				if (param.equals("4")) {// 16%及以上
+				if (param.equals("4")) {
+					// 16%及以上
 					hs.setAttribute("startR", "16");
 					hs.setAttribute("pincome", "");
 					hs.setAttribute("endR", "");
 				}
 			}
-			if (item.equals("timelimit")) {// 期限 此处默认一个月为30天
+			if (item.equals("timelimit")) {
+				// 期限 此处默认一个月为30天
 				if (param.equals("-1")) {// 不限
 					if (hs.getAttribute("pcount") != null) {
 						hs.setAttribute("startT", "-1");
@@ -146,34 +145,18 @@ public class InvestController {
 					hs.setAttribute("pcount", "");
 				}
 			}
-			if (item.equals("repayway")) {// 还款方式
-				if (param.equals("-1")) {// 不限
-					hs.setAttribute("pway", "");
-				}
-				if (param.equals("1")) {
-					hs.setAttribute("pway", "到期还本付息");
-				}
-				if (param.equals("2")) {
-					hs.setAttribute("pway", "按月付息,到期还本");
-				}
-				if (param.equals("3")) {
-					hs.setAttribute("pway", "等额本息");
-				}
-
-			}
 			
-			System.out.println("session中的标主键 " + hs.getAttribute("biaoId") + ""
+			/*System.out.println("session中的标主键 " + hs.getAttribute("biaoId") + ""
 					+ "session中的利率开始点  " + hs.getAttribute("startR")
 					+ "session中的期限开始点" + hs.getAttribute("startT")
 					+ "session中的还款方式" + hs.getAttribute("way"));
 			System.out.println("map中的标主键 " + map.get("biaoId") + "利率开始点 "
 					+ map.get("startR") + "期限开始点 " + map.get("startT")
-					+ "还款方式 " + map.get("way"));
+					+ "还款方式 " + map.get("way"));*/
 			
 			if (hs != null) {
 				map.put("pincome", hs.getAttribute("pincome"));
 				map.put("pcount", hs.getAttribute("pcount"));
-
 				map.put("biaoId", hs.getAttribute("biaoId"));
 				map.put("startR", hs.getAttribute("startR"));
 				map.put("endR", hs.getAttribute("endR"));
@@ -230,7 +213,8 @@ public class InvestController {
 			@SuppressWarnings("unchecked")
 			List<Product> page = proS.findList(BeanUtils.toMap(pro));
 
-			totalrow = page.size();// 获取总行数
+			totalrow = page.size();
+			// 获取总行数
 			if (currpage != null && !"".equals(currpage)) {
 				currpages = Integer.parseInt(currpage);
 			}
@@ -270,7 +254,6 @@ public class InvestController {
 		Map<String, Object> map = new HashMap<String, Object>();
 		List<Biao> biao = biaoS.findList(map);
 		model.addAttribute("biao", biao);
-		
 		return "list";
 	}
 
@@ -278,7 +261,6 @@ public class InvestController {
 	public String recommendShow(HttpServletRequest req,Model model) {
 		//首页中显示推荐
 		Map<String, Object> parameters = new HashMap<String, Object>();
-		
 	    if(application == null){
 			List<Product> proList = new ArrayList<Product>();
 			List<Biao> list = biaoS.findList(parameters);
@@ -289,10 +271,8 @@ public class InvestController {
 				for (int i = 0; i < list.size(); i++) {
 					Biao biao = list.get(i);
 					parameters.put("biaoId", biao.getId());
-					
 					List<Product> tlist = proS.selList(parameters);
 					//两条数据
-					
 					for (int j = 0; j < tlist.size(); j++) {
 						proList.add(tlist.get(j));
 						// 将每个类型的两条数据保存到一个list中
@@ -310,7 +290,6 @@ public class InvestController {
 			Map<String, Object> map = new HashMap<String, Object>();
 			map.put("rowName", "inmoney");    // 查出投资总额
 			map.put("tableName", "investinfo");
-			
 			Double tm = investS.sumMoney(map);
 			
 			application = req.getSession().getServletContext();
@@ -319,7 +298,6 @@ public class InvestController {
 			application.setAttribute("tjlist", tjl);
 			application.setAttribute("ztz", tm);
 	    }
-	    
 		return "index";
 	}
 

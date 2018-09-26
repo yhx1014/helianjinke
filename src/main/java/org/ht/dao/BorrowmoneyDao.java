@@ -2,7 +2,6 @@ package org.ht.dao;
 
 import java.util.List;
 import java.util.Map;
-
 import org.ht.pojo.Borrowmoney;
 
 public interface BorrowmoneyDao extends BaseDao<Object, Borrowmoney> {

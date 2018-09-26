@@ -11,14 +11,12 @@ import org.ht.pojo.Approveitem;
 import org.ht.pojo.Certifrecord;
 import org.ht.pojo.Clapplyfor;
 import org.ht.pojo.Creditlimit;
-import org.ht.pojo.Employee;
 import org.ht.pojo.Userauditor;
 import org.ht.pojo.Users;
 import org.ht.service.ApproveService;
 import org.ht.service.CertifrecordService;
 import org.ht.service.ClapplyforService;
 import org.ht.service.CreditlimitService;
-import org.ht.service.EmployeeService;
 import org.ht.service.InformationService;
 import org.ht.service.UserauditorService;
 import org.ht.service.UsersService;
@@ -46,8 +44,6 @@ public class ApproveController {
 	private ApproveService approveService;
 	@Autowired
 	private UsersService usersService;
-	@Autowired
-	private EmployeeService employeeService;
 	@Autowired
 	private CertifrecordService certifrecordService;
 	@Autowired
@@ -141,78 +137,6 @@ public class ApproveController {
 		parameters.put("aistate", ai.getAistate());
 		approveService.updateApproves(parameters);
 		return new ModelAndView("redirect:traverseApproves.do");
-	}
-//认证项的管理 头部
-//==============================================================================
-	
-//==============================================================================
-	//新用户认真资料 头部
-	@RequestMapping("newuserInfoList")
-	private String newuserInfoList(Model model){
-		//查询所有新用户
-		List<Users> users = usersService.userList();
-		
-		List<Employee> employees = employeeService.findlist();
-		
-		Map<String, Object> parameters = new HashMap<String, Object>();
-		//查询出所有用户审核人
-		List<Userauditor> userauditors = userauditorService.queryUseraubitor(parameters);
-	
-		//System.out.println("userauditors.size==========================="+userauditors.size());
-		//查询出所有用户的审核记录
-		List<Certifrecord> certifrecords = certifrecordService.queryCertifrecord(parameters);
-		List<Users> us = null;
-		if(userauditors!=null){
-			for (Userauditor userauditor : userauditors) {
-				for(Users u : users){
-					if(userauditor.getUserid()==u.getUid()){
-						users.remove(u);
-						break;
-					}
-					
-				}
-			}
-			
-		}
-		//查询出未分配审核人1的积分，和待审核条数
-		List<Certifrecord> cr = null;
-		
-		if(certifrecords!=null){
-			cr =  new ArrayList<Certifrecord>();
-			
-			for (Users u : users) {
-				Certifrecord cerrecord = new Certifrecord();
-				int integral = 0;
-				int ispass = 0;
-				for (Certifrecord c : certifrecords) {
-						if(u.getUid()==c.getCruserid()){
-							if(c.getCrintegral()!=null){
-								integral+=c.getCrintegral();
-							}else{
-								integral+=0;
-							}
-							
-							if(c.getCrispass().equals("1")){
-								ispass+=1;
-							}
-						}
-						
-					}
-				//System.out.println("uname="+u.getUnickname()+"  integral: "+integral+" ispass: "+ispass);
-				cerrecord.setCruserid(u.getUid());
-				cerrecord.setCrusername(u.getUnickname());
-				cerrecord.setCrintegral(integral);
-				cerrecord.setCheckpend(ispass);
-				cr.add(cerrecord);
-				
-				}
-
-			}
-
-		model.addAttribute("cr",cr);
-		model.addAttribute("users",users);
-		model.addAttribute("employees",employees);
-		return str+"anewuserinfolist";
 	}
 		
 

@@ -10,7 +10,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix = "fmt"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="ft"%>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
 	<title>币币袋</title>
 	<link href="<%=basePath %>css/common.css" rel="stylesheet" />
@@ -22,16 +22,14 @@
 
 <script type="text/javascript">
 	function Select(items,param){
-		//按条件查询
-		window.location.href="<%=basePath%>invest/investSel.do?item="+items+"&param="+param;
+		location.href="<%=basePath%>invest/investSel.do?item="+items+"&param="+param;
 	}
 </script>
 
 <body>
   <jsp:include page="head.jsp"></jsp:include>
-<!--列表-->
 <div class="page-filter wrap">
-  <div class="breadcrumbs"><a href="http://localhost:8080/p2p/index.jsp">首页</a>&gt;<span class="cur">散标投资列表</span></div>
+  <div class="breadcrumbs"><span class="cur">投资列表</span></div>
   <div class="invest-filter" data-target="sideMenu">
     <div class="filter-inner clearfix">
       <div class="filter-item">
@@ -44,7 +42,7 @@
             <dd>
               <ul id="items">
                 <li class="n1"><a id="post_type_" <c:if test="${biaoId == null}">class="active"</c:if> style="cursor:pointer;" onclick="Select('itemtype','-1');">不限</a></li>
-                <c:forEach items="${biao }" var="biao">
+                <c:forEach items="${biao}" var="biao">
                 	<li class="n2"><a <c:if test="${biaoId==biao.id }">class="active"</c:if> style="cursor:pointer;" onclick="Select('itemtype','${biao.id}');" id="post_type_car${biao.id}">${biao.bname }</a></li>
                 </c:forEach>
               </ul>
@@ -75,17 +73,6 @@
               </ul>
             </dd>
           </dl>
-         <%--  <dl class="repayment">
-            <dt>还款方式</dt>
-            <dd>
-              <ul id="rway">
-                <li class="n1"><a <c:if test="${pway=='' || pway == null}">class="active"</c:if> id="repay_style_0" style="cursor:pointer" onclick="Select('repayway','-1');">不限</a></li>
-                <li class="n2"><a <c:if test="${pway=='到期还本付息' }">class="active"</c:if> id="repay_style_1" style="cursor:pointer" onclick="Select('repayway','1');">到期还本付息</a> </li>
-                <li class="n2"><a <c:if test="${pway=='按月付息,到期还本' }">class="active"</c:if> id="repay_style_2" style="cursor:pointer" onclick="Select('repayway','2');">按月付息,到期还本</a> </li>
-                <li class="n2"><a <c:if test="${pway=='等额本息' }">class="active"</c:if> id="repay_style_3" style="cursor:pointer" onclick="Select('repayway','3');">等额本息</a> </li>
-              </ul>
-            </dd>
-          </dl> --%>
         </div>
       </div>
 
@@ -93,23 +80,21 @@
   </div>
   <div class="invest-list mrt30 clearfix">
     <div class="hd">
-      <h3>投资列表</h3>
+      <h3>展现投资列表</h3>
     </div>
     <div class="bd">
       <div class="invest-table clearfix">
         <div class="title clearfix">
           <ul>
             <li class="col-330">标题名称</li>
-            <li class="col-180"><a href="javascript:url('order','account_up');" class="">借款金额</a> </li>
-            <li class="col-110"><a href="javascript:url('order','apr_up');" class="">年利率</a> </li>
-            <li class="col-150"><a href="javascript:url('order','period_up');" class="">截止期限</a> </li>
-            <li class="col-150">还款方式</li>
+            <li class="col-180"><a href="javascript:url('order','account_up');" class="">借款数量</a> </li>
+            <li class="col-110"><a href="javascript:url('order','apr_up');" class="">利率</a> </li>
+            <li class="col-150"><a href="javascript:url('order','period_up');" class="">截止日期</a> </li>
             <li class="col-120"><a href="javascript:url('order','scale_up');" class="">借款进度</a></li>
             <li class="col-120-t">操作</li>
           </ul>
         </div>
         
-        <!------------投资列表-------------->
         <c:forEach items="${list}" var="invest" varStatus="status">
         <div class="item">
           <ul>
@@ -123,7 +108,7 @@
             <li class="col-180"><span class="f20 c-333">${invest.ptotalmoney }</span>元</li>
             <li class="col-110 relative"><span class="f20 c-orange">${invest.pincome }%</span></li>
             <li class="col-150"><span class="f20 c-333"><fmt:formatDate value="${invest.pcount }" pattern="yyyy-MM-dd "/></span></li>
-            <li class="col-150">${invest.pway }</li>
+            <li class="col-150">${invest.pway}</li>
             <li class="col-120">
               <div class="circle">
                 <div class="left progress-bar">
@@ -139,29 +124,16 @@
             		<c:if test="${invest.pstate=='2' }">募集完成</c:if>
             		<c:if test="${invest.pstate=='3' }">还款中</c:if>
             	</a> 
-            </li><!-- -------onClick=test('${invest }');-----------investInfo.do"?bm=${invest }"-----------------------------注意此处是按照表中的字符串类型字段来判断的 -->
-            
+            </li>
           </ul>
         </div>
-         <!-- </form>  -->
         </c:forEach>
-        <!------------投资列表-------------->
       </div>
       <div class="pagination clearfix mrt30"> <span class="page"><a href="investSel.do?currpage=1" onclick=""><!-- javascript:void(0); -->首页</a><a href="investSel.do?currpage=${currpages-1 }" onclick="">上一页</a><c:forEach begin="1" end="${totalpage }" step="1" varStatus="bindex">&nbsp;<a class="curr" onclick="" href="investSel.do?currpage=${bindex.count }">${bindex.count }</a></c:forEach><a href="investSel.do?currpage=${currpages+1 }" onclick="">下一页</a><a href="investSel.do?currpage=${totalpage }" onclick="">尾页</a>&nbsp;<em>共${totalpage }页&nbsp;</em></span>
-<%--         <dl class="page-select">
-          <dt><span>1</span><i class="icon icon-down"></i></dt>
-          <dd style="display: none;">
-            <ul name="nump" id="jsnump">
-              <li><a href="##" onclick="page_jump(&quot;this&quot;1)">1</a></li>
-              <li><a href="##" onclick="page_jump(&quot;this&quot;2)">2</a></li>
-              <li><a href="##" onclick="page_jump(&quot;this&quot;3)">3</a></li>
-            </ul>
-          </dd>
-        </dl> --%>
       </div>
     </div>
   </div>
 </div>
-<!-- 导航栏 --><jsp:include page="bottom.jsp"></jsp:include>
+    <jsp:include page="bottom.jsp"></jsp:include>
 </body>
 </html>

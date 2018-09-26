@@ -4,14 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.ht.dao.BankcardDao;
-import org.ht.dao.PoundageDao;
 import org.ht.dao.TradeDao;
-import org.ht.pojo.Bankcard;
-import org.ht.pojo.Poundage;
 import org.ht.pojo.Trade;
-import org.ht.service.BankcardService;
-import org.ht.service.PoundageService;
 import org.ht.service.TradeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

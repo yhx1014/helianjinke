@@ -3,12 +3,8 @@ package org.ht.controller;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
-
-import org.ht.pojo.Dept;
-import org.ht.pojo.Employee;
 import org.ht.pojo.Limi;
 import org.ht.service.DeptService;
-import org.ht.service.EmployeeService;
 import org.ht.service.LimitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,22 +19,8 @@ public class LimitController {
 	@Autowired
 	private LimitService limitService;
 	@Autowired
-	private EmployeeService employeeService;
-	@Autowired
 	private DeptService deptService;
-	
-	
-	@RequestMapping("findlist")
-	public String findlist(Model model){
-		List<Employee> emplist = employeeService.findlist();
-		model.addAttribute("emp", emplist);
-		// 查询部门
-		List<Dept> deptlist = deptService.findall();
-		model.addAttribute("depts", deptlist);
-		return "/WEB-INF/view/limit";
-	}
-	
-	
+
 	@RequestMapping("toupd")
 	public String toupd(@RequestParam(value = "eid", required = false) Integer eid,
 			HttpServletRequest requeset,
