@@ -100,36 +100,32 @@ public class UsersController {
 		cer.setCtotalmoney("0");
 		Certificat.insert(cer);
 		model.addAttribute("unickname", unickname);
-		System.out.println(users.getUphonenumber());
 		return "index";
 	}
 
-	// 登录 start
+	//login start
 	@RequestMapping("login")
 	public String login(Model model, HttpSession session,
 			@RequestParam(value = "unickname", required = false) String unickname,
 			@RequestParam(value = "upassword", required = false) String upassword) {
 
 		String status;
-		// 根据账号查询 是否为null进行判断
-		System.out.println(unickname + "-----------------" + upassword);
+		//根据账号查询 是否为null进行判断
 		Users user = usersservice.byNameFindUsers(unickname, upassword);
-
 		if (user == null) {
 			// 登录失败
 			status = "账号或密码有误";
 			model.addAttribute("status", status);
 			return "login";
 		} else {
-			// 登录成功
+			//登录成功
 			model.addAttribute("users", user);
-			// 将登入信息保存到session中
+			//将登入信息保存到session中
 			session.setAttribute("globaluser", user);
 			return "index";
 		}
 	}
 	
-	// 登录 end
 	// 退出start
 	@RequestMapping("exit")
 	public String exit(HttpSession session) {
@@ -140,7 +136,6 @@ public class UsersController {
 		return "index";
 	}
 
-	// 退出end
 	@RequestMapping("findByName")
 	@ResponseBody
 	public int findByName(@RequestParam(value = "unickname", required = false) String unickname){

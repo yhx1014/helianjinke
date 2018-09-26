@@ -12,12 +12,6 @@ public interface UsersDao {
     List<Users> queryUserslimitss(@Param("unickname") String unickname);
     List<Users> userList();
 	int insert(Users users);
-
 	Users byNameFindUsers(@Param("unickname") String unickname, @Param("upassword") String upassword);
-	/**
-	 * @author 陈庆山
-	 * @param map
-	 * @explain users 的分页查询
-	 */
 	public List<Users> queryUser(Map<String, Object> map);
 }
