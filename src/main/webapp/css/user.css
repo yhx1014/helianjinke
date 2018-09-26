@@ -642,7 +642,7 @@ transition: transform 1s linear;}
 
 
 /*个人中心左侧导航*/
-.personal .personal-left{ float:left; width:250px; margin-top:10px;  margin-right:10px; background:#fff; padding-top:15px; color:#4a4a4a;}
+.personal .personal-left{ float:left; width:250px; height:1030px;margin-top:10px;  margin-right:10px; background:#fff; padding-top:15px; color:#4a4a4a;}
 .personal .personal-left ul{ margin-bottom:60px;}
 .personal .personal-left li{ min-height:44px; width:250px; line-height:44px; font-size:16px; overflow:visible; margin-bottom:1px;}
 .personal .personal-left li span{ display:block; width:250px; font-size:16px;transition:background 0.2s ease-in-out;}
@@ -668,7 +668,7 @@ transition: transform 1s linear;}
 .markicon:hover{ background:url(../images/grzx.png) -30px -239px; width:21px; height:18px;}
 
 .pmain-profile .pmain-welcome{ height:40px; line-height:40px;padding:0 30px; border-bottom:1px solid #f2f2f2;}
-.pmain-user{ width:880px; height:114px; padding:15px 30px;border-bottom:1px solid #f2f2f2;}
+.pmain-user {width:880px; height:150px; padding:15px 30px;border-bottom:1px solid #f2f2f2;}
 .pmain-user .user-head{ float:left; width:133px; height:114px;}
 .pmain-user .user-head .head-img{ float:left; width:88px; height:88px; position:relative; cursor:pointer;}
 .pmain-user .user-head .head-img img{ position:absolute; top:0; left:0; z-index:2;}

@@ -8,6 +8,7 @@ import org.ht.pojo.Certifrecord;
 import org.ht.pojo.Users;
 
 public interface InformationService {
+	
 	public Users query(Map<String, Object> map);
 
 	// 账户设置
