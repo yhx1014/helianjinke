@@ -3,6 +3,7 @@ package org.ht.dao;
 import java.util.List;
 import java.util.Map;
 import org.ht.pojo.Approveitem;
+import org.ht.pojo.Borrowmoney;
 import org.ht.pojo.Certifrecord;
 import org.ht.pojo.Users;
 
@@ -15,4 +16,5 @@ public interface InfromationDao {
 	public int upucertnum(Map<String, Object> map);
 	public int updPassword(Map<String, Object> map);
 	public int updphone(Map<String, Object> map);
+	public Borrowmoney queryInfo(Map<String, Object> map);
 }

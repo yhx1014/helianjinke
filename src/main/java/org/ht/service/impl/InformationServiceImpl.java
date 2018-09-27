@@ -7,10 +7,10 @@ import javax.annotation.Resource;
 
 import org.ht.dao.InfromationDao;
 import org.ht.pojo.Approveitem;
+import org.ht.pojo.Borrowmoney;
 import org.ht.pojo.Certifrecord;
 import org.ht.pojo.Users;
 import org.ht.service.InformationService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -71,7 +71,13 @@ public class InformationServiceImpl implements InformationService {
 
 	@Override
 	public int userpay(Map<String, Object> map) {
-		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public Borrowmoney queryInfo(Map<String, Object> map) {
+		List<Borrowmoney> list = null;
+		Borrowmoney borrow = dao.queryInfo(map);
+		return borrow;
 	}
 }

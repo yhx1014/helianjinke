@@ -4,6 +4,9 @@
   <select id="query" resultType="org.ht.pojo.Users" parameterType="map">
   	select * from users where uid=${id}
   </select>
+  <select id="queryInfo" resultType="org.ht.pojo.Borrowmoney" parameterType="map">
+  	select * from borrow where buserid=${id}
+  </select>
   <select id="find" resultType="org.ht.pojo.Users" parameterType="map">
   	select * from users where uid=${id}
   </select>

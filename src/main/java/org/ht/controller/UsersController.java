@@ -29,7 +29,6 @@ public class UsersController {
 		@RequestParam(value = "upassword", required = false) String upassword,
 		@RequestParam(value = "uphonenumber", required = false) String uphonenumber,
 		@RequestParam(value = "ethaddress", required = false) String ethaddress)
-	
 	{
 		//AccountTest at = new AccountTest();
 		//String accountId = at.createAccount();

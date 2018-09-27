@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import org.ht.pojo.Approveitem;
+import org.ht.pojo.Borrowmoney;
 import org.ht.pojo.Certification;
 import org.ht.pojo.Certifrecord;
 import org.ht.pojo.Dope;
@@ -40,14 +41,26 @@ public class InformationController {
 	// 我的账户
 	@RequestMapping("query")
 	public String query(
-			@RequestParam(value = "id", required = false) String id, Model model) 
+			@RequestParam(value = "id", required = false) String id, Model model)
 	{
-		Map<String, Object> map = new HashMap<>();
-		map.put("id", id);
-		Users user = infor.query(map);
-		model.addAttribute("user", user);
-		return "personalpage";
+			Map<String, Object> map = new HashMap<>();
+			map.put("id", id);
+			Users user = infor.query(map);
+			model.addAttribute("user", user);
+			return "personalpage";
 	}
+	
+	@RequestMapping("queryinfo")
+	public String queryinfo(
+			@RequestParam(value = "id", required = false) String id, Model model)
+	{
+			Map<String, Object> map = new HashMap<>();
+			map.put("id", id);
+			Borrowmoney borrow = infor.queryInfo(map);
+			model.addAttribute("borrow", borrow);
+			return "thirdparty";
+	}
+	
 	// 账户信息查询
 	@RequestMapping("find")
 	public String find(@RequestParam(value = "id", required = false) String id, Model model,
@@ -65,7 +78,7 @@ public class InformationController {
 		return "account";
 	}
 
-	// 添加身份信息和认证信息
+	//添加身份信息和认证信息
 	@RequestMapping("insertUsercre")
 	public String insert(@RequestParam(value = "uid", required = false) Integer uid,
 			@RequestParam(value = "unickname", required = false) String unickname,
