@@ -744,8 +744,6 @@ transition: transform 1s linear;}
 .pmain-notice a{ color:#676767}
 .pmain-notice a:hover{ color:#0caffe;}
 
-
-
 /*个人中心tab切换页*/
 .pmain-connent{ float:left; margin-top:10px;background:#fff; }
 .pmain-connent .pmain-contab{ float:left; overflow:hidden; }
