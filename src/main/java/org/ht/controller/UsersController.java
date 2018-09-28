@@ -33,7 +33,7 @@ public class UsersController {
 		//AccountTest at = new AccountTest();
 		//String accountId = at.createAccount();
 		String accountId="0x000";
-		users.setUnickname("yuhongxue");
+		users.setUnickname(unickname);
 		//users.setUnickname(unickname);
 		users.setUpassword(upassword);
 		users.setUphonenumber(uphonenumber);
@@ -77,7 +77,7 @@ public class UsersController {
 		}
 	}
 	
-	// 退出start
+	//退出start
 	@RequestMapping("exit")
 	public String exit(HttpSession session) {
 		Enumeration<?> em = session.getAttributeNames();
