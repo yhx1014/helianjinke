@@ -11,7 +11,7 @@ public interface InformationService {
 	
 	public Users query(Map<String, Object> map);
 	public Users find(Map<String, Object> map);
-	public Borrowmoney queryInfo(Map<String, Object> map);
+	public List<Borrowmoney> queryInfo(Map<String, Object> map);
 	public List<Approveitem> appquery();
 	public int addUsers(Map<String, Object> map);
 	public int addcertifrecord(Certifrecord cer);

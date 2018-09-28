@@ -56,7 +56,7 @@ public class InformationController {
 	{
 			Map<String, Object> map = new HashMap<>();
 			map.put("id", id);
-			Borrowmoney borrow = infor.queryInfo(map);
+			List<Borrowmoney> borrow = infor.queryInfo(map);
 			model.addAttribute("borrow", borrow);
 			return "thirdparty";
 	}
@@ -74,7 +74,6 @@ public class InformationController {
 		Approveitem app = list.get(0);
 		model.addAttribute("list", app);
 		model.addAttribute("user", user);
-
 		return "account";
 	}
 

@@ -2,9 +2,7 @@ package org.ht.service.impl;
 
 import java.util.List;
 import java.util.Map;
-
 import javax.annotation.Resource;
-
 import org.ht.dao.InfromationDao;
 import org.ht.pojo.Approveitem;
 import org.ht.pojo.Borrowmoney;
@@ -75,9 +73,8 @@ public class InformationServiceImpl implements InformationService {
 	}
 
 	@Override
-	public Borrowmoney queryInfo(Map<String, Object> map) {
-		List<Borrowmoney> list = null;
-		Borrowmoney borrow = dao.queryInfo(map);
+	public List<Borrowmoney> queryInfo(Map<String, Object> map) {
+		List<Borrowmoney> borrow = dao.queryInfo(map);
 		return borrow;
 	}
 }

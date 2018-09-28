@@ -16,5 +16,5 @@ public interface InfromationDao {
 	public int upucertnum(Map<String, Object> map);
 	public int updPassword(Map<String, Object> map);
 	public int updphone(Map<String, Object> map);
-	public Borrowmoney queryInfo(Map<String, Object> map);
+	public List<Borrowmoney> queryInfo(Map<String, Object> map);
 }

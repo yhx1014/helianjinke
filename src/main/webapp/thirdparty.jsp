@@ -26,14 +26,14 @@
 	        <div class="pmain-profile">
 		        <div class="pmain-user">
 		          <div class="user-info user-info1">
+		          
 		          	订单类型 (订单状态)
-		          	${borrow.buserid};
-		        <%-- <c:forEach items="${borrow}" var="bor">
-				<li>
-					${bor.id};${bor.buserid};
-				</li>
-				</c:forEach> --%>
-
+		          	<%-- ${borrow}; --%>
+		          	<c:forEach items="${borrow}" var="item">
+						<li>
+							${item.id}"####"${item.buserid}"####"${item.brelname}"####"${item.bmailbox}"###"
+						</li>
+					</c:forEach>
                    </div>
 		          </div>
 	          </div>
