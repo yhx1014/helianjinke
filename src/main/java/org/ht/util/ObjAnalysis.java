@@ -7,6 +7,7 @@ import java.util.Map;
 import org.ht.pojo.Log;
 
 public class ObjAnalysis {
+	@SuppressWarnings("rawtypes")
 	public static Map ConvertObjToMap(Object obj) {
 		Map<String, Object> reMap = new HashMap<String, Object>();
 		if (obj == null)
@@ -31,12 +32,12 @@ public class ObjAnalysis {
 				}
 			}
 		} catch (SecurityException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return reMap;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public static void main(String[] args) {
 		Log a = new Log();
 		a.setLaccount("123456");
