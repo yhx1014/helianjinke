@@ -137,7 +137,7 @@
 								<span class="xxsz" style="display: none;">消息设置</span>
 							</div>
 							<div class="pxtxx-title">
-								<span class="pxtxx-check">
+								<span class="pxtxx-check"></span>
 									<input type="checkbox" name="chkAll" id="chkAll" style="margin-left: -740px; margin-top: 15px;"  title="全选"/>
 								<span class="pxtxx-type ml46">消息标题</span> 
 								<span class="pxtxx-con">内容</span> 

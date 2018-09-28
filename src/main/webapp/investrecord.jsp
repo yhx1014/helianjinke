@@ -18,6 +18,9 @@
 	<script type="text/javascript" src="<%=basePath%>script/jquery.min.js"></script>
 	<script type="text/javascript" src="<%=basePath%>script/common.js"></script>
 	<script src="<%=basePath%>script/user.js" type="text/javascript"></script>
+	<style type="text/css">
+		.invest-tab .on  a{color:#fff;}
+	</style>
 </head>
 
 <body>
@@ -27,9 +30,7 @@
 <div class="wrapper wbgcolor">
   <div class="w1200 personal">
 	<jsp:include page="left.jsp"></jsp:include>
-    <style type="text/css">
-		.invest-tab .on  a{color:#fff;}
-	</style>
+
     <div class="personal-main">
       <div class="personal-investnote">
         <h3><i>投资记录</i></h3>
