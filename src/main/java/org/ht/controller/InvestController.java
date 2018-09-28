@@ -54,11 +54,16 @@ public class InvestController {
 	
 	@RequestMapping("investSel")
 	public String investSel(HttpServletRequest req, Model model, String item,String param, String currpage) {
-		int pagerow = 5;//每页5行
-		int currpages = 1;//当前页
-		int totalpage = 0;//总页数
-		int totalrow = 0;//总行数
-		int outcount = 0;//不够一页的数据条数
+		int pagerow = 5;
+		//每页5行
+		int currpages = 1;
+		//当前页
+		int totalpage = 0;
+		//总页数
+		int totalrow = 0;
+		//总行数
+		int outcount = 0;
+		//不够一页的数据条数
 		int count = 0;
 		
 		if (item != null && !item.equals("")) {
@@ -156,10 +161,6 @@ public class InvestController {
 				map.put("endT", hs.getAttribute("endT"));
 				map.put("pway", hs.getAttribute("pway"));
 			}
-			
-			System.out.println("map中的标主键 " + map.get("biaoId") + "利率开始点 "
-					+ map.get("startR") + "期限开始点 " + map.get("startT")
-					+ "还款方式 " + map.get("pway"));
 
 			List<Product> page = proS.selList(map);
 

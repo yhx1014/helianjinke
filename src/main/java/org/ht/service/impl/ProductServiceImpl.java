@@ -93,6 +93,7 @@ public class ProductServiceImpl implements ProductService {
 		}
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public void updateStatus(List<Product> product) {
 
@@ -102,25 +103,18 @@ public class ProductServiceImpl implements ProductService {
 			TimeCompare time = new TimeCompare();
 			int flag = time.Compare(new Date().toLocaleString(), ptime.toLocaleString());
 			if (pragess < 100 && flag == 1) {
-				product2.setPstate("1");// 筹集中
+				product2.setPstate("1"); // 筹集中
 			} else if (pragess >= 100 && flag == -1) {
-				product2.setPstate("2");// 筹集完
+				product2.setPstate("2"); // 筹集完
 			} else if (pragess < 100 && flag == 0) {
-				product2.setPstate("3");// 失效
+				product2.setPstate("3"); // 失效
 			}
 			dao.updateStatus(product2);
 		}
 	}
 
-	/**
-	 * @author 陈庆山
-	 * @param product
-	 * @explain 设置修改年利率，筹款结束时间，还款时间
-	 */
-
 	@Override
 	public int setRateAndDeadline(Product product) {
-		// TODO Auto-generated method stub
 		return dao.setRateAndDeadline(product);
 	}
 
@@ -131,7 +125,6 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public int selIsExitsPrimaryKey() {
-		// TODO Auto-generated method stub
 		return dao.selIsExitsPrimaryKey();
 	}
 

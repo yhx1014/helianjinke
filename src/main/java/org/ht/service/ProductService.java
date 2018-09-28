@@ -21,12 +21,5 @@ public interface ProductService {
 	void  updateProgres(List<Product>  product);
 	void  updateStatus(List<Product>  product);
 	List<Product> selList(Map<String, Object> map);
-	
-	/**
-	 * 
-	 * @param product
-	 * @explain 设置修改年利率，筹款结束时间，还款时间
-	 * 
-	 */
 	public int setRateAndDeadline(Product product);
 }

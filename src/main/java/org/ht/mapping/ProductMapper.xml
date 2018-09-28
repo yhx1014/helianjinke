@@ -64,17 +64,13 @@
 			and p.ptype = #{biaoId}
 		</if>
 		<if test="pincome !=null and endR != null and endR != ''">
-		<!-- and params.pincome !='' 收益利率 --><!-- #{params.startR} &lt; pincome &lt; #{params.endR} -->
 			and p.pincome between #{startR} and #{endR}
 		</if>
 		<if test="pincome !=null and (endR == null || endR == '')">
-		<!-- #{params.startR} &lt; pincome &lt; (select max(pincome) from product) -->
 			and p.pincome between #{startR} and (select max(pincome) from
 			product)
 		</if>
 		<if test="pcount != null and endT != null and endT != ''">
-		<!-- 还款期限 #{params.startT} &lt; (select to_days(pcount) - to_days(ptime) 
-				from product pt where pt.id = p.id) &lt; #{params.endT} -->
 			and (select to_days(pcount) - to_days(ptime) from product pt where
 			pt.id = p.id) between #{startT} and #{endT}
 		</if>
@@ -87,7 +83,7 @@
 			from product) as
 			pro)
 		</if>
-		<if test="pway != null and pway != ''"><!-- 还款方式 -->
+		<if test="pway != null and pway != ''">
 			and p.pway = #{pway}
 		</if>
 		<if test="startPage !=null and pageSize !=''">
@@ -143,6 +139,4 @@
 		where id =
 		#{id}
 	</update>
-
-
 </mapper>

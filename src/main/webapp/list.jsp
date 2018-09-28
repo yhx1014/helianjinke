@@ -55,8 +55,6 @@
                 <li class="n1"><a <c:if test="${startR=='-1' || startR == null}">class="active"</c:if> id="borrow_interestrate_0" style="cursor:pointer;" onclick="Select('rate','-1');">不限</a></li>
                 <li class="n2"><a <c:if test="${startR=='0' }">class="active"</c:if> id="borrow_interestrate_1" style="cursor:pointer" onclick="Select('rate','1');">12%以下</a> </li>
                 <li class="n3"><a <c:if test="${startR=='12' }">class="active"</c:if> id="borrow_interestrate_2" style="cursor:pointer" onclick="Select('rate','2');">12%-14%</a> </li>
-                <li class="n4"><a <c:if test="${startR=='14' }">class="active"</c:if> id="borrow_interestrate_3" style="cursor:pointer" onclick="Select('rate','3');">14%-16%</a> </li>
-                <li class="n5"><a <c:if test="${startR=='16' }">class="active"</c:if> id="borrow_interestrate_4" style="cursor:pointer" onclick="Select('rate','4');">16%及以上</a> </li>
               </ul>
             </dd>
           </dl>
@@ -68,14 +66,12 @@
                 <li class="n2"><a <c:if test="${startT=='0' }">class="active"</c:if> id="spread_month_1" style="cursor:pointer" onclick="Select('timelimit','1');">1月以下</a> </li>
                 <li class="n3"><a <c:if test="${startT=='30' }">class="active"</c:if> id="spread_month_2" style="cursor:pointer" onclick="Select('timelimit','2');">1-3月</a> </li>
                 <li class="n4"><a <c:if test="${startT=='90' }">class="active"</c:if> id="spread_month_3" style="cursor:pointer" onclick="Select('timelimit','3');">3-6月</a> </li>
-                <li class="n5"><a <c:if test="${startT=='180' }">class="active"</c:if> id="spread_month_4" style="cursor:pointer" onclick="Select('timelimit','4');">6-12月</a> </li>
                 <li class="n6"><a <c:if test="${startT=='360' }">class="active"</c:if> id="spread_month_5" style="cursor:pointer" onclick="Select('timelimit','5');">12月及以上</a> </li>
               </ul>
             </dd>
           </dl>
         </div>
       </div>
-
     </div>
   </div>
   <div class="invest-list mrt30 clearfix">
