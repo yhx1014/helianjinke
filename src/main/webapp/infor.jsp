@@ -208,13 +208,13 @@
 							</tbody>
 							<tfoot>
 								<tr class="page-outer">
-									<td colspan="4" align="center">
-										<div align="center">
+									<td style="colspan:4;align:centerl;">
+										<div style="align:center">
 											<span class="page"><a
-												href="investInfo.do?currpage=1&bmid=${bmid }" onclick="">
-													首页 </a><a
-												href="investInfo.do?currpage=${currpages-1 }&bmid=${bmid }"
-												onclick="">上一页</a> <c:forEach begin="1" end="${totalpage }"
+												href="investInfo.do?currpage=1&bmid=${bmid }" onclick="">首页 </a>
+												<a href="investInfo.do?currpage=${currpages-1 }&bmid=${bmid }"
+												onclick="">上一页</a> 
+												<c:forEach begin="1" end="${totalpage }"
 													step="1" varStatus="bindex">&nbsp;<a
 														class="curr" onclick=""
 														href="investInfo.do?currpage=${bindex.count }&bmid=${bmid }">${bindex.count }</a>
