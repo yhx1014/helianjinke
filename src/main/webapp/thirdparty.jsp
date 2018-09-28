@@ -14,19 +14,15 @@
 		<script type="text/javascript" src="<%=basePath%>script/jquery.min.js"></script>
 		<script type="text/javascript" src="<%=basePath%>script/common.js"></script>
 		<script src="<%=basePath%>script/user.js" type="text/javascript"></script>
-		<style type="text/css">
-		
-		</style>
 	</head>
 <body>
 	<jsp:include page="head.jsp"></jsp:include>	
     <div class="w1200 personal">
 	   <jsp:include page="left.jsp"></jsp:include>
-       <div class="personal-main">
+          <div class="personal-main">
 	        <div class="pmain-profile">
-		        <div class="pmain-user">
+                <div class="pmain-user">
 		          <div class="user-info user-info1">
-		          
 		          	订单类型 (订单状态)
 		          	<%-- ${borrow}; --%>
 		          	<c:forEach items="${borrow}" var="item">

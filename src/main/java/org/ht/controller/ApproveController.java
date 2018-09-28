@@ -2,7 +2,6 @@ package org.ht.controller;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -16,7 +15,6 @@ import org.ht.pojo.Users;
 import org.ht.service.ApproveService;
 import org.ht.service.CertifrecordService;
 import org.ht.service.ClapplyforService;
-import org.ht.service.CreditlimitService;
 import org.ht.service.InformationService;
 import org.ht.service.UserauditorService;
 import org.ht.service.UsersService;
@@ -29,12 +27,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-/**
- * @Name: ApproveController
- * @Description:认证项设置
- * @author chenqingshan
- * @Date: 2017-2-20 Time: 20:24
- */
 @Controller
 @RequestMapping("approve")
 public class ApproveController {
@@ -52,8 +44,8 @@ public class ApproveController {
 	private InformationService informationService;
 	@Autowired
 	private ClapplyforService clapplyforService;
-	@Autowired
-	private CreditlimitService creditlimitService;
+/*	@Autowired
+	private CreditlimitService creditlimitService;*/
 	@RequestMapping("traverseApproves")
 	private String traverseApproves(Model model, Approveitem ai,
 			@RequestParam(value = "currpage", required = false) String currpage) {
@@ -138,11 +130,6 @@ public class ApproveController {
 		approveService.updateApproves(parameters);
 		return new ModelAndView("redirect:traverseApproves.do");
 	}
-		
-
-		
-
-	
 	
 	@RequestMapping("affirmCrauditor")
 	@ResponseBody
@@ -160,17 +147,13 @@ public class ApproveController {
 				Map<String, Object> parameters1 = new HashMap<String, Object>();
 				parameters1.put("crauditor",ua.getUauditor());
 				parameters1.put("cruserid",ua.getUserid());
-				int updatecode = certifrecordService.updateCertifrecord(parameters1);
+				// int updatecode = certifrecordService.updateCertifrecord(parameters1);
 			}
 
 		
 		
 		return code;
 	}
-	//新用户认证资料 end
-//==============================================================================
-	
-//==============================================================================
 	//资料认证
 	@RequestMapping("basicInfoApprove")
 	private String basicInfoaudit(Model model,@RequestParam(value = "currpage", required = false) String currpage){
@@ -298,10 +281,7 @@ public class ApproveController {
 		return str+"approvestatistics";
 	}
 	
-//资料认证 end
-//============================================================================================================================================	
-	
-//============================================================================================================================================	
+	//资料认证 end
 	//信用额度申请
 	@RequestMapping("limitApplyfor")
 	private String limitApplyfor(Model model,
@@ -368,11 +348,11 @@ public class ApproveController {
 		model.addAttribute("clpuname", clpuname);
 		model.addAttribute("mindate", mindate);
 		model.addAttribute("clpstate", clpstate);
-		//System.out.println("进来了========================================================clapplyfors=="+clapplyfors.size());
-		
 		return str+"limitapplyforlist";
 		
 	}
+	
+	@SuppressWarnings("unchecked")
 	@RequestMapping("applyforApprove")
 	@ResponseBody
 	private String applyforApprove(Clapplyfor ca){
@@ -383,12 +363,10 @@ public class ApproveController {
 			Creditlimit creditlimit = new Creditlimit();
 			creditlimit.setCllimit(ca.getClpporiginal()+ca.getClpf());
 			creditlimit.setCrbankcard(ca.getClpubcid());
-			int code1 = creditlimitService.updateCreditlimit(BeanUtils.toMap(creditlimit));
 		}
 		if(updateCode <=0){
 			code = "400";
 		}
 		return code;
 	}
-
 }
