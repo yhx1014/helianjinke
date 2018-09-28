@@ -9,63 +9,62 @@
 %>
 
 <html>
-<head>
-	<title>币币袋</title>
-	<link href="css/common.css" rel="stylesheet" />
-	<link rel="stylesheet" type="text/css" href="css/user.css" />
-	<link rel="stylesheet" type="text/css" href="css/jquery.datetimepicker.css" />
-	<script type="text/javascript" src="script/jquery.min.js"></script>
-	<script type="text/javascript" src="script/common.js"></script>
-	<script src="script/user.js" type="text/javascript"></script>
-	<script type="text/javascript" src = "${pageContext.request.contextPath}/js/jquery-1.8.3.js"></script>
-</head>
-<script>
-$(document).ready(function(){
-	$("#chkAll").click(function(){
-		var ch = document.getElementsByName("chkSon");
-		if (document.getElementsByName("chkAll")[0].checked == true) {
-			for (var i = 0; i < ch.length; i++) {
-				ch[i].checked = true;
-			}
-		} else {
-			for (var i = 0; i < ch.length; i++) {
-				ch[i].checked = false;
-			}
-		}
-		
-	});
-	var subChk = $("input[name='chkSon']")
-	subChk.click(function() {
-		$("#chkAll").prop("checked", subChk.length == subChk.filter(":checked").length ? true:false);
-	});
-	$("#del_model").click(function(){
-		var checkedNum=$("input[name='chkSon']:checked").length;
-		if(checkedNum == 0) {
-			alert("请选择至少一项！");
-			return;
-		}
-		// 批量选择
-		if(confirm("确定要删除所选项目？")) {
-			var checkedList = new Array();
-			$("input[name='chkSon']:checked").each(function() {
-			checkedList.push($(this).val());
-			});
-			$.ajax({
-				type: "POST",
-				url: "batchDeletes.do",
-				data: {'delitems':checkedList.toString()},
-				success: function(result) {
-				$("[name ='chkSon']:checkbox").attr("checked", false);
-					window.location.reload();
+	<head>
+		<title>币币袋</title>
+		<link href="css/common.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/user.css" />
+		<link rel="stylesheet" type="text/css" href="css/jquery.datetimepicker.css" />
+		<script type="text/javascript" src="script/jquery.min.js"></script>
+		<script type="text/javascript" src="script/common.js"></script>
+		<script src="script/user.js" type="text/javascript"></script>
+		<script type="text/javascript" src = "${pageContext.request.contextPath}/js/jquery-1.8.3.js"></script>
+	</head>
+	<script>
+	    $(document).ready(function(){
+		$("#chkAll").click(function(){
+			var ch = document.getElementsByName("chkSon");
+			if (document.getElementsByName("chkAll")[0].checked == true) {
+				for (var i = 0; i < ch.length; i++) {
+					ch[i].checked = true;
 				}
-			});
-		}
+			} else {
+				for (var i = 0; i < ch.length; i++) {
+					ch[i].checked = false;
+				}
+			}
+			
+		});
+		var subChk = $("input[name='chkSon']")
+		subChk.click(function() {
+			$("#chkAll").prop("checked", subChk.length == subChk.filter(":checked").length ? true:false);
+		});
+		$("#del_model").click(function(){
+			var checkedNum=$("input[name='chkSon']:checked").length;
+			if(checkedNum == 0) {
+				alert("请选择至少一项！");
+				return;
+			}
+			// 批量选择
+			if(confirm("确定要删除所选项目？")) {
+				var checkedList = new Array();
+				$("input[name='chkSon']:checked").each(function() {
+				checkedList.push($(this).val());
+				});
+				$.ajax({
+					type: "POST",
+					url: "batchDeletes.do",
+					data: {'delitems':checkedList.toString()},
+					success: function(result) {
+					$("[name ='chkSon']:checkbox").attr("checked", false);
+						window.location.reload();
+					}
+				});
+			}
+		});
 	});
-});
-</script>
+	</script>
 <body>
 	<jsp:include page="head.jsp"></jsp:include>
-	<!--个人中心-->
 	<div class="wrapper wbgcolor">
 		<div class="w1200 personal">
 			<div class="credit-ad">
@@ -129,11 +128,11 @@ $(document).ready(function(){
 								});
 							</script>
 							<div id="pxtxx-tab" class="pxtxx-tab">
-								
 								<ul>
 									<li class="on"><input type="button"
 										style="color: #3333ff; padding: 5px 22px; display: block;"
-										title="刪除" id="del_model" value="删除"/></li>
+										title="刪除" id="del_model" value="删除"/>
+									</li>
 								</ul>
 								<span class="xxsz" style="display: none;">消息设置</span>
 							</div>

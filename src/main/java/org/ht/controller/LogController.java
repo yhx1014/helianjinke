@@ -19,16 +19,9 @@ public class LogController {
 
 	@RequestMapping("/list")
 	public String list() {
-		
-		System.out.println("查询日志   》》》》》》》》》》》》");
-
 		Log log = new Log();
-
 		List<Log> page = service.findList(BeanUtils.toMap(log));
-
 		System.out.println(" 222222222222      " + page);
-
 		return "/back/test";
-
 	}
 }

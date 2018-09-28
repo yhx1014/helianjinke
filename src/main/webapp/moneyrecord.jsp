@@ -22,11 +22,9 @@
 <script type="text/javascript" src="<%=basePath%>/script/common.js"></script>
 <script src="<%=basePath%>/script/user.js" type="text/javascript"></script>
 </head>
-<body><header>
- <!-- 导航栏 --><jsp:include page="head.jsp"></jsp:include>
-</header>
-<!--个人中心-->
-<div class="wrapper wbgcolor">
+<body>
+  <jsp:include page="head.jsp"></jsp:include>
+  <div class="wrapper wbgcolor">
   <div class="w1200 personal">
     <div class="credit-ad"><img src="images/clist1.jpg" width="1200" height="96"></div>
     <!-- 导航栏 --><jsp:include page="left.jsp"></jsp:include>

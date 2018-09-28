@@ -352,7 +352,6 @@ public class ApproveController {
 		
 	}
 	
-	@SuppressWarnings("unchecked")
 	@RequestMapping("applyforApprove")
 	@ResponseBody
 	private String applyforApprove(Clapplyfor ca){

@@ -3,19 +3,11 @@ package org.ht.util;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
-
 import org.ht.pojo.Log;
 import org.junit.Test;
 
-/**
- * 
- * 这个类是把前台传递过来的参数封装成Map,给xml调用
- * 
- * @author Administrator
- *
- */
 public class BeanUtils {
-	public static Map toMap(Object obj) {
+	public static Map<String, Object> toMap(Object obj) {
 		Map<String, Object> reMap = new HashMap<String, Object>();
 		if (obj == null)
 			return null;
@@ -28,18 +20,14 @@ public class BeanUtils {
 					Object o = f.get(obj);
 					reMap.put(fields[i].getName(), o);
 				} catch (NoSuchFieldException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (IllegalArgumentException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (IllegalAccessException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
 		} catch (SecurityException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return reMap;
@@ -50,7 +38,7 @@ public class BeanUtils {
 		Log log = new Log();
 		log.setLaccount("111");
 
-		Map map = BeanUtils.toMap(log);
+		Map<?, ?> map = BeanUtils.toMap(log);
 		System.out.println(map.get("laccount"));
 	}
 

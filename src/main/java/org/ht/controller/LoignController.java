@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * 
  * @author michael 2017-2-23 10:19:37 网站消息通知控制层
  */
+
 @Controller
 @RequestMapping("log")
 public class LoignController {

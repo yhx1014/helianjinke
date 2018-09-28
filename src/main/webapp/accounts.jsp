@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
@@ -307,7 +311,6 @@
 			    		"background-position-y":"-550px"
 			    	});
 		         }
-				//$("#activeEmail\\:activeEmailemail").attr({"readOnly":"true"});
 				"";
 			});
 			//]]>
@@ -349,7 +352,6 @@
           </li>
           <li><i class="grzxbg p-danger"></i><span class="zhsz-span1">第三方支付</span><span class="zhsz-span2">未开通</span><span class="zhsz-span3"><a href="#">开通</a></span></li>
           <li> 
-	           
 	           	<c:if test="${user.umailbox!=null}">
 	           		 <i class="grzxbg p-right"></i>
 	           		 <span class="zhsz-span1">电子邮箱</span> 
@@ -364,7 +366,7 @@
 			        	 <a href="#" onclick="showSpan('alert-updateEmail')">更改</a> 
 			         </span>
 	           	</c:if>
-	          	<c:if test="${user.umailbox==null }">
+	          	<c:if test="${user.umailbox==null}">
 	          		<i class="grzxbg p-danger"></i>
 	          		 <span class="zhsz-span1">电子邮箱</span>
 	          		 <span class="zhsz-span3">
@@ -1443,7 +1445,6 @@
     </div>
     <div class="clear"></div>
   </div>
-</div>
 <!--网站底部-->
 <div id="footer" class="ft">
   <div class="ft-inner clearfix">

@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 /**
  * @Name: ApproveServiceImpl
  * @Description:认证项设置的Service的实现层
- * @author chenqingshan
+ * @author michael
  * @Date: 2017-2-20 Time: 20:24
  */
 @Service

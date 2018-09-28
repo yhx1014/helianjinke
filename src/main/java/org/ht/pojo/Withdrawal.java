@@ -3,11 +3,7 @@ package org.ht.pojo;
 import java.io.Serializable;
 import java.util.Date;
 
-/**
- * 
- * @author Hjy 提现管理表
- */
-
+@SuppressWarnings("serial")
 public class Withdrawal  implements Serializable{
 	
 	private Integer wID ;

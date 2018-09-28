@@ -203,7 +203,6 @@ public class InvestController {
 		} else {
 
 			Product pro = new Product();
-			@SuppressWarnings("unchecked")
 			List<Product> page = proS.findList(BeanUtils.toMap(pro));
 
 			totalrow = page.size();
@@ -236,7 +235,6 @@ public class InvestController {
 			pro.setStartPage(candp);
 			pro.setPageSize(5);
 
-			@SuppressWarnings("unchecked")
 			List<Product> list = proS.findList(BeanUtils.toMap(pro));
 			model.addAttribute("totalrow", totalrow);
 			model.addAttribute("currpages", currpages);

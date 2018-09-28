@@ -3,17 +3,8 @@ package org.ht.pojo;
 import java.io.Serializable;
 import java.util.Date;
 
+@SuppressWarnings("serial")
 public class Clapplyfor implements Serializable{
-//	 `clpid`   '申请编号',
-//	  `clpubcid`   '用户账号',
-//	  `clpuname`   '用户姓名',
-//	  `clpporiginal`  '原信用额',
-//	  `clpidpaper`  '身份证明照片',
-//	  `clphpoc`   '房产证明照片',
-//	  `clpf`  '申请信用额',
-//	  `clpdate`  '申请时间',
-//	  `clpauditor`  '跟踪审核',
-//	  `clpstate`  '状态',
 	private Integer clpid;
 	private String clpubcid;
 	private String clpuname;
@@ -24,16 +15,12 @@ public class Clapplyfor implements Serializable{
 	private Date clpdate;
 	private String clpauditor;
 	private String clpstate;
-	
-	
-	
-	
+
 	public Clapplyfor() {
 		
 	}
 	public Clapplyfor(Integer clpid, String clpubcid, String clpuname, Double clpporiginal, String clpidpaper,
 			String clphpoc, Double clpf, Date clpdate, String clpauditor, String clpstate) {
-		
 		this.clpid = clpid;
 		this.clpubcid = clpubcid;
 		this.clpuname = clpuname;
@@ -45,6 +32,7 @@ public class Clapplyfor implements Serializable{
 		this.clpauditor = clpauditor;
 		this.clpstate = clpstate;
 	}
+	
 	public Integer getClpid() {
 		return clpid;
 	}
@@ -105,7 +93,4 @@ public class Clapplyfor implements Serializable{
 	public void setClpstate(String clpstate) {
 		this.clpstate = clpstate;
 	}
-	
-	
-
 }

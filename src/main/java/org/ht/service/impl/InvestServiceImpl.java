@@ -1,11 +1,8 @@
 package org.ht.service.impl;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
-
 import javax.annotation.Resource;
-
 import org.ht.dao.InvestInfoDao;
 import org.ht.pojo.InvestInfo;
 import org.ht.service.InvestService;
@@ -29,7 +26,6 @@ public class InvestServiceImpl implements InvestService {
 
 	@Override
 	public List<InvestInfo> getDtail(Map<String, InvestInfo> map) {
-		// TODO Auto-generated method stub
 		return iid.getDtail(map);
 	}
 
@@ -42,5 +38,4 @@ public class InvestServiceImpl implements InvestService {
 	public Integer getMoney(Integer uid) {
 		return iid.getMoney(uid);
 	}
-
 }

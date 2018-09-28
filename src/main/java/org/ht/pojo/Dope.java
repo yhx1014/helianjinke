@@ -3,17 +3,15 @@ package org.ht.pojo;
 import java.io.Serializable;
 import java.util.Date;
 
+@SuppressWarnings("serial")
 public class Dope implements Serializable {
 	private Integer did;
 	private Integer dprimkey;
 	private String dtitle;
 	private String details;
 	private Date dtime;
-
 	public Dope() {
-
 	}
-
 	
 	public Dope(Integer did, Integer dprimkey, String dtitle, String details, Date dtime) {
 		super();
@@ -23,7 +21,6 @@ public class Dope implements Serializable {
 		this.details = details;
 		this.dtime = dtime;
 	}
-
 
 	public Integer getDid() {
 		return did;
@@ -64,6 +61,4 @@ public class Dope implements Serializable {
 	public void setDtime(Date dtime) {
 		this.dtime = dtime;
 	}
-
-	
 }

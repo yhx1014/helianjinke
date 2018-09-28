@@ -1,17 +1,15 @@
 package org.ht.service.impl;
 
-
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import org.ht.dao.RechargeDao;
 import org.ht.pojo.Recharge;
 import org.ht.service.RechargeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 @Service
 @Transactional
 public class RechargeServiceImpl implements RechargeService{
@@ -70,6 +68,4 @@ public class RechargeServiceImpl implements RechargeService{
 	public int sumdzmoneyre() {
 		return rdao.sumdzmoneyre();
 	}
-
-	
 }

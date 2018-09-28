@@ -15,7 +15,7 @@ public class LimitServiceImpl implements LimitService{
 	@Autowired
 	private LimitDao limitdao;
 	
-	public List limitByeid(int eid) {
+	public List<?> limitByeid(int eid) {
 		
 		return limitdao.limitByeid(eid);
 	}

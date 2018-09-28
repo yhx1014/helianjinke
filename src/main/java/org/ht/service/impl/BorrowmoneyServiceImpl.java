@@ -49,7 +49,6 @@ public class BorrowmoneyServiceImpl implements BorrowmoneyService {
 		pageNo = pageNo == null ? 1 : pageNo;
 		pageSize = pageSize == null ? 3 : pageSize;
 		PageHelper.startPage(pageNo, pageSize);
-		@SuppressWarnings("unchecked")
 		List<Borrowmoney> list = dao.findList(BeanUtils.toMap(params));
 
 		PageInfo<Borrowmoney> page = new PageInfo<Borrowmoney>(list);

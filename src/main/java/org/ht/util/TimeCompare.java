@@ -31,14 +31,15 @@ public class TimeCompare {
 
 		   SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm");
 	        try {
-	            Date dt1 = df.parse(new Date().toLocaleString());
+	            @SuppressWarnings("deprecation")
+				Date dt1 = df.parse(new Date().toLocaleString());
 	            Date dt2 = df.parse("2017-01-12 00:00:00");
 	            System.out.println("dt1   =  "+dt1.getTime());
             	System.out.println("dt2   =  "+dt2.getTime());
 	            if (dt1.getTime() < dt2.getTime()) {
-	            	  System.out.println("鐜板湪鏃堕棿姣旈」鐩埌鏈熸椂闂存棭");
+	            	  System.out.println("");
 	            } else if (dt1.getTime() > dt2.getTime()) {
-	            	  System.out.println("鐜板湪鏃堕棿姣旈」鐩埌鏈熸椂闂存櫄");
+	            	  System.out.println("");
 	            } else {
 	            	
 	            }

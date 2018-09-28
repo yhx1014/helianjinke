@@ -1,20 +1,15 @@
 package org.ht.pojo;
 
 import java.io.Serializable;
-/**
- * 用户与审核人
- * @author Administrator
- *
- */
+
+@SuppressWarnings("serial")
 public class Userauditor implements Serializable{
 	private Integer uaid;//'编号',
 	private Integer userid;//'用户ID',
 	private String username;//'用户名',
 	private Integer uauditorid;//'审核人ID',
 	private String uauditor;//'审核人姓名'
-	
-	
-	
+
 	public Userauditor() {
 		
 	}
@@ -56,6 +51,4 @@ public class Userauditor implements Serializable{
 	public void setUauditor(String uauditor) {
 		this.uauditor = uauditor;
 	}
-	
-	
 }

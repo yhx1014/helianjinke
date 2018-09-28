@@ -5,9 +5,6 @@ import java.util.Date;
 import org.springframework.format.annotation.DateTimeFormat;
 
 public class Product  extends BaseDomain {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private Integer pmoney;
 	private Integer  startPage;
@@ -34,11 +31,8 @@ public class Product  extends BaseDomain {
     private Integer pproduce;
     private String pdesc;
     private String psafe;
-
     private Biao biao;
-    
     private Details details;
-    
     
     public Details getDetails() {
 		return details;
@@ -48,7 +42,6 @@ public class Product  extends BaseDomain {
 	public void setDetails(Details details) {
 		this.details = details;
 	}
-
 
 	public Biao getBiao() {
 		return biao;
@@ -60,16 +53,13 @@ public class Product  extends BaseDomain {
 	}
 
 	private Users users;
-    
     public Users getUsers() {
 		return users;
 	}
 
-
 	public void setUsers(Users users) {
 		this.users = users;
 	}
-
 
 	public Product (){
     	this.pmoney=0;
@@ -79,7 +69,6 @@ public class Product  extends BaseDomain {
     	this.ppublishtime=new Date();
     	this.ptime=new Date();
     }
-    
     
     public Integer getPmoney() {
 		return pmoney;
@@ -103,8 +92,6 @@ public class Product  extends BaseDomain {
 	public void setPageSize(Integer pageSize) {
 		this.pageSize = pageSize;
 	}
-
-    
     
     public Integer getId() {
         return id;

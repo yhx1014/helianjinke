@@ -30,7 +30,6 @@ public class RechargeController {
 	String str = "WEB-INF/view/";
 	@Autowired
 	private RechargeService bs;
-
 	@RequestMapping("rech")
 	public String  rech(Model m,
 			@RequestParam(value = "currpage", required = false) String currpage,
@@ -73,10 +72,13 @@ public class RechargeController {
 	 */
 	@RequestMapping("putexcelr")
 	public String putexcelr() throws IOException{
+		
+		@SuppressWarnings("resource")
 		HSSFWorkbook workBook = new HSSFWorkbook();
+		
 		HSSFSheet sheet = workBook.createSheet("充值记录");
 		HSSFRow titleRow = sheet.createRow(0);
-		// 标题行
+		//标题行
 		HSSFCell cell1 = titleRow.createCell(0);
 		cell1.setCellValue("用户ID");
 		HSSFCell cell2 = titleRow.createCell(1);

@@ -257,7 +257,7 @@ public class InformationController {
 			}
 			currpages = totalpage;
 		}
-		Integer startPage = (currpages - 1) * pagerow;
+		//Integer startPage = (currpages - 1) * pagerow;
 		return null;
 	}
 	

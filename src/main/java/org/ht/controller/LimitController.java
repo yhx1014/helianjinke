@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import org.ht.pojo.Limi;
-import org.ht.service.DeptService;
 import org.ht.service.LimitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,8 +17,8 @@ public class LimitController {
 	
 	@Autowired
 	private LimitService limitService;
-	@Autowired
-	private DeptService deptService;
+/*	@Autowired
+	private DeptService deptService;*/
 
 	@RequestMapping("toupd")
 	public String toupd(@RequestParam(value = "eid", required = false) Integer eid,

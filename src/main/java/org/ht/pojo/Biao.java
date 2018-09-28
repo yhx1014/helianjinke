@@ -1,5 +1,6 @@
 package org.ht.pojo;
 
+@SuppressWarnings("serial")
 public class Biao extends BaseDomain {
 	private Integer startPage;
 	public Integer getPageSize() {
@@ -10,8 +11,6 @@ public class Biao extends BaseDomain {
 		this.pageSize = pageSize;
 	}
 
-
-
 	private Integer pageSize;
 	public Integer getStartPage() {
 		return startPage;
@@ -20,8 +19,6 @@ public class Biao extends BaseDomain {
 	public void setStartPage(Integer startPage) {
 		this.startPage = startPage;
 	}
-
-	
 
 	private Integer id;
 

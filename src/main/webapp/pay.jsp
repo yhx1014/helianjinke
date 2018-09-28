@@ -23,10 +23,7 @@
 <script src="<%=basePath%>/script/user.js" type="text/javascript"></script>
 </head>
 <body>
-<header>
- <!-- 导航栏 --><jsp:include page="head.jsp"></jsp:include>
-</header>
-<!--个人中心-->
+	<jsp:include page="head.jsp"></jsp:include>
 <div class="wrapper wbgcolor">
 			<div class="w1200 personal">
 		    	<div class="credit-ad"><img src="images/clist1.jpg" width="1000" height="80"></div>

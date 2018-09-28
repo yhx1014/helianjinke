@@ -50,12 +50,12 @@ public class DopeController {
 		model.addAttribute("totalRow",totalRow);
 		return "messages";
 	}
+	
 	//批量删除
 	@RequestMapping(value = "/batchDeletes", method = RequestMethod.POST)
 	public String batchDeletes(@RequestParam(value="delitems",required=false)String items){
 		System.out.println("传来的id:"+items);
 		String[] item=items.split(",");
-		
 		List<Object> list=new ArrayList<>();
 		for (int i = 0; i < item.length; i++) {
 			list.add(item[i]);

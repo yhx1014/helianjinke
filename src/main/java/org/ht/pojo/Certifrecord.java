@@ -5,9 +5,10 @@ import java.util.Date;
 
 /**
  * @Description:认证申请记录的bean
- * @author chenqingshan
+ * @author michael
  * @Date: 2017-2-23 Time: 20:54
  */
+@SuppressWarnings("serial")
 public class Certifrecord implements Serializable {
 	private Integer crid;//编号
 	private Integer cruserid;//用户编号

@@ -3,6 +3,7 @@ package org.ht.pojo;
 import java.io.Serializable;
 import java.util.Date;
 
+@SuppressWarnings("serial")
 public class Poundage implements Serializable{
 	private Integer pID ;
 	private Integer uID ;
@@ -108,5 +109,4 @@ public class Poundage implements Serializable{
 	public void setSxtime(Date sxtime) {
 		this.sxtime = sxtime;
 	}
-	
 }

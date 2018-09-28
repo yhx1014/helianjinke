@@ -5,10 +5,7 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.ht.dao.DetailsDao;
-import org.ht.dao.ProductDao;
 import org.ht.pojo.Details;
-import org.ht.pojo.Notice;
-import org.ht.pojo.Product;
 import org.ht.service.DetailsService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

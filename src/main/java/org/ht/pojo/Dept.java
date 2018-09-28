@@ -1,11 +1,9 @@
 package org.ht.pojo;
-
 import java.util.Date;
 
+@SuppressWarnings("serial")
 public class Dept extends BaseDomain {
-
 	private Integer did;
-
 	private String dname;
 	private Date dtime;
 	private Integer dstatus;

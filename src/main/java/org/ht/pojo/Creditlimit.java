@@ -4,9 +4,10 @@ import java.io.Serializable;
 
 /**
  * @Description:信用额度的bean
- * @author chenqingshan
+ * @author michael
  * @Date: 2017-2-23 Time: 20:40
  */
+@SuppressWarnings("serial")
 public class Creditlimit implements Serializable {
 
 	private Integer clid;
@@ -20,7 +21,6 @@ public class Creditlimit implements Serializable {
 	}
 
 	public Creditlimit(Integer clid, Integer cluserid, String clusername, String crbankcard, Double cllimit) {
-
 		this.clid = clid;
 		this.cluserid = cluserid;
 		this.clusername = clusername;
@@ -69,9 +69,7 @@ public class Creditlimit implements Serializable {
 	}
 
 	public String getCreditlimitInfo() {
-
 		return "Info clid==" + this.getClid() + "  cluserid==" + this.getCluserid() + "  clusername=="
 				+ this.getClusername() + "  crbankcard==" + this.getCrbankcard() + "  cllimit==" + this.getCllimit();
 	}
-
 }

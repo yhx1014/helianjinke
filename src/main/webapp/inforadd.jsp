@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
@@ -9,34 +8,24 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>币币袋</title>
-<meta name="keywords" content="" />
-<meta name="description" content="" />
-<link href="<%=basePath%>css/register.css" rel="stylesheet"
-	type="text/css" />
-<link href="<%=basePath%>css/common.css" rel="stylesheet" />
-<link href="<%=basePath%>css/index.css" rel="stylesheet"
-	type="text/css" />
-<link href="<%=basePath%>css/detail.css" rel="stylesheet"
-	type="text/css" />
-<script type="text/javascript" src="script/jquery.min.js"></script>
-<script type="text/javascript" src="script/common.js"></script>
-<script src="<%=basePath%>script/ablumn.js"></script>
-<script src="<%=basePath%>script/plugins.js"></script>
-<script src="<%=basePath%>script/detail.js"></script>
-<link href="http://localhost:8080/p2p//css/common.css" rel="stylesheet" />
-<link href="http://localhost:8080/p2p//css/register.css"
-	rel="stylesheet" type="text/css" />
-<script type="text/javascript"
-	src="http://localhost:8080/p2p//script/jquery.min.js"></script>
-<script type="text/javascript"
-	src="http://localhost:8080/p2p//script/common.js"></script>
-<script src="http://localhost:8080/p2p//script/login.js"
-	type="text/javascript"></script>
+	<title>币币袋</title>
+	<link href="<%=basePath%>css/register.css" rel="stylesheet" type="text/css" />
+	<link href="<%=basePath%>css/common.css" rel="stylesheet" />
+	<link href="<%=basePath%>css/index.css" rel="stylesheet" type="text/css" />
+	<link href="<%=basePath%>css/detail.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="script/jquery.min.js"></script>
+	<script type="text/javascript" src="script/common.js"></script>
+	<script src="<%=basePath%>script/ablumn.js"></script>
+	<script src="<%=basePath%>script/plugins.js"></script>
+	<script src="<%=basePath%>script/detail.js"></script>
+	<link href="http://localhost:8080/p2p/css/common.css" rel="stylesheet" />
+	<link href="http://localhost:8080/p2p/css/register.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="http://localhost:8080/p2p//script/jquery.min.js"></script>
+	<script type="text/javascript" src="http://localhost:8080/p2p//script/common.js"></script>
+	<script src="http://localhost:8080/p2p//script/login.js" type="text/javascript"></script>
 </head>
 <script type="text/javascript">
 	function submit() {
@@ -48,7 +37,7 @@
 	function investA() {
 		var money = document.getElementById("amount").value;
 
-		if (money > "${kymoney}") {//用户余额不足
+		if (money > "${kymoney}") {
 			alert("对不起,您的用户余额不足;无法完成投资!");
 			return;
 		}
@@ -61,18 +50,16 @@
 
 	function reckon() {//动态算出预期收益
 		var money = document.getElementById("amount").value;
-//	alert("${days}");
-//	alert(("${Borrowmoney.pincome }" * ("${days}" / 365) * money) / 100);	
-	var getm = parseInt(money) + (${Borrowmoney.pincome } * (${days} / 365) * money) / 100;
+		var getm = parseInt(money) + (${Borrowmoney.pincome } * (${days} / 365) * money) / 100;
 		var lm = parseFloat(getm).toFixed(2);
-		//		alert(lm);
 		if (isNaN(lm)) {
 			lm = 0;
 		}
 		document.getElementById("sp").innerHTML = lm + "元";
 	}
 
-	function end() {//投资完返回此界面弹出提示
+	function end() {
+		//投资完返回此界面弹出提示
 		if ("${end}" != null && "${end}" == "end") {
 			alert("恭喜您,投资成功!");
 		}
@@ -210,15 +197,6 @@
 												${dt.dcontent }</p>
 										</c:if>
 									</c:forEach>
-
-									<!--                 <p class="MsoNormal" style="margin-left:0cm;text-indent:0cm;"> 借款人信息介绍：</p>
-                <p class="MsoNormal" style="margin-left:0cm;text-indent:0cm;"> 借款人赵女士，<span>1988</span>年出生，大专学历，未婚，户籍地址为四川省古蔺县，现居住于成都市成华区。</p>
-                <p class="MsoNormal" style="margin-left:0cm;text-indent:0cm;"> 借款人工作情况：</p>
-                <p class="MsoNormal" style="margin-left:0cm;text-indent:0cm;"> 赵女士为成都某服装店老板，月收入<span>2</span>万元，收入居住稳定。</p>
-                <p class="MsoNormal" style="margin-left:0cm;text-indent:0cm;"> 借款人资产介绍：</p>
-                <p class="MsoNormal" style="margin-left:0cm;text-indent:0cm;"> 赵女士有<span>1</span>辆全款长安福特福克斯汽车。</p>
-                <p class="MsoNormal" style="margin-left:0cm;text-indent:0cm;"> 详细资金用途：</p>
-                <p class="MsoNormal" style="margin-left:0cm;text-indent:0cm;"> 借款人申请汽车质押贷款，贷款用于资金周转。</p> -->
 								</div>
 							</dd>
 						</dl>
@@ -234,15 +212,6 @@
 										<li><i class="icon icon-6"></i><br> 结婚证</li>
 										<li><i class="icon icon-7"></i><br> 工作证明</li>
 										<li><i class="icon icon-8"></i><br> 工资卡流水</li>
-										<li><i class="icon icon-9"></i><br> 收入证明</li>
-										<li><i class="icon icon-10"></i><br> 征信报告</li>
-										<li><i class="icon icon-11"></i><br> 亲属调查</li>
-										<li><i class="icon icon-19"></i><br> 行驶证</li>
-										<li><i class="icon icon-20"></i><br> 车辆登记证</li>
-										<li><i class="icon icon-21"></i><br> 车辆登记发票</li>
-										<li><i class="icon icon-22"></i><br> 车辆交强险</li>
-										<li><i class="icon icon-23"></i><br> 车辆商业保险</li>
-										<li><i class="icon icon-24"></i><br> 车辆评估认证</li>
 									</ul>
 								</div>
 							</dd>
@@ -259,12 +228,6 @@
 												style="margin-left: 0cm; text-indent: 0cm;">${dt.dname }：${dt.dcontent }
 											</p>
 										</c:if>
-										<!--            <p class="MsoNormal" style="margin-left:0cm;text-indent:0cm;"> 调查：风控部对借款人各项信息进行了全面的电话征信，一切资料真实可靠。<span></span> </p>
-                <p class="MsoNormal" style="margin-left:0cm;text-indent:0cm;"> 抵押物：全款长安福特福克斯汽车，车牌号：川<span>AYY***</span>，新车购买于<span>2013</span>年，裸车价<span>14</span>万，评估价<span>5</span>万。 </p>
-                <p class="MsoNormal" style="margin-left:0cm;text-indent:0cm;"> 权证：汽车已入库、已办理相关手续等。 </p>
-                <p class="MsoNormal" style="margin-left:0cm;text-indent:0cm;"> 担保：质押物担保。 </p>
-                <p class="MsoNormal" style="margin-left:0cm;text-indent:0cm;"> 结论：此客户为老客户，上笔贷款<span>4</span>万元，标的号为<span>20150745682</span>，已结清，现因资金周转，再次申请贷款。借款人居住稳定，收入来源可靠，经风控综合评估，同意放款<span>4</span>万。 </p>
-                <p class="MsoNormal" style="margin-left:0cm;text-indent:0cm;"> 保障：借款逾期<span>48</span>小时内，易贷风险准备金先行垫付。 </p> -->
 									</c:forEach>
 								</div>
 								<div class="step clearfix">
@@ -328,7 +291,7 @@
 					<div class="repayment-list">
 						目前投标总额：<span class="c-orange"> ${tm }元</span>&nbsp;&nbsp; 目前收益总额：<span
 							class="c-orange">${gm } 元</span>
-						<table border="0" cellpadding="0" cellspacing="0" width="100%">
+						<table style="border:0;cellpadding:0;cellspacing:0;width:100%;">
 							<tbody>
 								<tr>
 									<th>投标人</th>
@@ -344,7 +307,7 @@
 											<td>${fn:substring(record.uname,0,1)}
 												<c:forEach begin="1" end="${fn:length(fn:substring(record.uname,1,fn:length(record.uname)))}" step="1">
 												*
-												</c:forEach><!-- 筱*** -->
+												</c:forEach>
 											</td>
 											<td><span class="c-orange">￥${record.inmoney }</span></td>
 											<td><fmt:formatDate value="${record.indate }"
@@ -363,21 +326,20 @@
 							</tbody>
 							<tfoot>
 								<tr class="page-outer">
-									<td colspan="4" align="center">
-										<div align="center">
+									<td style="colspan:4;align:center;">
+										<div style="align:center;">
 											<span class="page"><a
 												href="investInfo.do?currpage=1&bmid=${bmid }" onclick="">
 													首页 </a><a
 												href="investInfo.do?currpage=${currpages-1 }&bmid=${bmid }"
-												onclick="">上一页</a> <c:forEach begin="1" end="${totalpage }"
+												onclick="">上一页</a> 
+												<c:forEach begin="1" end="${totalpage }"
 													step="1" varStatus="bindex">&nbsp;<a
 														class="curr" onclick=""
 														href="investInfo.do?currpage=${bindex.count }&bmid=${bmid }">${bindex.count }</a>
-												</c:forEach><a
-												href="investInfo.do?currpage=${currpages+1 }&bmid=${bmid }"
-												onclick="">下一页</a><a
-												href="investInfo.do?currpage=${totalpage }&bmid=${bmid }"
-												onclick="">尾页</a>&nbsp;<em>共${totalpage }页&nbsp;</em></span>
+												</c:forEach>
+												<a href="investInfo.do?currpage=${currpages+1 }&bmid=${bmid}" onclick="">下一页</a>
+												<a href="investInfo.do?currpage=${totalpage }&bmid=${bmid}" onclick="">尾页</a>&nbsp;<em>共${totalpage }页&nbsp;</em></span>
 										</div>
 									</td>
 								</tr>
@@ -389,7 +351,7 @@
 					<div class="repayment-list">
 						已还本息：<span class="c-orange">0.00元</span>&nbsp;&nbsp; 待还本息：<span
 							class="c-orange">40,400.00元</span>&nbsp;&nbsp;(待还本息因算法不同可能会存误差，实际金额以到账金额为准！)
-						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+						<table style="width:100%;border:0;cellspacing:0;cellpadding:0;">
 							<tbody>
 								<tr>
 									<th>合约还款日期</th>

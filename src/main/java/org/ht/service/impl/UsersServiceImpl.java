@@ -7,7 +7,6 @@ import org.apache.ibatis.annotations.Param;
 import org.ht.dao.UsersDao;
 import org.ht.pojo.Users;
 import org.ht.service.UsersService;
-import org.ht.util.CreateRandom;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

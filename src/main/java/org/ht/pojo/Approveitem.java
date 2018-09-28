@@ -5,9 +5,10 @@ import java.io.Serializable;
 /**
  * @Name: Approveitem
  * @Description:认证项的JavaBeans
- * @author chenqingshan
+ * @author michael
  * @Date: 2017-2-20 Time: 19:58
  */
+@SuppressWarnings("serial")
 public class Approveitem implements Serializable {
 
 	private Integer aiid;// 认证项编号

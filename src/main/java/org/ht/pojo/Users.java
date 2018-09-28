@@ -2,6 +2,7 @@ package org.ht.pojo;
 
 import java.util.Date;
 
+@SuppressWarnings("serial")
 public class Users extends BaseDomain  {
 	private Integer uid;
 	private String unickname;

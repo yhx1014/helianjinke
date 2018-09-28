@@ -1,5 +1,6 @@
 package org.ht.pojo;
 
+@SuppressWarnings("serial")
 public class Limi extends BaseDomain {
 	
 	private Integer lid;

@@ -3,6 +3,7 @@ package org.ht.pojo;
 import java.io.Serializable;
 import java.util.Date;
 
+@SuppressWarnings("serial")
 public class Trade implements Serializable{
 	private Integer tID ;
 	private Integer uID ;

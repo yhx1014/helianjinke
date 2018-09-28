@@ -187,16 +187,15 @@
 															title="车易贷"></i></a><a href="investInfo.do?bmid=${pro.id }"
 															class="f18" title="毕先生宝马320汽车质押贷款10万元" target="_blank">${pro.pname}</a>
 													</div>
-													<table width="100%" border="0" cellpadding="0"
-														cellspacing="0">
+													<table style="width:100%;border:0;cellpadding:0;cellspacing:0;">
 														<tbody>
 															<tr>
-																<td width="260">借款金额<span class="f24 c-333">${pro.ptotalmoney}</span>
+																<td style="width:260;">借款金额<span class="f24 c-333">${pro.ptotalmoney}</span>
 																</td>
-																<td width="165">年利率<span
+																<td style="width:165;">年利率<span
 																	class="f24 c-orange relative">${pro.pincome}% 
 																</span></td>
-																<td width="180" align="center">截至期限<span
+																<td style="width:180;align:center">截至期限<span
 																	class="f24 c-333"><fmt:formatDate
 																			value="${pro.ptime}" pattern="yyyy-MM-dd" /></span>
 																</td>
@@ -214,7 +213,7 @@
 																		</div>
 																	</div></td>
 																	
-																<td align="right">
+																<td style="align:right;">
 																	<c:if test="${pro.pstate=='2'}">
 																		<a class="ui-btn btn-gray" href="investInfo.do?bmid=${pro.id }">还款中</a>
 																	</c:if> 

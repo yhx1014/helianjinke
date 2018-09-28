@@ -2,8 +2,8 @@ package org.ht.pojo;
 
 import java.util.Date;
 
+@SuppressWarnings("serial")
 public class Borrowcord extends BaseDomain {
-
 	private Integer boid;
 	private Integer bid;
 	private Date bdate;
