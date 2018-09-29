@@ -82,6 +82,7 @@ public class InvestController {
 					hs.setAttribute("biaoId", param);
 				}
 			}
+			
 			if (item.equals("rate")) {
 				// 利率
 				if (param.equals("-1")) {
@@ -116,6 +117,7 @@ public class InvestController {
 					hs.setAttribute("endR", "");
 				}
 			}
+			
 			if (item.equals("timelimit")) {
 				// 期限 此处默认一个月为30天
 				if (param.equals("-1")) {// 不限
@@ -163,7 +165,6 @@ public class InvestController {
 			}
 
 			List<Product> page = proS.selList(map);
-
 			totalrow = page.size();
 			// 获取总行数
 			if (currpage != null && !"".equals(currpage)) {
@@ -399,11 +400,8 @@ public class InvestController {
 			@RequestParam(value = "money", required = false) String money,
 			HttpServletRequest req,Model model) {
 		// 投标
-		// @RequestParam(value="",requested=false)
-		// InvestInfo ii
 		HttpSession hs = req.getSession();
 		// Borrowmoney bm = (Borrowmoney) hs.getAttribute("Borrowmoney");
-		// System.out.println(bm.getBlimit());
 		Product pro = (Product) hs.getAttribute("Product");
 		InvestInfo ii = new InvestInfo();
 		Users user = (Users) hs.getAttribute("globaluser");

@@ -5,15 +5,28 @@
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"+ request.getServerName() + ":" + request.getServerPort()+ path + "/";
 %>
+
 <!DOCTYPE html>
 <html>
+<head>
+	<style>
+		div.login-form{margin-top:33px;}
+		div.login-form a{margin:0 6px;}
+		div.login-form a:hover{color:#0d95dd}
+	</style>
+	<script>
+    function keys(){
+		var id="${globaluser.uid}";
+		if(id!=""){
+			location.href="<%=basePath%>query.do?id=${globaluser.uid}";
+		}else {
+			alert("请先登入!");
+			location.href="<%=basePath%>login.jsp";
+		}
+	}
+	</script>
+</head>
 <body>
-<header>
-<style>
-	div.login-form{margin-top:33px;}
-	div.login-form a{margin:0 6px;}
-	div.login-form a:hover{color:#0d95dd}
-</style>
 <div class="header min-width">
     <div class="container">
       <div class="fn-left logo"> 
@@ -40,17 +53,5 @@
 	  </div>
     </div>
 </div>
-</header>
-<script>
-    function keys(){
-		var id="${globaluser.uid}";
-		if(id!=""){
-			location.href="<%=basePath%>query.do?id=${globaluser.uid}";
-		}else {
-			alert("请先登入!");
-			location.href="<%=basePath%>login.jsp";
-		}
-	}
-</script>
 </body>
 </html>

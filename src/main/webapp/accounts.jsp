@@ -1440,12 +1440,11 @@
 		               return returnResult;
 				}
 				
-		        //]]>
 		    </script>
     </div>
     <div class="clear"></div>
   </div>
-<!--网站底部-->
+  <!--网站底部-->
 <div id="footer" class="ft">
   <div class="ft-inner clearfix">
     <div class="ft-helper clearfix">

@@ -85,7 +85,13 @@
 				</c:forEach>
 					<li>
 					
-						<div align="center"> <span class="page"><a href="investRecord.do?currpage=1" onclick=""><!-- javascript:void(0); -->首页</a><a href="investRecord.do?currpage=${currpages-1 }" onclick="">上一页</a><c:forEach begin="1" end="${totalpage > 6 ? 6 : totalpage}" step="1" varStatus="bindex">&nbsp;<a class="curr" onclick="" href="investRecord.do?currpage=${bindex.count }">${bindex.count }</a></c:forEach><a href="investRecord.do?currpage=${currpages+1 }" onclick="">下一页</a><a href="investRecord.do?currpage=${totalpage }" onclick="">尾页</a>&nbsp;<em>共${totalpage }页&nbsp;</em></span></div>
+						<div align="center"> 
+						<span class="page"><a href="investRecord.do?currpage=1" onclick="">
+						<!-- javascript:void(0); -->
+						首页</a>
+						<a href="investRecord.do?currpage=${currpages-1 }" onclick="">上一页</a>
+						<c:forEach begin="1" end="${totalpage > 6 ? 6 : totalpage}" step="1" varStatus="bindex">&nbsp;<a class="curr" onclick="" href="investRecord.do?currpage=${bindex.count }">${bindex.count }</a>
+						</c:forEach><a href="investRecord.do?currpage=${currpages+1 }" onclick="">下一页</a><a href="investRecord.do?currpage=${totalpage }" onclick="">尾页</a>&nbsp;<em>共${totalpage }页&nbsp;</em></span></div>
 					
 					</li>
             </ul>
