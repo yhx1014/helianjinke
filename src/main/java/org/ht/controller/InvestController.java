@@ -252,14 +252,13 @@ public class InvestController {
 	@RequestMapping("recommendShow")
 	public String recommendShow(HttpServletRequest req,Model model) {
 		//首页中显示推荐
-		Map<String, Object> parameters = new HashMap<String, Object>();
+		Map<String,Object> parameters = new HashMap<String, Object>();
 	    if(application == null){
 			List<Product> proList = new ArrayList<Product>();
 			List<Biao> list = biaoS.findList(parameters);
 			if (list != null && list.size() > 0) {
 				parameters.put("pageSize", 2);
 				parameters.put("startPage", 0);
-				
 				for (int i = 0; i < list.size(); i++) {
 					Biao biao = list.get(i);
 					parameters.put("biaoId", biao.getId());

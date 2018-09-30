@@ -50,20 +50,6 @@
 		}); 
 	});
 </script>
-</head>
-
-<body>
-	<jsp:include page="head.jsp"></jsp:include>	
-	<div class="flexslider">
-		<ul class="slides">
-			<c:forEach items="${sy}" var="nots">
-				<li
-					style="background-image: url(${nots.noticepicture}); width: 100%; float: left; margin-right: -100%; position: relative; opacity: 0; display: block; z-index: 1; background-position: 50% 0px; background-repeat: no-repeat no-repeat;"
-					class=""><a href="http://${nots.noticecontent }" target="_blank"></a>
-				</li>
-			</c:forEach>
-		</ul>
-	</div>
 	<script src="${pageContext.request.contextPath}/script/jquery.flexslider-min.js"></script>
 	<script>
 		$(function() {
@@ -120,43 +106,46 @@
 			});
 		});
 	</script>
-	
-<script type="text/javascript">
-	var gaintop;
-	$(function() {
-		gaintop = $(".login_float").css("top");
-		$(".login_float").css("top", -695);
-		$(".login_float").show();
-		$(".login_float").animate({
-			top : gaintop,
-			opacity : 1
-		}, 800);
-		$(".login_float").animate({
-			top : '-=12px',
-			opacity : 1
-		}, 200);
-		$(".login_float").animate({
-			top : gaintop,
-			opacity : 1
-		}, 200);
-		$(".login_float").animate({
-			top : '-=6px',
-			opacity : 1
-		}, 200);
-		$(".login_float").animate({
-			top : gaintop,
-			opacity : 1
-		}, 200);
-		$(".login_float").animate({
-			top : '-=2px',
-			opacity : 1
-		}, 100);
-		$(".login_float").animate({
-			top : gaintop,
-			opacity : 1
-		}, 100);
-	});
-</script>
+	<script type="text/javascript">
+		var gaintop;
+		$(function() {
+			gaintop = $(".login_float").css("top");
+			$(".login_float").css("top", -695);
+			$(".login_float").show();
+			$(".login_float").animate({
+				top : gaintop,
+				opacity : 1
+			}, 800);
+			$(".login_float").animate({
+				top : '-=12px',
+				opacity : 1
+			}, 200);
+			$(".login_float").animate({
+				top : gaintop,
+				opacity : 1
+			}, 200);
+			$(".login_float").animate({
+				top : '-=6px',
+				opacity : 1
+			}, 200);
+			$(".login_float").animate({
+				top : gaintop,
+				opacity : 1
+			}, 200);
+			$(".login_float").animate({
+				top : '-=2px',
+				opacity : 1
+			}, 100);
+			$(".login_float").animate({
+				top : gaintop,
+				opacity : 1
+			}, 100);
+		});
+	</script>
+</head>
+
+<body>
+	<jsp:include page="head.jsp"></jsp:include>
 	<div class="main clearfix mrt30" data-target="sideMenu">
 		<div class="wrap">
 			<div class="page-left fn-left">
