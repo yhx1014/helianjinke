@@ -1,3 +1,4 @@
+/*modified*/
 CREATE DATABASE /*!32312 IF NOT EXISTS*/`credit`;
 USE `credit`;
 
