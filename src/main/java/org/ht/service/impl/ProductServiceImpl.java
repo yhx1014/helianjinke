@@ -1,18 +1,13 @@
 package org.ht.service.impl;
 
-import java.text.DecimalFormat;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
-
 import javax.annotation.Resource;
-
 import org.ht.dao.DetailsDao;
 import org.ht.dao.ProductDao;
 import org.ht.pojo.Details;
 import org.ht.pojo.Product;
 import org.ht.service.ProductService;
-import org.ht.util.TimeCompare;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -68,8 +63,7 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public void updateProgres(List<Product> product) {
-
-		for (Product product2 : product) {
+		for (@SuppressWarnings("unused") Product product2 : product) {/*
 			if (product2.getPtotalmoney() == null || product2.getPtotalmoney().equals("")
 					|| product2.getPmoney() == 0) {
 				product2.setPtotalmoney(0);
@@ -90,14 +84,12 @@ public class ProductServiceImpl implements ProductService {
 			}
 
 			dao.updateProgres(product2);
-		}
+		*/}
 	}
 
-	@SuppressWarnings("deprecation")
 	@Override
 	public void updateStatus(List<Product> product) {
-
-		for (Product product2 : product) {
+		/*for (Product product2 : product) {
 			double pragess = Double.parseDouble(product2.getProgress());
 			Date ptime = product2.getPtime();// 项目期限
 			TimeCompare time = new TimeCompare();
@@ -110,7 +102,7 @@ public class ProductServiceImpl implements ProductService {
 				product2.setPstate("3"); // 失效
 			}
 			dao.updateStatus(product2);
-		}
+		}*/
 	}
 
 	@Override

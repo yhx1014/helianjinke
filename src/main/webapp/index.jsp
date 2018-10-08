@@ -146,11 +146,20 @@
 
 <body>
 	<jsp:include page="head.jsp"></jsp:include>
+	<div class="flexslider">
+		<ul class="slides">
+			<c:forEach items="${sy}" var="nots">
+				<li
+				style="background-image: url(${nots.noticepicture}); width: 100%; float: left; margin-right: -100%; position: relative; opacity: 0; display: block; z-index: 1; background-position: 50% 0px; background-repeat: no-repeat no-repeat;"
+				class=""><a href="http://${nots.noticecontent }" target="_blank"></a></li>
+			</c:forEach>
+		</ul>
+	</div>
 	<div class="main clearfix mrt30" data-target="sideMenu">
 		<div class="wrap">
 			<div class="page-left fn-left">
 			    <c:if test="${biaoList.size() > 0 }"> 
-					<c:forEach items="${biaoList }" var="biao">
+					<c:forEach items="${biaoList}" var="biao">
 						<div class="mod-borrow mrt20">
 							<div class="hd">
 								<h2 class="pngbg">

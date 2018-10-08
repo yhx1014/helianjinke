@@ -3,7 +3,6 @@ package org.ht.pojo;
 import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
-
 public class Product  extends BaseDomain {
 	private static final long serialVersionUID = 1L;
 	private Integer pmoney;
