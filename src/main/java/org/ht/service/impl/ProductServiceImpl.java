@@ -37,7 +37,6 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public void create(Product product) {
 		// 这里设置了新增主表的时候返回主表的主键ID,为了把这个主键的ID加给副表的主键(返回主表的ID在xml那里已经配置了)
-
 		dao.create(product);
 		// 新增标的时候需要级联新增详情表
 		Details details = product.getDetails();
@@ -50,8 +49,6 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public int update(Product product) {
-		// TODO Auto-generated method stub
-
 		return dao.update(product);
 	}
 
@@ -63,7 +60,8 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public void updateProgres(List<Product> product) {
-		for (@SuppressWarnings("unused") Product product2 : product) {/*
+            /*		
+            for (Product product2 : product) {
 			if (product2.getPtotalmoney() == null || product2.getPtotalmoney().equals("")
 					|| product2.getPmoney() == 0) {
 				product2.setPtotalmoney(0);
@@ -84,9 +82,10 @@ public class ProductServiceImpl implements ProductService {
 			}
 
 			dao.updateProgres(product2);
-		*/}
+			}
+			*/
 	}
-
+	
 	@Override
 	public void updateStatus(List<Product> product) {
 		/*for (Product product2 : product) {

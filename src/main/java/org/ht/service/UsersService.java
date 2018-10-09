@@ -12,12 +12,8 @@ public interface UsersService {
 	List<Users> userList();
 	int insert(Users users);
     List<Users> queryUserslimits(String unickname);
-    
-	Users byNameFindUsers(@Param("unickname") String unickname, @Param("upassword") String upassword);
-	/**
-	 * @author
-	 * @param map
-	 * @explain users 的分页查询
-	 */
+
+    Users byNameFindUsers(@Param("unickname") String unickname, @Param("upassword") String upassword);
+	
 	public List<Users> queryUser(Map<String, Object> map);
 }

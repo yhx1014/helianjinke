@@ -5,6 +5,7 @@ import java.util.Map;
 import org.ht.pojo.Product;
 
 public interface ProductService {
+	
 	public List<Product> findList(Map<String, Object> map);
 	void delete(Integer id);
 	void create(Product product);

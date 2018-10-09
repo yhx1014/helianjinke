@@ -8,7 +8,7 @@
 			+ path + "/";
 %>
 
-<div id="footer" class="ft" style="display:none">
+<%-- <div id="footer" class="ft" style="display:none">
   <div class="ft-inner clearfix">
     <div class="ft-helper clearfix">
       <dl>
@@ -39,7 +39,11 @@
    
     <div class="ft-service">
       <dl>
-        <dt><strong><p style="font-size:14px">服务时间</p></strong></dt>
+        <dt>
+            <strong>
+            	<span style="font-size:14px;">服务时间</span>
+            </strong>
+        </dt>
         <dd>
              <p> 工作日 9:00-22:00 / 周六 9:00-18:00<br> </p>                      
         </dd>
@@ -55,7 +59,7 @@
   <div class="ft-record">
   <div class="ft-identity">©2018 原力协议  All rights reserved&nbsp;&nbsp;&nbsp;<span class="color-e6">|</span>&nbsp;&nbsp;&nbsp;北京市和链金科科技有限公司&nbsp;&nbsp;&nbsp;<span class="color-e6">|</span>&nbsp;&nbsp;&nbsp;<a target="_blank" href="">京ICP备88888888号-8</a></div>
   </div>
-</div>
+</div> --%>
 
 <style>
 #bottom li{display:inline-block;height:60px;font-size:12px;width:200px;overflow:hidden;}
@@ -84,7 +88,7 @@
 			<li><img src="http://localhost:8080/p2p/images/logo.png" /></li>
 		</ul>
 		
-		<div style="color:#fff;text-align:center;font-size:12px;">备案号,slfdjsldjfls基拉数据的备案号,slfdjsldjfls基拉数据的</div>
+		<div style="color:#fff;text-align:center;font-size:12px;">备案号:1234567890</div>
 	</div>
 </div>
 <script src="<%=basePath%>script/jquery.datetimepicker.js" type="text/javascript"></script>

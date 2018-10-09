@@ -20,7 +20,7 @@ public class Notice {
 	private int noticelastmodifier;
 
 	public Notice() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public Notice(int noticeid, String noticetitle, String noticetype, String noticepicture, String noticecontent,
