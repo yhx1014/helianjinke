@@ -12,4 +12,5 @@ public interface UsersDao {
 	int insert(Users users);
 	Users byNameFindUsers(@Param("unickname") String unickname, @Param("upassword") String upassword);
 	public List<Users> queryUser(Map<String, Object> map);
+	Users findUserById(int uid);
 }

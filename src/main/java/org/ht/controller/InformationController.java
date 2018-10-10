@@ -15,6 +15,7 @@ import org.ht.service.CertificationService;
 import org.ht.service.DopeService;
 import org.ht.service.InformationService;
 import org.ht.service.PoundageService;
+import org.ht.service.UsersService;
 import org.ht.util.BeanUtils;
 import org.ht.util.CreateRandom;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,8 +34,10 @@ public class InformationController {
 	private PoundageService poun;
 	@Autowired
 	private CertificationService cer;
+	
 	@Autowired
-	private DopeService dop;
+	private UsersService user;
+	
 
 	// 我的账户
 	@RequestMapping("query")
@@ -55,7 +58,9 @@ public class InformationController {
 			Map<String, Object> map = new HashMap<>();
 			map.put("id", id);
 			List<Borrowmoney> borrow = infor.queryInfo(map);
+			Users u = user.findUsersById(Integer.parseInt(id));
 			model.addAttribute("borrow", borrow);
+			model.addAttribute("user", u);
 			return "thirdparty";
 	}
 
@@ -212,7 +217,6 @@ public class InformationController {
 			//增加账户金额数据
 			cer.undate(map);
 			//添加广播数据
-			dop.insert(dope);
 			return code;
 		}
 	//用户资金记录

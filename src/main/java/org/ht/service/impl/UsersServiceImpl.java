@@ -51,11 +51,6 @@ public class UsersServiceImpl implements UsersService {
 	public List<Users> userList() {
 		return usersdao.userList();
 	}
-	/**
-	 * @author 陈庆山
-	 * @param map
-	 * @explain users 的分页查询
-	 */
 	
 	@Override
 	public List<Users> queryUser(Map<String, Object> map) {
@@ -67,6 +62,11 @@ public class UsersServiceImpl implements UsersService {
 	public List<Users> queryUserslimits(
 			String unickname) {
 		return usersdao.queryUserslimitss(unickname);
+	}
+
+	@Override
+	public Users findUsersById(int uid) {
+		return usersdao.findUserById(uid);
 	}
 
 }

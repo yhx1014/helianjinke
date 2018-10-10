@@ -12,11 +12,11 @@
 <title>币币袋</title>
 <link href="<%=basePath%>css/common.css" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" href="<%=basePath%>css/user.css" />
-<link rel="stylesheet" type="text/css" href="<%=basePath%>css/jquery.datetimepicker.css" />
 <script type="text/javascript" src="<%=basePath%>script/jquery.min.js"></script>
 <script type="text/javascript" src="<%=basePath%>script/common.js"></script>
 <script src="<%=basePath%>script/user.js" type="text/javascript"></script>
 <style type="text/css">
+
 .hr2 {
 	height: 2px;
 	border: none;
@@ -128,28 +128,28 @@
 					<div class="user-info">
 						<div class="table-tr">
 							<div class="table-th">手机绑定</div>
-							<div class="table-td">+86 123****456</div>
+							<div class="table-td">${user.uphonenumber}</div>
 							<div class="table-last">
 								<span><a>更换手机号</a></span>
 							</div>
 						</div>
 						<div class="table-tr">
 							<div class="table-th">邮箱绑定</div>
-							<div class="table-td">1234***26@qq.com</div>
+							<div class="table-td">${user.umailbox}</div>
 							<div class="table-last">
 								<span><a>更改</a></span>
 							</div>
 						</div>
 						<div class="table-tr">
 							<div class="table-th">登录密码</div>
-							<div class="table-td">1234***26@qq.com</div>
+							<div class="table-td">${user.upassword}</div>
 							<div class="table-last">
 								<span><a>更改</a></span>
 							</div>
 						</div>
 						<div class="table-tr">
 							<div class="table-th">资金密码</div>
-							<div class="table-td">1234***26@qq.com</div>
+							<div class="table-td">${user.upwd_zd}</div>
 							<div class="table-last">
 								<span><a>更改</a></span>
 							</div>

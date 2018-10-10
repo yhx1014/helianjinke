@@ -38,6 +38,14 @@
 		#{unickname,jdbcType=VARCHAR}
 	</select>
 	
+	<select id="findUsersById" resultMap="BaseResultMap"
+		parameterType="org.ht.pojo.Users">
+		select * from users where
+		uid =
+		#{uid}
+	</select>
+	
+	
 	<insert id="insert" parameterType="org.ht.pojo.Users" keyProperty="uid" useGeneratedKeys="true">
 		insert into users (
 		unickname,upassword,
