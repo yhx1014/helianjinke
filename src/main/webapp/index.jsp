@@ -169,7 +169,6 @@
 									    ${biao.bname}
 								</h2>					
 							</div>
-							
 							<div class="bd">
 								<div class="des">
 									<span class="fn-left">期限1-12月，收益更高</span>
@@ -186,7 +185,6 @@
 															<i class="icon icon-che"></i>
 														</a>
 														${pro.btype}
-														<%-- <a href="investInfo.do?bmid=${pro.bid}" class="f18" target="_blank">${pro.pname}</a> --%>
 													</div>
 													<table style="width:100%;border:0;cellpadding:0;cellspacing:0;">
 														<tbody>

@@ -11,7 +11,6 @@ public class BaseController extends LogUtils {
 	/**
 	 * 得到分页列表的信息
 	 */
-
 	public static void logBefore(Logger logger, String interfaceName) {
 		logger.info("");
 		logger.info("日志开始------------------------");
@@ -22,5 +21,4 @@ public class BaseController extends LogUtils {
 		logger.info("日志结束---------------------------");
 		logger.info("");
 	}
-
 }

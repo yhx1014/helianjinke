@@ -258,6 +258,7 @@ public class InvestController {
 			{
 				parameters.put("pagesize", 1);
 				parameters.put("startPage",0);
+				
 				for(int i=0;i<list.size();i++)
 				{
 					Biao biao = list.get(i);
@@ -531,7 +532,6 @@ public class InvestController {
 
 		Double gm = investS.sumMoney(map);// 查出收益总额
 		model.addAttribute("gm", gm);
-		System.out.println("gm" + gm);
 
 		//查出退还的本金
 		List<Trade> tmonery = tradeS.selectMoney(u.getUid());
@@ -556,8 +556,6 @@ public class InvestController {
 	public static void main(String s[]) {
 		Date date = new Date();
 		long dl = date.getTime();
-		// 将日期转换成毫秒数
-		System.out.println(dl + "");
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		Date d = new Date();
 		try {
