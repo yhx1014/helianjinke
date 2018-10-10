@@ -9,11 +9,7 @@
 	<head>
 		<title>币币袋</title>
 		<link href="<%=basePath%>css/common.css" rel="stylesheet" />
-		<link rel="stylesheet" type="text/css" href="<%=basePath%>css/user.css" />
-		<link rel="stylesheet" type="text/css" href="<%=basePath%>css/jquery.datetimepicker.css"/>
-		<script type="text/javascript" src="<%=basePath%>script/jquery.min.js"></script>
-		<script type="text/javascript" src="<%=basePath%>script/common.js"></script>
-		<script src="<%=basePath%>script/user.js" type="text/javascript"></script>
+		<link rel="stylesheet" type="text/css" href="<%=basePath%>css/user.css"/>
 	</head>
 <body>
 	<jsp:include page="head.jsp"></jsp:include>	
@@ -24,10 +20,9 @@
                 <div class="pmain-user">
 		          <div class="user-info user-info1">
 		          	订单类型 (订单状态)
-		          	<%-- ${borrow}; --%>
 		          	<c:forEach items="${borrow}" var="item">
 						<li>
-							${item.id}"####"${item.buserid}"####"${item.brelname}"####"${item.bmailbox}"###"
+							${item.bid}"####"${item.buserid}"####"${item.brelname}"####"${item.bmailbox}"###"
 						</li>
 					</c:forEach>
                    </div>

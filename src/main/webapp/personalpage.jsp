@@ -12,8 +12,7 @@
 <title>币币袋</title>
 <link href="<%=basePath%>css/common.css" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" href="<%=basePath%>css/user.css" />
-<link rel="stylesheet" type="text/css"
-	href="<%=basePath%>css/jquery.datetimepicker.css" />
+<link rel="stylesheet" type="text/css" href="<%=basePath%>css/jquery.datetimepicker.css" />
 <script type="text/javascript" src="<%=basePath%>script/jquery.min.js"></script>
 <script type="text/javascript" src="<%=basePath%>script/common.js"></script>
 <script src="<%=basePath%>script/user.js" type="text/javascript"></script>

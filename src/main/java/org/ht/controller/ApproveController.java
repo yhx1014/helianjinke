@@ -36,8 +36,6 @@ public class ApproveController {
 	private UserauditorService userauditorService;
 	@Autowired
 	private ClapplyforService clapplyforService;
-/*	@Autowired
-	private CreditlimitService creditlimitService;*/
 	
 	@RequestMapping("toaddApprove")
 	private String toaddApprove() {
