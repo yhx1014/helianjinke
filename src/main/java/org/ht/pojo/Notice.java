@@ -3,13 +3,6 @@ package org.ht.pojo;
 import java.util.Date;
 
 public class Notice {
-	// noticeid int(11) NOT NULL AUTO_INCREMENT COMMENT '公告表id',
-	// noticetitle varchar(255) DEFAULT NULL COMMENT '公告表标题',
-	// noticetype varchar(255) DEFAULT NULL COMMENT '公告类型',
-	// noticepicture varchar(255) DEFAULT NULL COMMENT '公告图片',
-	// noticecontent varchar(255) DEFAULT NULL COMMENT '公告内容',
-	// noticelasttime datetime DEFAULT NULL COMMENT '公告最后修改时间,发布时间',
-	// noticelastmodifier int(11) DEFAULT NULL COMMENT '公告最后发布人,操作人.',
 
 	private int noticeid;
 	private String noticetitle;

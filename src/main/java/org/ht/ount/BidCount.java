@@ -3,9 +3,6 @@ package org.ht.ount;
 import org.ht.service.BidService;
 import org.ht.service.impl.BidServiceImpl;
 
-/**
- * 
- */
 public class BidCount {
 	BidService bid = new BidServiceImpl();
 

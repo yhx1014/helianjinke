@@ -5,9 +5,6 @@ import java.sql.Timestamp;
 
 public class InvestInfo extends BaseDomain {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	public int getInid() {

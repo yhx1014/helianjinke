@@ -5,6 +5,7 @@ import java.util.Map;
 import javax.annotation.Resource;
 import org.ht.dao.DetailsDao;
 import org.ht.dao.ProductDao;
+import org.ht.pojo.Borrowmoney;
 import org.ht.pojo.Details;
 import org.ht.pojo.Product;
 import org.ht.service.ProductService;
@@ -23,13 +24,11 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public Product get(Integer id) {
-		// TODO Auto-generated method stub
 		return dao.get(id);
 	}
 
 	@Override
 	public void delete(Integer id) {
-		// TODO Auto-generated method stub
 		detailsDao.deleteByPid(id);
 		dao.delete(id);
 	}
@@ -60,48 +59,10 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public void updateProgres(List<Product> product) {
-            /*		
-            for (Product product2 : product) {
-			if (product2.getPtotalmoney() == null || product2.getPtotalmoney().equals("")
-					|| product2.getPmoney() == 0) {
-				product2.setPtotalmoney(0);
-				product2.setPmoney(1);
-			}
-			double money = (product2.getPmoney());// 已募集总金额
-			double count = product2.getPtotalmoney(); // 总投标数
-			if (money >= count) {
-				product2.setProgress(100 + "");
-			} else {
-				double sum = (money / count) * 100;
-				DecimalFormat df = new DecimalFormat("#.00");
-				String result = df.format(sum);
-				if (result.length() < 4) {
-					result = "0" + result;
-				}
-				product2.setProgress(result + "");
-			}
-
-			dao.updateProgres(product2);
-			}
-			*/
 	}
 	
 	@Override
 	public void updateStatus(List<Product> product) {
-		/*for (Product product2 : product) {
-			double pragess = Double.parseDouble(product2.getProgress());
-			Date ptime = product2.getPtime();// 项目期限
-			TimeCompare time = new TimeCompare();
-			int flag = time.Compare(new Date().toLocaleString(), ptime.toLocaleString());
-			if (pragess < 100 && flag == 1) {
-				product2.setPstate("1"); // 筹集中
-			} else if (pragess >= 100 && flag == -1) {
-				product2.setPstate("2"); // 筹集完
-			} else if (pragess < 100 && flag == 0) {
-				product2.setPstate("3"); // 失效
-			}
-			dao.updateStatus(product2);
-		}*/
 	}
 
 	@Override
@@ -110,7 +71,7 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public List<Product> selList(Map<String, Object> map) {
+	public List<Borrowmoney> selList(Map<String, Object> map) {
 		return dao.myList(map);
 	}
 

@@ -11,8 +11,8 @@
 	<link href="css/style.css" rel="stylesheet" />
 	<link href="css/newstyle.css" rel="stylesheet" />
 	<link type="text/css" rel="stylesheet" href="css/colorbox.css">
-	<link href="<%=basePath%>css/common.css" rel="stylesheet" />
 	<link rel="stylesheet" href="<%=basePath%>layui/css/layui.css"  media="all">
+	<link href="<%=basePath%>css/common.css" rel="stylesheet"/>
 	<script src="<%=basePath%>layui/layui.js" charset="utf-8"></script>
 	<style>
     	.applyc{ width:1200px; background:#fff; margin:13px auto;} 

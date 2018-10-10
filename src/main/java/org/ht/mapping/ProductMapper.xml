@@ -69,38 +69,8 @@
 		select borrow.id,borrow.btype,borrow.bcount,borrow.binterval,borrow.brate from borrow left join users on borrow.buserid = users.uid
 	</select>
 
-	<select id="myList" resultType="org.ht.pojo.Product"
-		parameterType="map">
-		select * from product p where 1 = 1
-		<if test="biaoId != null and biaoId !=''">
-			and p.ptype = #{biaoId}
-		</if>
-		<if test="pincome !=null and endR != null and endR != ''">
-			and p.pincome between #{startR} and #{endR}
-		</if>
-		<if test="pincome !=null and (endR == null || endR == '')">
-			and p.pincome between #{startR} and (select max(pincome) from
-			product)
-		</if>
-		<if test="pcount != null and endT != null and endT != ''">
-			and (select to_days(pcount) - to_days(ptime) from product pt where
-			pt.id = p.id) between #{startT} and #{endT}
-		</if>
-		<if test="pcount != null and endT == null">
-			and (select to_days(pr.pcount) - to_days(pr.ptime) from
-			product pr where
-			pr.id = p.id) between #{startT} and (select
-			max(pro.cday) from
-			(select (to_days(pcount) - to_days(ptime)) as cday
-			from product) as
-			pro)
-		</if>
-		<if test="pway != null and pway != ''">
-			and p.pway = #{pway}
-		</if>
-		<if test="startPage !=null and pageSize !=''">
-			limit #{startPage},#{pageSize}
-		</if>
+	<select id="myList" resultType="org.ht.pojo.Borrowmoney" parameterType="map">
+		select * from borrow b where 1 = 1
 	</select>
 
 	<update id="update" parameterType="org.ht.dao.ProductDao">

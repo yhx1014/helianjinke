@@ -2,12 +2,8 @@ package org.ht.controller;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import javax.swing.JFileChooser;
 
 import org.apache.poi.hssf.usermodel.HSSFCell;
@@ -20,9 +16,7 @@ import org.ht.pojo.Recharge;
 import org.ht.service.RechargeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("rc")
@@ -30,46 +24,6 @@ public class RechargeController {
 	String str = "WEB-INF/view/";
 	@Autowired
 	private RechargeService bs;
-	@RequestMapping("rech")
-	public String  rech(Model m,
-			@RequestParam(value = "currpage", required = false) String currpage,
-			@RequestParam(value = "uname", required = false) String uname,
-			@RequestParam(value = "yyy", required = false) String yyy,
-			@RequestParam(value = "yyyy", required = false) String yyyy,
-			@RequestParam(value = "zflx", required = false) String zflx,
-			@RequestParam(value = "statu", required = false) String statu,
-			HttpServletRequest req){
-		HttpSession session = req.getSession();
-		session.setAttribute("uname", uname);
-		session.setAttribute("yyy", yyy);
-		session.setAttribute("yyyy", yyyy);
-		session.setAttribute("statu", statu);
-		session.setAttribute("zflx", zflx);
-		
-		Map<String, Object> findmap = new HashMap<String, Object>();
-		findmap.put("uname", uname);
-		findmap.put("yyy", yyy);
-		findmap.put("yyyy", yyyy);
-		findmap.put("statu", statu);
-		findmap.put("zflx", zflx);
-		
-		
-		Map<String, Object> map = bs.selectrc(currpage,findmap);
-	
-		m.addAttribute("pagerow", map.get("pagerow"));
-		m.addAttribute("currpages", map.get("currpages"));
-		m.addAttribute("lrc", map.get("lrc"));
-		m.addAttribute("totalpage", map.get("totalpage"));
-		m.addAttribute("totalrow", map.get("totalrow"));
-		m.addAttribute("czmoneyre", bs.sumczmoneyre());
-		m.addAttribute("dzmoneyre", bs.sumdzmoneyre());
-		return  str+"Rechargelist";
-	}
-	/**
-	 * 导出excel
-	 * @return
-	 * @throws IOException 
-	 */
 	@RequestMapping("putexcelr")
 	public String putexcelr() throws IOException{
 		

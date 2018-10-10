@@ -1,5 +1,4 @@
 package org.ht.controller;
-
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.text.DecimalFormat;
@@ -10,13 +9,12 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import javax.annotation.Resource;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
 import org.ht.pojo.Biao;
+import org.ht.pojo.Borrowmoney;
 import org.ht.pojo.Details;
 import org.ht.pojo.InvestInfo;
 import org.ht.pojo.Product;
@@ -164,7 +162,7 @@ public class InvestController {
 				map.put("pway", hs.getAttribute("pway"));
 			}
 
-			List<Product> page = proS.selList(map);
+			List<Borrowmoney> page = proS.selList(map);
 			totalrow = page.size();
 			// 获取总行数
 			if (currpage != null && !"".equals(currpage)) {
@@ -195,7 +193,7 @@ public class InvestController {
 			map.put("startPage", candp);
 			map.put("pageSize", 5);
 
-			List<Product> pages = proS.selList(map);
+			List<Borrowmoney> pages = proS.selList(map);
 			model.addAttribute("totalrow", totalrow);
 			model.addAttribute("currpages", currpages);
 			model.addAttribute("totalpage", totalpage);
@@ -251,52 +249,35 @@ public class InvestController {
 
 	@RequestMapping("recommendShow")
 	public String recommendShow(HttpServletRequest req,Model model) {
-		//首页中显示推荐
-		Map<String,Object> parameters = new HashMap<String, Object>();
-	    if(application == null){
-			List<Product> proList = new ArrayList<Product>();
+		Map<String,Object> parameters = new HashMap<String,Object>();
+		if(application == null)
+		{
+			List<Borrowmoney> listBorrowMoney = new ArrayList<Borrowmoney>();
 			List<Biao> list = biaoS.findList(parameters);
-			if (list != null && list.size() > 0) {
-				parameters.put("pageSize", 2);
-				parameters.put("startPage", 0);
-				for (int i = 0; i < list.size(); i++) {
+			if(list!=null && list.size()>0)
+			{
+				parameters.put("pagesize", 1);
+				parameters.put("startPage",0);
+				for(int i=0;i<list.size();i++)
+				{
 					Biao biao = list.get(i);
 					parameters.put("biaoId", biao.getId());
-					List<Product> tlist = proS.selList(parameters);
-					//两条数据
+					List<Borrowmoney> tlist = proS.selList(parameters);
 					for (int j = 0; j < tlist.size(); j++) {
-						proList.add(tlist.get(j));
-						// 将每个类型的两条数据保存到一个list中
+						listBorrowMoney.add(tlist.get(j));
 					}
 				}
 			}
-			
-			parameters.remove("biaoId");
-			parameters.put("pcount", "");    //推荐项目期限一个月以下
-			parameters.put("startT", "0");
-			parameters.put("endT", "30");
-			
-			List<Product> tjl = proS.selList(parameters);
-			Map<String, Object> map = new HashMap<String, Object>();
-			
-			map.put("rowName", "inmoney");    // 查出投资总额
-			map.put("tableName", "investinfo");
-			Double tm = investS.sumMoney(map);
-			
 			application = req.getSession().getServletContext();
-			application.setAttribute("proList", proList);
+			application.setAttribute("proList", listBorrowMoney);
 			application.setAttribute("biaoList", list);
-			application.setAttribute("tjlist", tjl);
-			application.setAttribute("ztz", tm);
-	    }
-	    
+		}
 		return "index";
 	}
 
 	@RequestMapping("investInfo")
 	public String investInfo(String bmid,String currpage,Model model, HttpServletRequest req) {
 		
-		System.out.println("bmid值为："+bmid.toString());
 		int pagerow = 5;// 每页5行
 		int currpages = 1;// 当前页
 		int totalpage = 0;// 总页数

@@ -2,6 +2,7 @@ package org.ht.service;
 
 import java.util.List;
 import java.util.Map;
+import org.ht.pojo.Borrowmoney;
 import org.ht.pojo.Product;
 
 public interface ProductService {
@@ -14,6 +15,6 @@ public interface ProductService {
 	int update(Product product);
 	void  updateProgres(List<Product>  product);
 	void  updateStatus(List<Product>  product);
-	List<Product> selList(Map<String, Object> map);
+	List<Borrowmoney> selList(Map<String, Object> map);
 	public int setRateAndDeadline(Product product);
 }

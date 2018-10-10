@@ -5,8 +5,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.servlet.http.HttpServletRequest;
-import org.ht.pojo.Approveitem;
 import org.ht.pojo.Borrowmoney;
 import org.ht.pojo.Certification;
 import org.ht.pojo.Certifrecord;
@@ -59,22 +57,6 @@ public class InformationController {
 			List<Borrowmoney> borrow = infor.queryInfo(map);
 			model.addAttribute("borrow", borrow);
 			return "thirdparty";
-	}
-	
-	// 账户信息查询
-	@RequestMapping("find")
-	public String find(@RequestParam(value = "id", required = false) String id, Model model,
-			HttpServletRequest request) {
-		Map<String, Object> map = new HashMap<>();
-		map.put("id", id);
-		Users user = infor.find(map);
-		List<Approveitem> list = infor.appquery();
-		request.setAttribute("num", user.getUphonenumber());
-		request.setAttribute("mailbox", user.getUmailbox());
-		Approveitem app = list.get(0);
-		model.addAttribute("list", app);
-		model.addAttribute("user", user);
-		return "account";
 	}
 
 	//添加身份信息和认证信息
@@ -188,7 +170,6 @@ public class InformationController {
 		        fw.flush();
 		        fw.close ();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return i;

@@ -6,16 +6,13 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.ht.pojo.Approveitem;
 import org.ht.pojo.Certifrecord;
 import org.ht.pojo.Clapplyfor;
 import org.ht.pojo.Creditlimit;
 import org.ht.pojo.Userauditor;
 import org.ht.pojo.Users;
-import org.ht.service.ApproveService;
 import org.ht.service.CertifrecordService;
 import org.ht.service.ClapplyforService;
-import org.ht.service.InformationService;
 import org.ht.service.UserauditorService;
 import org.ht.service.UsersService;
 import org.ht.util.BeanUtils;
@@ -25,7 +22,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("approve")
@@ -33,103 +29,24 @@ public class ApproveController {
 	String str = "WEB-INF/view/";
 	
 	@Autowired
-	private ApproveService approveService;
-	@Autowired
 	private UsersService usersService;
 	@Autowired
 	private CertifrecordService certifrecordService;
 	@Autowired
 	private UserauditorService userauditorService;
 	@Autowired
-	private InformationService informationService;
-	@Autowired
 	private ClapplyforService clapplyforService;
 /*	@Autowired
 	private CreditlimitService creditlimitService;*/
-	@RequestMapping("traverseApproves")
-	private String traverseApproves(Model model, Approveitem ai,
-			@RequestParam(value = "currpage", required = false) String currpage) {
-
-		int pagerow = 5;// 每页5行
-		int currpages = 1;// 当前页
-		int totalpage = 0;// 总页数
-		int totalrow = 0;// 总行数
-
-		Map<String, Object> parameters = new HashMap<String, Object>();
-		parameters.put("aiid", ai.getAiid());
-		parameters.put("ainame", ai.getAiname());
-		parameters.put("aitype", ai.getAitype());
-		parameters.put("aistate", ai.getAistate());
-		List<Approveitem> approvesall = approveService.queryApproves(parameters);
-
-		totalrow = approvesall.size();// 获取总行数
-		if (currpage != null && !"".equals(currpage)) {
-			currpages = Integer.parseInt(currpage);
-		}
-		totalpage = (totalrow + pagerow - 1) / pagerow;
-
-		if (currpages < 1) {
-			currpages = 1;
-		}
-		if (currpages > totalpage) {
-			currpages = totalpage;
-		}
-		
-		Integer candp = (currpages - 1) * pagerow;
-		parameters.put("pandc", pagerow);
-		parameters.put("candp", candp);
-		List<Approveitem> approves = approveService.queryApproves(parameters);
-		model.addAttribute("approveitems", approves);
-		model.addAttribute("totalrow", totalrow);
-		model.addAttribute("currpages", currpages);
-		model.addAttribute("totalpage", totalpage);
-
-		return str + "approvelist";
-	}
-
+	
 	@RequestMapping("toaddApprove")
 	private String toaddApprove() {
 
 		return str + "approveadd";
 	}
 
-	@RequestMapping("addApprove")
-	private ModelAndView addApprove(Approveitem ai) {
-		Map<String, Object> parameters = new HashMap<String, Object>();
-		parameters.put("ainame", ai.getAiname());
-		parameters.put("aitype", ai.getAitype());
-		parameters.put("aistate", "1");
-		approveService.addApproves(parameters);
-		return new ModelAndView("redirect:traverseApproves.do");
-	}
+	
 
-	@RequestMapping("toupdateApprove")
-	private String toupdateApprove(Approveitem ai, Model model) {
-		Map<String, Object> parameters = new HashMap<String, Object>();
-		parameters.put("aiid", ai.getAiid());
-		parameters.put("ainame", ai.getAiname());
-		parameters.put("aitype", ai.getAitype());
-		parameters.put("aistate", ai.getAistate());
-		List<Approveitem> approvesall = approveService.queryApproves(parameters);
-		Approveitem approve = null;
-		if (!approvesall.isEmpty()) {
-			approve = approvesall.get(0);
-			model.addAttribute("approve", approve);
-		}
-
-		return str + "approveupdate";
-	}
-
-	@RequestMapping("updateApprove")
-	private ModelAndView updateApprove(Approveitem ai) {
-		Map<String, Object> parameters = new HashMap<String, Object>();
-		parameters.put("aiid", ai.getAiid());
-		parameters.put("ainame", ai.getAiname());
-		parameters.put("aitype", ai.getAitype());
-		parameters.put("aistate", ai.getAistate());
-		approveService.updateApproves(parameters);
-		return new ModelAndView("redirect:traverseApproves.do");
-	}
 	
 	@RequestMapping("affirmCrauditor")
 	@ResponseBody
@@ -149,9 +66,6 @@ public class ApproveController {
 				parameters1.put("cruserid",ua.getUserid());
 				// int updatecode = certifrecordService.updateCertifrecord(parameters1);
 			}
-
-		
-		
 		return code;
 	}
 	//资料认证
@@ -195,24 +109,6 @@ public class ApproveController {
 		return str+"basicinfoList";
 	}
 	
-	@RequestMapping("infoAuditByuser")
-	private String infoAuditByuser(Model model,Certifrecord cr){
-		Map<String, Object> parameters = new HashMap<String, Object>();
-		List<Userauditor> userauditors = userauditorService.queryUseraubitor(parameters);
-		parameters.put("cruserid",cr.getCruserid());
-		parameters.put("id",cr.getCruserid());
-		List<Certifrecord> certifrecords = certifrecordService.queryCertifrecord(parameters);
-		Users user =  informationService.query(parameters);
-		
-		List<Approveitem> approvesall = approveService.queryApproves(parameters);
-		model.addAttribute("certrecod",certifrecords);
-		model.addAttribute("user",user);
-		model.addAttribute("approve",approvesall);
-		model.addAttribute("code",approvesall.size());
-		model.addAttribute("useraud",userauditors);
-		model.addAttribute("craiid",cr.getCraiid());
-		return str+"basicuserapprove";
-	}
 	@RequestMapping("updateInfoAudit")
 	@ResponseBody
 	private String updateInfoAudit(Certifrecord cr){
@@ -231,54 +127,6 @@ public class ApproveController {
 			code = "400";
 		}
 		return code;
-	}
-	
-	@RequestMapping("approveStatistics")
-	private String approveStatistics(Model model, Certifrecord cr,@RequestParam(value = "currpage", required = false) String currpage){
-		int pagerow = 5;// 每页5行
-		int currpages = 1;// 当前页
-		int totalpage = 0;// 总页数
-		int totalrow = 0;// 总行数
-		if (currpage != null && !"".equals(currpage)) {
-			currpages = Integer.parseInt(currpage);
-		}
-		List<Users> users = usersService.userList();
-		Map<String, Object> parameters = new HashMap<String, Object>();
-		List<Approveitem> approvesall = approveService.queryApproves(parameters);
-		
-		parameters.put("crusername",cr.getCrusername());
-		parameters.put("craiid",cr.getCraiid());
-		List<Certifrecord> crsize = certifrecordService.queryCertifrecord(parameters);
-		totalrow = crsize.size();// 获取总行数
-		
-		totalpage = (totalrow + pagerow - 1) / pagerow;
-
-		if (currpages < 1) {
-			currpages = 1;
-		}
-		
-			if (currpages > totalpage) {
-				if(totalpage!=0){
-				currpages = totalpage;
-				}else{
-					currpages =1;
-				}
-			}
-			
-		Integer candp = (currpages - 1) * pagerow;
-		parameters.put("pandc", pagerow);
-		parameters.put("candp", candp);
-		
-		List<Certifrecord> certifrecords = certifrecordService.queryCertifrecord(parameters);
-		model.addAttribute("users",users);
-		model.addAttribute("approves",approvesall);
-		model.addAttribute("cr",certifrecords);
-		model.addAttribute("totalrow", totalrow);
-		model.addAttribute("currpages", currpages);
-		model.addAttribute("totalpage", totalpage);
-		model.addAttribute("username",cr.getCrusername());
-		model.addAttribute("apid", cr.getCraiid());
-		return str+"approvestatistics";
 	}
 	
 	//资料认证 end

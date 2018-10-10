@@ -1,7 +1,6 @@
 package org.ht.controller;
 
 import java.util.List;
-import org.apache.ibatis.annotations.Param;
 import org.ht.pojo.Borrowcord;
 import org.ht.pojo.Borrowmoney;
 import org.ht.service.BiaoService;
@@ -23,18 +22,6 @@ public class BorrowmoneyController {
 	private BorrowmoneyService service;
 	@Autowired
 	private BorrowcordService bService;
-	static final String str = "WEB-INF/view/";
-	
-	@RequestMapping("find")
-	public String find(Model model, @Param(value = "id") String id) {
-		if (id == null || id.equals("")) {
-			id = 1 + "";
-		}
-		Integer ia = Integer.parseInt(id);
-		Borrowmoney mBorrowmoney = service.get(ia);
-		model.addAttribute("domain", mBorrowmoney);
-		return str + "bk_money_detail";
-	}
 
 	@RequestMapping("toaddborr")
 	@ResponseBody
@@ -43,7 +30,6 @@ public class BorrowmoneyController {
 		return "";
 	}
 	
-	// michael __________json
 	@RequestMapping("tohuankuanupdison")
 	@ResponseBody
 	public List<Borrowcord> tohuankuanjson(@RequestParam(value = "id") Integer ids) {

@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Map;
 import javax.annotation.Resource;
 import org.ht.dao.InfromationDao;
-import org.ht.pojo.Approveitem;
 import org.ht.pojo.Borrowmoney;
 import org.ht.pojo.Certifrecord;
 import org.ht.pojo.Users;
@@ -29,12 +28,6 @@ public class InformationServiceImpl implements InformationService {
 	public Users find(Map<String, Object> map) {
 		Users user = dao.find(map);
 		return user;
-	}
-
-	@Override
-	public List<Approveitem> appquery() {
-		List<Approveitem> list = dao.appquery();
-		return list;
 	}
 
 	@Override
