@@ -58,9 +58,9 @@ public class InformationController {
 			Map<String, Object> map = new HashMap<>();
 			map.put("id", id);
 			List<Borrowmoney> borrow = infor.queryInfo(map);
-			Users u = user.findUsersById(Integer.parseInt(id));
+			//Users u = user.findUsersById(Integer.parseInt(id));
 			model.addAttribute("borrow", borrow);
-			model.addAttribute("user", u);
+			/*model.addAttribute("user", u);*/
 			return "thirdparty";
 	}
 
