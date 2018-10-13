@@ -15,71 +15,70 @@
 <script type="text/javascript" src="<%=basePath%>script/jquery.min.js"></script>
 <script type="text/javascript" src="<%=basePath%>script/common.js"></script>
 <script src="<%=basePath%>script/user.js" type="text/javascript"></script>
-<style type="text/css">
-
-.hr2 {
-	height: 2px;
-	border: none;
-	border-top: 1px solid #000;
-}
-
-.table-tr {
-	display: table-row;
-	width: 100%;
-	height: 40px;
-}
-
-.table-th {
-	width: 40%;
-	display: table-cell;
-}
-
-.table-td {
-	width: 30%;
-	color: #999;
-	display: table-cell;
-}
-
-.table-last {
-	text-align: right;
-	width: 30%;
-	display: table-cell;
-}
-
-.user-title {
+	<style type="text/css">
+	.hr2 {
+		height: 2px;
+		border: none;
+		border-top: 1px solid #000;
+	}
 	
-}
-
-.user-title span {
-	font-size: initial;
-	font-weight: bold;
-}
-
-.user-icon {
-	width: 30px;
-	height: 20px;
-	margin-right: 3px; 
-	display : inline-block;
-	background-image: url(images/bor_pic01.png);
-	display: inline-block;
-}
-
-.security-setting-icon {
-	width: 30px;
-	height: 20px;
-	margin-right: 3px;
-	display: inline-block;
-	background-image: url(images/bor_pic07.png)
-}
-
-.identity-auth-icon {
-	width: 30px;
-	height: 20px;
-	margin-right: 3px;
-	display: inline-block;
-	background-image: url(images/bor_pic05.png)
-}
-</style>
+	.table-tr {
+		display: table-row;
+		width: 100%;
+		height: 40px;
+	}
+	
+	.table-th {
+		width: 40%;
+		display: table-cell;
+	}
+	
+	.table-td {
+		width: 30%;
+		color: #999;
+		display: table-cell;
+	}
+	
+	.table-last {
+		text-align: right;
+		width: 30%;
+		display: table-cell;
+	}
+	
+	.user-title {
+		
+	}
+	
+	.user-title span {
+		font-size: initial;
+		font-weight: bold;
+	}
+	
+	.user-icon {
+		width: 30px;
+		height: 20px;
+		margin-right: 3px; 
+		display : inline-block;
+		background-image: url(images/bor_pic01.png);
+		display: inline-block;
+	}
+	
+	.security-setting-icon {
+		width: 30px;
+		height: 20px;
+		margin-right: 3px;
+		display: inline-block;
+		background-image: url(images/bor_pic07.png)
+	}
+	
+	.identity-auth-icon {
+		width: 30px;
+		height: 20px;
+		margin-right: 3px;
+		display: inline-block;
+		background-image: url(images/bor_pic05.png)
+	}
+	</style>
 </head>
 <body>
 	<jsp:include page="head.jsp"></jsp:include>

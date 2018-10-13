@@ -50,6 +50,16 @@ public class InvestController {
 	HttpSession hs = null;
 	ServletContext application = null;
 	
+	@RequestMapping("investSelect")
+	public String investSelect(HttpServletRequest req, Model model, String item,String param, String currpage) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		List<Borrowmoney> page = proS.selList(map);
+		model.addAttribute("list", page);
+		return "list";
+	}
+	
+	
+	
 	@RequestMapping("investSel")
 	public String investSel(HttpServletRequest req, Model model, String item,String param, String currpage) {
 		int pagerow = 5;
@@ -124,6 +134,7 @@ public class InvestController {
 						hs.removeAttribute("pcount");
 					}
 				}
+				
 				if (param.equals("1")) {// 1月以下
 					hs.setAttribute("startT", "0");
 					hs.setAttribute("endT", "30");
@@ -149,17 +160,6 @@ public class InvestController {
 					hs.setAttribute("endT", "");
 					hs.setAttribute("pcount", "");
 				}
-			}
-			
-			if (hs != null) {
-				map.put("pincome", hs.getAttribute("pincome"));
-				map.put("pcount", hs.getAttribute("pcount"));
-				map.put("biaoId", hs.getAttribute("biaoId"));
-				map.put("startR", hs.getAttribute("startR"));
-				map.put("endR", hs.getAttribute("endR"));
-				map.put("startT", hs.getAttribute("startT"));
-				map.put("endT", hs.getAttribute("endT"));
-				map.put("pway", hs.getAttribute("pway"));
 			}
 
 			List<Borrowmoney> page = proS.selList(map);
@@ -192,7 +192,6 @@ public class InvestController {
 			Integer candp = (currpages - 1) * pagerow;
 			map.put("startPage", candp);
 			map.put("pageSize", 5);
-
 			List<Borrowmoney> pages = proS.selList(map);
 			model.addAttribute("totalrow", totalrow);
 			model.addAttribute("currpages", currpages);
@@ -200,47 +199,37 @@ public class InvestController {
 			model.addAttribute("list", pages);
 
 		} else {
-
 			Product pro = new Product();
 			List<Product> page = proS.findList(BeanUtils.toMap(pro));
-
 			totalrow = page.size();
 			// 获取总行数
 			if (currpage != null && !"".equals(currpage)) {
 				currpages = Integer.parseInt(currpage);
 			}
-			
 			outcount = totalrow % pagerow;
 			count = totalrow / pagerow;
-
 			totalpage = count;
-
 			if (outcount > 0) {
 				totalpage = count + 1;
 			}
-
 			if (currpages < 1) {
 				currpages = 1;
 			}
 			if (currpages > totalpage) {
 				currpages = totalpage;
 			}
-
 			if (currpages == 0) {
 				currpages = 1;
 			}
-
 			Integer candp = (currpages - 1) * pagerow;
 			pro.setStartPage(candp);
 			pro.setPageSize(5);
-
 			List<Product> list = proS.findList(BeanUtils.toMap(pro));
 			model.addAttribute("totalrow", totalrow);
 			model.addAttribute("currpages", currpages);
 			model.addAttribute("totalpage", totalpage);
 			model.addAttribute("list", list);
 		}
-		
 		Map<String, Object> map = new HashMap<String, Object>();
 		List<Biao> biao = biaoS.findList(map);
 		model.addAttribute("biao", biao);

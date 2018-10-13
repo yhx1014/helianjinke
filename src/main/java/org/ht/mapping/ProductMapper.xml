@@ -45,25 +45,6 @@
 		#{pproduce}, #{pdesc},
 		#{psafe})
 	</insert>
-	
-    <!-- 	
-	<select id="findList" resultType="org.ht.pojo.Product">
-		select p.id,p.pmoney,p.pincome,p.ptime,b.bname as "biao.bname",b.id as "biao.id",p.pway,p.pcount,
-		p.progress,p.psaveway,p.prateben,p.ppublishtime,p.pname,p.ptotalmoney,p.prange,p.puse,p.pstate,
-		p.picture,p.pproduce,p.pdesc,p.psafe, u.uname as "users.uname" from product p 
-		LEFT JOIN
-		users u ON p.pproduce=u.uid 
-		LEFT JOIN 
-		biao b on b.id=p.ptype 
-		where 1=1
-		<if test="params.ptype != null and params.ptype !=''">
-			and b.id = #{params.ptype}
-		</if>
-		<if test="params.startPage !=null and params.pageSize !=''">
-			limit #{params.startPage},#{params.pageSize}
-		</if>
-	</select> 
-    -->
     
 	<select id="findList" resultType="org.ht.pojo.Borrowmoney">
 		select borrow.id,borrow.btype,borrow.bcount,borrow.binterval,borrow.brate from borrow left join users on borrow.buserid = users.uid

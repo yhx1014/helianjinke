@@ -35,7 +35,7 @@
       </div>
       <ul class="top-nav fn-clear">
         <li> <a href="<%=basePath%>invest/recommendShow.do">首页</a> </li>
-        <li> <a href="<%=basePath%>invest/investSel.do" class="">我要投资</a> </li>
+        <li> <a href="<%=basePath%>invest/investSelect.do" class="">我要投资</a> </li>
         <li> <a href="<%=basePath%>borrowadd.jsp" class="">我要借款</a> </li>
         <li class="top-nav-safe"> <a href="#" onclick="keys();">我的资产</a> </li>
       </ul>
