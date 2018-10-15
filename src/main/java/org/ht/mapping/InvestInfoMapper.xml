@@ -43,7 +43,6 @@
      </insert>
 	
 	<select id="getSum" parameterType="map" resultType="Double">
-	    <!-- ${tableName} 不能用#{}-->
 		select sum(${rowName}) from ${tableName} where 1 = 1
 		<if test="uid != null">
 			and userid = #{uid}	

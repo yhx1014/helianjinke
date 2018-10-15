@@ -45,7 +45,6 @@
 		#{pproduce}, #{pdesc},
 		#{psafe})
 	</insert>
-    
 	<select id="findList" resultType="org.ht.pojo.Borrowmoney">
 		select borrow.id,borrow.btype,borrow.bcount,borrow.binterval,borrow.brate from borrow left join users on borrow.buserid = users.uid
 	</select>

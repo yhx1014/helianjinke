@@ -3,7 +3,7 @@ package org.ht.pojo;
 
 public class Borrowmoney  extends BaseDomain {
 	private static final long serialVersionUID = 1L;
-	private Integer bid;
+	private Integer id;
 	private Integer buserid;
 	private Integer brelname;
 	private Integer bpnumber;
@@ -18,12 +18,6 @@ public class Borrowmoney  extends BaseDomain {
 	private String brate;
 	private Biao biao;
 
-	public Integer getBid() {
-		return bid;
-	}
-	public void setBid(Integer bid) {
-		this.bid = bid;
-	}
 	public Integer getBuserid() {
 		return buserid;
 	}
@@ -105,13 +99,17 @@ public class Borrowmoney  extends BaseDomain {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-
-	
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Borrowmoney [id=");
-		builder.append(bid);
+		builder.append(id);
 		builder.append(", buserid=");
 		builder.append(buserid);
 		builder.append(", brelname=");

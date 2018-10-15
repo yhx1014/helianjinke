@@ -73,7 +73,6 @@ public class InvestController {
 		int outcount = 0;
 		//不够一页的数据条数
 		int count = 0;
-		
 		if (item != null && !item.equals("")) {
 			Map<String, Object> map = new HashMap<String, Object>();
 			if (hs == null) {
@@ -197,7 +196,6 @@ public class InvestController {
 			model.addAttribute("currpages", currpages);
 			model.addAttribute("totalpage", totalpage);
 			model.addAttribute("list", pages);
-
 		} else {
 			Product pro = new Product();
 			List<Product> page = proS.findList(BeanUtils.toMap(pro));
@@ -266,7 +264,7 @@ public class InvestController {
 	}
 
 	@RequestMapping("investInfo")
-	public String investInfo(String bmid,String currpage,Model model, HttpServletRequest req) {
+	public String investInfo(String bmid,String currpage,Model model,HttpServletRequest req) {
 		
 		int pagerow = 5;// 每页5行
 		int currpages = 1;// 当前页
@@ -277,8 +275,7 @@ public class InvestController {
 
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		// 查询条件
-		parameters.put("bid", bmid);
-
+		parameters.put("bid",bmid);
 		List<InvestInfo> page = investS.investS(parameters);
 		// 查出数据条数
 		totalrow = page.size();
@@ -312,7 +309,6 @@ public class InvestController {
 		parameters.put("candp", candp);
 		
 		List<InvestInfo> lists = investS.investS(parameters);
-
 		model.addAttribute("totalrow", totalrow);
 		model.addAttribute("currpages", currpages);
 		model.addAttribute("totalpage", totalpage);
@@ -327,17 +323,14 @@ public class InvestController {
 		
 		Double tm = investS.sumMoney(map);
 		model.addAttribute("tm", tm);
-		System.out.println("tm" + tm);
 		map.put("rowName", "profitmoney");// 查出收益总额
 
 		Double gm = investS.sumMoney(map);
 		model.addAttribute("gm", gm);
-		System.out.println("gm" + gm);
 
 		Map<String, Object> bmap = new HashMap<String, Object>();
 		List<Biao> biao = biaoS.findList(bmap);
 		model.addAttribute("biao", biao);
-		
 		
 		Product pro = proS.get(Integer.parseInt(bmid));
 		HttpSession bms = req.getSession();
@@ -345,7 +338,6 @@ public class InvestController {
 
 		List<Details> list = detS.detailslist(pro.getId());
 		
-		System.out.println("标详情列表大小" + list.size());
 		bms.setAttribute("Product", pro);
 		bms.setAttribute("Details", list);
 
@@ -360,7 +352,6 @@ public class InvestController {
 			Users us = (Users) req.getSession().getAttribute("globaluser");
 			if(us != null){
 				String kymoney = cs.selectM(us.getUid());
-				System.out.println("进入到输入金额页面  用户余额" + kymoney);
 				bms.setAttribute("kymoney", kymoney);
 			}
 			return "inforadd";

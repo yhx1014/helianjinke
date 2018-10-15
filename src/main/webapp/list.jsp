@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix = "fmt"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="ft"%>
@@ -38,8 +40,9 @@
             <dt>项目类型</dt>
             <dd>
               <ul id="items">
-                <li class="n1"><a id="post_type_" 
-                <c:if test="${biaoId == null}">class="active"</c:if> style="cursor:pointer;" onclick="Select('itemtype','-1');">不限</a></li>
+                <li class="n1">
+                <a id="post_type_" <c:if test="${biaoId == null}">class="active"</c:if> style="cursor:pointer;" onclick="Select('itemtype','-1');">不限</a>
+                </li>
                 <c:forEach items="${biao}" var="biao">
                 	<li class="n2">
                 		<a <c:if test="${biaoId==biao.id }">class="active"</c:if> style="cursor:pointer;" onclick="Select('itemtype','${biao.id}');" id="post_type_car${biao.id}">${biao.bname }</a>
@@ -93,23 +96,21 @@
 	        <div class="item">
 	          <ul>
                 <li class="col-330 col-t">
-	            	<a href="investInfo.do?bmid=${invest.btype}" target="_blank">
+	            	<a href="investInfo.do?bmid=${invest.id}" target="_blank">
 	            		<i class="icon icon-xin" title="类型"></i>
 	            	</a>
-                    	            	
-                    <a class="f18" href="investInfo.do?bmid=${invest.bid}" title="${invest.btype}" target="_blank">${invest.btype}
-	            		<%-- ${ft:substring(invest.btype,0,8) }  --%>
-	            	</a>
+                    <a class="f18" href="investInfo.do?bmid=${invest.id}" title="${invest.btype}" target="_blank">${invest.btype}</a>
 	            </li> 
 	           
 	            <li class="col-180"><span class="f20 c-333">${invest.bcount}</span></li>
 	            <li class="col-110 relative"><span class="f20 c-orange">${invest.brate}%</span></li>
 	            <li class="col-150"><span class="f20 c-333">${invest.binterval}</span></li>
+	            <li class="col-150"><span class="f20 c-333">${invest.id}</span></li>
 	            <li class="col-120-2"> 
-	            	<a class="ui-btn btn-gray"  href="investInfo.do?bmid=${invest.bid}">
-	            		<c:if test="${invest.bid !='1' }">立即投标</c:if>
-	            		<c:if test="${invest.bid=='2' }">募集完成</c:if>
-	            		<c:if test="${invest.bid=='3' }">还款中</c:if>
+	            	<a class="ui-btn btn-gray"  href="investInfo.do?bmid=${invest.id}">
+	            		<c:if test="${invest.id !='1'}">立即投标</c:if>
+	            		<c:if test="${invest.id=='2'}">募集完成</c:if>
+	            		<c:if test="${invest.id=='3'}">还款中</c:if>
 	            	</a> 
 	            </li>
 	          </ul>
