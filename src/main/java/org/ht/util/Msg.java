@@ -19,7 +19,7 @@ public class Msg {
 	public static Msg success() {
 		Msg result = new Msg();
 		result.setCode(100);
-		result.setMessage("处理成功");
+		result.setMessage("淇℃伅澶勭悊鎴愬姛");
 		return result;
 	}
 }
