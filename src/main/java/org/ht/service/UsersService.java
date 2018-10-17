@@ -14,4 +14,5 @@ public interface UsersService {
     Users byNameFindUsers(@Param("unickname") String unickname, @Param("upassword") String upassword);
     Users findUsersById(int uid);
 	public List<Users> queryUser(Map<String, Object> map);
+	Integer updateByPrimaryKey(Users user);
 }

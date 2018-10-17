@@ -56,6 +56,19 @@
 		#{unickname,jdbcType=VARCHAR}, #{upassword,jdbcType=VARCHAR},
 		#{uphonenumber,jdbcType=VARCHAR},sysdate(),#{ethaddress,jdbcType=VARCHAR})
 	</insert>
+	<update id="updateByPrimaryKey"
+		parameterType="org.ht.pojo.Users">
+		update users
+		<set>
+			<if test="umailbox != null">
+				umailbox = #{umailbox,jdbcType=VARCHAR}
+			</if>
+			<if test="uphonenumber != null">
+				uphonenumber = #{uphonenumber,jdbcType=VARCHAR}
+			</if>
+		</set>
+		where uid = #{uid,jdbcType=INTEGER}
+	</update>
 	
 	<select id="queryUser" resultMap="BaseResultMap"
 		parameterType="map">

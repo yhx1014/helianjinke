@@ -68,5 +68,10 @@ public class UsersServiceImpl implements UsersService {
 	public Users findUsersById(int uid) {
 		return usersdao.findUserById(uid);
 	}
+	
+	@Override
+	public Integer updateByPrimaryKey(Users user) {
+		return usersdao.updateByPrimaryKey(user);
+	}
 
 }

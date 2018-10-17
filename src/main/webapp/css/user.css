@@ -668,7 +668,7 @@ transition: transform 1s linear;}
 .markicon:hover{ background:url(../images/grzx.png) -30px -239px; width:21px; height:18px;}
 
 .pmain-profile .pmain-welcome{ height:40px; line-height:40px;padding:0 30px; border-bottom:1px solid #f2f2f2;}
-.pmain-user {width:880px; padding:15px 30px;}
+.pmain-user {width:880px;padding:15px 30px;}
 .pmain-user .user-head{ float:left; width:133px; height:114px;}
 .pmain-user .user-head .head-img{ float:left; width:88px; height:88px; position:relative; cursor:pointer;}
 .pmain-user .user-head .head-img img{ position:absolute; top:0; left:0; z-index:2;}
@@ -684,8 +684,8 @@ transition: transform 1s linear;}
 .pmain-user .user-head .head-icon .headicon01{ background-position:0 -213px; }/*灰色的icon*/
 .pmain-user .user-head .head-icon .headicon02{ background-position:-25px -213px; }
 .pmain-user .user-head .head-icon .headicon03{ background-position:-50px -213px; }
-.pmain-user .user-info{width:95%;margin:15px 15px 0px;font-size:14px; display: table;border-collapse: collapse;}
-.pmain-user .user-info1{ width:100%;} /*未登录时个人信息区域的宽度增长*/
+.pmain-user .user-info{width:95%;margin:15px 15px 0px; padding-top:15px;display:table; font-size:14px;  }
+.pmain-user .user-info1{ width:600px;} /*未登录时个人信息区域的宽度增长*/
 .pmain-user .user-info a{ color:#0ae; margin:0 10px; font-size:12px;}
 .pmain-user .user-info a:hover{ color:#0caffe; }
 .pmain-user .user-info1 .pmain-log{ color:#0caffe; text-decoration:underline; margin:0 10px;}
@@ -1241,7 +1241,7 @@ transition: transform 1s linear;}
 .alert-main form{ float:left; padding:40px 0 27px;}
 .alert-main form .txt-name{ float:left; width:120px; height:35px; line-height:35px; text-align:right; margin-right:13px;} 
 .alert-main form li{ float:left; width:400px;}
-.alert-main form input[type=text]{float:left; height:17px; line-height:17px; padding:8px 0 8px 5px; border:1px solid #D0D0D0; border-radius:2px;}
+.alert-main form input[type=text]{height:17px; line-height:17px; padding:8px 0 8px 5px; border:1px solid #D0D0D0; border-radius:2px;}
 .alert-main form input[type=text]:hover{border:1px solid #0caffe; }
 .alert-main form input[type=password]{float:left; height:15px; line-height:15px; padding:9px 0 9px 5px; border:1px solid #D0D0D0; border-radius:2px;}
 .alert-main form input[type=password]:hover{border:1px solid #0caffe; }

@@ -7,10 +7,12 @@ import org.ht.pojo.Certification;
 import org.ht.pojo.Users;
 import org.ht.service.CertificationService;
 import org.ht.service.UsersService;
+import org.ht.util.Msg;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -22,6 +24,20 @@ public class UsersController {
 	@Autowired
 	@Resource
 	private CertificationService Certificat;
+	
+	@RequestMapping(value = "updateuphone/{uid}", method = RequestMethod.POST)
+	@ResponseBody
+	public Msg updateUserPhoneNumber(Users user,HttpSession session) {
+		usersservice.updateByPrimaryKey(user);
+		return Msg.success();
+	}
+	
+	@RequestMapping(value = "umailbox/{uid}", method = RequestMethod.POST)
+	@ResponseBody
+	public Msg updateUserEmail(Users user) {
+		usersservice.updateByPrimaryKey(user);
+		return Msg.success();
+	}
 	
 	@RequestMapping("insert")
 	public String insert(Users users, Model model,
