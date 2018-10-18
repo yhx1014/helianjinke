@@ -1229,7 +1229,7 @@ transition: transform 1s linear;}
 .error-txt .txtback .txt4{ float:left; margin-left:12px; height:45px; width:300px; line-height:45px; color:#828282; font-size:14px;}
 
 /*弹出框页面*/
-.alert-450{ float:left; width:450px; border:1px solid #E1E1E1; box-shadow:0 0 3px #E1E1E1;position:absolute; z-index:100;top:50%; left:50%; margin-left:-225px; background:#fff }
+.alert-450{ float:left; width:450px; border:1px solid #E1E1E1; box-shadow:0 0 3px #E1E1E1;position:absolute; z-index:100;top:25%; left:55%; margin-left:-225px; background:#fff }
 .alert-400{ float:left; width:400px; border:1px solid #E1E1E1; box-shadow:0 0 3px #E1E1E1;position:absolute; z-index:102;top:50%; left:50%; margin-left:-200px; background:#fff }
 .alert-h220{ height:220px;}
 .alert-title{ width:100%; background:#F5F5F5;height:43px; line-height:43px; border-bottom:1px solid #E1E1E1; }
