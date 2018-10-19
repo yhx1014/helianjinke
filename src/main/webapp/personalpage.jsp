@@ -18,9 +18,12 @@
 <script src="<%=basePath%>script/user.js" type="text/javascript"></script>
 <script type="text/javascript">
 	function showDlg(op) {
+		$("body").append("<div id='mask'></div>");
+		$("#mask").addClass("mask").css("display", "block");
 		$("#" + op).css("display", "block");
 	}
 	function closeDlg(op) {
+		$("#mask").css("display", "none");
 		$("#" + op).css("display", "none");
 	}
 	function reload() {
@@ -147,8 +150,8 @@
 	</div>
 	<div class="alert-450" id="changeEmailDlg" style="display: none">
 		<div class="alert-title">
-			<h3>修改手机号</h3>
-			<span class="alert-close" onclick="closeDlg('changeMobileDlg')"></span>
+			<h3>修改邮箱</h3>
+			<span class="alert-close" onclick="closeDlg('changeEmailDlg')"></span>
 		</div>
 		<div class="alert-main">
 			<form id="changeEmailForm">
