@@ -19,7 +19,7 @@
 		        <div class="pmain-profile">
 	                <div class="pmain-user">
 			          <div class="user-info user-info1">
-			          	订单类型 (订单状态)<br/>
+			          	订单类型 (订单状态)<br3/>
 							"1.订单ID###"2.用户ID"###"3.用户电话号"###"4.用户邮箱
 			          	<c:forEach items="${borrow}" var="item">
 							<li>
