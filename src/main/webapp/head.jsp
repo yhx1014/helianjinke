@@ -10,7 +10,7 @@
 <head>
 	<style>
 		div.login-form{margin-top:33px;}
-		div.login-form a{margin:0 6px;}
+		div.login-form a{color:#fff;margin:0 6px;}
 		div.login-form a:hover{color:#0d95dd}
 	</style>
 	<script>

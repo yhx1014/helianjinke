@@ -1,7 +1,7 @@
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0}
 body{background:#fff;font-family:"Microsoft YaHei";font-size:14px;background-color:#f1f1f1;}
 input{box-sizing:content-box}
-div,td,a{color:#333;text-decoration:none} a img,iframe{border:0}
+div,td,a{;text-decoration:none} a img,iframe{border:0}
 ul,ol{list-style-type:none} .con_box{width:1020px;margin:0 auto}
 .t5{padding-top:5px}.t10{padding-top:10px}.t20{padding-top:20px}
 .f_15{font-size:15px}.f_16{font-size:16px}.f_18{font-size:18px}.f_24{font-size:24px}.f_30{font-size:30px}
@@ -52,7 +52,7 @@ b,h1,h2,h3,h4,h5{font-size:100%;font-weight:normal}
 .header-top-ul li .app0{color:#f60}
 .header-top-ul li .my-account{width:auto;padding:0 22px}
 .top-ico{border:1px solid #ddd;width:24px;height:24px;border-radius:50%;margin:12px 10px 0 0}
-.header{color:#333;height:89px;background-color:#fff;border-bottom:1px solid #b5b5b5}
+.header{color:#333;height:89px;background-color:#112443;border-bottom:1px solid #b5b5b5}
 .header .container{position:relative}
 .header .logo{height:35px;margin-top:17px;width:330px}
 .header .logo p{text-indent:0}
@@ -63,7 +63,7 @@ b,h1,h2,h3,h4,h5{font-size:100%;font-weight:normal}
 
 .top-nav li{float:left;margin-left:58px}
 .top-nav li.on a{color:#0d95dd}
-.top-nav a{font-size:16px;color:#3e3e3e;text-decoration:none}
+.top-nav a{font-size:16px;color:#fff;text-decoration:none}
 .top-nav a:hover{color:#0d95dd}
 
 /*banner*/
@@ -135,7 +135,7 @@ b,h1,h2,h3,h4,h5{font-size:100%;font-weight:normal}
 
 
 /* footer */
-.ft{ background:#475059; z-index: 1000; margin-top:30px;}
+.ft{ background:#112443; z-index: 1000; margin-top:30px;}
 .ft-inner{ position: relative; width:1150px; margin:0 auto; border-bottom:1px solid #72777b}
 .ft-helper{ float:left; padding:27px 0px 27px 0; border-right:1px solid #72777b;}
 .ft-helper dl{ float:left; width:101px; line-height:24px;margin-right: 50px; color:#fff;}
