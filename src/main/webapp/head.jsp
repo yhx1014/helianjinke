@@ -37,7 +37,7 @@
         <li> <a href="<%=basePath%>invest/recommendShow.do">首页</a> </li>
         <li> <a href="<%=basePath%>invest/investSelect.do" class="">我要投资</a> </li>
         <li> <a href="<%=basePath%>borrowadd.jsp" class="">我要借款</a> </li>
-        <li class="top-nav-safe"> <a href="#" onclick="keys();">我的资产</a> </li>
+        <li class="top-nav-safe"> <a href="<%=basePath%>assets/wallet.do">我的资产</a> </li>
       </ul>
       
       <div class="fn-right login-form">
@@ -46,7 +46,7 @@
 			<a href="<%=basePath%>login.jsp" class="js-login" title="登录">登录</a>
 		</c:if>
 		<c:if test="${globaluser!=null }">
-			<a href="<%=basePath%>query.do?id=${globaluser.uid}"  title="名字">${globaluser.unickname}</a>
+			<a href="#"  onclick="keys();" title="名字">${globaluser.unickname}</a>
 			<a href="<%=basePath%>users/exit.do" class="js-login" title="退出">退出</a>
 		 </c:if>
 	  </div>

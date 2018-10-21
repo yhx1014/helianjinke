@@ -215,21 +215,21 @@
 			<div class="pmain-profile">
 				<div class="pmain-user">
 					<div class="user-title">
-						<i class="security-setting-icon"></i> <span>安全设置</span>
+						<i class="security-setting-icon"></i> <span>资产信息</span>
 					</div>
 					<div class="user-info">
 						<div class="table-tr">
-							<div class="table-th">手机绑定</div>
-							<div class="table-td">${user.uphonenumber}</div>
+							<div class="table-th">ETH地址</div>
+							<div class="table-td">${user.ethaddress}</div>
 							<div class="table-last">
-								<span><a>更换手机号</a></span>
+								<span><a>查看二维码</a></span>
 							</div>
 						</div>
 						<div class="table-tr">
-							<div class="table-th">邮箱绑定</div>
-							<div class="table-td">${user.umailbox}</div>
+							<div class="table-th">BTC地址</div>
+							<div class="table-td">${user.btcaddress}</div>
 							<div class="table-last">
-								<span><a>更改</a></span>
+								<span><a>查看二维码</a></span>
 							</div>
 						</div>
 						<div class="table-tr">

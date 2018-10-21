@@ -17,6 +17,7 @@ public class Users extends BaseDomain  {
 	private String upassword;
 	private String upwd_zd;
 	private String ethaddress;
+	private String btcaddress;
 
 	public String getUpwd_zd() {
 		return upwd_zd;
@@ -139,5 +140,13 @@ public class Users extends BaseDomain  {
 
 	public void setUpassword(String upassword) {
 		this.upassword = upassword;
+	}
+
+	public String getBtcaddress() {
+		return btcaddress;
+	}
+
+	public void setBtcaddress(String btcaddress) {
+		this.btcaddress = btcaddress;
 	}
 }
