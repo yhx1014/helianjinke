@@ -25,9 +25,7 @@ public class AccountTest {
         for(String accountId:accounts){
             System.out.println(accountId);
         }
-
     }
-
     @Test
     public void createAccount(){
             Account account = new Account();
