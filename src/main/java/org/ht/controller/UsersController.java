@@ -8,6 +8,7 @@ import org.ht.pojo.Users;
 import org.ht.service.CertificationService;
 import org.ht.service.UsersService;
 import org.ht.util.Msg;
+import org.ht.wallet.AccountTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -46,6 +47,8 @@ public class UsersController {
 		@RequestParam(value = "uphonenumber", required = false) String uphonenumber,
 		@RequestParam(value = "ethaddress", required = false) String ethaddress)
 	{
+		AccountTest at = new AccountTest();
+		at.createAccount();
 		//AccountTest at = new AccountTest();
 		//String accountId = at.createAccount();
 		String accountId="0x000";
@@ -54,6 +57,7 @@ public class UsersController {
 		users.setUpassword(upassword);
 		users.setUphonenumber(uphonenumber);
 		users.setEthaddress(accountId);
+		
 		// 将数据添加到数据库
 		usersservice.insert(users);
 		Certification cer = new Certification();
