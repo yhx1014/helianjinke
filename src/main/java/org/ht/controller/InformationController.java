@@ -12,10 +12,8 @@ import org.ht.pojo.Dope;
 import org.ht.pojo.Poundage;
 import org.ht.pojo.Users;
 import org.ht.service.CertificationService;
-import org.ht.service.DopeService;
 import org.ht.service.InformationService;
 import org.ht.service.PoundageService;
-import org.ht.service.UsersService;
 import org.ht.util.BeanUtils;
 import org.ht.util.CreateRandom;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,10 +33,6 @@ public class InformationController {
 	@Autowired
 	private CertificationService cer;
 	
-	@Autowired
-	private UsersService user;
-	
-
 	// 我的账户
 	@RequestMapping("query")
 	public String query(
