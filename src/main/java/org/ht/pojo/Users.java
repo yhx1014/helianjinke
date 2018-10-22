@@ -30,7 +30,7 @@ public class Users extends BaseDomain  {
 	public Users() {
 
 	}
-
+	
 	public Users(Integer uid, String unickname, String ucardid, String uhead, String uname, String umailbox,
 			String uphonenumber, Date uregisterdate, String uflip, Date ufldate,String upassword,String ethaddress) {
 		this.uid = uid;

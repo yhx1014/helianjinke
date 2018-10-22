@@ -4,16 +4,17 @@ import java.io.Serializable;
 
 /**
  * @Name: Approveitem
- * @Description:认证项的JavaBeans
  * @author chenqingshan
  * @Date: 2017-2-20 Time: 19:58
  */
+
+@SuppressWarnings("serial")
 public class Approveitem implements Serializable {
 
-	private Integer aiid;// 认证项编号
-	private String ainame;// 认证项名称
-	private String aitype;// 认证项类型 1.基本认证项；2.可选认证项
-	private String aistate;// 认证项状态 0.已弃用；1.未弃用
+	private Integer aiid;     // 认证项编号
+	private String ainame;    // 认证项名称
+	private String aitype;    // 认证项类型 1.基本认证项；2.可选认证项
+	private String aistate;   // 认证项状态 0.已弃用；1.未弃用
 
 	public Approveitem() {
 
@@ -58,15 +59,10 @@ public class Approveitem implements Serializable {
 	public void setAistate(String aistate) {
 		this.aistate = aistate;
 	}
-
-	/**
-	 * 
-	 * @return 该对象的所有值
-	 */
+	
 	public String getApproveitemInfo() {
 
 		return "Info aiid==" + this.getAiid() + "  ainame==" + this.getAiname() + "  aitype==" + this.getAitype()
 				+ "  aistate==" + this.getAistate();
 	}
-
 }

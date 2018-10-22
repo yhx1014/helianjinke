@@ -33,7 +33,7 @@ public class InformationController {
 	@Autowired
 	private CertificationService cer;
 	
-	// 我的账户
+	//我的账户
 	@RequestMapping("query")
 	public String query(
 			@RequestParam(value = "id", required = false) String id, Model model)
