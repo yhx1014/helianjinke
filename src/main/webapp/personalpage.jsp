@@ -15,8 +15,22 @@
 <link rel="stylesheet" type="text/css" href="<%=basePath%>css/user.css" />
 <script type="text/javascript" src="<%=basePath%>script/jquery.min.js"></script>
 <script type="text/javascript" src="<%=basePath%>script/common.js"></script>
-<script src="<%=basePath%>script/user.js" type="text/javascript"></script>
+<script type="text/javascript" src="<%=basePath%>script/user.js"></script>
+<script type="text/javascript" src="<%=basePath%>script/qrcode.js"></script>
 <script type="text/javascript">
+	function qrcode(ele,content,cqrcode) {
+		$("#"+cqrcode).html("");
+		showDlg(ele);
+		alert(cqrcode);
+		new QRCode(document.getElementById(cqrcode), {
+			text : content,
+			width : 126,
+			height : 126,
+			colorDark : '#000000',
+			colorLight : '#ffffff',
+			correctLevel : QRCode.CorrectLevel.H
+		});
+	}
 	function showDlg(op) {
 		$("body").append("<div id='mask'></div>");
 		$("#mask").addClass("mask").css("display", "block");
@@ -128,6 +142,24 @@
 </head>
 <body>
 	<jsp:include page="head.jsp"></jsp:include>
+	<div class="alert-450" id="ethQRCodeDlg" style="display: none">
+		<div class="alert-title">
+			<h3>ETH地址</h3>
+			<span class="alert-close" onclick="closeDlg('ethQRCodeDlg')"></span>
+		</div>
+		<div class="alert-main">
+			<div id="ethqrcode"></div>
+		</div>
+	</div>
+	<div class="alert-450" id="btcQRCodeDlg" style="display: none">
+		<div class="alert-title">
+			<h3>BTC地址</h3>
+			<span class="alert-close" onclick="closeDlg('btcQRCodeDlg')"></span>
+		</div>
+		<div class="alert-main">
+			<div id="btcqrcode"></div>
+		</div>
+	</div>
 	<div class="alert-450" id="changeMobileDlg" style="display: none">
 		<div class="alert-title">
 			<h3>修改手机号</h3>
@@ -220,16 +252,18 @@
 					<div class="user-info">
 						<div class="table-tr">
 							<div class="table-th">ETH地址</div>
-							<div class="table-td">${user.ethaddress}</div>
+							<div class="table-td" id="ethAddress">${user.ethaddress}</div>
 							<div class="table-last">
-								<span><a>查看二维码</a></span>
+								<span><a href="javascript:void(0)"
+									onclick="qrcode('ethQRCodeDlg',getElementById('ethAddress').innerHTML,'ethqrcode')">查看二维码</a></span>
 							</div>
 						</div>
 						<div class="table-tr">
 							<div class="table-th">BTC地址</div>
-							<div class="table-td">${user.btcaddress}</div>
+							<div class="table-td"  id="btcaddress">${user.btcaddress}</div>
 							<div class="table-last">
-								<span><a>查看二维码</a></span>
+								<span><a href="javascript:void(0)"
+									onclick="qrcode('btcQRCodeDlg',getElementById('btcaddress').innerHTML,'btcqrcode')">查看二维码</a></span>
 							</div>
 						</div>
 						<div class="table-tr">
