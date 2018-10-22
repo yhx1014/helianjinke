@@ -135,7 +135,7 @@ b,h1,h2,h3,h4,h5{font-size:100%;font-weight:normal}
 
 
 /* footer */
-.ft{ background:#112443; z-index: 1000; margin-top:30px;}
+.ft{ background:#112443; z-index: 1000;}
 .ft-inner{ position: relative; width:1150px; margin:0 auto; border-bottom:1px solid #72777b}
 .ft-helper{ float:left; padding:27px 0px 27px 0; border-right:1px solid #72777b;}
 .ft-helper dl{ float:left; width:101px; line-height:24px;margin-right: 50px; color:#fff;}

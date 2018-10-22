@@ -22,7 +22,7 @@
 <script type="text/javascript" src="<%=basePath%>js/jquery-1.8.3.js"></script>
 <style type="text/css">
 .personal-wallet {
-	margin-left: 13%;
+	margin-left: 10%;
 	float: left;
 	color: #848484;
 	background: #fff;
@@ -49,15 +49,16 @@
 }
 
 .wallet-BTC, .wallet-ETH, .wallet-USDT {
-	background: #f6dc6a;
-	width: 30%;
-	height: 287px;
+	color:#fff;
+	background: #112443;
+	width: 220px;
+	height: 220px;
 	float: left;
 	margin: 15px 15px;
 }
 
 .wallet-BTC h1, .wallet-ETH h1, .wallet-USDT h1 {
-	font-size: xx-large;
+	font-size: x-large;
 	font-weight: inherit;
 }
 
@@ -66,22 +67,24 @@
 }
 
 .coin-amount {
-	background: #deedef;
+	background: #12464d;
 	text-align: center;
-	font-size: xx-large;
+	font-size: x-large;
 	height: 70%;
 }
-
+.coin-amount span{
+	line-height:154px;
+}
 .coin-operate {
-	height: auto;
+	height: 15%;
 }
 
 .coin-operate span {
-	margin-top:10px;
 	text-align: center;
 	font-size: large;
 	width: 50%;
 	float: left;
+	line-height:33px;
 }
 
 .operate-btn {
@@ -92,7 +95,7 @@
 <body>
 
 	<jsp:include page="head.jsp"></jsp:include>
-	<div class="wrapper wbgcolor">
+	<div class="wbgcolor">
 		<div class="w1200 personal">
 			<div class="personal-wallet">
 				<div>
