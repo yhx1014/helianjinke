@@ -477,7 +477,7 @@ a.top-icon1{float:left;padding-left:30px;background:url(../images/top-icon.png) 
 .personal .dot9{margin-right:13px;width:17px;height:17px;background-position:-40px -120px;-webkit-transform:rotate(360deg);-moz-transform:rotate(360deg);-o-transform:rotate(360deg);-ms-transform:rotate(360deg);}
 .personal .dot10{margin-right:13px;width:17px;height:17px;background-position:-80px -110px;-webkit-transform:rotate(360deg);-moz-transform:rotate(360deg);-o-transform:rotate(360deg);-ms-transform:rotate(360deg);}
 .personal .dot6{margin-right:13px;width:17px;height:17px;background-position:-80px -150px;-webkit-transform:rotate(360deg);-moz-transform:rotate(360deg);-o-transform:rotate(360deg);-ms-transform:rotate(360deg);}
-.personal .personal-left{float:left;margin-top:10px;margin-right:10px;padding-top:15px;width:200px;height:682px;background:#fff;color:#4a4a4a;}
+.personal .personal-left{float:left;margin:10px;padding-top:15px;width:200px;height:682px;background:#fff;color:#4a4a4a;}
 .personal .personal-left ul{margin-bottom:60px;}
 .personal .personal-left li{overflow:visible;margin-bottom:1px;width:250px;min-height:44px;font-size:16px;line-height:44px;}
 .personal .personal-left li span{display:block;width:250px;font-size:16px;transition:background .2s ease-in-out;}
