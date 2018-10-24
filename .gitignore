@@ -2,3 +2,6 @@
 #Eclipse ignore files
 .classpath
 /.settings/
+/bin/
+.project
+.tern-project
