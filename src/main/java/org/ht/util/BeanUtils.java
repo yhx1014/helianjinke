@@ -7,7 +7,8 @@ import org.ht.pojo.Log;
 import org.junit.Test;
 
 public class BeanUtils {
-	public static Map<String, Object> toMap(Object obj) {
+	public static Map<String, Object> toMap(Object obj)
+	{
 		Map<String, Object> reMap = new HashMap<String, Object>();
 		if (obj == null)
 			return null;
@@ -20,15 +21,18 @@ public class BeanUtils {
 					Object o = f.get(obj);
 					reMap.put(fields[i].getName(), o);
 				} catch (NoSuchFieldException e) {
-					e.printStackTrace();
+					//e.printStackTrace();
+					System.out.printf("");
 				} catch (IllegalArgumentException e) {
-					e.printStackTrace();
+					//e.printStackTrace();
+					System.out.printf("");
 				} catch (IllegalAccessException e) {
-					e.printStackTrace();
+					//e.printStackTrace();
 				}
 			}
 		} catch (SecurityException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
+
 		}
 		return reMap;
 	}
@@ -37,9 +41,7 @@ public class BeanUtils {
 	public static void main(String[] args) {
 		Log log = new Log();
 		log.setLaccount("111");
-
 		Map<?, ?> map = BeanUtils.toMap(log);
 		System.out.println(map.get("laccount"));
 	}
-
 }

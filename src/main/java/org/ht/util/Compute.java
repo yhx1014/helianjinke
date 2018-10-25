@@ -9,8 +9,7 @@ import org.ht.pojo.Product;
 import org.ht.service.ProductService;
 
 /**
- *   计算类
- * 
+ * 计算类
  * @author Administrator
  *
  */
@@ -27,7 +26,6 @@ public class Compute {
 	
 	
 	//更新投资进度
-	
 	public void  updProgres(List<Product> product){
 		
 		
@@ -48,9 +46,6 @@ public class Compute {
 				}
 				System.out.println("id   -----  "+product2.getId());
 				System.out.println("Progress  -----  "+product2.getProgress());
-				
 			}
-		
 	}
-	
 }
