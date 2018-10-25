@@ -19,7 +19,7 @@
 <body>
 	<jsp:include page="head.jsp"></jsp:include>
 	<div class="wrap">
-		<form id="LonginForm" name="LonginForm" action="<%=basePath%>users/login.do" method="post">
+		<form id="LonginForm" name="LonginForm" action="<%=basePath%>/login.do" method="post">
 			<div class="tdbModule loginPage">
 				<div class="registerTitle">用户登录</div>
 				<div class="registerCont">
