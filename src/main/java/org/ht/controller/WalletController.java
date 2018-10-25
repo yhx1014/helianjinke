@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class WalletController {
 	@RequestMapping("/wallet")
 	public String getWallet(Model model){
-		return "account";
+		return "wallet";
 	}
 }
