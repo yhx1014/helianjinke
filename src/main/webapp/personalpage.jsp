@@ -21,7 +21,6 @@
 	function qrcode(ele,content,cqrcode) {
 		$("#"+cqrcode).html("");
 		showDlg(ele);
-		alert(cqrcode);
 		new QRCode(document.getElementById(cqrcode), {
 			text : content,
 			width : 126,

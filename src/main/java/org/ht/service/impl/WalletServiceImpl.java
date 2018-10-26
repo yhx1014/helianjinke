@@ -15,7 +15,7 @@ public class WalletServiceImpl implements WalletService {
 	@Autowired
 	private WalletDao walletdao;
 
-	public List<Wallet> querywallets(String userid) {
+	public List<Wallet> querywallets(Integer userid) {
 		return walletdao.queryWallets(userid);
 	}
 

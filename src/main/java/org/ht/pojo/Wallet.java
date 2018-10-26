@@ -10,9 +10,9 @@ public class Wallet extends BaseDomain{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private String userid;
+	private Integer userid;
 	private String type;
-	private Double totalcount;
+	private String totalcount;
 	private Double balance;
 	private Double invest;
 	private Double borrow;
@@ -20,10 +20,10 @@ public class Wallet extends BaseDomain{
 	private String date;
 //	private Timestamp update;
 	
-	public String getUserid() {
+	public Integer getUserid() {
 		return userid;
 	}
-	public void setUserid(String userid) {
+	public void setUserid(Integer userid) {
 		this.userid = userid;
 	}
 	public String getType() {
@@ -32,10 +32,10 @@ public class Wallet extends BaseDomain{
 	public void setType(String type) {
 		this.type = type;
 	}
-	public Double getTotalcount() {
+	public String getTotalcount() {
 		return totalcount;
 	}
-	public void setTotalcount(Double totalcount) {
+	public void setTotalcount(String totalcount) {
 		this.totalcount = totalcount;
 	}
 	public Double getBalance() {
@@ -91,7 +91,7 @@ public class Wallet extends BaseDomain{
 		builder.append(", borrow=");
 		builder.append(borrow);
 		builder.append(", type=");
-//		builder.append(type);
+		builder.append(type);
 		builder.append(", date=");
 		builder.append(date);
 		builder.append(", update=");
