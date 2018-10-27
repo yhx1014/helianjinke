@@ -12,15 +12,40 @@
     <title>币币袋</title>
     <meta name="keywords" content=""/>
     <meta name="description" content=""/>
-    <link href="<%=basePath%>/css/common.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="<%=basePath%>/css/common.css"/>
     <link rel="stylesheet" type="text/css" href="<%=basePath%>/css/user.css"/>
     <link rel="stylesheet" type="text/css"
           href="<%=basePath%>/css/jquery.datetimepicker.css"/>
     <script type="text/javascript" src="<%=basePath%>/script/jquery.min.js"></script>
     <script type="text/javascript" src="<%=basePath%>/script/common.js"></script>
-    <script src="<%=basePath%>/script/user.js" type="text/javascript"></script>
+    <script type="text/javascript" src="<%=basePath%>/script/user.js"></script>
     <script type="text/javascript" src="<%=basePath%>js/jquery-1.8.3.js"></script>
+    <script type="text/javascript" src="<%=basePath%>script/qrcode.js"></script>
     <script type="text/javascript">
+        function qrcode(ele, content, cqrcode) {
+            $("#" + cqrcode).html("");
+            showDlg(ele);
+            new QRCode(document.getElementById(cqrcode), {
+                text: content,
+                width: 126,
+                height: 126,
+                colorDark: '#000000',
+                colorLight: '#ffffff',
+                correctLevel: QRCode.CorrectLevel.H
+            });
+        }
+
+        function showDlg(op) {
+            $("body").append("<div id='mask'></div>");
+            $("#mask").addClass("mask").css("display", "block");
+            $("#" + op).css("display", "block");
+        }
+
+        function closeDlg(op) {
+            $("#mask").css("display", "none");
+            $("#" + op).css("display", "none");
+        }
+
         /**
          * 保留8位小数
          * */
@@ -28,6 +53,7 @@
             var amount = $('.coin-amount span').html()
             return $('.coin-amount span').html(parseInt(amount).toFixed(10))
         }
+
         $(function () {
                 slice_eight();
             }
@@ -118,6 +144,18 @@
 <body>
 
 <jsp:include page="head.jsp"></jsp:include>
+<div class="alert-450" id="ethQRCodeDlg" style="display: none">
+    <div class="alert-title">
+        <h3>ETH充值</h3>
+        <span class="alert-close" onclick="closeDlg('ethQRCodeDlg')"></span>
+    </div>
+    <div class="alert-main">
+        <div id="addressContent">您的ETH地址为：${ethAddress}</div>
+    </div>
+    <div class="alert-main">
+        <div id="ethqrcode"></div>
+    </div>
+</div>
 <div class="wbgcolor">
     <div class="w1200 personal">
         <div class="personal-wallet">
@@ -155,7 +193,8 @@
                     </div>
                     <div class="coin-operate">
                         <div class="operate-btn">
-                            <span>充值</span><span>提现</span>
+                            <span href="javascript:void(0)"
+                                  onclick="qrcode('ethQRCodeDlg','${ethAddress}','ethqrcode')">充值</span><span>提现</span>
                         </div>
                     </div>
                 </div>

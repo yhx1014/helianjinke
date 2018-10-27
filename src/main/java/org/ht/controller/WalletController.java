@@ -1,7 +1,9 @@
 package org.ht.controller;
 
+import org.apache.http.HttpResponse;
 import org.ht.pojo.Users;
 import org.ht.pojo.Wallet;
+import org.ht.service.UsersService;
 import org.ht.service.WalletService;
 import org.ht.util.Msg;
 import org.slf4j.Logger;
@@ -20,12 +22,16 @@ public class WalletController {
     Logger logger = LoggerFactory.getLogger(WalletController.class);
     @Autowired
     WalletService walletService;
+    @Autowired
+    UsersService usersService;
 
     @RequestMapping("/wallet")
-    public String getWallet(HttpSession session, Model model) {
+    public String getWallet( HttpSession session, Model model) {
         Users user = (Users) session.getAttribute("globaluser");
-        logger.info("---------------用户的UID为：" +user.getUid().toString());
+        logger.info("---------------用户的UID为：" + user.getUid().toString());
         List<Wallet> list = walletService.querywallets(user.getUid());
+        String ethAddress = user.getEthaddress();
+        model.addAttribute("ethAddress", ethAddress);
         model.addAttribute("walletlist", list);
         return "wallet";
     }
