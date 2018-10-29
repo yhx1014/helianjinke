@@ -23,8 +23,8 @@
 	<select id="recordList" resultMap="rm" parameterType="map">
 		<!-- select *,pname title,ptype type from InvestInfo
 		left join product on brrowid = id -->
-		SELECT a.*,p.pname title,p.ptype type FROM (SELECT inv.*,un.uname FROM InvestInfo inv LEFT JOIN users un ON inv.userid = un.uid) as a left join product p on a.brrowid =p.id
-		where 1 = 1 
+		SELECT a.*,p.pname title,p.ptype type FROM (SELECT inv.*,un.uname FROM investInfo inv LEFT JOIN users un ON inv.userid = un.uid) as a left join product p on a.brrowid =p.id
+		where 1 = 1
 		<if test="uid != null">
 			and userid = #{uid}	
 		</if>

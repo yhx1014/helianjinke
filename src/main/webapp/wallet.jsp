@@ -22,6 +22,9 @@
     <script type="text/javascript" src="<%=basePath%>js/jquery-1.8.3.js"></script>
     <script type="text/javascript" src="<%=basePath%>script/qrcode.js"></script>
     <script type="text/javascript">
+        /**
+         * 生成二维码
+         * */
         function qrcode(ele, content, cqrcode) {
             $("#" + cqrcode).html("");
             showDlg(ele);
@@ -32,9 +35,12 @@
                 colorDark: '#000000',
                 colorLight: '#ffffff',
                 correctLevel: QRCode.CorrectLevel.H
-            });
+            })
         }
 
+        /**
+         * 显示、关闭模态框
+         * */
         function showDlg(op) {
             $("body").append("<div id='mask'></div>");
             $("#mask").addClass("mask").css("display", "block");
@@ -49,15 +55,14 @@
         /**
          * 保留8位小数
          * */
-        function slice_eight() {
-            var amount = $('.coin-amount span').html()
-            return $('.coin-amount span').html(parseInt(amount).toFixed(10))
-        }
 
-        $(function () {
-                slice_eight();
+        $(document).ready(function () {
+                $('.coin-amount span').each(function () {
+                    return $(this).text(parseInt($(this).text()).toFixed(10))
+                })
             }
         )
+
     </script>
     <style type="text/css">
         .personal-wallet {
@@ -139,6 +144,40 @@
             background: #233c63;
             color: #f7f7f7;
         }
+
+        .alert-450 {
+            position: absolute;
+            top: 25%;
+            left: 50%;
+            z-index: 100;
+            float: left;
+            margin-left: -225px;
+            width: 450px;
+            background: #fff;
+            padding-bottom: 20px;
+            /*box-shadow:0 0 3px #E1E1E1;*/
+        }
+
+        .alert-title {
+            background: none;
+            border-bottom: none;
+        }
+
+        .alert-main {
+            text-align: center;
+            font-size: 14px;
+            width: 100%;
+            line-height: 30px;
+        }
+
+        .mask {
+            background: #000;
+            opacity: 0.3;
+        }
+
+        /*#ethqrcode img {*/
+        /*display: inline-block;*/
+        /*}*/
     </style>
 </head>
 <body>
@@ -150,12 +189,19 @@
         <span class="alert-close" onclick="closeDlg('ethQRCodeDlg')"></span>
     </div>
     <div class="alert-main">
-        <div id="addressContent">您的ETH地址为：${ethAddress}</div>
-    </div>
-    <div class="alert-main">
-        <div id="ethqrcode"></div>
+        <div id="addressContent">
+            <div style="color: #999;font-size: 12px;">您的ETH地址为</div>
+            <div style=" font-size: 16px;">${ethAddress}</div>
+        </div>
+        <div id="ethqrcode" style="width:126px ;margin:0 auto">
+
+        </div>
+        <div style="color: #999;font-size: 12px;">
+            提示:禁止向eth地址充值eth之外的资产，任何eth地址的非eth资产将不可找回
+        </div>
     </div>
 </div>
+
 <div class="wbgcolor">
     <div class="w1200 personal">
         <div class="personal-wallet">

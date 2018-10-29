@@ -31,6 +31,10 @@ public class WalletController {
         logger.info("---------------用户的UID为：" + user.getUid().toString());
         List<Wallet> list = walletService.querywallets(user.getUid());
         String ethAddress = user.getEthaddress();
+        for (Wallet w :
+                list) {
+            System.out.println(w);
+        }
         model.addAttribute("ethAddress", ethAddress);
         model.addAttribute("walletlist", list);
         return "wallet";

@@ -141,6 +141,32 @@
             display: inline-block;
             background-image: url(images/bor_pic05.png)
         }
+        .alert-450{
+            position:absolute;
+            top:25%;
+            left:50%;
+            z-index:100;
+            float:left;
+            margin-left:-225px;
+            width:450px;
+            background:#fff;
+            padding-bottom: 20px;
+            /*box-shadow:0 0 3px #E1E1E1;*/
+        }
+        .alert-title{
+            background: none;
+            border-bottom: none;
+        }
+        .alert-main{
+            text-align: center;
+            font-size: 14px;
+            width: 100%;
+            line-height: 30px;
+        }
+        .mask{
+            background: #000;
+            opacity: 0.3;
+        }
     </style>
 </head>
 <body>
