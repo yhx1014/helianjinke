@@ -5,7 +5,7 @@
 	<select id="detailslist" resultType="org.ht.pojo.Details"
 		parameterType="int">
 		select *
-		from Details where 1=1 and pid=#{pid}
+		from details where 1=1 and pid=#{pid}
 	</select>
 
 

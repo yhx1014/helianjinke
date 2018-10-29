@@ -10,7 +10,7 @@
 	<select id="findList" resultType="org.ht.pojo.Borrowmoney">
 		SELECT
 		*
-		FROM Borrowmoney
+		FROM borrowmoney
 		WHERE 1=1
 		<if test="params.brelname !=null and params.brelname !=''">
 			AND brelname LIKE CONCAT("%",#{params.brelname},"%")
@@ -31,7 +31,7 @@
 	<select id="pagingList" resultType="org.ht.pojo.Borrowmoney"
 		parameterType="map">
 		SELECT *
-		FROM Borrowmoney
+		FROM borrowmoney
 		WHERE 1=1
 		<if test="bserial !=null and bserial !=''">
 			AND bserial = #{bserial}
