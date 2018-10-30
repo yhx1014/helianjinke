@@ -4,7 +4,7 @@
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://"
             + request.getServerName() + ":" + request.getServerPort()
-            + path + "/";
+            + path;
 %>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -14,16 +14,16 @@
 <html>
 <head>
     <title>币币袋</title>
-    <link href="<%=basePath%>css/common.css" rel="stylesheet"/>
-    <link href="<%=basePath%>css/index.css" rel="stylesheet" type="text/css"/>
-    <link href="<%=basePath%>css/detail.css" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="<%=basePath%>layui/css/layui.css" media="all">
-    <script type="text/javascript" src="<%=basePath %>script/jquery.min.js"></script>
-    <script type="text/javascript" src="<%=basePath %>script/common.js"></script>
-    <script src="<%=basePath%>layui/layui.js" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="<%=basePath%>/css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="<%=basePath%>/css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="<%=basePath%>/css/detail.css"/>
+    <link rel="stylesheet" type="text/css" href="<%=basePath%>/layui/css/layui.css" media="all">
+    <script type="text/javascript" src="<%=basePath %>/script/jquery.min.js"></script>
+    <script type="text/javascript" src="<%=basePath %>/script/common.js"></script>
+    <script type="text/javascript" src="<%=basePath%>/layui/layui.js"></script>
     <script type="text/javascript">
         function Select(items, param) {
-            location.href = "<%=basePath%>invest/investSel.do?item=" + items + "&param=" + param;
+            location.href = "<%=basePath%>/invest/investSel.do?item=" + items + "&param=" + param;
         }
     </script>
     <style>

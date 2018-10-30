@@ -5,30 +5,34 @@
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
-            + path + "/";
+            + path;
     pageContext.setAttribute("APP_PATH", request.getContextPath());
 %>
 <html>
 <head>
     <title>币币袋</title>
-    <link href="<%=basePath%>css/common.css" rel="stylesheet"/>
-    <link rel="stylesheet" type="text/css" href="<%=basePath%>css/user.css"/>
-    <script type="text/javascript" src="<%=basePath%>script/jquery.min.js"></script>
-    <script type="text/javascript" src="<%=basePath%>script/common.js"></script>
-    <script type="text/javascript" src="<%=basePath%>script/user.js"></script>
-    <script type="text/javascript" src="<%=basePath%>script/qrcode.js"></script>
+    <link href="<%=basePath%>/css/common.css" rel="stylesheet"/>
+    <script type="text/javascript" src="<%=basePath%>/script/jquery.min.js"></script>
+    <script type="text/javascript" src="<%=basePath%>/script/common.js"></script>
+    <script type="text/javascript" src="<%=basePath%>/script/user.js"></script>
+    <script type="text/javascript" src="<%=basePath%>/script/qrcode.js"></script>
     <script type="text/javascript">
         function qrcode(ele, content, cqrcode) {
             $("#" + cqrcode).html("");
             showDlg(ele);
-            new QRCode(document.getElementById(cqrcode), {
-                text: content,
-                width: 126,
-                height: 126,
-                colorDark: '#000000',
-                colorLight: '#ffffff',
-                correctLevel: QRCode.CorrectLevel.H
-            });
+            if (content !== null) {
+                new QRCode(document.getElementById(cqrcode), {
+                    text: content,
+                    width: 126,
+                    height: 126,
+                    colorDark: '#000000',
+                    colorLight: '#ffffff',
+                    correctLevel: QRCode.CorrectLevel.H
+                })
+                console.log("二维码已生成")
+            }else{
+                console.log("没有content!")
+            }
         }
 
         function showDlg(op) {
@@ -141,29 +145,33 @@
             display: inline-block;
             background-image: url(images/bor_pic05.png)
         }
-        .alert-450{
-            position:absolute;
-            top:25%;
-            left:50%;
-            z-index:100;
-            float:left;
-            margin-left:-225px;
-            width:450px;
-            background:#fff;
+
+        .alert-450 {
+            position: absolute;
+            top: 25%;
+            left: 50%;
+            z-index: 100;
+            float: left;
+            margin-left: -225px;
+            width: 450px;
+            background: #fff;
             padding-bottom: 20px;
             /*box-shadow:0 0 3px #E1E1E1;*/
         }
-        .alert-title{
+
+        .alert-title {
             background: none;
             border-bottom: none;
         }
-        .alert-main{
+
+        .alert-main {
             text-align: center;
             font-size: 14px;
             width: 100%;
             line-height: 30px;
         }
-        .mask{
+
+        .mask {
             background: #000;
             opacity: 0.3;
         }

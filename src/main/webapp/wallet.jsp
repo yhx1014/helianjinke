@@ -5,7 +5,7 @@
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
-            + path + "/";
+            + path;
 %>
 <html>
 <head>
@@ -13,29 +13,46 @@
     <meta name="keywords" content=""/>
     <meta name="description" content=""/>
     <link rel="stylesheet" type="text/css" href="<%=basePath%>/css/common.css"/>
-    <link rel="stylesheet" type="text/css" href="<%=basePath%>/css/user.css"/>
-    <link rel="stylesheet" type="text/css"
-          href="<%=basePath%>/css/jquery.datetimepicker.css"/>
+    <link rel="stylesheet" type="text/css" href="<%=basePath%>/css/wallet.css"/>
     <script type="text/javascript" src="<%=basePath%>/script/jquery.min.js"></script>
     <script type="text/javascript" src="<%=basePath%>/script/common.js"></script>
     <script type="text/javascript" src="<%=basePath%>/script/user.js"></script>
-    <script type="text/javascript" src="<%=basePath%>js/jquery-1.8.3.js"></script>
-    <script type="text/javascript" src="<%=basePath%>script/qrcode.js"></script>
+    <script type="text/javascript" src="<%=basePath%>/js/jquery-1.8.3.js"></script>
+    <script type="text/javascript" src="<%=basePath%>/script/qrcode.js"></script>
     <script type="text/javascript">
         /**
-         * 生成二维码
+         * 充值:生成二维码
          * */
-        function qrcode(ele, content, cqrcode) {
-            $("#" + cqrcode).html("");
-            showDlg(ele);
-            new QRCode(document.getElementById(cqrcode), {
-                text: content,
-                width: 126,
-                height: 126,
-                colorDark: '#000000',
-                colorLight: '#ffffff',
-                correctLevel: QRCode.CorrectLevel.H
-            })
+        function qrcode(ctype, content) {
+            $("#coinqrcode").html("")
+            $("#ctitle").text(ctype)
+            $("div.deposit-error span").text(ctype)
+            $("#coinQRCodeDlg h3").text(ctype + "充值")
+            showDlg("coinQRCodeDlg")
+            console.log(content)
+            if (content !== "") {
+                $("#coinAddress").text(content)
+                new QRCode(document.getElementById("coinqrcode"), {
+                    text: content,
+                    width: 126,
+                    height: 126,
+                    colorDark: '#000000',
+                    colorLight: '#ffffff',
+                    correctLevel: QRCode.CorrectLevel.H
+                })
+            } else {
+                $("#coinAddress").text("您的" + ctype + "地址不可用，请重试！")
+                var Sqrcode = $("#coinqrcode").append("<i></i>");
+                Sqrcode.children("i").addClass("error-qrcode")
+            }
+        }
+
+        /**
+         * 提现:输入地址
+         * */
+        function withdraw(ctype) {
+            $("#withdrawDlg h3").text(ctype + "提现")
+            showDlg("withdrawDlg")
         }
 
         /**
@@ -64,144 +81,42 @@
         )
 
     </script>
-    <style type="text/css">
-        .personal-wallet {
-            margin-left: 10%;
-            float: left;
-            color: #848484;
-            background: #fff;
-            padding: 0 30px 30px;
-            font-size: 14px;
-        }
-
-        .personal-wallet h3 {
-            position: relative;
-            font-size: 18px;
-            color: #333;
-            border-bottom: 1px solid #DCDCDC;
-            width: 880px;
-            padding-top: 25px;
-            height: 35px;
-        }
-
-        .personal-wallet h3 i {
-            position: absolute;
-            left: 0;
-            bottom: -1px;
-            border-bottom: 2px solid #28A7E1;
-            padding-bottom: 10px;
-        }
-
-        .wallet-BTC {
-            background: #f5f8fc;
-            border: 1px solid #e6edf4;
-            color: #112443;
-            width: 220px;
-            height: 235px;
-            float: left;
-            margin: 15px 15px;
-            /*box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15), 0 1px 5px rgba(0, 0, 0, .075);*/
-        }
-
-        .wallet-BTC:hover {
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15), 0 1px 5px rgba(0, 0, 0, .075);
-        }
-
-        .wallet-BTC h1 {
-            font-size: 20px;
-            font-weight: inherit;
-            text-align: center;
-            color: #999;
-            font-size: 20px;
-            padding: 10px 0px 0px 0px;
-        }
-
-        .coin-amount {
-            text-align: center;
-            font-size: x-large;
-            color: #3974b1;
-            font-size: 28px;
-
-        }
-
-        .coin-amount span {
-            line-height: 154px;
-        }
-
-        .coin-operate {
-            height: 15%;
-        }
-
-        .coin-operate span {
-            text-align: center;
-            font-size: large;
-            width: 50%;
-            float: left;
-            line-height: 43px;
-        }
-
-        .operate-btn span:hover {
-            background: #233c63;
-            color: #f7f7f7;
-        }
-
-        .alert-450 {
-            position: absolute;
-            top: 25%;
-            left: 50%;
-            z-index: 100;
-            float: left;
-            margin-left: -225px;
-            width: 450px;
-            background: #fff;
-            padding-bottom: 20px;
-            /*box-shadow:0 0 3px #E1E1E1;*/
-        }
-
-        .alert-title {
-            background: none;
-            border-bottom: none;
-        }
-
-        .alert-main {
-            text-align: center;
-            font-size: 14px;
-            width: 100%;
-            line-height: 30px;
-        }
-
-        .mask {
-            background: #000;
-            opacity: 0.3;
-        }
-
-        /*#ethqrcode img {*/
-        /*display: inline-block;*/
-        /*}*/
-    </style>
 </head>
 <body>
 
 <jsp:include page="head.jsp"></jsp:include>
-<div class="alert-450" id="ethQRCodeDlg" style="display: none">
+<div class="alert-450" id="coinQRCodeDlg" style="display: none">
     <div class="alert-title">
-        <h3>ETH充值</h3>
-        <span class="alert-close" onclick="closeDlg('ethQRCodeDlg')"></span>
+        <h3></h3>
+        <span class="alert-close" onclick="closeDlg('coinQRCodeDlg')"></span>
     </div>
     <div class="alert-main">
         <div id="addressContent">
-            <div style="color: #999;font-size: 12px;">您的ETH地址为</div>
-            <div style=" font-size: 16px;">${ethAddress}</div>
+            <div style="color: #999;font-size: 12px;">您的<span id="ctitle"></span>地址为</div>
+            <div style=" font-size: 16px;" id="coinAddress"></div>
         </div>
-        <div id="ethqrcode" style="width:126px ;margin:0 auto">
+        <div id="coinqrcode" style="width:126px ;margin:0 auto">
 
         </div>
-        <div style="color: #999;font-size: 12px;">
-            提示:禁止向eth地址充值eth之外的资产，任何eth地址的非eth资产将不可找回
+        <div class="deposit-error">
+            提示:禁止向<span></span>地址充值<span></span>之外的资产，任何<span></span>地址的非<span></span>资产将不可找回
         </div>
     </div>
 </div>
-
+<div class="alert-450" id="withdrawDlg" style="display: none">
+    <div class="alert-title">
+        <h3>提现</h3>
+        <span class="alert-close" onclick="closeDlg('withdrawDlg')"></span>
+    </div>
+    <div class="alert-main">
+        <div id="addressInput">
+            <div style=" font-size: 16px;">请输入您要提现的地址：</div>
+        </div>
+        <div class="deposit-error">
+            提示:请再三核对您的<span></span>地址！错误的地址将导致您的财产损失！
+        </div>
+    </div>
+</div>
 <div class="wbgcolor">
     <div class="w1200 personal">
         <div class="personal-wallet">
@@ -212,17 +127,17 @@
             </div>
             <div class="pmain-money">
                 <ul>
-                    <li class="none"><span><em>账户总额</em><i id="zhze"
-                                                           class="markicon"></i><span class="arrow-show1"
-                                                                                      style="display: none;">可用余额+待收本息</span><span
+                    <li class="none"><span><em>账户总价值(USD)</em><i id="zhze"
+                                                                 class="markicon"></i><span class="arrow-show1"
+                                                                                            style="display: none;">可用余额+待收本息</span><span
                             class="icon-show1"
                             style="display: none;"></span></span> <span class="truemoney"><i
                             class="f26 fb">3000</i> 元</span></li>
-                    <li><span><em>待收本息</em><i id="dsbx" class="markicon"></i><span
+                    <li><span><em>抵押物价值(USD)</em><i id="dsbx" class="markicon"></i><span
                             class="arrow-show2" style="display: none;">未到账的投资项目的本金、利息总额</span><span
                             class="icon-show2" style="display: none;"></span></span> <span
                             class="truemoney"><i class="f26 fb">2000</i>元</span></li>
-                    <li><span><em>累计收益</em><i id="ljsy" class="markicon"></i><span
+                    <li><span><em>累计价值(USD)</em><i id="ljsy" class="markicon"></i><span
                             class="arrow-show3" style="display: none;">已到账的投资收益+未到账的投资收益</span><span
                             class="icon-show3" style="display: none;"></span></span> <span
                             class="truemoney"><i class="f26 fb c-pink">1500</i>
@@ -240,7 +155,9 @@
                     <div class="coin-operate">
                         <div class="operate-btn">
                             <span href="javascript:void(0)"
-                                  onclick="qrcode('ethQRCodeDlg','${ethAddress}','ethqrcode')">充值</span><span>提现</span>
+                                  onclick="qrcode('${result.type}','${result.address}')">充值</span>
+                            <span href="javascript:void(0)"
+                                  onclick="withdraw('${result.type}')">提现</span>
                         </div>
                     </div>
                 </div>

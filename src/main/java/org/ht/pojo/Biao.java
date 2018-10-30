@@ -2,41 +2,53 @@ package org.ht.pojo;
 
 @SuppressWarnings("serial")
 public class Biao extends BaseDomain {
-	private Integer startPage;
-	public Integer getPageSize() {
-		return pageSize;
-	}
+    private Integer startPage;
 
-	public void setPageSize(Integer pageSize) {
-		this.pageSize = pageSize;
-	}
+    public Integer getPageSize() {
+        return pageSize;
+    }
 
-	private Integer pageSize;
-	public Integer getStartPage() {
-		return startPage;
-	}
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
+    }
 
-	public void setStartPage(Integer startPage) {
-		this.startPage = startPage;
-	}
+    private Integer pageSize;
 
-	private Integer id;
+    public Integer getStartPage() {
+        return startPage;
+    }
 
-	private String bname;
+    public void setStartPage(Integer startPage) {
+        this.startPage = startPage;
+    }
 
-	public Integer getId() {
-		return id;
-	}
+    private Integer id;
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    private String bname;
 
-	public String getBname() {
-		return bname;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public void setBname(String bname) {
-		this.bname = bname == null ? null : bname.trim();
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getBname() {
+        return bname;
+    }
+
+    public void setBname(String bname) {
+        this.bname = bname == null ? null : bname.trim();
+    }
+
+    @Override
+    public String toString() {
+        return "Biao{" +
+                "startPage=" + startPage +
+                ", pageSize=" + pageSize +
+                ", id=" + id +
+                ", bname='" + bname + '\'' +
+                '}';
+    }
 }

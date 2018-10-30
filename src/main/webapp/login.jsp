@@ -16,12 +16,14 @@
             margin: 0 auto;
             clear: both;
             background: #fff;
-            padding: 20px
+            padding: 20px;
+            height: 70vh;
         }
 
         .tdbModule {
             width: 400px;
-            margin: 0 auto;
+            margin: 10vh auto;
+
         }
 
         .registerTitle {
@@ -68,7 +70,7 @@
             <div class="registerTitle">用户登录</div>
             <div class="registerCont">
                 <ul id="loginform">
-                    <li class="error"><span id="prrintInfo" data-info=""><span>${status}</span></span>
+                    <li><span id="prrintInfo" data-info=""><span>${status}</span></span>
                     </li>
                     <li><span class="dis">用户名：</span>
                         <input class="input"

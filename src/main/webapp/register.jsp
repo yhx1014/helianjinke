@@ -4,7 +4,7 @@
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://"
             + request.getServerName() + ":" + request.getServerPort()
-            + path + "/";
+            + path;
 %>
 
 <!DOCTYPE html>
@@ -19,12 +19,13 @@
         margin: 0 auto;
         clear: both;
         background: #fff;
-        padding: 20px
+        padding: 20px;
+        min-height: 680px;
     }
 
     .tdbModule {
         width: 400px;
-        margin: 0 auto;
+        margin: 4vh auto;
     }
 
     .registerTitle {
@@ -72,13 +73,13 @@
                 <ul>
                     <li class="telNumber">
                         <div class="">用户名</div>
-                        <input type="text" class="input username" id="phone"
+                        <input type="text" class="input username" id="username"
                                onblur="return phone();" name="unickname" tabindex="1" maxlength="11">
                     </li>
 
                     <li class="telNumber">
                         <div class="dis">手机号码</div>
-                        <input type="text" class="input _phoneNum" id="phone"
+                        <input type="text" class="input _phoneNum" id="userphone"
                                onblur="return phone();" name="uphonenumber" tabindex="1" maxlength="11">
                     </li>
 

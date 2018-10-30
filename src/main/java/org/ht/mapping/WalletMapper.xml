@@ -7,11 +7,12 @@
                 jdbcType="INTEGER"/>
         <result column="total_count" property="totalcount"
                 jdbcType="VARCHAR"/>
-        <result column="c_type" property="type" jdbcType="VARCHAR"/>
+        <result column="type" property="type" jdbcType="VARCHAR"/>
+        <result column="address" property="address" jdbcType="VARCHAR"/>
     </resultMap>
     <select id="queryWallets" resultMap="WalletResultMap"
             parameterType="java.lang.Integer">
-		select userid ,`type`,total_count from wallet
+		select userid ,`type`,total_count,address from wallet
 		where userid =
 		#{userid}
 	</select>

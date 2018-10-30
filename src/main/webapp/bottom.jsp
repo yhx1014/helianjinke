@@ -99,10 +99,6 @@
     #bottom li img {
         vertical-align: middle;
     }
-
-    #footer {
-        padding: 20px 0;
-    }
 </style>
 
 <div id="footer" class="ft">

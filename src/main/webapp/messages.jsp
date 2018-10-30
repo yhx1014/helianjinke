@@ -12,7 +12,6 @@
 	<head>
 		<title>币币袋</title>
 		<link href="css/common.css" rel="stylesheet" />
-		<link rel="stylesheet" type="text/css" href="css/user.css" />
 		<link rel="stylesheet" type="text/css" href="css/jquery.datetimepicker.css" />
 		<script type="text/javascript" src="script/jquery.min.js"></script>
 		<script type="text/javascript" src="script/common.js"></script>

@@ -4,17 +4,19 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="ft" %>
 <%
     String path = request.getContextPath();
-    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path;
 %>
 
 <html>
 <head>
-    <link href="<%=basePath%>css/common.css" rel="stylesheet"/>
-    <link href="<%=basePath%>css/index.css" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="<%=basePath%>script/jquery.min.js"></script>
-    <script type="text/javascript" src="<%=basePath%>script/jquery.jcarousellite-1.0.1.js"></script>
-    <script src="<%=basePath%>script/index.js"></script>
-    <script type="text/javascript" src="<%=basePath%>script/common.js"></script>
+    <link rel="stylesheet" type="text/css" href="<%=basePath%>/css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="<%=basePath%>/css/index.css">
+    <link rel="stylesheet" type="text/css" href="<%=basePath%>/layui/css/layui.css" media="all">
+    <script type="text/javascript" src="<%=basePath%>/script/jquery.min.js"></script>
+    <script type="text/javascript" src="<%=basePath%>/script/jquery.jcarousellite-1.0.1.js"></script>
+    <script type="text/javascript" src="<%=basePath%>/script/index.js"></script>
+    <script type="text/javascript" src="<%=basePath%>/script/common.js"></script>
+    <script type="text/javascript" src="<%=basePath%>/layui/layui.js" charset="utf-8"></script>
     <title>币币袋</title>
     <style>
         #scrollDiv {
@@ -27,6 +29,89 @@
         #scrollDiv li {
             height: 30px;
             padding-left: 10px;
+        }
+
+        .first {
+            margin-top: -100px;
+
+        }
+
+        .first-content {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .first-content img {
+            width: 100%;
+        }
+
+        .second {
+            background: #fff;
+            padding: 40px;
+        }
+
+        .second-content {
+            width: 900px;
+            margin: 0 auto;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15), 0 1px 5px rgba(0, 0, 0, .075);
+            padding: 10px;
+            height: 480px;
+        }
+
+        .third {
+        }
+
+        .third-content {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .third-content img {
+            width: 100%;
+        }
+
+        .fourth {
+            margin: 0 auto;
+            padding: 90px 0px;
+            background: #fff;
+            position: relative;
+        }
+
+        .fourth-content {
+            width: 760px;
+            margin: 0 auto;
+            /*position: relative;*/
+        }
+
+        .fourth::after {
+            content: '';
+            display: inline-block;
+            width: 100%;
+            height: 200px;
+            background: #DDE4EF;
+            top: 174px;
+            position: absolute;
+
+        }
+
+        .fourth-content img {
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .fifth {
+            width: 100%;
+            /*height: 300px;*/
+            margin: 0 auto;
+        }
+
+        .fifth-content {
+        }
+
+        .fifth-content img {
+            width: 100%;
+            border: none;
         }
     </style>
 
@@ -147,78 +232,63 @@
 
 <body>
 <jsp:include page="head.jsp"></jsp:include>
-<div class="flexslider">
-    <ul class="slides">
-        <c:forEach items="${sy}" var="nots">
-            <li style="background-image: url(${nots.noticepicture});
-                    width: 100%; float:left; margin-right: -100%; position: relative;
-                    opacity: 0; display: block; z-index: 1; background-position: 50% 0px;
-                    background-repeat: no-repeat no-repeat;">
-                <a href="http://${nots.noticecontent }" target="_blank"></a>
-            </li>
-        </c:forEach>
-    </ul>
-</div>
-<div class="main clearfix mrt30" data-target="sideMenu">
-    <div class="wrap">
-        <div class="page-left fn-left">
-            <c:if test="${biaoList.size()>0 }">
-                <c:forEach items="${biaoList}" var="biao">
-                    <div class="mod-borrow mrt20">
-                        <div class="hd">
-                            <h2 class="pngbg">
-                                <i class="icon icon-yyyz"></i>
-                                    ${biao.bname}
-                            </h2>
-                        </div>
-                        <div class="bd">
-                            <div class="des">
-                                <span class="fn-left">期限1-12月，收益更高</span>
-                                <a href="<%=basePath%>invest/investSel.do" class="fn-right">查看更多&gt;&gt;</a>
-                            </div>
-
-                            <div class="borrow-list">
-                                <ul>
-                                    <c:forEach items="${proList}" var="pro">
-                                        <c:if test="${pro.btype == biao.id}">
-                                            <li>
-                                                <div class="title">
-                                                    <a target="_blank">
-                                                        <i class="icon icon-che"></i>
-                                                    </a>
-                                                        ${pro.btype}
-                                                </div>
-                                                <table style="width:100%;border:0;cellpadding:0;cellspacing:0;">
-                                                    <tbody>
-                                                    <tr>
-                                                        <td style="width:260;">借款数量
-                                                            <span class="f24 c-333">
-                                                                    ${pro.bcount}
-                                                            </span>
-                                                        </td>
-
-                                                        <td style="width:165;">年利率
-                                                            <span
-                                                                    class="f24 c-orange relative">${pro.brate}%
-																	</span>
-                                                        </td>
-
-                                                        <td style="width:180;align:center">截至期限${pro.binterval}</td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                            </li>
-                                        </c:if>
-                                    </c:forEach>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </c:forEach>
-            </c:if>
-        </div>
+<section class="first">
+    <div class="first-content">
+        <img src="<%=basePath%>/images/first-bg.png" style="display: inline;">
     </div>
-</div>
+</section>
+<section class="second">
+    <div class="second-content">
+        <div style="padding: 10px;border-bottom: 1px solid #ddd">精选债权</div>
+        <table class="layui-table" lay-skin="nob" lay-even>
+            <colgroup>
+                <col>
+            </colgroup>
+            <thead>
+            <tr>
+                <th>订单编号</th>
+                <th>借款总金额</th>
+                <th>借款期限</th>
+                <th>抵押物</th>
+                <th>最小投资金额</th>
+                <th>年利率</th>
+                <th>截止时间</th>
+                <th>投标进度</th>
+                <th>操作</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>质押金额</td>
+                <td>1341</td>
+                <td>质押金额</td>
+                <td>1341</td>
+                <td>质押金额</td>
+                <td>1341</td>
+                <td>质押金额</td>
+                <td>1341</td>
+                <td>质押金额</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+<section class="third">
+    <div class="third-content">
+        <img src="<%=basePath%>/images/third-bg.png" style="display: inline;">
+    </div>
+</section>
+<section class="fourth">
+    <div class="fourth-content">
+        <img src="<%=basePath%>/images/four-bg.png" style="display: inline;">
+    </div>
+</section>
+<section class="fifth">
+    <div class="fifth-content">
+        <img src="<%=basePath%>/images/fifth-bg.png" style="display: inline;">
+    </div>
+</section>
 <div class="page-right fn-right" style="top: 0px;"></div>
 <jsp:include page="bottom.jsp"></jsp:include>
 </body>
