@@ -38,11 +38,6 @@
             <version>2.2.3</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.ehcache.modules</groupId>
-            <artifactId>ehcache-core</artifactId>
-            <version>3.3.0</version>
-        </dependency>
         <!-- mybatis二级缓存 end -->
         <dependency>
             <groupId>com.google.code.simple-spring-memcached</groupId>
@@ -75,11 +70,6 @@
             <version>2.2.3</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.ehcache.modules</groupId>
-            <artifactId>ehcache-core</artifactId>
-            <version>3.3.0</version>
-        </dependency>
         <!-- mybatis二级缓存    end    -->
         <dependency>
             <groupId>com.google.code.simple-spring-memcached</groupId>
@@ -162,6 +152,7 @@
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
             <version>7.0</version>
+            <scope>provided</scope>
         </dependency>
 
         <!--j2ee -->
@@ -356,17 +347,23 @@
         </dependency>
 
         <dependency>
-            <groupId>org.apache.bval</groupId>
-            <artifactId>bval-jsr303</artifactId>
-            <version>0.5</version>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>1.1.0.Final</version>
         </dependency>
+
+        <!--<dependency>-->
+            <!--<groupId>org.hibernate</groupId>-->
+            <!--<artifactId>hibernate-validator</artifactId>-->
+            <!--<version>4.3.0.Final</version>-->
+        <!--</dependency>-->
 
         <dependency>
             <groupId>commons-codec</groupId>
             <artifactId>commons-codec</artifactId>
             <version>1.9</version>
         </dependency>
-        
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
