@@ -1,14 +1,23 @@
 package org.ht.dao;
 
-import java.util.List;
-import java.util.Map;
-
-import org.apache.ibatis.annotations.Param;
 import org.ht.pojo.InvestInfo;
+import org.springframework.stereotype.Repository;
 
-public interface InvestInfoDao extends BaseDao<Object,InvestInfo>{
-	public List<InvestInfo> recordList(Map<String, Object> map);
-	Double getSum(Map<String, Object> map);
-	List<InvestInfo> getDtail(@Param("params") Map<String, InvestInfo> params);
-	Integer getMoney(Integer uid);
+import java.util.List;
+
+@Repository
+public interface InvestInfoDao {
+    int deleteByPrimaryKey(Integer id);
+
+    int insert(InvestInfo record);
+
+    int insertSelective(InvestInfo record);
+
+    InvestInfo selectByPrimaryKey(Integer id);
+
+    int updateByPrimaryKeySelective(InvestInfo record);
+
+    int updateByPrimaryKey(InvestInfo record);
+
+    List<InvestInfo> getAll();
 }

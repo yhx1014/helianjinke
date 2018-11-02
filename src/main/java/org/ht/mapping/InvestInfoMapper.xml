@@ -1,62 +1,183 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.ht.dao.InvestInfoDao">
-	<resultMap type="org.ht.pojo.InvestInfo" id="rm">
- 		<id column="inid" property="inid" jdbcType="INTEGER"></id>
-		<result column="userid" property="userid" jdbcType="INTEGER"></result>
-		<result column="brrowid" property="brrowid" jdbcType="INTEGER"></result>
-		<result column="inmoney" property="inmoney" jdbcType="DECIMAL"></result>
-		<result column="instatus" property="instatus" jdbcType="VARCHAR"></result>
-		<result column="instyle" property="instyle" jdbcType="VARCHAR"></result>
-		<result column="brrowstatus" property="brrowstatus" jdbcType="VARCHAR"></result>
-		<result column="interest" property="interest" jdbcType="VARCHAR"></result>
-		<result column="profitmodel" property="profitmodel" jdbcType="VARCHAR"></result>
-		<result column="profitmoney" property="profitmoney" jdbcType="DECIMAL"></result>
-		<result column="indate" property="indate" jdbcType="DATE"></result>
-		<result column="replaydate" property="replaydate" jdbcType="VARCHAR"></result>
-		<result column="markstatus" property="markstatus" jdbcType="INTEGER"></result>
-		<result column="title" property="title" jdbcType="VARCHAR"></result>
-		<result column="type" property="type" jdbcType="VARCHAR"></result>
-		<result column="uname" property="uname" jdbcType="VARCHAR"></result>
-	</resultMap>
-	
-	<select id="recordList" resultMap="rm" parameterType="map">
-		<!-- select *,pname title,ptype type from InvestInfo
-		left join product on brrowid = id -->
-		SELECT a.*,p.pname title,p.ptype type FROM (SELECT inv.*,un.uname FROM investinfo inv LEFT JOIN users un ON inv.userid = un.uid) as a left join product p on a.brrowid =p.id
-		where 1 = 1
-		<if test="uid != null">
-			and userid = #{uid}	
-		</if>
-		<if test="bid != null">
-			and brrowid = #{bid}
-		</if>
-		<if test="candp != null and pandc != null">
-			limit #{candp},#{pandc};
-		</if>
-	</select>
-	<select id="getMoney" resultType="int" parameterType="int">
-		select sum(inmoney * (interest / 100)) from investinfo where userid = #{uid}
-	</select>
-	<insert id="create" parameterType="org.ht.pojo.InvestInfo">
- 		insert into investinfo (userid,brrowid,inmoney,instatus,instyle,brrowstatus,interest,profitmodel,profitmoney,indate,replaydate,markstatus) values (#{userid},#{brrowid},#{inmoney},#{instatus},#{instyle},#{brrowstatus},#{interest},#{profitmodel},#{profitmoney},current_timestamp(),#{replaydate},#{markstatus})
-     </insert>
-	
-	<select id="getSum" parameterType="map" resultType="Double">
-		select sum(${rowName}) from ${tableName} where 1 = 1
-		<if test="uid != null">
-			and userid = #{uid}	
-		</if>
-		<if test="bid != null">
-			and brrowid = #{bid}
-		</if>
-	</select>
-	
-	<select id="getDtail" resultType="org.ht.pojo.InvestInfo" >
-   		select * FROM investinfo where brrowid=#{params.brrowid}
-   		<if test="params.startPage !=null and params.pageSize !=''">
-			limit #{params.startPage},#{params.pageSize}
-		</if>
-  	</select>
-  
+    <resultMap id="BaseResultMap" type="org.ht.pojo.InvestInfo">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="borrower_id" jdbcType="INTEGER" property="borrowerId"/>
+        <result column="lender_id" jdbcType="INTEGER" property="lenderId"/>
+        <result column="collateral_count" jdbcType="VARCHAR" property="collateralCount"/>
+        <result column="collateral_type" jdbcType="VARCHAR" property="collateralType"/>
+        <result column="paytype" jdbcType="VARCHAR" property="paytype"/>
+        <result column="loanterm" jdbcType="VARCHAR" property="loanterm"/>
+        <result column="borrow_count" jdbcType="VARCHAR" property="borrowCount"/>
+        <result column="borrow_type" jdbcType="VARCHAR" property="borrowType"/>
+        <result column="pledge_ratio" jdbcType="VARCHAR" property="pledgeRatio"/>
+        <result column="annualized_rate" jdbcType="VARCHAR" property="annualizedRate"/>
+        <result column="createtime" jdbcType="TIMESTAMP" property="createtime"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, borrower_id, lender_id, collateral_count, collateral_type, paytype, loanterm, 
+    borrow_count, borrow_type, pledge_ratio, annualized_rate, createtime
+  </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from investinfo
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from investinfo
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="org.ht.pojo.InvestInfo">
+    insert into investinfo (id, borrower_id, lender_id, 
+      collateral_count, collateral_type, paytype, 
+      loanterm, borrow_count, borrow_type, 
+      pledge_ratio, annualized_rate, createtime
+      )
+    values (#{id,jdbcType=INTEGER}, #{borrowerId,jdbcType=INTEGER}, #{lenderId,jdbcType=INTEGER}, 
+      #{collateralCount,jdbcType=DOUBLE}, #{collateralType,jdbcType=VARCHAR}, #{paytype,jdbcType=VARCHAR}, 
+      #{loanterm,jdbcType=VARCHAR}, #{borrowCount,jdbcType=DOUBLE}, #{borrowType,jdbcType=VARCHAR}, 
+      #{pledgeRatio,jdbcType=VARCHAR}, #{annualizedRate,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+    <insert id="insertSelective" parameterType="org.ht.pojo.InvestInfo">
+        insert into investinfo
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="borrowerId != null">
+                borrower_id,
+            </if>
+            <if test="lenderId != null">
+                lender_id,
+            </if>
+            <if test="collateralCount != null">
+                collateral_count,
+            </if>
+            <if test="collateralType != null">
+                collateral_type,
+            </if>
+            <if test="paytype != null">
+                paytype,
+            </if>
+            <if test="loanterm != null">
+                loanterm,
+            </if>
+            <if test="borrowCount != null">
+                borrow_count,
+            </if>
+            <if test="borrowType != null">
+                borrow_type,
+            </if>
+            <if test="pledgeRatio != null">
+                pledge_ratio,
+            </if>
+            <if test="annualizedRate != null">
+                annualized_rate,
+            </if>
+            <if test="createtime != null">
+                createtime,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="borrowerId != null">
+                #{borrowerId,jdbcType=INTEGER},
+            </if>
+            <if test="lenderId != null">
+                #{lenderId,jdbcType=INTEGER},
+            </if>
+            <if test="collateralCount != null">
+                #{collateralCount,jdbcType=DOUBLE},
+            </if>
+            <if test="collateralType != null">
+                #{collateralType,jdbcType=VARCHAR},
+            </if>
+            <if test="paytype != null">
+                #{paytype,jdbcType=VARCHAR},
+            </if>
+            <if test="loanterm != null">
+                #{loanterm,jdbcType=VARCHAR},
+            </if>
+            <if test="borrowCount != null">
+                #{borrowCount,jdbcType=DOUBLE},
+            </if>
+            <if test="borrowType != null">
+                #{borrowType,jdbcType=VARCHAR},
+            </if>
+            <if test="pledgeRatio != null">
+                #{pledgeRatio,jdbcType=VARCHAR},
+            </if>
+            <if test="annualizedRate != null">
+                #{annualizedRate,jdbcType=VARCHAR},
+            </if>
+            <if test="createtime != null">
+                #{createtime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="org.ht.pojo.InvestInfo">
+        update investinfo
+        <set>
+            <if test="borrowerId != null">
+                borrower_id = #{borrowerId,jdbcType=INTEGER},
+            </if>
+            <if test="lenderId != null">
+                lender_id = #{lenderId,jdbcType=INTEGER},
+            </if>
+            <if test="collateralCount != null">
+                collateral_count = #{collateralCount,jdbcType=DOUBLE},
+            </if>
+            <if test="collateralType != null">
+                collateral_type = #{collateralType,jdbcType=VARCHAR},
+            </if>
+            <if test="paytype != null">
+                paytype = #{paytype,jdbcType=VARCHAR},
+            </if>
+            <if test="loanterm != null">
+                loanterm = #{loanterm,jdbcType=VARCHAR},
+            </if>
+            <if test="borrowCount != null">
+                borrow_count = #{borrowCount,jdbcType=DOUBLE},
+            </if>
+            <if test="borrowType != null">
+                borrow_type = #{borrowType,jdbcType=VARCHAR},
+            </if>
+            <if test="pledgeRatio != null">
+                pledge_ratio = #{pledgeRatio,jdbcType=VARCHAR},
+            </if>
+            <if test="annualizedRate != null">
+                annualized_rate = #{annualizedRate,jdbcType=VARCHAR},
+            </if>
+            <if test="createtime != null">
+                createtime = #{createtime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="org.ht.pojo.InvestInfo">
+    update investinfo
+    set borrower_id = #{borrowerId,jdbcType=INTEGER},
+      lender_id = #{lenderId,jdbcType=INTEGER},
+      collateral_count = #{collateralCount,jdbcType=DOUBLE},
+      collateral_type = #{collateralType,jdbcType=VARCHAR},
+      paytype = #{paytype,jdbcType=VARCHAR},
+      loanterm = #{loanterm,jdbcType=VARCHAR},
+      borrow_count = #{borrowCount,jdbcType=DOUBLE},
+      borrow_type = #{borrowType,jdbcType=VARCHAR},
+      pledge_ratio = #{pledgeRatio,jdbcType=VARCHAR},
+      annualized_rate = #{annualizedRate,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+    <select id="getAll" parameterType="org.ht.pojo.InvestInfo" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from investinfo
+    </select>
+
 </mapper>

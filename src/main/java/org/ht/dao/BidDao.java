@@ -10,7 +10,9 @@ import org.ht.pojo.Product;
 import org.ht.pojo.Trade;
 import org.ht.pojo.Users;
 import org.ht.pojo.Withdrawal;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface BidDao {
 	public List<Product> todaoqi();
 	public void upzt(Integer id);

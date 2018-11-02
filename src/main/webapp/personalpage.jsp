@@ -11,7 +11,7 @@
 <html>
 <head>
     <title>币币袋</title>
-    <link href="<%=basePath%>/css/common.css" rel="stylesheet"/>
+    <link href="<%=basePath%>/css/common.css" rel="stylesheet" type="text/css"/>
     <script type="text/javascript" src="<%=basePath%>/script/jquery.min.js"></script>
     <script type="text/javascript" src="<%=basePath%>/script/common.js"></script>
     <script type="text/javascript" src="<%=basePath%>/script/user.js"></script>
@@ -113,12 +113,11 @@
 
         .user-title {
             padding-bottom: 8px;
-            border-bottom: 1px solid #000;
+            border-bottom: 1px solid #ccc;
         }
 
         .user-title span {
             font-size: initial;
-            font-weight: bold;
         }
 
         .user-icon {
@@ -175,6 +174,43 @@
             background: #000;
             opacity: 0.3;
         }
+        .changeEmailForm{
+
+        }
+        .alert-content{
+            text-align: left;
+            margin: 0 34px;
+            line-height: 44px;
+        }
+        .alert-content label{
+            display: inline-block;
+            width: 84px;
+            text-align: right;
+            padding-right: 10px;
+        }
+        .alert-content input{
+            width: 270px;
+        }
+        .verify-btn{
+            display: inline-block;
+            width: 90px;
+            height:34px;
+            line-height: 34px;
+            background: #423E9D;
+            color: #fff;
+            text-align: center;
+            font-size: 12px;
+        }
+        .sbumit-btn{
+            width: 180px;
+            background: #423E9D;
+            margin-left: 100px;
+            border: none;
+            outline: none;
+            color: #fff;
+            line-height: 30px;
+            font-size: 14px;
+        }
     </style>
 </head>
 <body>
@@ -208,8 +244,8 @@
                 <span>原手机号：</span><span>${user.uphonenumber}</span>
             </div>
             <div>
-                <label for="uphone_new">新手机号：</label><input type="text"
-                                                            id="uphone_new" name="uphonenumber"/>
+                <label for="uphone_new">新手机号：</label>
+                <input type="text" id="uphone_new" name="uphonenumber"/>
             </div>
             <div>
                 <button type="button" id="changeMobileBtn" edit-id="${user.uid}">确认</button>
@@ -219,23 +255,32 @@
 </div>
 <div class="alert-450" id="changeEmailDlg" style="display: none">
     <div class="alert-title">
-        <h3>修改邮箱</h3>
+        <h3>设置邮箱</h3>
         <span class="alert-close" onclick="closeDlg('changeEmailDlg')"></span>
     </div>
     <div class="alert-main">
-        <form id="changeEmailForm">
+        <form id="changeEmailForm" class="alert-content">
+            <%--<div>--%>
+            <%--<span>当前邮箱：</span><span>${user.umailbox}</span>--%>
+            <%--</div>--%>
             <div>
-                <span>当前邮箱：</span><span>${user.umailbox}</span>
+                <label for="email_new">邮箱</label>
+                <input type="text" id="email_new" name="email_new"/>
             </div>
             <div>
-                <label for="uphone_new">新邮箱：</label><input type="text"
-                                                           id="email_new" name="umailbox"/>
+                <label for="verify_pic">图片验证码</label>
+                <input type="text" id="verify_pic" name="verify_pic"/>
             </div>
             <div>
-                <span id="warning-span"></span>
+                <label for="verify_phone">手机验证码</label>
+                <input type="text" id="verify_phone" name="verify_phone" style="width: 176px"/>
+                <span class="verify-btn">获取验证码</span>
             </div>
-            <div>
-                <button type="button" id="changeEmailBtn" edit-id="${user.uid}">确认</button>
+            <%--<div>--%>
+            <%--<span id="warning-span"></span>--%>
+            <%--</div>--%>
+            <div style="border-top: 1px solid #ddd;padding-top: 20px;margin-top: 40px">
+                <button type="button" id="changeEmailBtn" edit-id="${user.uid}" class="sbumit-btn">确认</button>
             </div>
         </form>
     </div>
@@ -253,27 +298,27 @@
                         <div class="table-th">UID</div>
                         <div class="table-td">TDKNSK3942302${user.uid}</div>
                     </div>
-                    <div class="table-tr">
-                        <div class="table-th">用户名</div>
-                        <div class="table-td">${user.unickname}</div>
-                        <div class="table-last">
-                            <span><a>更改</a></span>
-                        </div>
-                    </div>
+                    <%--<div class="table-tr">--%>
+                    <%--<div class="table-th">用户名</div>--%>
+                    <%--<div class="table-td">${user.unickname}</div>--%>
+                    <%--<div class="table-last">--%>
+                    <%--<span><a>更改</a></span>--%>
+                    <%--</div>--%>
+                    <%--</div>--%>
                     <div class="table-tr">
                         <div class="table-th">手机号</div>
                         <div class="table-td">${user.uphonenumber}</div>
-                        <div class="table-last">
-								<span><a href="javascript:void(0)"
-                                         onclick="showDlg('changeMobileDlg')">更改</a></span>
-                        </div>
+                        <%--<div class="table-last">--%>
+                        <%--<span><a href="javascript:void(0)"--%>
+                        <%--onclick="showDlg('changeMobileDlg')">更改</a></span>--%>
+                        <%--</div>--%>
                     </div>
                     <div class="table-tr">
                         <div class="table-th">邮箱</div>
                         <div class="table-td">${user.umailbox}</div>
                         <div class="table-last">
 								<span><a href="javascript:void(0)"
-                                         onclick="showDlg('changeEmailDlg')">更改</a></span>
+                                         onclick="showDlg('changeEmailDlg')">去设置</a></span>
                         </div>
                     </div>
                 </div>
@@ -284,37 +329,51 @@
         <div class="pmain-profile">
             <div class="pmain-user">
                 <div class="user-title">
-                    <i class="security-setting-icon"></i> <span>资产信息</span>
+                    <i class="security-setting-icon"></i> <span>安全设置</span>
                 </div>
                 <div class="user-info">
+                    <%--<div class="table-tr">--%>
+                    <%--<div class="table-th">ETH地址</div>--%>
+                    <%--<div class="table-td" id="ethAddress">${user.ethaddress}</div>--%>
+                    <%--<div class="table-last">--%>
+                    <%--<span><a href="javascript:void(0)"--%>
+                    <%--onclick="qrcode('ethQRCodeDlg','${user.ethaddress}','ethqrcode')">查看二维码</a></span>--%>
+                    <%--</div>--%>
+                    <%--</div>--%>
+                    <%--<div class="table-tr">--%>
+                    <%--<div class="table-th">BTC地址</div>--%>
+                    <%--<div class="table-td" id="btcaddress">${user.btcaddress}</div>--%>
+                    <%--<div class="table-last">--%>
+                    <%--<span><a href="javascript:void(0)"--%>
+                    <%--onclick="qrcode('btcQRCodeDlg','${user.btcaddress}','btcqrcode')">查看二维码</a></span>--%>
+                    <%--</div>--%>
+                    <%--</div>--%>
                     <div class="table-tr">
-                        <div class="table-th">ETH地址</div>
-                        <div class="table-td" id="ethAddress">${user.ethaddress}</div>
+                        <div class="table-th">手机绑定</div>
+                        <div class="table-td">${user.upassword}</div>
                         <div class="table-last">
-								<span><a href="javascript:void(0)"
-                                         onclick="qrcode('ethQRCodeDlg','${user.ethaddress}','ethqrcode')">查看二维码</a></span>
+                            <span><a>修改</a></span>
                         </div>
                     </div>
                     <div class="table-tr">
-                        <div class="table-th">BTC地址</div>
-                        <div class="table-td" id="btcaddress">${user.btcaddress}</div>
+                        <div class="table-th">邮箱绑定</div>
+                        <div class="table-td">${user.upwd_zd}</div>
                         <div class="table-last">
-								<span><a href="javascript:void(0)"
-                                         onclick="qrcode('btcQRCodeDlg','${user.btcaddress}','btcqrcode')">查看二维码</a></span>
+                            <span><a>设置</a></span>
                         </div>
                     </div>
                     <div class="table-tr">
                         <div class="table-th">登录密码</div>
                         <div class="table-td">${user.upassword}</div>
                         <div class="table-last">
-                            <span><a>更改</a></span>
+                            <span><a>修改</a></span>
                         </div>
                     </div>
                     <div class="table-tr">
                         <div class="table-th">资金密码</div>
                         <div class="table-td">${user.upwd_zd}</div>
                         <div class="table-last">
-                            <span><a>更改</a></span>
+                            <span><a>修改</a></span>
                         </div>
                     </div>
                 </div>

@@ -38,13 +38,13 @@
 <div class="header min-width">
     <div class="container">
         <div class="fn-left logo">
-            <a class="" href="<%=basePath%>/invest/recommendShow.do">
+            <a class="" href="<%=basePath%>/recommendShow.do">
                 <img src="<%=basePath%>/images/logo.png" title="logo">
             </a>
         </div>
         <ul class="top-nav fn-clear">
-            <li><a href="<%=basePath%>/invest/recommendShow.do">首页</a></li>
-            <li><a href="<%=basePath%>/invest/investSelect.do" class="">我要投资</a></li>
+            <li><a href="<%=basePath%>/recommendShow.do">首页</a></li>
+            <li><a href="<%=basePath%>/invest.do" class="">我要投资</a></li>
             <li><a href="<%=basePath%>/loan/getLoan.do" class="">我要借款</a></li>
             <li class="top-nav-safe"><a href="<%=basePath%>/assets/wallet.do">我的资产</a></li>
         </ul>

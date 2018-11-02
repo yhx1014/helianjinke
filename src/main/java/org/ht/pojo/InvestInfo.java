@@ -1,180 +1,127 @@
 package org.ht.pojo;
 
-import java.math.BigDecimal;
-import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-public class InvestInfo extends BaseDomain {
+public class InvestInfo {
+    private Integer id;
 
-	private static final long serialVersionUID = 1L;
+    private Integer borrowerId;
 
-	public int getInid() {
-		return inid;
-	}
+    private Integer lenderId;
 
-	public void setInid(int inid) {
-		this.inid = inid;
-	}
+    private String collateralCount;
 
-	public int getUserid() {
-		return userid;
-	}
+    private String collateralType;
 
-	public void setUserid(int userid) {
-		this.userid = userid;
-	}
+    private String paytype;
 
-	public int getBrrowid() {
-		return brrowid;
-	}
+    private String loanterm;
 
-	public void setBrrowid(int brrowid) {
-		this.brrowid = brrowid;
-	}
+    private String borrowCount;
 
-	public BigDecimal getInmoney() {
-		return inmoney;
-	}
+    private String borrowType;
 
-	public void setInmoney(BigDecimal inmoney) {
-		this.inmoney = inmoney;
-	}
+    private String pledgeRatio;
 
-	public String getInstatus() {
-		return instatus;
-	}
+    private String annualizedRate;
 
-	public void setInstatus(String instatus) {
-		this.instatus = instatus;
-	}
+    private Date createtime;
 
-	public String getInstyle() {
-		return instyle;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public void setInstyle(String instyle) {
-		this.instyle = instyle;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public String getBrrowstatus() {
-		return brrowstatus;
-	}
+    public Integer getBorrowerId() {
+        return borrowerId;
+    }
 
-	public void setBrrowstatus(String brrowstatus) {
-		this.brrowstatus = brrowstatus;
-	}
+    public void setBorrowerId(Integer borrowerId) {
+        this.borrowerId = borrowerId;
+    }
 
-	public String getInterest() {
-		return interest;
-	}
+    public Integer getLenderId() {
+        return lenderId;
+    }
 
-	public void setInterest(String interest) {
-		this.interest = interest;
-	}
+    public void setLenderId(Integer lenderId) {
+        this.lenderId = lenderId;
+    }
 
-	public String getProfitmodel() {
-		return profitmodel;
-	}
+    public String getCollateralCount() {
+        return String.format("%.4f", Double.parseDouble(collateralCount));
+    }
 
-	public void setProfitmodel(String profitmodel) {
-		this.profitmodel = profitmodel;
-	}
+    public void setCollateralCount(String collateralCount) {
+        this.collateralCount = collateralCount;
+    }
 
-	public BigDecimal getProfitmoney() {
-		return profitmoney;
-	}
+    public String getCollateralType() {
+        return collateralType;
+    }
 
-	public void setProfitmoney(BigDecimal profitmoney) {
-		this.profitmoney = profitmoney;
-	}
+    public void setCollateralType(String collateralType) {
+        this.collateralType = collateralType == null ? null : collateralType.trim();
+    }
 
-	public Timestamp getIndate() {
-		return indate;
-	}
+    public String getPaytype() {
+        return paytype;
+    }
 
-	public void setIndate(Timestamp indate) {
-		this.indate = indate;
-	}
+    public void setPaytype(String paytype) {
+        this.paytype = paytype == null ? null : paytype.trim();
+    }
 
-	public String getReplaydate() {
-		return replaydate;
-	}
+    public String getLoanterm() {
+        return loanterm;
+    }
 
-	public void setReplaydate(String replaydate) {
-		this.replaydate = replaydate;
-	}
+    public void setLoanterm(String loanterm) {
+        this.loanterm = loanterm == null ? null : loanterm.trim();
+    }
 
-	public int getMarkstatus() {
-		return markstatus;
-	}
+    public String getBorrowCount() {
+        return String.format("%.4f", Double.parseDouble(borrowCount));
+    }
 
-	public void setMarkstatus(int markstatus) {
-		this.markstatus = markstatus;
-	}
+    public void setBorrowCount(String borrowCount) {
+        this.borrowCount = borrowCount;
+    }
 
-	public String toString() {
-		return "InvestInfo [inid=" + inid + ", userid=" + userid + ", brrowid=" + brrowid + ", inmoney=" + inmoney
-				+ ", instatus=" + instatus + ", instyle=" + instyle + ", brrowstatus=" + brrowstatus + ", interest="
-				+ interest + ", profitmodel=" + profitmodel + ", profitmoney=" + profitmoney + ", indate=" + indate
-				+ ", replaydate=" + replaydate + ", markstatus=" + markstatus + "]";
-	}
+    public String getBorrowType() {
+        return borrowType;
+    }
 
-	private int inid; // '投资信息表主键',
-	private int userid; // '投资用户主键',
-	private int brrowid; // '投标的主键',
-	private BigDecimal inmoney; // '投资金额',
-	private String instatus; // '投资状态 0 收益中的投资 1已完成的投资',
-	private String instyle; // '投资类型',
-	private String brrowstatus;// '借贷状态是否凑资完',
-	private String interest; // '投资利率',
-	private String profitmodel; // '盈利方式 如等额本金',
-	private BigDecimal profitmoney; // '盈利金额',
-	private Timestamp indate; // '投资时间，可为空'
+    public void setBorrowType(String borrowType) {
+        this.borrowType = borrowType == null ? null : borrowType.trim();
+    }
 
-	private String replaydate; //
-	private int markstatus; // '投标状态 0默认投标中 1 投标通过（中标） 2投标未通过（失标）';
-	public String getTitle() {
-		return title;
-	}
+    public String getPledgeRatio() {
+        return pledgeRatio;
+    }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    public void setPledgeRatio(String pledgeRatio) {
+        this.pledgeRatio = pledgeRatio == null ? null : pledgeRatio.trim();
+    }
 
-	private String title;
-	private String type;
-	private String uname;
-	
-	public String getUname() {
-		return uname;
-	}
+    public String getAnnualizedRate() {
+        return annualizedRate;
+    }
 
-	public void setUname(String uname) {
-		this.uname = uname;
-	}
+    public void setAnnualizedRate(String annualizedRate) {
+        this.annualizedRate = annualizedRate == null ? null : annualizedRate.trim();
+    }
 
-	public String getType() {
-		return type;
-	}
+    public String getCreatetime() {
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        return formatter.format(createtime).replaceAll("-", ".");
+    }
 
-	public void setType(String type) {
-		this.type = type;
-	}
-	private Integer startPage;
-	private Integer pageSize;
-
-	public Integer getStartPage() {
-		return startPage;
-	}
-
-	public void setStartPage(Integer startPage) {
-		this.startPage = startPage;
-	}
-
-	public Integer getPageSize() {
-		return pageSize;
-	}
-
-	public void setPageSize(Integer pageSize) {
-		this.pageSize = pageSize;
-	}
+    public void setCreatetime(Date createtime) {
+        this.createtime = createtime;
+    }
 }

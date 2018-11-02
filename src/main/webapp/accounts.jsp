@@ -2,8 +2,6 @@
          pageEncoding="utf-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://"
@@ -12,7 +10,6 @@
 %>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>币币袋</title>
     <link rel="stylesheet" type="text/css" href="<%=basePath%>/css/common.css"/>
     <script type="text/javascript" src="<%=basePath%>/script/jquery.min.js"></script>

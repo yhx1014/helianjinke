@@ -21,7 +21,7 @@ public class CommonInterceptor extends HandlerInterceptorAdapter {
             return true;
         } else {
             logger.info("拦截器成功----请登录！！！");
-            response.sendRedirect(request.getContextPath()+"/login.do");
+            response.sendRedirect(request.getContextPath()+"login.do");
             return false;
         }
     }

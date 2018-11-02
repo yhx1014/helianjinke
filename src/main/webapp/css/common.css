@@ -659,7 +659,7 @@ margin-left:0;}
 .credit-dright2-span{float:left;margin-top:10px;padding-top:10px;width:290px;height:42px;border-top:1px;text-align:center;}
 .credit-dright2-span .btn-ckgd{display:inline-block;width:128px;height:32px;border-radius:2px;background:#F2F2F2;color:#B0B0B0;font-size:14px;line-height:32px;-webkit-transition:all .3s ease-in-out;-moz-transition:all .3s ease-in-out;-o-transition:all .3s ease-in-out;transition:all .3s ease-in-out;-ms-transition:all .3s ease-in-out;}
 .credit-dright2-span .btn-ckgd:hover{background-color:#0caffe;color:#fff;}
-.personal .dot{float:left;margin-top:13px;background:url(../images/grzx.png) no-repeat;-webkit-transition:.3s -webkit-transform ease;-moz-transition:.3s -moz-transform ease;-o-transition:.3s -o-transform ease;-ms-transition:.3s -ms-transform ease;}
+.personal .dot{float:left;color:red;margin-top:13px;background:url(../images/grzx.png) no-repeat;-webkit-transition:.3s -webkit-transform ease;-moz-transition:.3s -moz-transform ease;-o-transition:.3s -o-transform ease;-ms-transition:.3s -ms-transform ease;}
 .personal .dot01{margin-right:11px;width:19px;height:16px;background-position:0 0;}
 .personal .dot02{margin-right:13px;width:17px;height:15px;background-position:0 -75px;}
 .personal .dot03{margin-right:13px;width:17px;height:17px;background-position:0 -25px;}
@@ -682,17 +682,17 @@ margin-left:0;}
 .personal .dot6{margin-right:13px;width:17px;height:17px;background-position:-80px -150px;-webkit-transform:rotate(360deg);-moz-transform:rotate(360deg);-o-transform:rotate(360deg);-ms-transform:rotate(360deg);}
 .personal .personal-left{float:left;margin:10px;padding-top:15px;width:200px;height:682px;background:#fff;color:#4a4a4a;}
 .personal .personal-left ul{margin-bottom:60px;}
-.personal .personal-left li{overflow:visible;margin-bottom:1px;width:250px;min-height:44px;font-size:16px;line-height:44px;}
-.personal .personal-left li span{display:block;width:250px;font-size:16px;transition:background .2s ease-in-out;}
-.personal .personal-left a{display:block;padding:0 20px;width:210px;color:#4a4a4a;}
-.personal .personal-left li.on span,.personal .personal-left li.pleft-cur span{display:block;width:250px;background-color:#0caffe;color:#fff;font-size:16px;line-height:44px;}
-.personal .personal-left li.pleft-cur span a,.personal-left li.on span a{color:#fff;}
-.personal .personal-left li .personal-sub{display:block;margin-top:0;font-size:14px;}
-.personal .personal-left li .personal-sub dt{margin-top:1px;}
-.personal .personal-left li .personal-sub dt a{padding-left:50px;width:100px;}
-.personal .personal-left dt.on,.personal .personal-left dt:hover{display:block;width:170px;background-color:#0caffe;color:#fff;font-size:14px;line-height:44px;}
-.personal .personal-left dt.on a,.personal .personal-left dt:hover a{color:#fff;}
-.personal-main{float:left;margin-top:10px;width:650px;height:auto;color:#848484;}
+.personal .personal-left li{overflow:visible;margin-bottom:1px;width:200px;min-height:44px;font-size:16px;line-height:44px;padding-left: 4px;}
+.personal .personal-left li span{display:block;width:200px;font-size:16px;transition:background .2s ease-in-out;}
+.personal .personal-left a{display:block;padding:0 20px;width:210px;color:#423E9D;}
+.personal .personal-left li.on span,.personal .personal-left li.pleft-cur span{display:block;width:196px;background-color:#DDE4EF;font-size:16px;line-height:44px;border-left: 4px solid #423E9D;margin-left: -4px}
+/*.personal .personal-left li.pleft-cur span a,.personal-left li.on span a{color:#fff;}*/
+/*.personal .personal-left li .personal-sub{display:block;margin-top:0;font-size:14px;}*/
+/*.personal .personal-left li .personal-sub dt{margin-top:1px;}*/
+/*.personal .personal-left li .personal-sub dt a{padding-left:50px;width:100px;}*/
+/*.personal .personal-left dt.on,.personal .personal-left dt:hover{display:block;width:170px;background-color:#0caffe;color:#fff;font-size:14px;line-height:44px;}*/
+/*.personal .personal-left dt.on a,.personal .personal-left dt:hover a{color:#fff;}*/
+.personal-main{float:left;margin-top:10px;width:650px;height:auto;color:#000;}
 .pmain-profile{background-color:#fff;}
 .markicon{display:inline-block;margin-left:5px;width:21px;height:18px;background:url(../images/grzx.png) 0 -240px;cursor:pointer;}
 .markicon:hover{width:21px;height:18px;background:url(../images/grzx.png) -30px -239px;}
