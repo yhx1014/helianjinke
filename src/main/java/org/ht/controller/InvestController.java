@@ -39,7 +39,7 @@ public class InvestController {
     HttpSession hs = null;
 
     @RequestMapping("/invest")
-    public String investSelect(@RequestParam(value = "pn", defaultValue = "1") Integer pn,Map<String, Object> map) {
+    public String investSelect(@RequestParam(value = "pn", defaultValue = "1") Integer pn, Map<String, Object> map) {
         PageHelper.startPage(pn, 5);
         List<InvestInfo> list = investService.getAll();
         PageInfo<InvestInfo> page = new PageInfo<>(list, 5);
@@ -246,25 +246,11 @@ public class InvestController {
     }
 
     @RequestMapping("recommendShow")
-    public String recommendShow(HttpServletRequest req, Model model) {
-        Map<String, Object> parameters = new HashMap<String, Object>();
-        List<Borrowmoney> listBorrowMoney = new ArrayList<Borrowmoney>();
-        List<Biao> list = biaoS.findList(parameters);
-        if (list != null && list.size() > 0) {
-            parameters.put("pagesize", 1);
-            parameters.put("startPage", 0);
-
-            for (int i = 0; i < list.size(); i++) {
-                Biao biao = list.get(i);
-                parameters.put("biaoId", biao.getId());
-                List<Borrowmoney> tlist = proS.selList(parameters);
-                for (int j = 0; j < tlist.size(); j++) {
-                    listBorrowMoney.add(tlist.get(j));
-                }
-            }
-        }
-        model.addAttribute("proList", listBorrowMoney);
-        model.addAttribute("biaoList", list);
+    public String recommendShow(@RequestParam(value = "pn", defaultValue = "1") Integer pn, Model model) {
+        PageHelper.startPage(pn, 8);
+        List<InvestInfo> list = investService.getAll();
+        PageInfo<InvestInfo> page = new PageInfo<>(list, 5);
+        model.addAttribute("pageInfo", page);
         return "index";
     }
 

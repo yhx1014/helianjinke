@@ -246,30 +246,35 @@
             </colgroup>
             <thead>
             <tr>
-                <th>订单编号</th>
+                <th>借款编号</th>
                 <th>借款总金额</th>
-                <th>借款期限</th>
-                <th>抵押物</th>
-                <th>最小投资金额</th>
-                <th>年利率</th>
-                <th>截止时间</th>
-                <th>投标进度</th>
+                <th>还款方式</th>
+                <th>期限</th>
+                <th>抵押资产</th>
+                <th>质押率</th>
+                <th>年化收益</th>
+                <th>创建时间</th>
                 <th>操作</th>
-
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>质押金额</td>
-                <td>1341</td>
-                <td>质押金额</td>
-                <td>1341</td>
-                <td>质押金额</td>
-                <td>1341</td>
-                <td>质押金额</td>
-                <td>1341</td>
-                <td>质押金额</td>
-            </tr>
+            <c:forEach items="${pageInfo.list}" var="invest" varStatus="status">
+                <tr>
+                    <td>${invest.id}</td>
+                    <td>${invest.borrowCount}${invest.borrowType}</td>
+                    <td>${invest.paytype}</td>
+                    <td>${invest.loanterm}</td>
+                    <td>${invest.collateralCount}${invest.collateralType}</td>
+                    <td>${invest.pledgeRatio}</td>
+                    <td>${invest.annualizedRate}</td>
+                    <td>${invest.createtime}</td>
+                    <td>
+                        <a class="layui-btn layui-btn-sm" href="<%=basePath%>/investDetail.do?bid=${invest.id}"
+                           style="background: #423E9D">立即出借
+                        </a>
+                    </td>
+                </tr>
+            </c:forEach>
             </tbody>
         </table>
     </div>
