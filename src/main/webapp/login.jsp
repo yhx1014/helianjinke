@@ -3,13 +3,13 @@
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://"
             + request.getServerName() + ":" + request.getServerPort()
-            + path + "/";
+            + path;
 %>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>币币袋</title>
-    <link href="<%=basePath%>css/common.css" rel="stylesheet"/>
+    <title>币币贷</title>
+    <link href="<%=basePath%>/css/common.css" rel="stylesheet"/>
     <style>
         .wrap {
             width: 1200px;
@@ -65,7 +65,7 @@
 <body>
 <jsp:include page="head.jsp"></jsp:include>
 <div class="wrap">
-    <form id="LonginForm" name="LonginForm" action="<%=basePath%>/login.do" method="post">
+    <form id="LonginForm" name="LonginForm" action="<%=basePath%>/login" method="post">
         <div class="tdbModule loginPage">
             <div class="registerTitle">用户登录</div>
             <div class="registerCont">

@@ -43,6 +43,7 @@ public class InformationController {
         map.put("id", id);
         Users user = infor.query(map);
         model.addAttribute("user", user);
+        System.out.println(user);
         return "personalpage";
     }
 

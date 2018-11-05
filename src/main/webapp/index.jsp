@@ -17,7 +17,7 @@
     <script type="text/javascript" src="<%=basePath%>/script/index.js"></script>
     <script type="text/javascript" src="<%=basePath%>/script/common.js"></script>
     <script type="text/javascript" src="<%=basePath%>/layui/layui.js" charset="utf-8"></script>
-    <title>币币袋</title>
+    <title>币币贷</title>
     <style>
         #scrollDiv {
             width: 400px;
@@ -47,15 +47,14 @@
 
         .second {
             background: #fff;
-            padding: 40px;
+            padding: 50px;
         }
 
         .second-content {
-            width: 900px;
+            width: 80%;
             margin: 0 auto;
             box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15), 0 1px 5px rgba(0, 0, 0, .075);
             padding: 10px;
-            height: 480px;
         }
 
         .third {
@@ -78,7 +77,7 @@
         }
 
         .fourth-content {
-            width: 760px;
+            width: 62%;
             margin: 0 auto;
             /*position: relative;*/
         }
@@ -87,9 +86,9 @@
             content: '';
             display: inline-block;
             width: 100%;
-            height: 200px;
+            height: 40%;
             background: #DDE4EF;
-            top: 174px;
+            top: 29%;
             position: absolute;
 
         }
@@ -114,120 +113,6 @@
             border: none;
         }
     </style>
-
-    <script type="text/javascript">
-        //上下滚动
-        function AutoScroll(obj) {
-            $(obj).find("ul:first").animate({
-                marginTop: "-25px"
-            }, 500, function () {
-                $(this).css({
-                    marginTop: "0px"
-                }).find("li:first").appendTo(this);
-            });
-        }
-
-        $(document).ready(function () {
-            var myar = setInterval('AutoScroll("#scrollDiv")', 3000);
-            $("#scrollDiv").hover(function () {
-                clearInterval(myar);
-            }, function () {
-                myar = setInterval('AutoScroll("#scrollDiv")', 3000)
-            });
-        });
-    </script>
-    <script src="${pageContext.request.contextPath}/script/jquery.flexslider-min.js"></script>
-    <script>
-        $(function () {
-            //判断最新公告是否为空,为空加载通知
-            var list = "${listss}";
-            if (list == "") {
-                window.location = "${pageContext.request.contextPath}/notice/banner.do";
-            }
-
-            $('.flexslider').flexslider({
-                directionNav: true,
-                pauseOnAction: false
-            });
-
-            //产品列表滚动
-            var pLength = $('.pListContentBox > li').length;
-            var cishu = pLength - 4;
-            var n = 0;
-            $('.pListContentBox').css({
-                'width': pLength * 245 + 'px'
-            });
-            if (pLength > 4) {
-                $('.pListRight').addClass('curr');
-            }
-            $('.pListRight').on('click', function () {
-                if (cishu > 0) {
-                    n++;
-                    cishu--;
-                    $('.pListContentBox').animate({
-                        'left': '-' + n * 244 + 'px'
-                    }, 500);
-                    if (cishu == 0) {
-                        $('.pListRight').removeClass('curr');
-                    }
-                    if (n > 0) {
-                        $('.pListLeft').addClass('curr');
-                    }
-                }
-            });
-            $('.pListLeft').on('click', function () {
-                if (n > 0) {
-                    n--;
-                    cishu++;
-                    $('.pListContentBox').animate({
-                        'left': '-' + n * 244 + 'px'
-                    }, 500);
-                    if (n == 0) {
-                        $('.pListLeft').removeClass('curr');
-                    }
-                    if (cishu > 0) {
-                        $('.pListRight').addClass('curr');
-                    }
-                }
-            });
-        });
-    </script>
-    <script type="text/javascript">
-        var gaintop;
-        $(function () {
-            gaintop = $(".login_float").css("top");
-            $(".login_float").css("top", -695);
-            $(".login_float").show();
-            $(".login_float").animate({
-                top: gaintop,
-                opacity: 1
-            }, 800);
-            $(".login_float").animate({
-                top: '-=12px',
-                opacity: 1
-            }, 200);
-            $(".login_float").animate({
-                top: gaintop,
-                opacity: 1
-            }, 200);
-            $(".login_float").animate({
-                top: '-=6px',
-                opacity: 1
-            }, 200);
-            $(".login_float").animate({
-                top: gaintop,
-                opacity: 1
-            }, 200);
-            $(".login_float").animate({
-                top: '-=2px',
-                opacity: 1
-            }, 100);
-            $(".login_float").animate({
-                top: gaintop,
-                opacity: 1
-            }, 100);
-        });
-    </script>
 </head>
 
 <body>
@@ -238,46 +123,89 @@
     </div>
 </section>
 <section class="second">
-    <div class="second-content">
-        <div style="padding: 10px;border-bottom: 1px solid #ddd">精选债权</div>
-        <table class="layui-table" lay-skin="nob" lay-even>
-            <colgroup>
-                <col>
-            </colgroup>
-            <thead>
-            <tr>
-                <th>借款编号</th>
-                <th>借款总金额</th>
-                <th>还款方式</th>
-                <th>期限</th>
-                <th>抵押资产</th>
-                <th>质押率</th>
-                <th>年化收益</th>
-                <th>创建时间</th>
-                <th>操作</th>
-            </tr>
-            </thead>
-            <tbody>
-            <c:forEach items="${pageInfo.list}" var="invest" varStatus="status">
+    <%--<div class="second-content">--%>
+        <%--<div style="padding: 10px;border-bottom: 1px solid #ddd">精选债权</div>--%>
+        <%--<table class="layui-table" lay-skin="nob" lay-even>--%>
+            <%--<colgroup>--%>
+                <%--<col>--%>
+            <%--</colgroup>--%>
+            <%--<thead>--%>
+            <%--<tr>--%>
+                <%--<th>借款编号</th>--%>
+                <%--<th>借款总金额</th>--%>
+                <%--<th>还款方式</th>--%>
+                <%--<th>期限</th>--%>
+                <%--<th>抵押资产</th>--%>
+                <%--<th>质押率</th>--%>
+                <%--<th>年化收益</th>--%>
+                <%--<th>创建时间</th>--%>
+                <%--<th>操作</th>--%>
+            <%--</tr>--%>
+            <%--</thead>--%>
+            <%--<tbody>--%>
+            <%--<c:forEach items="${pageInfo.list}" var="invest" varStatus="status">--%>
+                <%--<tr>--%>
+                    <%--<td>${invest.id}</td>--%>
+                    <%--<td>${invest.borrowCount}${invest.borrowType}</td>--%>
+                    <%--<td>${invest.paytype}</td>--%>
+                    <%--<td>${invest.loanterm}</td>--%>
+                    <%--<td>${invest.collateralCount}${invest.collateralType}</td>--%>
+                    <%--<td>${invest.pledgeRatio}</td>--%>
+                    <%--<td>${invest.annualizedRate}</td>--%>
+                    <%--<td>${invest.createtime}</td>--%>
+                    <%--<td>--%>
+                        <%--<a class="layui-btn layui-btn-sm" href="<%=basePath%>/investDetail.do?bid=${invest.id}"--%>
+                           <%--style="background: #423E9D">立即出借--%>
+                        <%--</a>--%>
+                    <%--</td>--%>
+                <%--</tr>--%>
+            <%--</c:forEach>--%>
+            <%--</tbody>--%>
+        <%--</table>--%>
+    <%--</div>--%>
+        <div class="second-content">
+            <div style="padding: 10px;border-bottom: 1px solid #ddd">
+                <span>精选标的</span>
+                <span style="float: right"><a href="<%=basePath%>/invest.do" class="">更多</a></span>
+            </div>
+            <table class="layui-table" lay-skin="nob" lay-even>
+                <colgroup>
+                    <col>
+                </colgroup>
+                <thead>
                 <tr>
-                    <td>${invest.id}</td>
-                    <td>${invest.borrowCount}${invest.borrowType}</td>
-                    <td>${invest.paytype}</td>
-                    <td>${invest.loanterm}</td>
-                    <td>${invest.collateralCount}${invest.collateralType}</td>
-                    <td>${invest.pledgeRatio}</td>
-                    <td>${invest.annualizedRate}</td>
-                    <td>${invest.createtime}</td>
-                    <td>
-                        <a class="layui-btn layui-btn-sm" href="<%=basePath%>/investDetail.do?bid=${invest.id}"
-                           style="background: #423E9D">立即出借
-                        </a>
-                    </td>
+                    <th>借款编号</th>
+                    <th>借款总金额</th>
+                    <th>还款方式</th>
+                    <th>期限</th>
+                    <th>抵押资产</th>
+                    <th>质押率</th>
+                    <th>年化收益</th>
+                    <th>创建时间</th>
+                    <th>操作</th>
                 </tr>
-            </c:forEach>
-            </tbody>
-        </table>
-    </div>
+                </thead>
+                <tbody>
+                <c:forEach items="${pageInfo.list}" var="invest" varStatus="status">
+                    <tr>
+                        <td>${invest.id}</td>
+                        <td>${invest.borrowCount}${invest.borrowType}</td>
+                        <td>${invest.paytype}</td>
+                        <td>${invest.loanterm}</td>
+                        <td>${invest.collateralCount}${invest.collateralType}</td>
+                        <td>${invest.pledgeRatio}</td>
+                        <td>${invest.annualizedRate}</td>
+                        <td>${invest.createtime}</td>
+                        <td>
+                            <a class="layui-btn layui-btn-sm" href="<%=basePath%>/investDetail.do?bid=${invest.id}"
+                               style="background: #423E9D">立即出借
+                            </a>
+                        </td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+        </div>
 </section>
 <section class="third">
     <div class="third-content">

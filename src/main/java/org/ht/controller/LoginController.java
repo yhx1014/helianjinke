@@ -5,7 +5,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import org.ht.pojo.InvestInfo;
 import org.ht.pojo.Users;
+import org.ht.service.InvestService;
 import org.ht.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,12 +17,21 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
+
 @Controller
 public class LoginController {
     @Autowired
     private UsersService usersservice;
+    @Autowired
+    private InvestService investService;
+
     @RequestMapping("/index")
-    public String toindex(HttpServletRequest request, HttpServletResponse response, Model model) {
+    public String recommendShow(@RequestParam(value = "pn", defaultValue = "1") Integer pn, Model model) {
+        PageHelper.startPage(pn, 8);
+        List<InvestInfo> list = investService.getAll();
+        PageInfo<InvestInfo> page = new PageInfo<>(list, 5);
+        model.addAttribute("pageInfo", page);
         return "index";
     }
 
@@ -34,7 +47,7 @@ public class LoginController {
         } else {
             model.addAttribute("users", user);
             session.setAttribute("globaluser", user);
-            return "index";
+            return "redirect:index";
         }
     }
 }

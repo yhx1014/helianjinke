@@ -13,17 +13,22 @@
 
 <html>
 <head>
-    <title>币币袋</title>
+    <title>币币贷</title>
     <link rel="stylesheet" type="text/css" href="<%=basePath%>/css/common.css"/>
     <link rel="stylesheet" type="text/css" href="<%=basePath%>/css/index.css"/>
     <link rel="stylesheet" type="text/css" href="<%=basePath%>/css/detail.css"/>
     <link rel="stylesheet" type="text/css" href="<%=basePath%>/layui/css/layui.css" media="all">
     <script type="text/javascript" src="<%=basePath %>/script/jquery.min.js"></script>
     <script type="text/javascript" src="<%=basePath %>/script/common.js"></script>
+    <script type="text/javascript" src="<%=basePath %>/script/user.js"></script>
     <script type="text/javascript" src="<%=basePath%>/layui/layui.js"></script>
     <style>
+        #page_nav_area a.active{
+            background: #00FF00;
+            font-size: xx-large;
+        }
         .warp {
-            width: 1000px;
+            width: 1100px;
             margin: 20px auto;
             background: #fff;
             padding: 20px;
@@ -34,15 +39,30 @@
             border-bottom: 1px solid #ddd;
             padding: 10px 0px;
             margin-bottom: 20px;
+            position: relative;
+        }
+
+        .arrow-show {
+            position: absolute;
+            right: 16px;
+            display: block;
+            padding: 0 12px;
+            height: 30px;
+            border: 1px solid #FBF3D1;
+            background: #FFFBE9;
+            font-size: 12px;
+            line-height: 30px;
         }
     </style>
 </head>
 <body>
 <jsp:include page="head.jsp"></jsp:include>
 <div class="warp">
+
     <div class="invest-title">
-        <h3>精选债权</h3>
-        <span>出借人适当性管理告知<i></i></span>
+        <span>精选标的</span>
+        <span style="float: right">出借人适当性管理告知<i id="notice" class="markicon"></i><span
+                class="arrow-show" style="display: none;">已到账的投资收益+未到账的投资收益</span></span>
     </div>
     <div class="invest-txt">
         <span>币币贷精选标主要是针对城市白领，
@@ -79,7 +99,7 @@
                 <td>${invest.annualizedRate}</td>
                 <td>${invest.createtime}</td>
                 <td>
-                    <a class="layui-btn layui-btn-sm" href="<%=basePath%>/investDetail.do?bid=${invest.id}"
+                    <a class="layui-btn layui-btn-sm" href="<%=basePath%>/investDetail?bid=${invest.id}"
                        style="background: #423E9D">立即出借
                     </a>
                 </td>
@@ -90,11 +110,28 @@
     <div>
         <!--分页文字信息  -->
         <div id="page_info_area">
-
+            当前第<span>${pageInfo.pageNum}</span>页，共计<span>${pageInfo.pages}</span>页
         </div>
         <!-- 分页条信息 -->
         <div id="page_nav_area">
-
+            <ul>
+                <li><a href="/invest?pn=1">首页</a></li>
+                <c:if test="${pageInfo.hasPreviousPage}">
+                    <li><a href="/invest?pn=${pageInfo.pageNum-1}">上一页</a></li>
+                </c:if>
+                <c:forEach items="${pageInfo.navigatepageNums }" var="page_Num">
+                    <c:if test="${page_Num == pageInfo.pageNum }">
+                        <li><a href="#" class="active">${page_Num }</a></li>
+                    </c:if>
+                    <c:if test="${page_Num != pageInfo.pageNum }">
+                        <li><a href="/invest?pn=${page_Num}">${page_Num }</a></li>
+                    </c:if>
+                </c:forEach>
+                <c:if test="${pageInfo.hasNextPage}">
+                    <li><a href="/invest?pn=${pageInfo.pageNum+1}">下一页</a></li>
+                </c:if>
+                <li><a href="/invest?pn=${pageInfo.endRow}">尾页</a></li>
+            </ul>
         </div>
     </div>
 </div>

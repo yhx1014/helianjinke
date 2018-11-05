@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@RequestMapping("users")
+@RequestMapping("/users")
 public class UsersController {
 	@Autowired
 	private UsersService usersservice;
@@ -81,7 +81,7 @@ public class UsersController {
 		while (em.hasMoreElements()) {
 			session.removeAttribute(em.nextElement().toString());
 		}
-		return "index";
+		return "redirect:index";
 	}
 
 	@RequestMapping("findByName")

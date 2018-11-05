@@ -8,14 +8,6 @@
         <param-value>classpath*:spring-application.xml</param-value>
     </context-param>
 
-    <!--
-      <context-param>
-      <param-name>contextConfigLocation</param-name>
-      <param-value>classpath*:spring-mybatis.xml</param-value>
-      </context-param>
-     -->
-    <!-- 字符过滤器，防止字符串乱码 -->
-
     <filter>
         <filter-name>encodingFilter</filter-name>
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -55,27 +47,19 @@
             <param-name>contextConfigLocation</param-name>
             <param-value>classpath*:spring-servlet.xml</param-value>
         </init-param>
-
-        <!--
-           <init-param>
-              <param-name>contextConfigLocation</param-name>
-              <param-value>classpath:spring-mvc.xml</param-value>
-           </init-param>
-         -->
-
         <load-on-startup>1</load-on-startup>
         <async-supported>true</async-supported>
     </servlet>
 
     <servlet-mapping>
         <servlet-name>SpringMVC</servlet-name>
-        <url-pattern>*.do</url-pattern>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
 
-    <servlet-mapping>
-        <servlet-name>SpringMVC</servlet-name>
-        <url-pattern>/index</url-pattern>
-    </servlet-mapping>
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>SpringMVC</servlet-name>-->
+        <!--<url-pattern>/index</url-pattern>-->
+    <!--</servlet-mapping>-->
 
     <!--Spring shiro-->
     <!-- <filter>
@@ -112,19 +96,14 @@
         <filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
     </filter>
 
-
-    <!-- 配置错误页面 -->
-    <!-- 
-	    <error-page>
-	        <error-code>404</error-code>
-	        <location>/WEB-INF/view/error/404.jsp</location>
-	    </error-page>
-	    <error-page>
-	        <error-code>500</error-code>
-	        <location>/WEB-INF/view/error/500.jsp</location>
-	    </error-page> 
-    -->
-
+    <error-page>
+        <error-code>404</error-code>
+        <location>/WEB-INF/view/error/404.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/WEB-INF/view/error/500.jsp</location>
+    </error-page>
     <!-- 解决报错   Name [spring.liveBeansView.mbeanDomain] is not bound in this Context  -->
     <context-param>
         <param-name>spring.profiles.active</param-name>
@@ -139,6 +118,6 @@
         <param-value>dev</param-value>
     </context-param>
     <welcome-file-list>
-        <welcome-file>index</welcome-file>
+        <welcome-file>/index.jsp</welcome-file>
     </welcome-file-list>
 </web-app>

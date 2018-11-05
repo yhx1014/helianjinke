@@ -10,7 +10,7 @@
 %>
 <html>
 <head>
-    <title>币币袋</title>
+    <title>币币贷</title>
     <link rel="stylesheet" type="text/css" href="<%=basePath%>/css/common.css"/>
     <script type="text/javascript" src="<%=basePath%>/script/jquery.min.js"></script>
     <script type="text/javascript" src="<%=basePath%>/script/common.js"></script>

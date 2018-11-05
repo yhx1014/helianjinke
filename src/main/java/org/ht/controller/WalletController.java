@@ -28,20 +28,15 @@ public class WalletController {
     @RequestMapping("/wallet")
     public String getWallet(HttpSession session, Model model) {
         Users user = (Users) session.getAttribute("globaluser");
-        logger.info("---------------用户的UID为：" + user.getUid().toString());
-        List<Wallet> list = walletService.querywallets(user.getUid());
-        String ethAddress = user.getEthaddress();
-        for (Wallet w :
-                list) {
-            System.out.println(w);
+        if (user == null) {
+            return "login";
+        } else {
+            logger.info("---------------用户的UID为：" + user.getUid().toString());
+            List<Wallet> list = walletService.querywallets(user.getUid());
+            String ethAddress = user.getEthaddress();
+            model.addAttribute("ethAddress", ethAddress);
+            model.addAttribute("walletlist", list);
+            return "wallet";
         }
-        model.addAttribute("ethAddress", ethAddress);
-        model.addAttribute("walletlist", list);
-        return "wallet";
     }
-
-//    @RequestMapping("test")
-//    public String testWeb() {
-//        return "WEB-INF/testok";
-//    }
 }

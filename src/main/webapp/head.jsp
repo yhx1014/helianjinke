@@ -29,7 +29,7 @@
                 location.href = "<%=basePath%>/query.do?id=${globaluser.uid}";
             } else {
                 alert("请先登入!");
-                location.href = "<%=basePath%>/login.jsp";
+                location.href = "<%=basePath%>/login.do";
             }
         }
     </script>
@@ -38,15 +38,15 @@
 <div class="header min-width">
     <div class="container">
         <div class="fn-left logo">
-            <a class="" href="<%=basePath%>/recommendShow.do">
+            <a class="" href="<%=basePath%>/index.do">
                 <img src="<%=basePath%>/images/logo.png" title="logo">
             </a>
         </div>
         <ul class="top-nav fn-clear">
-            <li><a href="<%=basePath%>/recommendShow.do">首页</a></li>
-            <li><a href="<%=basePath%>/invest.do" class="">我要投资</a></li>
-            <li><a href="<%=basePath%>/loan/getLoan.do" class="">我要借款</a></li>
-            <li class="top-nav-safe"><a href="<%=basePath%>/assets/wallet.do">我的资产</a></li>
+            <li><a href="<%=basePath%>/index">首页</a></li>
+            <li><a href="<%=basePath%>/invest" class="">我要投资</a></li>
+            <li><a href="<%=basePath%>/loan/getLoan" class="">我要借款</a></li>
+            <li class="top-nav-safe"><a href="<%=basePath%>/assets/wallet">我的资产</a></li>
         </ul>
 
         <div class="fn-right login-form">

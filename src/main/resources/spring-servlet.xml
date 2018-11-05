@@ -20,21 +20,21 @@
             </list>
         </property>
     </bean>
-
+    <mvc:default-servlet-handler/>
     <mvc:annotation-driven conversion-service="conversionService"/>
 
     <!-- 自动扫描该包，使SpringMVC认为包下用了@controller注解的类是控制器 -->
     <context:component-scan base-package="org.ht.controller"/>
 
-    <mvc:interceptors>
-        <!--  使用bean定义一个Interceptor，直接定义在mvc:interceptors根下面的Interceptor将拦截所有的请求   -->
-        <mvc:interceptor>
-            <mvc:mapping path="/**"/>
-            <mvc:exclude-mapping path="/index.*"/>
-            <mvc:exclude-mapping path="/login.*"/>
-            <bean class="org.ht.interceptor.CommonInterceptor"/>
-        </mvc:interceptor>
-    </mvc:interceptors>
+    <!--<mvc:interceptors>-->
+    <!--&lt;!&ndash;  使用bean定义一个Interceptor，直接定义在mvc:interceptors根下面的Interceptor将拦截所有的请求   &ndash;&gt;-->
+    <!--<mvc:interceptor>-->
+    <!--<mvc:mapping path="/**"/>-->
+    <!--<mvc:exclude-mapping path="/index.*"/>-->
+    <!--<mvc:exclude-mapping path="/login.*"/>-->
+    <!--<bean class="org.ht.interceptor.CommonInterceptor"/>-->
+    <!--</mvc:interceptor>-->
+    <!--</mvc:interceptors>-->
 
     <!--避免IE执行AJAX时，返回JSON出现下载文件 -->
     <bean id="mappingJacksonHttpMessageConverter"

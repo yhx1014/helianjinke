@@ -9,7 +9,7 @@
 %>
 <html>
 <head>
-    <title>币币袋</title>
+    <title>币币贷</title>
     <meta name="keywords" content=""/>
     <meta name="description" content=""/>
     <link rel="stylesheet" type="text/css" href="<%=basePath%>/css/common.css"/>

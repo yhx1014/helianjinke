@@ -40,18 +40,10 @@ public class InvestController {
 
     @RequestMapping("/invest")
     public String investSelect(@RequestParam(value = "pn", defaultValue = "1") Integer pn, Map<String, Object> map) {
-        PageHelper.startPage(pn, 5);
+        PageHelper.startPage(pn, 10);
         List<InvestInfo> list = investService.getAll();
         PageInfo<InvestInfo> page = new PageInfo<>(list, 5);
         map.put("pageInfo", page);
-        System.out.println(page.getPageNum());
-        System.out.println(page.getPageSize());
-        System.out.println(page.getStartRow());
-        System.out.println(page.getEndRow());
-        System.out.println(page.getTotal());
-        System.out.println(page.getPages());
-        System.out.println(page.isHasPreviousPage());
-        System.out.println(page.isHasNextPage());
         return "investinfo";
     }
 
@@ -67,7 +59,6 @@ public class InvestController {
 
     @RequestMapping("/investDetail")
     public String investDetail(@RequestParam(value = "bid", defaultValue = "1") Integer bid) {
-
         return "infor";
     }
 
@@ -243,15 +234,6 @@ public class InvestController {
         List<Biao> biao = biaoS.findList(map);
         model.addAttribute("biao", biao);
         return "investinfo";
-    }
-
-    @RequestMapping("recommendShow")
-    public String recommendShow(@RequestParam(value = "pn", defaultValue = "1") Integer pn, Model model) {
-        PageHelper.startPage(pn, 8);
-        List<InvestInfo> list = investService.getAll();
-        PageInfo<InvestInfo> page = new PageInfo<>(list, 5);
-        model.addAttribute("pageInfo", page);
-        return "index";
     }
 
     public static void main(String s[]) {

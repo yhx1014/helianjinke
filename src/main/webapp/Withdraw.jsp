@@ -11,7 +11,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>币币袋</title>
+    <title>币币贷</title>
     <link rel="stylesheet" type="text/css" href="<%=basePath%>/css/common.css"/>
     <link rel="stylesheet" type="text/css" href="<%=basePath%>/css/jquery.datetimepicker.css"/>
     <script type="text/javascript" src="<%=basePath%>/script/jquery.min.js"></script>
