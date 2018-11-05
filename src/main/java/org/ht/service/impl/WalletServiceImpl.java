@@ -2,7 +2,6 @@ package org.ht.service.impl;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
 
 import org.ht.dao.WalletDao;
 import org.ht.pojo.Wallet;

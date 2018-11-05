@@ -14,6 +14,8 @@
     <meta name="description" content=""/>
     <link rel="stylesheet" type="text/css" href="<%=basePath%>/css/common.css"/>
     <link rel="stylesheet" type="text/css" href="<%=basePath%>/css/wallet.css"/>
+    <link rel="stylesheet" href="<%=basePath%>/layui/css/layui.css" media="all">
+    <%--<script src="<%=basePath%>layui/layui.js" charset="utf-8"></script>--%>
     <script type="text/javascript" src="<%=basePath%>/script/jquery.min.js"></script>
     <script type="text/javascript" src="<%=basePath%>/script/common.js"></script>
     <script type="text/javascript" src="<%=basePath%>/script/user.js"></script>
@@ -163,6 +165,42 @@
                 </div>
             </c:forEach>
         </div>
+    </div>
+    <div class="wallet-record">
+        <div style="padding: 10px 0px 10px 10px">资产明细</div>
+        <table class="layui-table" lay-skin="nob" lay-even>
+            <colgroup>
+                <col>
+            </colgroup>
+            <thead>
+            <tr>
+                <th>订单编号</th>
+                <th>借款总金额</th>
+                <th>借款期限</th>
+                <th>抵押物</th>
+                <th>最小投资金额</th>
+                <th>年利率</th>
+                <th>截止时间</th>
+                <th>投标进度</th>
+                <th>操作</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>质押金额</td>
+                <td>1341</td>
+                <td>质押金额</td>
+                <td>1341</td>
+                <td>质押金额</td>
+                <td>1341</td>
+                <td>质押金额</td>
+                <td>1341</td>
+                <td>质押金额</td>
+            </tr>
+            </tbody>
+        </table>
+        <div id="laypage" style="margin: 0 auto"></div>
     </div>
 </div>
 <jsp:include page="bottom.jsp"></jsp:include>

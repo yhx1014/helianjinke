@@ -148,12 +148,12 @@
             </exclusions>
         </dependency>
 
-        <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-api</artifactId>
-            <version>7.0</version>
-            <scope>provided</scope>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>javax</groupId>-->
+            <!--<artifactId>javaee-api</artifactId>-->
+            <!--<version>7.0</version>-->
+            <!--<scope>provided</scope>-->
+        <!--</dependency>-->
 
         <!--j2ee -->
         <dependency>
@@ -163,12 +163,12 @@
             <scope>provided</scope>
         </dependency>
 
-        <dependency>
-            <groupId>javax.servlet.jsp</groupId>
-            <artifactId>javax.servlet.jsp-api</artifactId>
-            <version>${servlet.jsp.version}</version>
-            <scope>provided</scope>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>javax.servlet.jsp</groupId>-->
+            <!--<artifactId>javax.servlet.jsp-api</artifactId>-->
+            <!--<version>${servlet.jsp.version}</version>-->
+            <!--<scope>provided</scope>-->
+        <!--</dependency>-->
         <!-- spring核心包 -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -252,11 +252,11 @@
             <artifactId>mybatis-spring</artifactId>
             <version>1.2.2</version>
         </dependency>
-        <dependency>
-            <groupId>javax.transaction</groupId>
-            <artifactId>javax.transaction-api</artifactId>
-            <version>1.2</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>javax.transaction</groupId>-->
+            <!--<artifactId>javax.transaction-api</artifactId>-->
+            <!--<version>1.2</version>-->
+        <!--</dependency>-->
 
         <!--&lt;!&ndash;Mybatis 通用 Mapper &ndash;&gt;-->
         <!--<dependency>-->
@@ -269,15 +269,15 @@
         <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper</artifactId>
-            <version>4.1.6</version>
+            <version>5.0.0</version>
         </dependency>
 
         <!-- 导入java ee jar 包 -->
-        <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-api</artifactId>
-            <version>7.0</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>javax</groupId>-->
+            <!--<artifactId>javaee-api</artifactId>-->
+            <!--<version>7.0</version>-->
+        <!--</dependency>-->
         <!-- 导入Mysql数据库链接jar包 -->
         <dependency>
             <groupId>mysql</groupId>

@@ -215,44 +215,27 @@
 </head>
 <body>
 <jsp:include page="head.jsp"></jsp:include>
-<div class="alert-450" id="ethQRCodeDlg" style="display: none">
-    <div class="alert-title">
-        <h3>ETH地址</h3>
-        <span class="alert-close" onclick="closeDlg('ethQRCodeDlg')"></span>
-    </div>
-    <div class="alert-main">
-        <div id="ethqrcode"></div>
-    </div>
-</div>
-<div class="alert-450" id="btcQRCodeDlg" style="display: none">
-    <div class="alert-title">
-        <h3>BTC地址</h3>
-        <span class="alert-close" onclick="closeDlg('btcQRCodeDlg')"></span>
-    </div>
-    <div class="alert-main">
-        <div id="btcqrcode"></div>
-    </div>
-</div>
-<div class="alert-450" id="changeMobileDlg" style="display: none">
-    <div class="alert-title">
-        <h3>修改手机号</h3>
-        <span class="alert-close" onclick="closeDlg('changeMobileDlg')"></span>
-    </div>
-    <div class="alert-main">
-        <form id="changeMobileForm">
-            <div>
-                <span>原手机号：</span><span>${user.uphonenumber}</span>
-            </div>
-            <div>
-                <label for="uphone_new">新手机号：</label>
-                <input type="text" id="uphone_new" name="uphonenumber"/>
-            </div>
-            <div>
-                <button type="button" id="changeMobileBtn" edit-id="${user.uid}">确认</button>
-            </div>
-        </form>
-    </div>
-</div>
+<%--弹框部分--%>
+<%--<div class="alert-450" id="ethQRCodeDlg" style="display: none">--%>
+<%--<div class="alert-title">--%>
+<%--<h3>ETH地址</h3>--%>
+<%--<span class="alert-close" onclick="closeDlg('ethQRCodeDlg')"></span>--%>
+<%--</div>--%>
+<%--<div class="alert-main">--%>
+<%--<div id="ethqrcode"></div>--%>
+<%--</div>--%>
+<%--</div>--%>
+<%--<div class="alert-450" id="btcQRCodeDlg" style="display: none">--%>
+<%--<div class="alert-title">--%>
+<%--<h3>BTC地址</h3>--%>
+<%--<span class="alert-close" onclick="closeDlg('btcQRCodeDlg')"></span>--%>
+<%--</div>--%>
+<%--<div class="alert-main">--%>
+<%--<div id="btcqrcode"></div>--%>
+<%--</div>--%>
+<%--</div>--%>
+
+<%--设置邮箱内容--%>
 <div class="alert-450" id="changeEmailDlg" style="display: none">
     <div class="alert-title">
         <h3>设置邮箱</h3>
@@ -280,11 +263,174 @@
             <%--<span id="warning-span"></span>--%>
             <%--</div>--%>
             <div style="border-top: 1px solid #ddd;padding-top: 20px;margin-top: 40px">
-                <button type="button" id="changeEmailBtn" edit-id="${user.uid}" class="sbumit-btn">确认</button>
+                <button type="button" id="changePhoneBtn" edit-id="${user.uid}" class="sbumit-btn">确认</button>
             </div>
         </form>
     </div>
 </div>
+
+<%--绑定手机号--%>
+<div class="alert-450" id="bindMobileDlg" style="display: none">
+    <div class="alert-title">
+        <h3>手机绑定</h3>
+        <span class="alert-close" onclick="closeDlg('bindMobileDlg')"></span>
+    </div>
+    <div class="alert-main">
+        <form id="changePhoneForm" class="alert-content">
+            <%--<div>--%>
+            <%--<span>当前邮箱：</span><span>${user.umailbox}</span>--%>
+            <%--</div>--%>
+            <div>
+                <label for="phone_new">手机号</label>
+                <input type="text" id="phone_new" name="phone_new"/>
+            </div>
+            <div>
+                <label for="check_phone">手机验证码</label>
+                <input type="text" id="check_phone" name="check_phone" style="width: 176px"/>
+                <span class="verify-btn">获取验证码</span>
+            </div>
+
+            <%--<div>--%>
+            <%--<span id="warning-span"></span>--%>
+            <%--</div>--%>
+            <div style="border-top: 1px solid #ddd;padding-top: 20px;margin-top: 40px">
+                <button type="button" id="changeEmailBtn" edit-id="${user.uid}" class="sbumit-btn">提交</button>
+            </div>
+        </form>
+    </div>
+</div>
+<%--修改手机号--%>
+<div class="alert-450" id="changeMobileDlg" style="display: none">
+    <div class="alert-title">
+        <h3>修改手机号</h3>
+        <span class="alert-close" onclick="closeDlg('changeMobileDlg')"></span>
+    </div>
+    <div class="alert-main">
+        <form id="changeMobileForm" class="alert-content">
+            <div>
+                <label>原手机号</label><span>${user.uphonenumber}</span>
+            </div>
+            <div>
+                <label for="confirm_phone">手机验证码</label>
+                <input type="text" id="confirm_phone" name="confirm_phone" style="width: 176px"/>
+                <span class="verify-btn">获取验证码</span>
+            </div>
+            <div>
+                <label for="psw_login">登录密码</label>
+                <input type="text" id="psw_login" name="psw_login"/>
+            </div>
+            <div>
+                <label for="mobile_new">新手机号码</label>
+                <input type="text" id="mobile_new" name="mobile_new"/>
+            </div>
+            <div>
+                <label for="verify_newphone">手机验证码</label>
+                <input type="text" id="verify_newphone" name="verify_newphone" style="width: 176px"/>
+                <span class="verify-btn">获取验证码</span>
+            </div>
+            <div style="border-top: 1px solid #ddd;padding-top: 20px;margin-top: 40px">
+                <button type="button" id="changeMobileBtn" edit-id="${user.uid}" class="sbumit-btn">确认</button>
+            </div>
+        </form>
+    </div>
+</div>
+<%--修改登陆密码--%>
+<div class="alert-450" id="changeLoginDlg" style="display: none">
+    <div class="alert-title">
+        <h3>修改登录密码</h3>
+        <span class="alert-close" onclick="closeDlg('changeLoginDlg')"></span>
+    </div>
+    <div class="alert-main">
+        <form id="changeLoginForm" class="alert-content">
+            <%--<div>--%>
+            <%--<span>当前邮箱：</span><span>${user.umailbox}</span>--%>
+            <%--</div>--%>
+            <div>
+                <label for="psw_old">原密码</label>
+                <input type="text" id="psw_old" name="psw_old"/>
+            </div>
+            <div>
+                <label for="psw_new">新密码</label>
+                <input type="text" id="psw_new" name="psw_new"/>
+            </div>
+            <div>
+                <label for="confirm_psw">确认新密码</label>
+                <input type="text" id="confirm_psw" name="confirm_psw"/>
+            </div>
+            <%--<div>--%>
+            <%--<span id="warning-span"></span>--%>
+            <%--</div>--%>
+            <div style="border-top: 1px solid #ddd;padding-top: 20px;margin-top: 40px">
+                <button type="button" id="changeLoginBtn" edit-id="${user.uid}" class="sbumit-btn">确认</button>
+            </div>
+        </form>
+    </div>
+</div>
+<%--修改资金密码内容--%>
+<div class="alert-450" id="changePayPswDlg" style="display: none">
+    <div class="alert-title">
+        <h3>设置支付密码</h3>
+        <span class="alert-close" onclick="closeDlg('changePayPswDlg')"></span>
+    </div>
+    <div class="alert-main">
+        <form id="changePayForm" class="alert-content">
+            <%--<div>--%>
+            <%--<span>当前邮箱：</span><span>${user.umailbox}</span>--%>
+            <%--</div>--%>
+            <div>
+                <label for="payPsw_new">新密码</label>
+                <input type="text" id="payPsw_new" name="payPsw_new"/>
+            </div>
+            <div>
+                <label for="payPsw_again">确认新密码</label>
+                <input type="text" id="payPsw_again" name="payPsw_again"/>
+            </div>
+            <%--<div>--%>
+            <%--<span id="warning-span"></span>--%>
+            <%--</div>--%>
+            <div style="border-top: 1px solid #ddd;padding-top: 20px;margin-top: 40px">
+                <button type="button" id="PayPswBtn" edit-id="${user.uid}" class="sbumit-btn">确认</button>
+            </div>
+        </form>
+    </div>
+</div>
+<%--初级实名认证--%>
+<div class="alert-450" id="primeryAuthenticDlg" style="display: none">
+    <div class="alert-title">
+        <h3>初级实名认证</h3>
+        <span class="alert-close" onclick="closeDlg('primeryAuthenticDlg')"></span>
+    </div>
+    <div class="alert-main">
+        <form id="primeryAuthenticForm" class="alert-content">
+            <%--<div>--%>
+            <%--<span>当前邮箱：</span><span>${user.umailbox}</span>--%>
+            <%--</div>--%>
+            <div>
+                <label for="nationality">国籍</label>
+                <input type="text" id="nationality" name="nationality"/>
+            </div>
+            <div>
+                <label for="name">姓名</label>
+                <input type="text" id="name" name="name"/>
+            </div>
+            <div>
+                <label for="certificate_type">证件类型</label>
+                <input type="text" id="certificate_type" name="certificate_type"/>
+            </div>
+            <div>
+                <label for="certificate_code">证件号码</label>
+                <input type="text" id="certificate_code" name="certificate_code"/>
+            </div>
+            <%--<div>--%>
+            <%--<span id="warning-span"></span>--%>
+            <%--</div>--%>
+            <div style="border-top: 1px solid #ddd;padding-top: 20px;margin-top: 40px">
+                <button type="button" id="primeryAuthentic" edit-id="${user.uid}" class="sbumit-btn">确认</button>
+            </div>
+        </form>
+    </div>
+</div>
+<%--个人资料展示页面--%>
 <div class="w1200 personal">
     <jsp:include page="left.jsp"></jsp:include>
     <div class="personal-main">
@@ -352,7 +498,11 @@
                         <div class="table-th">手机绑定</div>
                         <div class="table-td">${user.upassword}</div>
                         <div class="table-last">
-                            <span><a>修改</a></span>
+                            <span><a href="javascript:void(0)"
+                                     onclick="showDlg('bindMobileDlg')">绑定</a></span>
+                            <%--需要JSP判断显示哪个按钮--%>
+                            <%--<span><a href="javascript:void(0)"--%>
+                            <%--onclick="showDlg('changeMobileDlg')">修改</a></span>--%>
                         </div>
                     </div>
                     <div class="table-tr">
@@ -366,14 +516,16 @@
                         <div class="table-th">登录密码</div>
                         <div class="table-td">${user.upassword}</div>
                         <div class="table-last">
-                            <span><a>修改</a></span>
+                            <span><a href="javascript:void(0)"
+                                     onclick="showDlg('changeLoginDlg')">修改</a></span>
                         </div>
                     </div>
                     <div class="table-tr">
                         <div class="table-th">资金密码</div>
                         <div class="table-td">${user.upwd_zd}</div>
                         <div class="table-last">
-                            <span><a>修改</a></span>
+                            <span><a href="javascript:void(0)"
+                                     onclick="showDlg('changePayPswDlg')">修改</a></span>
                         </div>
                     </div>
                 </div>
@@ -391,7 +543,8 @@
                         <div class="table-th">初级实名认证</div>
                         <div class="table-td">未认证</div>
                         <div class="table-last">
-                            <span><a>认证</a></span>
+                           <span><a href="javascript:void(0)"
+                                    onclick="showDlg('primeryAuthenticDlg')">认证</a></span>
                         </div>
                     </div>
                     <div class="table-tr">

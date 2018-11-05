@@ -39,18 +39,19 @@ public class InvestController {
     HttpSession hs = null;
 
     @RequestMapping("/invest")
-    public String investSelect(@RequestParam(value = "pn", defaultValue = "1") Integer pn, Model model, Map<String, Object> map) {
-        List<InvestInfo> list = investService.getAll();
-//        model.addAttribute("investinfo", list);
+    public String investSelect(@RequestParam(value = "pn", defaultValue = "1") Integer pn,Map<String, Object> map) {
         PageHelper.startPage(pn, 5);
-//        List<InvestInfo> list = investService.getAll();
-        PageInfo pageInfo = new PageInfo(list, 5);
-        map.put("pageInfo", pageInfo);
-        model.addAttribute("pageInfo", pageInfo);
-        System.out.println("当前页码：" + pageInfo.getPageNum());
-        System.out.println("总页码：" + pageInfo.getPages());
-        System.out.println("总记录数：" + pageInfo.getTotal());
-        System.out.println("在页面需要连续显示的页码");
+        List<InvestInfo> list = investService.getAll();
+        PageInfo<InvestInfo> page = new PageInfo<>(list, 5);
+        map.put("pageInfo", page);
+        System.out.println(page.getPageNum());
+        System.out.println(page.getPageSize());
+        System.out.println(page.getStartRow());
+        System.out.println(page.getEndRow());
+        System.out.println(page.getTotal());
+        System.out.println(page.getPages());
+        System.out.println(page.isHasPreviousPage());
+        System.out.println(page.isHasNextPage());
         return "investinfo";
     }
 
@@ -59,7 +60,7 @@ public class InvestController {
     public PageInfo getInvest(@RequestParam(value = "pn", defaultValue = "1") Integer pn, Model model, Map<String, Object> map) {
         PageHelper.startPage(pn, 5);
         List<InvestInfo> list = investService.getAll();
-        PageInfo pageInfo = new PageInfo(list, 5);
+        PageInfo<InvestInfo> pageInfo = new PageInfo<>(list, 5);
         map.put("pageInfo", pageInfo);
         return pageInfo;
     }

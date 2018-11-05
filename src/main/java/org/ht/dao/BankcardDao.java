@@ -1,5 +1,7 @@
 package org.ht.dao;
 
+import org.springframework.stereotype.Repository;
+
 import java.util.Map;
 
 public interface BankcardDao {

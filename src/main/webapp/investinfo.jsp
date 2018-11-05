@@ -54,17 +54,6 @@
 </div>
 <div class="warp">
     <table class="layui-table" lay-even lay-size="lg" lay-skin="nob">
-        <colgroup>
-            <col>
-            <col>
-            <col>
-            <col>
-            <col>
-            <col>
-            <col>
-            <col>
-            <col>
-        </colgroup>
         <thead>
         <tr>
             <th>借款编号</th>
@@ -91,7 +80,7 @@
                 <td>${invest.createtime}</td>
                 <td>
                     <a class="layui-btn layui-btn-sm" href="<%=basePath%>/investDetail.do?bid=${invest.id}"
-                            style="background: #423E9D">立即出借
+                       style="background: #423E9D">立即出借
                     </a>
                 </td>
             </tr>
@@ -108,83 +97,6 @@
 
         </div>
     </div>
-    <%--<div id="laypage" style="margin: 0 auto"></div>--%>
-    <script>
-        var totalRecord, currentPage;
-        $(function () {
-            to_page(1);
-        });
-
-        function to_page(pn) {
-            $.ajax({
-                    url: "${APP_PATH}/getInvest.do",
-                    type: "GET",
-                    data: "pn=" + pn,
-                    success: function (result) {
-//                        alert(result)
-                        console.log(result)
-                        build_page_nav(result)
-//                        alert("ajax成功！")
-                    }
-                }
-            )
-        }
-
-        function build_page_nav(result) {
-            //page_nav_area
-            $("#page_nav_area").empty();
-            var ul = $("<ul></ul>");
-
-            //构建元素
-            var firstPageLi = $("<li></li>").append($("<a></a>").append("首页").attr("href", "#"));
-            var prePageLi = $("<li></li>").append($("<a></a>").append("&laquo;"));
-            if (result.hasPreviousPage === false) {
-                firstPageLi.addClass("disabled");
-                prePageLi.addClass("disabled");
-            } else {
-                firstPageLi.click(function () {
-                    to_page(1);
-                });
-                prePageLi.click(function () {
-                    to_page(result.pageNum - 1);
-                });
-            }
-
-
-            var nextPageLi = $("<li></li>").append($("<a></a>").append("&raquo;"));
-            var lastPageLi = $("<li></li>").append($("<a></a>").append("末页").attr("href", "#"));
-            if (result.hasNextPage === false) {
-                nextPageLi.addClass("disabled");
-                lastPageLi.addClass("disabled");
-            } else {
-                nextPageLi.click(function () {
-                    to_page(result.pageNum + 1);
-                });
-                lastPageLi.click(function () {
-                    to_page(result.pages);
-                });
-            }
-
-
-            ul.append(firstPageLi).append(prePageLi);
-            $.each(result.navigatepageNums, function (index, item) {
-
-                var numLi = $("<li></li>").append($("<a></a>").append(item));
-                if (result.pageNum === item) {
-                    numLi.addClass("active");
-                }
-                numLi.click(function () {
-                    to_page(item);
-                });
-                ul.append(numLi);
-            });
-            ul.append(nextPageLi).append(lastPageLi);
-
-            var navEle = $("<nav></nav>").append(ul);
-            navEle.appendTo("#page_nav_area");
-        }
-
-    </script>
 </div>
 <jsp:include page="bottom.jsp"></jsp:include>
 </body>
