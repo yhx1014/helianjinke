@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
-@RequestMapping("/assets")
 @Controller
 public class WalletController {
     Logger logger = LoggerFactory.getLogger(WalletController.class);

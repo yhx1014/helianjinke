@@ -44,9 +44,9 @@
         </div>
         <ul class="top-nav fn-clear">
             <li><a href="<%=basePath%>/index">首页</a></li>
-            <li><a href="<%=basePath%>/invest" class="">我要投资</a></li>
-            <li><a href="<%=basePath%>/loan/getLoan" class="">我要借款</a></li>
-            <li class="top-nav-safe"><a href="<%=basePath%>/assets/wallet">我的资产</a></li>
+            <li><a href="<%=basePath%>/invest">我要投资</a></li>
+            <li><a href="<%=basePath%>/loan">我要借款</a></li>
+            <li><a href="<%=basePath%>/wallet">我的资产</a></li>
         </ul>
 
         <div class="fn-right login-form">

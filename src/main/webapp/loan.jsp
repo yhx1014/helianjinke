@@ -32,6 +32,18 @@
         }
 
         .btn-next {
+            display: inline-block;
+            height: 38px;
+            line-height: 38px;
+            padding: 0 18px;
+            color: #fff;
+            white-space: nowrap;
+            text-align: center;
+            font-size: 14px;
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+            opacity: 0.8;
             background: #423E9D;
             margin-left: 46%;
             width: 96px;
@@ -54,7 +66,7 @@
 <body>
 <jsp:include page="head.jsp"></jsp:include>
 <div class="applyc clearfix">
-    <form action="<%=basePath%>brower/insert.do" method="post" class="layui-form">
+    <form action="" method="post" class="layui-form">
         <div class="order-title">创建借款订单</div>
         <div class="layui-row">
             <div class="layui-col-md6">
@@ -64,7 +76,6 @@
                         <select lay-verify="required" name="bmortgagetype">
                             <option value="0">BTC</option>
                             <option value="1">ETH</option>
-                            <option value="2">USDT</option>
                         </select>
                     </div>
                 </div>
@@ -80,20 +91,17 @@
                 <div class="layui-form-item re-heigth">
                     <label class="layui-form-label">还款方式</label>
                     <div class="layui-input-block">
-                        <select name="bpaytype" style="lay-verify:required;">
-                            <option value="0">A</option>
-                            <option value="1">B</option>
-                            <option value="2">C</option>
+                        <select lay-verify="required" name="bmortgagetype">
+                            <option value="0">还本付息</option>
                         </select>
                     </div>
                 </div>
 
                 <div class="layui-form-item re-heigth">
-                    <label class="layui-form-label">平台佣金</label>
+                    <label class="layui-form-label">平台佣金为</label>
                     <div class="layui-input-block">
-                        <select name="bcommission" style="lay-verify:required;">
-                            <option value="0">10</option>
-                            <option value="1">20</option>
+                        <select lay-verify="required" name="bmortgagetype">
+                            <option value="0">1%</option>
                         </select>
                     </div>
                 </div>
@@ -105,8 +113,7 @@
                     <label class="layui-form-label">借款币种</label>
                     <div class="layui-input-block">
                         <select name="btype" style="lay-verify:required;">
-                            <option value="0">ETH</option>
-                            <option value="1">BTC</option>
+                            <option value="0">USDT</option>
                         </select>
                     </div>
                 </div>
@@ -123,10 +130,10 @@
                     <label class="layui-form-label">借款期限</label>
                     <div class="layui-input-block">
                         <select style="name:binterval;lay-verify:required;">
-                            <option value="0">1</option>
-                            <option value="1">2</option>
-                            <option value="0">3</option>
-                            <option value="1">4</option>
+                            <option value="0">7天</option>
+                            <option value="1">14天</option>
+                            <option value="0">30天</option>
+                            <option value="1">60天</option>
                         </select>
                     </div>
                 </div>
@@ -142,11 +149,65 @@
                         </select>
                     </div>
                 </div>
-
             </div>
         </div>
-
         <button class="layui-btn btn-next" style="margin-bottom: 30px">下一步</button>
+    </form>
+</div>
+<div class="applyc clearfix">
+    <form action="<%=basePath%>/toloan" method="post">
+        <div>
+            <label>质押币种</label>
+            <div>
+                <select name="collateralType">
+                    <option selected="selected" value="BTC">BTC</option>
+                    <option value="ETH">ETH</option>
+                </select>
+            </div>
+        </div>
+        <div>
+            <label>借款币种</label>
+            <div>
+                <select name="borrowType">
+                    <option selected="selected" value="USDT">USDT</option>
+                    <option value="EOS">EOS</option>
+                </select>
+            </div>
+        </div>
+        <div>
+            <label>质押数量</label>
+            <div>
+                <select name="collateralCount">
+                    <option selected="selected" value="100">100</option>
+                    <option value="200">200</option>
+                    <option value="300">300</option>
+                    <option value="400">400</option>
+                </select>
+            </div>
+        </div>
+        <div>
+            <label>借款数量</label>
+            <div>
+                <select name="borrowCount">
+                    <option selected="selected" value="60">60</option>
+                    <option value="120">120</option>
+                    <option value="180">180</option>
+                    <option value="240">240</option>
+                </select>
+            </div>
+        </div>
+        <div>
+            <label>借款期限</label>
+            <div>
+                <select name="loanterm">
+                    <option selected="selected" value="7">7天</option>
+                    <option value="14">14天</option>
+                    <option value="30">30天</option>
+                    <option value="60">60天</option>
+                </select>
+            </div>
+        </div>
+        <button class="btn-next" type="submit">提交</button>
     </form>
 </div>
 <jsp:include page="bottom.jsp"></jsp:include>

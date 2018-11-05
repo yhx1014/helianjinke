@@ -3,6 +3,8 @@ package org.ht.service.impl;
 import org.ht.dao.InvestInfoDao;
 import org.ht.pojo.InvestInfo;
 import org.ht.service.InvestService;
+import org.ht.util.DateUtil;
+import org.ht.util.TrimCountUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,20 @@ public class InvestServiceImpl implements InvestService {
 
     @Override
     public List<InvestInfo> getAll() {
-        return investInfoDao.getAll();
+        List<InvestInfo> result = investInfoDao.getAll();
+        for (InvestInfo ii : result) {
+            ii.setBorrowCount(TrimCountUtil.trimCount(ii.getBorrowCount()));
+            ii.setCollateralCount(TrimCountUtil.trimCount(ii.getCollateralCount()));
+            if (ii.getCreatetime()!=null)
+            ii.setFormatTime(DateUtil.formatToString(ii.getCreatetime()));
+        }
+        return result;
+    }
+
+    @Override
+
+    public Integer createInvest(InvestInfo investInfo) {
+        investInfoDao.insertSelective(investInfo);
+        return 1;
     }
 }

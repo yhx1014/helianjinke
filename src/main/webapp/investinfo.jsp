@@ -23,10 +23,41 @@
     <script type="text/javascript" src="<%=basePath %>/script/user.js"></script>
     <script type="text/javascript" src="<%=basePath%>/layui/layui.js"></script>
     <style>
-        #page_nav_area a.active{
-            background: #00FF00;
-            font-size: xx-large;
+        #page_info_area {
+            padding-left: 30px;
+            color: #999;
         }
+
+        #page_nav_area {
+            width: 100%;
+            height: 40px;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        #page_nav_area .page_bar {
+            display: inline-block;
+        }
+
+        #page_nav_area .page_bar span a {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            margin: 10px;
+            line-height: 30px;
+        }
+
+        #page_nav_area .page_bar span a:hover {
+            color: #423E9D;
+        }
+
+        #page_nav_area a.active {
+            background: #DDE4EF;
+            border-radius: 15px;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15), 0 1px 5px rgba(0, 0, 0, .075);
+
+        }
+
         .warp {
             width: 1100px;
             margin: 20px auto;
@@ -40,6 +71,11 @@
             padding: 10px 0px;
             margin-bottom: 20px;
             position: relative;
+        }
+
+        .invest-txt {
+            line-height: 28px;
+            padding: 20px 0px;
         }
 
         .arrow-show {
@@ -97,7 +133,7 @@
                 <td>${invest.collateralCount}${invest.collateralType}</td>
                 <td>${invest.pledgeRatio}</td>
                 <td>${invest.annualizedRate}</td>
-                <td>${invest.createtime}</td>
+                <td>${invest.formatTime}</td>
                 <td>
                     <a class="layui-btn layui-btn-sm" href="<%=basePath%>/investDetail?bid=${invest.id}"
                        style="background: #423E9D">立即出借
@@ -107,31 +143,31 @@
         </c:forEach>
         </tbody>
     </table>
-    <div>
+    <div style="margin-bottom: 20px">
         <!--分页文字信息  -->
         <div id="page_info_area">
             当前第<span>${pageInfo.pageNum}</span>页，共计<span>${pageInfo.pages}</span>页
         </div>
         <!-- 分页条信息 -->
         <div id="page_nav_area">
-            <ul>
-                <li><a href="/invest?pn=1">首页</a></li>
+            <div class="page_bar">
+                <span><a href="/invest?pn=1">首页</a></span>
                 <c:if test="${pageInfo.hasPreviousPage}">
-                    <li><a href="/invest?pn=${pageInfo.pageNum-1}">上一页</a></li>
+                    <span><a href="/invest?pn=${pageInfo.pageNum-1}"><</a></span>
                 </c:if>
                 <c:forEach items="${pageInfo.navigatepageNums }" var="page_Num">
                     <c:if test="${page_Num == pageInfo.pageNum }">
-                        <li><a href="#" class="active">${page_Num }</a></li>
+                        <span><a href="#" class="active">${page_Num }</a></span>
                     </c:if>
                     <c:if test="${page_Num != pageInfo.pageNum }">
-                        <li><a href="/invest?pn=${page_Num}">${page_Num }</a></li>
+                        <span><a href="/invest?pn=${page_Num}">${page_Num }</a></span>
                     </c:if>
                 </c:forEach>
                 <c:if test="${pageInfo.hasNextPage}">
-                    <li><a href="/invest?pn=${pageInfo.pageNum+1}">下一页</a></li>
+                    <span><a href="/invest?pn=${pageInfo.pageNum+1}">> </a></span>
                 </c:if>
-                <li><a href="/invest?pn=${pageInfo.endRow}">尾页</a></li>
-            </ul>
+                <span><a href="/invest?pn=${pageInfo.endRow}">尾页</a></span>
+            </div>
         </div>
     </div>
 </div>

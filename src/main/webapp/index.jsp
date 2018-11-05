@@ -116,96 +116,58 @@
 </head>
 
 <body>
-<jsp:include page="head.jsp"></jsp:include>
+<div style="opacity: 0.7">
+    <jsp:include page="head.jsp"></jsp:include>
+</div>
 <section class="first">
     <div class="first-content">
         <img src="<%=basePath%>/images/first-bg.png" style="display: inline;">
     </div>
 </section>
 <section class="second">
-    <%--<div class="second-content">--%>
-        <%--<div style="padding: 10px;border-bottom: 1px solid #ddd">精选债权</div>--%>
-        <%--<table class="layui-table" lay-skin="nob" lay-even>--%>
-            <%--<colgroup>--%>
-                <%--<col>--%>
-            <%--</colgroup>--%>
-            <%--<thead>--%>
-            <%--<tr>--%>
-                <%--<th>借款编号</th>--%>
-                <%--<th>借款总金额</th>--%>
-                <%--<th>还款方式</th>--%>
-                <%--<th>期限</th>--%>
-                <%--<th>抵押资产</th>--%>
-                <%--<th>质押率</th>--%>
-                <%--<th>年化收益</th>--%>
-                <%--<th>创建时间</th>--%>
-                <%--<th>操作</th>--%>
-            <%--</tr>--%>
-            <%--</thead>--%>
-            <%--<tbody>--%>
-            <%--<c:forEach items="${pageInfo.list}" var="invest" varStatus="status">--%>
-                <%--<tr>--%>
-                    <%--<td>${invest.id}</td>--%>
-                    <%--<td>${invest.borrowCount}${invest.borrowType}</td>--%>
-                    <%--<td>${invest.paytype}</td>--%>
-                    <%--<td>${invest.loanterm}</td>--%>
-                    <%--<td>${invest.collateralCount}${invest.collateralType}</td>--%>
-                    <%--<td>${invest.pledgeRatio}</td>--%>
-                    <%--<td>${invest.annualizedRate}</td>--%>
-                    <%--<td>${invest.createtime}</td>--%>
-                    <%--<td>--%>
-                        <%--<a class="layui-btn layui-btn-sm" href="<%=basePath%>/investDetail.do?bid=${invest.id}"--%>
-                           <%--style="background: #423E9D">立即出借--%>
-                        <%--</a>--%>
-                    <%--</td>--%>
-                <%--</tr>--%>
-            <%--</c:forEach>--%>
-            <%--</tbody>--%>
-        <%--</table>--%>
-    <%--</div>--%>
-        <div class="second-content">
-            <div style="padding: 10px;border-bottom: 1px solid #ddd">
-                <span>精选标的</span>
-                <span style="float: right"><a href="<%=basePath%>/invest.do" class="">更多</a></span>
-            </div>
-            <table class="layui-table" lay-skin="nob" lay-even>
-                <colgroup>
-                    <col>
-                </colgroup>
-                <thead>
-                <tr>
-                    <th>借款编号</th>
-                    <th>借款总金额</th>
-                    <th>还款方式</th>
-                    <th>期限</th>
-                    <th>抵押资产</th>
-                    <th>质押率</th>
-                    <th>年化收益</th>
-                    <th>创建时间</th>
-                    <th>操作</th>
-                </tr>
-                </thead>
-                <tbody>
-                <c:forEach items="${pageInfo.list}" var="invest" varStatus="status">
-                    <tr>
-                        <td>${invest.id}</td>
-                        <td>${invest.borrowCount}${invest.borrowType}</td>
-                        <td>${invest.paytype}</td>
-                        <td>${invest.loanterm}</td>
-                        <td>${invest.collateralCount}${invest.collateralType}</td>
-                        <td>${invest.pledgeRatio}</td>
-                        <td>${invest.annualizedRate}</td>
-                        <td>${invest.createtime}</td>
-                        <td>
-                            <a class="layui-btn layui-btn-sm" href="<%=basePath%>/investDetail.do?bid=${invest.id}"
-                               style="background: #423E9D">立即出借
-                            </a>
-                        </td>
-                    </tr>
-                </c:forEach>
-                </tbody>
-            </table>
+    <div class="second-content">
+        <div style="padding: 10px;border-bottom: 1px solid #ddd">
+            <span>精选标的</span>
+            <span style="float: right"><a href="<%=basePath%>/invest.do" class="">更多</a></span>
         </div>
+        <table class="layui-table" lay-skin="nob" lay-even>
+            <colgroup>
+                <col>
+            </colgroup>
+            <thead>
+            <tr>
+                <th>借款编号</th>
+                <th>借款总金额</th>
+                <th>还款方式</th>
+                <th>期限</th>
+                <th>抵押资产</th>
+                <th>质押率</th>
+                <th>年化收益</th>
+                <th>创建时间</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach items="${pageInfo.list}" var="invest" varStatus="status">
+                <tr>
+                    <td>${invest.id}</td>
+                    <td>${invest.borrowCount}${invest.borrowType}</td>
+                    <td>${invest.paytype}</td>
+                    <td>${invest.loanterm}</td>
+                    <td>${invest.collateralCount}${invest.collateralType}</td>
+                    <td>${invest.pledgeRatio}</td>
+                    <td>${invest.annualizedRate}</td>
+                    <td>${invest.createtime}</td>
+                    <td>
+                        <a class="layui-btn layui-btn-sm" href="<%=basePath%>/investDetail.do?bid=${invest.id}"
+                           style="background: #423E9D">立即出借
+                        </a>
+                    </td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+    </div>
 </section>
 <section class="third">
     <div class="third-content">

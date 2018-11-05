@@ -6,5 +6,6 @@ import java.util.Map;
 import org.ht.pojo.InvestInfo;
 
 public interface InvestService {
-    public List<InvestInfo> getAll();
+    List<InvestInfo> getAll();
+    Integer createInvest(InvestInfo investInfo);
 }

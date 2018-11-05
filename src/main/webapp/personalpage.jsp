@@ -6,7 +6,6 @@
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
             + path;
-    pageContext.setAttribute("APP_PATH", request.getContextPath());
 %>
 <html>
 <head>
@@ -17,24 +16,6 @@
     <script type="text/javascript" src="<%=basePath%>/script/user.js"></script>
     <script type="text/javascript" src="<%=basePath%>/script/qrcode.js"></script>
     <script type="text/javascript">
-        function qrcode(ele, content, cqrcode) {
-            $("#" + cqrcode).html("");
-            showDlg(ele);
-            if (content !== null) {
-                new QRCode(document.getElementById(cqrcode), {
-                    text: content,
-                    width: 126,
-                    height: 126,
-                    colorDark: '#000000',
-                    colorLight: '#ffffff',
-                    correctLevel: QRCode.CorrectLevel.H
-                })
-                console.log("二维码已生成")
-            }else{
-                console.log("没有content!")
-            }
-        }
-
         function showDlg(op) {
             $("body").append("<div id='mask'></div>");
             $("#mask").addClass("mask").css("display", "block");
@@ -55,8 +36,8 @@
                 $("#changeMobileBtn").click(
                     function () {
                         $.ajax({
-                            url: "${APP_PATH}/users/updateuphone/"
-                            + $(this).attr('edit-id') + ".do",
+                            url: "<%=basePath%>/users/updateuphone/"
+                            + $(this).attr('edit-id'),
                             type: "POST",
                             data: $("#changeMobileForm").serialize(),
                             success: function (result) {
@@ -73,8 +54,8 @@
                 $("#changeEmailBtn").click(
                     function () {
                         $.ajax({
-                            url: "${APP_PATH}/users/umailbox/"
-                            + $(this).attr('edit-id') + ".do",
+                            url: "<%=basePath%>/users/umailbox/"
+                            + $(this).attr('edit-id'),
                             type: "POST",
                             data: $("#changeEmailForm").serialize(),
                             success: function (result) {
@@ -215,25 +196,6 @@
 </head>
 <body>
 <jsp:include page="head.jsp"></jsp:include>
-<%--弹框部分--%>
-<%--<div class="alert-450" id="ethQRCodeDlg" style="display: none">--%>
-<%--<div class="alert-title">--%>
-<%--<h3>ETH地址</h3>--%>
-<%--<span class="alert-close" onclick="closeDlg('ethQRCodeDlg')"></span>--%>
-<%--</div>--%>
-<%--<div class="alert-main">--%>
-<%--<div id="ethqrcode"></div>--%>
-<%--</div>--%>
-<%--</div>--%>
-<%--<div class="alert-450" id="btcQRCodeDlg" style="display: none">--%>
-<%--<div class="alert-title">--%>
-<%--<h3>BTC地址</h3>--%>
-<%--<span class="alert-close" onclick="closeDlg('btcQRCodeDlg')"></span>--%>
-<%--</div>--%>
-<%--<div class="alert-main">--%>
-<%--<div id="btcqrcode"></div>--%>
-<%--</div>--%>
-<%--</div>--%>
 
 <%--设置邮箱内容--%>
 <div class="alert-450" id="changeEmailDlg" style="display: none">
@@ -277,9 +239,9 @@
     </div>
     <div class="alert-main">
         <form id="changePhoneForm" class="alert-content">
-            <%--<div>--%>
-            <%--<span>当前邮箱：</span><span>${user.umailbox}</span>--%>
-            <%--</div>--%>
+            <div>
+            <span>当前邮箱：</span><span>${user.uphonenumber}</span>
+            </div>
             <div>
                 <label for="phone_new">手机号</label>
                 <input type="text" id="phone_new" name="phone_new"/>
@@ -307,9 +269,9 @@
     </div>
     <div class="alert-main">
         <form id="changeMobileForm" class="alert-content">
-            <div>
-                <label>原手机号</label><span>${user.uphonenumber}</span>
-            </div>
+            <%--<div>--%>
+                <%--<label>原手机号</label><span>${user.uphonenumber}</span>--%>
+            <%--</div>--%>
             <div>
                 <label for="confirm_phone">手机验证码</label>
                 <input type="text" id="confirm_phone" name="confirm_phone" style="width: 176px"/>

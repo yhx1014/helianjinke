@@ -28,6 +28,8 @@ public class InvestInfo {
 
     private Date createtime;
 
+    private String formatTime;
+
     public Integer getId() {
         return id;
     }
@@ -53,7 +55,7 @@ public class InvestInfo {
     }
 
     public String getCollateralCount() {
-        return String.format("%.4f", Double.parseDouble(collateralCount));
+        return collateralCount;
     }
 
     public void setCollateralCount(String collateralCount) {
@@ -65,7 +67,7 @@ public class InvestInfo {
     }
 
     public void setCollateralType(String collateralType) {
-        this.collateralType = collateralType == null ? null : collateralType.trim();
+        this.collateralType = collateralType;
     }
 
     public String getPaytype() {
@@ -73,7 +75,7 @@ public class InvestInfo {
     }
 
     public void setPaytype(String paytype) {
-        this.paytype = paytype == null ? null : paytype.trim();
+        this.paytype = paytype;
     }
 
     public String getLoanterm() {
@@ -81,11 +83,11 @@ public class InvestInfo {
     }
 
     public void setLoanterm(String loanterm) {
-        this.loanterm = loanterm == null ? null : loanterm.trim();
+        this.loanterm = loanterm;
     }
 
     public String getBorrowCount() {
-        return String.format("%.4f", Double.parseDouble(borrowCount));
+        return borrowCount;
     }
 
     public void setBorrowCount(String borrowCount) {
@@ -97,7 +99,7 @@ public class InvestInfo {
     }
 
     public void setBorrowType(String borrowType) {
-        this.borrowType = borrowType == null ? null : borrowType.trim();
+        this.borrowType = borrowType;
     }
 
     public String getPledgeRatio() {
@@ -105,7 +107,7 @@ public class InvestInfo {
     }
 
     public void setPledgeRatio(String pledgeRatio) {
-        this.pledgeRatio = pledgeRatio == null ? null : pledgeRatio.trim();
+        this.pledgeRatio = pledgeRatio;
     }
 
     public String getAnnualizedRate() {
@@ -113,15 +115,22 @@ public class InvestInfo {
     }
 
     public void setAnnualizedRate(String annualizedRate) {
-        this.annualizedRate = annualizedRate == null ? null : annualizedRate.trim();
+        this.annualizedRate = annualizedRate;
     }
 
-    public String getCreatetime() {
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-        return formatter.format(createtime).replaceAll("-", ".");
+    public Date getCreatetime() {
+        return createtime;
     }
 
     public void setCreatetime(Date createtime) {
         this.createtime = createtime;
+    }
+
+    public String getFormatTime() {
+        return formatTime;
+    }
+
+    public void setFormatTime(String formatTime) {
+        this.formatTime = formatTime;
     }
 }
