@@ -207,6 +207,33 @@
                 </select>
             </div>
         </div>
+        <div>
+            <label>还款方式</label>
+            <div>
+                <select>
+                    <option selected="selected">还本付息</option>
+                </select>
+            </div>
+        </div>
+        <div>
+            <label>质押率</label>
+            <div>
+                <select name="pledgeRatio">
+                    <option selected="selected" value="65%">65%</option>
+                </select>
+            </div>
+        </div>
+        <div>
+            <label>年化收益</label>
+            <div>
+                <select name="annualizedRate">
+                    <option selected="selected" value="0.03%">0.03%</option>
+                    <option value="0.05%">0.05%</option>
+                    <option value="0.07%">0.07%</option>
+                    <option value="0.09%">0.09%</option>
+                </select>
+            </div>
+        </div>
         <button class="btn-next" type="submit">提交</button>
     </form>
 </div>

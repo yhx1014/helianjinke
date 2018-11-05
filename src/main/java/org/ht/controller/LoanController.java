@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class LoanController {
@@ -26,7 +27,8 @@ public class LoanController {
 
     @RequestMapping(value = "/toloan", method = RequestMethod.POST)
     @ResponseBody
-    public Msg addLoan(InvestInfo investInfo, Model model, HttpServletRequest request) {
+    public Msg addLoan(InvestInfo investInfo, Model model, HttpSession session) {
+        investInfo.setBorrowerId((Integer) session.getAttribute("uid"));
         investService.createInvest(investInfo);
         return Msg.success();
     }
