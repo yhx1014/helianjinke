@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.ht.dao.TransactionDao">
+  <resultMap id="BaseResultMap" type="org.ht.pojo.Transaction">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="userid" jdbcType="INTEGER" property="userid" />
+    <result column="c_count" jdbcType="DOUBLE" property="cCount" />
+    <result column="c_type" jdbcType="VARCHAR" property="cType" />
+    <result column="from_address" jdbcType="VARCHAR" property="fromAddress" />
+    <result column="to_address" jdbcType="VARCHAR" property="toAddress" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="start_time" jdbcType="TIMESTAMP" property="startTime" />
+    <result column="over_time" jdbcType="TIMESTAMP" property="overTime" />
+    <result column="transaction_hash" jdbcType="VARCHAR" property="transactionHash" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, userid, c_count, c_type, from_address, to_address, state, start_time, over_time, 
+    transaction_hash
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from transaction
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from transaction
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="org.ht.pojo.Transaction">
+    insert into transaction (id, userid, c_count, 
+      c_type, from_address, to_address, 
+      state, start_time, over_time, 
+      transaction_hash)
+    values (#{id,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{cCount,jdbcType=DOUBLE}, 
+      #{cType,jdbcType=VARCHAR}, #{fromAddress,jdbcType=VARCHAR}, #{toAddress,jdbcType=VARCHAR}, 
+      #{state,jdbcType=INTEGER}, #{startTime,jdbcType=TIMESTAMP}, #{overTime,jdbcType=TIMESTAMP}, 
+      #{transactionHash,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="org.ht.pojo.Transaction">
+    insert into transaction
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userid != null">
+        userid,
+      </if>
+      <if test="cCount != null">
+        c_count,
+      </if>
+      <if test="cType != null">
+        c_type,
+      </if>
+      <if test="fromAddress != null">
+        from_address,
+      </if>
+      <if test="toAddress != null">
+        to_address,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+      <if test="startTime != null">
+        start_time,
+      </if>
+      <if test="overTime != null">
+        over_time,
+      </if>
+      <if test="transactionHash != null">
+        transaction_hash,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="cCount != null">
+        #{cCount,jdbcType=DOUBLE},
+      </if>
+      <if test="cType != null">
+        #{cType,jdbcType=VARCHAR},
+      </if>
+      <if test="fromAddress != null">
+        #{fromAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="toAddress != null">
+        #{toAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="startTime != null">
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="overTime != null">
+        #{overTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transactionHash != null">
+        #{transactionHash,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.ht.pojo.Transaction">
+    update transaction
+    <set>
+      <if test="userid != null">
+        userid = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="cCount != null">
+        c_count = #{cCount,jdbcType=DOUBLE},
+      </if>
+      <if test="cType != null">
+        c_type = #{cType,jdbcType=VARCHAR},
+      </if>
+      <if test="fromAddress != null">
+        from_address = #{fromAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="toAddress != null">
+        to_address = #{toAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="startTime != null">
+        start_time = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="overTime != null">
+        over_time = #{overTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transactionHash != null">
+        transaction_hash = #{transactionHash,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.ht.pojo.Transaction">
+    update transaction
+    set userid = #{userid,jdbcType=INTEGER},
+      c_count = #{cCount,jdbcType=DOUBLE},
+      c_type = #{cType,jdbcType=VARCHAR},
+      from_address = #{fromAddress,jdbcType=VARCHAR},
+      to_address = #{toAddress,jdbcType=VARCHAR},
+      state = #{state,jdbcType=INTEGER},
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      over_time = #{overTime,jdbcType=TIMESTAMP},
+      transaction_hash = #{transactionHash,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="getAll" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from transaction
+    where userid = #{userid,jdbcType=INTEGER}
+  </select>
+</mapper>

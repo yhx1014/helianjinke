@@ -47,7 +47,7 @@ public class LoginController {
         } else {
             model.addAttribute("users", user);
             session.setAttribute("uid",user.getUid());
-            session.setAttribute("globaluser", user);
+            session.setAttribute("user", user);
             return "redirect:index";
         }
     }

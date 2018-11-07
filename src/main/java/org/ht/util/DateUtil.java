@@ -20,4 +20,14 @@ public class DateUtil {
         }
         return null;
     }
+
+    public static String formateDatetosecond(Date date) {
+        try {
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            return formatter.format(date).replaceAll("-", ".");
+        } catch (DateTimeParseException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

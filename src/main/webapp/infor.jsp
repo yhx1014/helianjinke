@@ -89,16 +89,17 @@
                         <span class="">3600USDT</span>
                         <span>借款总金额</span>
                     </div>
-                    <div class="layui-col-md3">
-                        <span>25%</span>
-                        <span>借款总金额</span>
-                    </div>
+                    <%--<div class="layui-col-md3">--%>
+                        <%--<span>25%</span>--%>
+                        <%--<span>借款总金额</span>--%>
+                    <%--</div>--%>
                     <div class="layui-col-md3">
                         <span>12个月</span>
                         <span>借款期限</span>
                     </div>
                     <div class="layui-col-md3">
-                        <span>36%IMG</span>
+                        <span>0.03%</span>
+                        <span>年化收益</span>
                     </div>
                 </div>
             </div>
@@ -116,7 +117,7 @@
                                 <div style="font-size: 16px;padding-left: 8px;line-height: 38px">BCH</div>
                             </div>
                         </div>
-                        <input type="radio" name="xieyi" value="是" title="投资协议">
+                        <input type="radio" name="" value="是" title="我已同意投资协议">
                         <button class="layui-btn" lay-submit lay-filter="*"
                                 style="background:#423E9D;width: 280px;margin-top: 20px">我要投资
                         </button>
@@ -172,13 +173,13 @@
 <script>
     //Demo
     layui.use('form', function () {
-        var form = layui.form;
+//        var form = layui.form;
 
         //监听提交
-        form.on('submit(formDemo)', function (data) {
-            layer.msg(JSON.stringify(data.field));
-            return false;
-        });
+//        form.on('submit(formDemo)', function (data) {
+//            layer.msg(JSON.stringify(data.field));
+//            return false;
+//        });
     });
 </script>
 </body>

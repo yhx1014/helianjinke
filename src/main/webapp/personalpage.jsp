@@ -205,25 +205,15 @@
     </div>
     <div class="alert-main">
         <form id="changeEmailForm" class="alert-content">
-            <%--<div>--%>
-            <%--<span>当前邮箱：</span><span>${user.umailbox}</span>--%>
-            <%--</div>--%>
             <div>
                 <label for="email_new">邮箱</label>
                 <input type="text" id="email_new" name="email_new"/>
             </div>
             <div>
-                <label for="verify_pic">图片验证码</label>
-                <input type="text" id="verify_pic" name="verify_pic"/>
-            </div>
-            <div>
-                <label for="verify_phone">手机验证码</label>
+                <label for="verify_phone">邮箱验证码</label>
                 <input type="text" id="verify_phone" name="verify_phone" style="width: 176px"/>
                 <span class="verify-btn">获取验证码</span>
             </div>
-            <%--<div>--%>
-            <%--<span id="warning-span"></span>--%>
-            <%--</div>--%>
             <div style="border-top: 1px solid #ddd;padding-top: 20px;margin-top: 40px">
                 <button type="button" id="changePhoneBtn" edit-id="${user.uid}" class="sbumit-btn">确认</button>
             </div>
@@ -240,7 +230,8 @@
     <div class="alert-main">
         <form id="changePhoneForm" class="alert-content">
             <div>
-            <span>当前邮箱：</span><span>${user.uphonenumber}</span>
+                <label for="curr_phone">当前手机号</label>
+                <input type="text" id="curr_phone" name="phone_new"/>
             </div>
             <div>
                 <label for="phone_new">手机号</label>

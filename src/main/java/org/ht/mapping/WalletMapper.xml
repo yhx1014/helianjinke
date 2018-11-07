@@ -1,19 +1,159 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="org.ht.dao.WalletDao">
-    <resultMap type="org.ht.pojo.Wallet" id="WalletResultMap">
-        <result column="userid" property="userid"
-                jdbcType="INTEGER"/>
-        <result column="total_count" property="totalcount"
-                jdbcType="VARCHAR"/>
-        <result column="type" property="type" jdbcType="VARCHAR"/>
-        <result column="address" property="address" jdbcType="VARCHAR"/>
-    </resultMap>
-    <select id="queryWallets" resultMap="WalletResultMap"
-            parameterType="java.lang.Integer">
-		select userid ,`type`,total_count,address from wallet
-		where userid =
-		#{userid}
-	</select>
+<mapper namespace="org.ht.dao.WalletMapper">
+  <resultMap id="BaseResultMap" type="org.ht.pojo.Wallet">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="userid" jdbcType="INTEGER" property="userid" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="total_count" jdbcType="DOUBLE" property="totalCount" />
+    <result column="balance" jdbcType="DOUBLE" property="balance" />
+    <result column="invested" jdbcType="DOUBLE" property="invested" />
+    <result column="collateral" jdbcType="DOUBLE" property="collateral" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, userid, type, address, total_count, balance, invested, collateral, create_time, 
+    update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from wallet
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from wallet
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="org.ht.pojo.Wallet">
+    insert into wallet (id, userid, type, 
+      address, total_count, balance, 
+      invested, collateral, create_time, 
+      update_time)
+    values (#{id,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{type,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{totalCount,jdbcType=DOUBLE}, #{balance,jdbcType=DOUBLE}, 
+      #{invested,jdbcType=DOUBLE}, #{collateral,jdbcType=DOUBLE}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="org.ht.pojo.Wallet">
+    insert into wallet
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userid != null">
+        userid,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="totalCount != null">
+        total_count,
+      </if>
+      <if test="balance != null">
+        balance,
+      </if>
+      <if test="invested != null">
+        invested,
+      </if>
+      <if test="collateral != null">
+        collateral,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="totalCount != null">
+        #{totalCount,jdbcType=DOUBLE},
+      </if>
+      <if test="balance != null">
+        #{balance,jdbcType=DOUBLE},
+      </if>
+      <if test="invested != null">
+        #{invested,jdbcType=DOUBLE},
+      </if>
+      <if test="collateral != null">
+        #{collateral,jdbcType=DOUBLE},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.ht.pojo.Wallet">
+    update wallet
+    <set>
+      <if test="userid != null">
+        userid = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="totalCount != null">
+        total_count = #{totalCount,jdbcType=DOUBLE},
+      </if>
+      <if test="balance != null">
+        balance = #{balance,jdbcType=DOUBLE},
+      </if>
+      <if test="invested != null">
+        invested = #{invested,jdbcType=DOUBLE},
+      </if>
+      <if test="collateral != null">
+        collateral = #{collateral,jdbcType=DOUBLE},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.ht.pojo.Wallet">
+    update wallet
+    set userid = #{userid,jdbcType=INTEGER},
+      type = #{type,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      total_count = #{totalCount,jdbcType=DOUBLE},
+      balance = #{balance,jdbcType=DOUBLE},
+      invested = #{invested,jdbcType=DOUBLE},
+      collateral = #{collateral,jdbcType=DOUBLE},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="queryWallets" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+      select
+      <include refid="Base_Column_List" />
+      from wallet
+      where userid = #{userid,jdbcType=INTEGER}
+  </select>
 </mapper>

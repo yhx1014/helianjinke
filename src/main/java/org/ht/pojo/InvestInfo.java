@@ -27,7 +27,9 @@ public class InvestInfo {
     private String annualizedRate;
 
     private Date createtime;
-
+    /**
+     * 增加格式化时间
+     */
     private String formatTime;
 
     public Integer getId() {

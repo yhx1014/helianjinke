@@ -1,22 +1,35 @@
 package org.ht.pojo;
 
-import java.sql.Timestamp;
 import java.util.Date;
 
+public class Wallet {
+    private Integer id;
 
-public class Wallet extends BaseDomain {
-
-    private static final long serialVersionUID = 1L;
     private Integer userid;
+
     private String type;
+
     private String address;
-    private String totalcount;
+
+    private Double totalCount;
+
     private Double balance;
-    private Double invest;
-    private Double borrow;
-    //	private Timestamp type;
-    private String date;
-//	private Timestamp update;
+
+    private Double invested;
+
+    private Double collateral;
+
+    private Date createTime;
+
+    private Date updateTime;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public Integer getUserid() {
         return userid;
@@ -31,15 +44,23 @@ public class Wallet extends BaseDomain {
     }
 
     public void setType(String type) {
-        this.type = type;
+        this.type = type == null ? null : type.trim();
     }
 
-    public String getTotalcount() {
-        return totalcount;
+    public String getAddress() {
+        return address;
     }
 
-    public void setTotalcount(String totalcount) {
-        this.totalcount = totalcount;
+    public void setAddress(String address) {
+        this.address = address == null ? null : address.trim();
+    }
+
+    public Double getTotalCount() {
+        return totalCount;
+    }
+
+    public void setTotalCount(Double totalCount) {
+        this.totalCount = totalCount;
     }
 
     public Double getBalance() {
@@ -50,76 +71,35 @@ public class Wallet extends BaseDomain {
         this.balance = balance;
     }
 
-    public Double getInvest() {
-        return invest;
+    public Double getInvested() {
+        return invested;
     }
 
-    public void setInvest(Double invest) {
-        this.invest = invest;
+    public void setInvested(Double invested) {
+        this.invested = invested;
     }
 
-    public Double getBorrow() {
-        return borrow;
+    public Double getCollateral() {
+        return collateral;
     }
 
-    public void setBorrow(Double borrow) {
-        this.borrow = borrow;
+    public void setCollateral(Double collateral) {
+        this.collateral = collateral;
     }
 
-    //	public Date getType() {
-//		return type;
-//	}
-//	public void setType(Timestamp type) {
-//		this.type = type;
-//	}
-    public String getAddress() {
-        return address;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
-    public String getDate() {
-        return date;
+    public Date getUpdateTime() {
+        return updateTime;
     }
 
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    //	public Date getUpdate() {
-//		return update;
-//	}
-//	public void setUpdate(Timestamp update) {
-//		this.update = update;
-//	}
-    public static long getSerialversionuid() {
-        return serialVersionUID;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder builder = new StringBuilder();
-        builder.append("Wallet [userid=");
-        builder.append(userid);
-        builder.append(", totalcount=");
-        builder.append(totalcount);
-        builder.append(", balance=");
-        builder.append(balance);
-        builder.append(", invest=");
-        builder.append(invest);
-        builder.append(", borrow=");
-        builder.append(borrow);
-        builder.append(", type=");
-        builder.append(type);
-        builder.append(", address=");
-        builder.append(address);
-        builder.append(", date=");
-        builder.append(date);
-        builder.append(", update=");
-//		builder.append(update);
-        builder.append("]");
-        return builder.toString();
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 }

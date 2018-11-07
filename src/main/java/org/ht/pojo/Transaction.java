@@ -1,91 +1,118 @@
 package org.ht.pojo;
 
-public class Transaction extends BaseDomain{
+import java.util.Date;
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -8708035058942996717L;
-	private String userid;
-	private String cointype;
-	private String fromaddress;
-	private String toaddress;
-	private String type;
-	private String count;
-	private String date;
-	private String update;
-	
-	public String getUserid() {
-		return userid;
-	}
-	public void setUserid(String userid) {
-		this.userid = userid;
-	}
-	public String getCointype() {
-		return cointype;
-	}
-	public void setCointype(String cointype) {
-		this.cointype = cointype;
-	}
-	public String getFromaddress() {
-		return fromaddress;
-	}
-	public void setFromaddress(String fromaddress) {
-		this.fromaddress = fromaddress;
-	}
-	public String getToaddress() {
-		return toaddress;
-	}
-	public void setToaddress(String toaddress) {
-		this.toaddress = toaddress;
-	}
-	public String getType() {
-		return type;
-	}
-	public void setType(String type) {
-		this.type = type;
-	}
-	public String getCount() {
-		return count;
-	}
-	public void setCount(String count) {
-		this.count = count;
-	}
-	public String getDate() {
-		return date;
-	}
-	public void setDate(String date) {
-		this.date = date;
-	}
-	public String getUpdate() {
-		return update;
-	}
-	public void setUpdate(String update) {
-		this.update = update;
-	}
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Transaction [userid=");
-		builder.append(userid);
-		builder.append(", cointype=");
-		builder.append(cointype);
-		builder.append(", fromaddress=");
-		builder.append(fromaddress);
-		builder.append(", toaddress=");
-		builder.append(toaddress);
-		builder.append(", type=");
-		builder.append(type);
-		builder.append(", count=");
-		builder.append(count);
-		builder.append(", date=");
-		builder.append(date);
-		builder.append(", update=");
-		builder.append(update);
-		builder.append("]");
-		return builder.toString();
-	}
+public class Transaction {
+    private Integer id;
+
+    private Integer userid;
+
+    private Double cCount;
+
+    private String cType;
+
+    private String fromAddress;
+
+    private String toAddress;
+
+    private Integer state;
+
+    private Date startTime;
+
+    private Date overTime;
+
+    private String transactionHash;
+
+    /**
+     * 增加格式化时间
+     */
+    private String formatTime;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getUserid() {
+        return userid;
+    }
+
+    public void setUserid(Integer userid) {
+        this.userid = userid;
+    }
+
+    public Double getcCount() {
+        return cCount;
+    }
+
+    public void setcCount(Double cCount) {
+        this.cCount = cCount;
+    }
+
+    public String getcType() {
+        return cType;
+    }
+
+    public void setcType(String cType) {
+        this.cType = cType == null ? null : cType.trim();
+    }
+
+    public String getFromAddress() {
+        return fromAddress;
+    }
+
+    public void setFromAddress(String fromAddress) {
+        this.fromAddress = fromAddress == null ? null : fromAddress.trim();
+    }
+
+    public String getToAddress() {
+        return toAddress;
+    }
+
+    public void setToAddress(String toAddress) {
+        this.toAddress = toAddress == null ? null : toAddress.trim();
+    }
+
+    public Integer getState() {
+        return state;
+    }
+
+    public void setState(Integer state) {
+        this.state = state;
+    }
+
+    public Date getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(Date startTime) {
+        this.startTime = startTime;
+    }
+
+    public Date getOverTime() {
+        return overTime;
+    }
+
+    public void setOverTime(Date overTime) {
+        this.overTime = overTime;
+    }
+
+    public String getTransactionHash() {
+        return transactionHash;
+    }
+
+    public void setTransactionHash(String transactionHash) {
+        this.transactionHash = transactionHash == null ? null : transactionHash.trim();
+    }
+
+    public String getFormatTime() {
+        return formatTime;
+    }
+
+    public void setFormatTime(String formatTime) {
+        this.formatTime = formatTime;
+    }
 }
