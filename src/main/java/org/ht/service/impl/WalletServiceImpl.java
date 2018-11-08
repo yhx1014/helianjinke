@@ -11,11 +11,16 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class WalletServiceImpl implements WalletService {
-	@Autowired
-	private WalletMapper walletMapper;
+    @Autowired
+    private WalletMapper walletMapper;
 
-	public List<Wallet> querywallets(Integer userid) {
-		return walletMapper.queryWallets(userid);
-	}
+    public List<Wallet> querywallets(Integer userid) {
+        return walletMapper.queryWallets(userid);
+    }
+
+    @Override
+    public Wallet queryBalanceByType(String ctype, Integer uid) {
+        return walletMapper.queryBalanceByType(ctype, uid);
+    }
 
 }

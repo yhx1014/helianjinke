@@ -10,6 +10,8 @@
 	<context:component-scan base-package="org.ht.service" />
 	<!-- redis配置 -->
 	<!--<import resource="classpath*:spring-redis.xml" />-->
+	<!--ehcache配置-->
+	<!--<import resource="classpath*:spring-ehcache.xml" />-->
 	<!-- 数据相关配置 -->
 	<import resource="classpath*:spring-mybatis.xml" />
 

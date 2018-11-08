@@ -19,12 +19,6 @@
     <script type="text/javascript" src="<%=basePath%>/layui/layui.js" charset="utf-8"></script>
     <title>币币贷</title>
     <style>
-        #scrollDiv {
-            width: 400px;
-            height: 30px;
-            line-height: 30px;
-            overflow: hidden;
-        }
 
         #scrollDiv li {
             height: 30px;
@@ -71,7 +65,7 @@
 
         .fourth {
             margin: 0 auto;
-            padding: 90px 0px;
+            padding: 90px 0;
             background: #fff;
             position: relative;
         }
@@ -128,7 +122,7 @@
     <div class="second-content">
         <div style="padding: 10px;border-bottom: 1px solid #ddd">
             <span>精选标的</span>
-            <span style="float: right"><a href="<%=basePath%>/invest.do" class="">更多</a></span>
+            <span style="float: right"><a href="<%=basePath%>/invest" class="">更多</a></span>
         </div>
         <table class="layui-table" lay-skin="nob" lay-even>
             <colgroup>
@@ -159,7 +153,7 @@
                     <td>${invest.annualizedRate}</td>
                     <td>${invest.createtime}</td>
                     <td>
-                        <a class="layui-btn layui-btn-sm" href="<%=basePath%>/investDetail.do?bid=${invest.id}"
+                        <a class="layui-btn layui-btn-sm" href="<%=basePath%>/investDetail?bid=${invest.id}"
                            style="background: #423E9D">立即出借
                         </a>
                     </td>

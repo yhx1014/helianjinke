@@ -1136,7 +1136,7 @@ height:16px;}
 .alert-main form li{float:left;width:400px;}
 .alert-main form input[type=text]{padding:8px 0 8px 5px;height:17px;border:1px solid #D0D0D0;border-radius:2px;line-height:17px;}
 .alert-main form input[type=text]:hover{border:1px solid #0caffe;}
-.alert-main form input[type=password]{float:left;padding:9px 0 9px 5px;height:15px;border:1px solid #D0D0D0;border-radius:2px;line-height:15px;}
+.alert-main form input[type=password]{padding:9px 0 9px 5px;height:15px;border:1px solid #D0D0D0;border-radius:2px;line-height:15px;}
 .alert-main form input[type=password]:hover{border:1px solid #0caffe;}
 .alert-main form .txt-right{float:left;margin-left:133px;}
 .alert-main form .txt-center{float:left;margin-left:100px;}

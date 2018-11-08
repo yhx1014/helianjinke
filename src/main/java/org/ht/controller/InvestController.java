@@ -62,192 +62,192 @@ public class InvestController {
         return "infor";
     }
 
-    @RequestMapping("investSel")
-    public String investSel(HttpServletRequest req, Model model, String item, String param, String currpage) {
-        int pagerow = 5;
-        //每页5行
-        int currpages = 1;
-        //当前页
-        int totalpage = 0;
-        //总页数
-        int totalrow = 0;
-        //总行数
-        int outcount = 0;
-        //不够一页的数据条数
-        int count = 0;
-        if (item != null && !item.equals("")) {
-            Map<String, Object> map = new HashMap<String, Object>();
-            if (hs == null) {
-                hs = req.getSession();
-            }
-            if (item.equals("itemtype")) {
-                // 项目类型
-                if (param.equals("-1")) {
-                    // 不限
-                    if (hs.getAttribute("biaoId") != null) {
-                        hs.removeAttribute("biaoId");
-                    }
-                } else {
-                    hs.setAttribute("biaoId", param);
-                }
-            }
+//    @RequestMapping("investSel")
+//    public String investSel(HttpServletRequest req, Model model, String item, String param, String currpage) {
+//        int pagerow = 5;
+//        //每页5行
+//        int currpages = 1;
+//        //当前页
+//        int totalpage = 0;
+//        //总页数
+//        int totalrow = 0;
+//        //总行数
+//        int outcount = 0;
+//        //不够一页的数据条数
+//        int count = 0;
+//        if (item != null && !item.equals("")) {
+//            Map<String, Object> map = new HashMap<String, Object>();
+//            if (hs == null) {
+//                hs = req.getSession();
+//            }
+//            if (item.equals("itemtype")) {
+//                // 项目类型
+//                if (param.equals("-1")) {
+//                    // 不限
+//                    if (hs.getAttribute("biaoId") != null) {
+//                        hs.removeAttribute("biaoId");
+//                    }
+//                } else {
+//                    hs.setAttribute("biaoId", param);
+//                }
+//            }
+//
+//            if (item.equals("rate")) {
+//                // 利率
+//                if (param.equals("-1")) {
+//                    // 不限
+//                    if (hs.getAttribute("pincome") != null) {
+//                        hs.setAttribute("startR", "-1");
+//                        hs.removeAttribute("pincome");
+//                    }
+//                }
+//                if (param.equals("1")) {
+//                    // 12%以下
+//                    hs.setAttribute("startR", "0");
+//                    hs.setAttribute("endR", "12");
+//                    hs.setAttribute("pincome", "");
+//                }
+//                if (param.equals("2")) {
+//                    // 12%-14%
+//                    hs.setAttribute("startR", "12");
+//                    hs.setAttribute("endR", "14");
+//                    hs.setAttribute("pincome", "");
+//                }
+//                if (param.equals("3")) {
+//                    //14%-16%
+//                    hs.setAttribute("startR", "14");
+//                    hs.setAttribute("endR", "16");
+//                    hs.setAttribute("pincome", "");
+//                }
+//                if (param.equals("4")) {
+//                    // 16%及以上
+//                    hs.setAttribute("startR", "16");
+//                    hs.setAttribute("pincome", "");
+//                    hs.setAttribute("endR", "");
+//                }
+//            }
+//
+//            if (item.equals("timelimit")) {
+//                // 期限 此处默认一个月为30天
+//                if (param.equals("-1")) {// 不限
+//                    if (hs.getAttribute("pcount") != null) {
+//                        hs.setAttribute("startT", "-1");
+//                        hs.removeAttribute("pcount");
+//                    }
+//                }
+//
+//                if (param.equals("1")) {// 1月以下
+//                    hs.setAttribute("startT", "0");
+//                    hs.setAttribute("endT", "30");
+//                    hs.setAttribute("pcount", "");
+//                }
+//                if (param.equals("2")) {// 1-3月
+//                    hs.setAttribute("startT", "30");
+//                    hs.setAttribute("endT", "90");
+//                    hs.setAttribute("pcount", "");
+//                }
+//                if (param.equals("3")) {// 3-6月
+//                    hs.setAttribute("startT", "90");
+//                    hs.setAttribute("endT", "180");
+//                    hs.setAttribute("pcount", "");
+//                }
+//                if (param.equals("4")) {// 6-12月
+//                    hs.setAttribute("startT", "180");
+//                    hs.setAttribute("endT", "360");
+//                    hs.setAttribute("pcount", "");
+//                }
+//                if (param.equals("5")) {// 12月及以上
+//                    hs.setAttribute("startT", "360");
+//                    hs.setAttribute("endT", "");
+//                    hs.setAttribute("pcount", "");
+//                }
+//            }
+//
+//            List<Borrowmoney> page = proS.selList(map);
+//            totalrow = page.size();
+//            // 获取总行数
+//            if (currpage != null && !"".equals(currpage)) {
+//                currpages = Integer.parseInt(currpage);
+//            }
+//
+//            outcount = totalrow % pagerow;
+//            count = totalrow / pagerow;
+//
+//            totalpage = count;
+//
+//            if (outcount > 0) {
+//                totalpage = count + 1;
+//            }
+//
+//            if (currpages < 1) {
+//                currpages = 1;
+//            }
+//            if (currpages > totalpage) {
+//                currpages = totalpage;
+//            }
+//
+//            if (currpages == 0) {
+//                currpages = 1;
+//            }
+//
+//            Integer candp = (currpages - 1) * pagerow;
+//            map.put("startPage", candp);
+//            map.put("pageSize", 5);
+//            List<Borrowmoney> pages = proS.selList(map);
+//            model.addAttribute("totalrow", totalrow);
+//            model.addAttribute("currpages", currpages);
+//            model.addAttribute("totalpage", totalpage);
+//            model.addAttribute("list", pages);
+//        } else {
+//            Product pro = new Product();
+//            List<Product> page = proS.findList(BeanUtils.toMap(pro));
+//            totalrow = page.size();
+//            // 获取总行数
+//            if (currpage != null && !"".equals(currpage)) {
+//                currpages = Integer.parseInt(currpage);
+//            }
+//            outcount = totalrow % pagerow;
+//            count = totalrow / pagerow;
+//            totalpage = count;
+//            if (outcount > 0) {
+//                totalpage = count + 1;
+//            }
+//            if (currpages < 1) {
+//                currpages = 1;
+//            }
+//            if (currpages > totalpage) {
+//                currpages = totalpage;
+//            }
+//            if (currpages == 0) {
+//                currpages = 1;
+//            }
+//            Integer candp = (currpages - 1) * pagerow;
+//            pro.setStartPage(candp);
+//            pro.setPageSize(5);
+//            List<Product> list = proS.findList(BeanUtils.toMap(pro));
+//            model.addAttribute("totalrow", totalrow);
+//            model.addAttribute("currpages", currpages);
+//            model.addAttribute("totalpage", totalpage);
+//            model.addAttribute("list", list);
+//        }
+//        Map<String, Object> map = new HashMap<String, Object>();
+//        List<Biao> biao = biaoS.findList(map);
+//        model.addAttribute("biao", biao);
+//        return "investinfo";
+//    }
 
-            if (item.equals("rate")) {
-                // 利率
-                if (param.equals("-1")) {
-                    // 不限
-                    if (hs.getAttribute("pincome") != null) {
-                        hs.setAttribute("startR", "-1");
-                        hs.removeAttribute("pincome");
-                    }
-                }
-                if (param.equals("1")) {
-                    // 12%以下
-                    hs.setAttribute("startR", "0");
-                    hs.setAttribute("endR", "12");
-                    hs.setAttribute("pincome", "");
-                }
-                if (param.equals("2")) {
-                    // 12%-14%
-                    hs.setAttribute("startR", "12");
-                    hs.setAttribute("endR", "14");
-                    hs.setAttribute("pincome", "");
-                }
-                if (param.equals("3")) {
-                    //14%-16%
-                    hs.setAttribute("startR", "14");
-                    hs.setAttribute("endR", "16");
-                    hs.setAttribute("pincome", "");
-                }
-                if (param.equals("4")) {
-                    // 16%及以上
-                    hs.setAttribute("startR", "16");
-                    hs.setAttribute("pincome", "");
-                    hs.setAttribute("endR", "");
-                }
-            }
-
-            if (item.equals("timelimit")) {
-                // 期限 此处默认一个月为30天
-                if (param.equals("-1")) {// 不限
-                    if (hs.getAttribute("pcount") != null) {
-                        hs.setAttribute("startT", "-1");
-                        hs.removeAttribute("pcount");
-                    }
-                }
-
-                if (param.equals("1")) {// 1月以下
-                    hs.setAttribute("startT", "0");
-                    hs.setAttribute("endT", "30");
-                    hs.setAttribute("pcount", "");
-                }
-                if (param.equals("2")) {// 1-3月
-                    hs.setAttribute("startT", "30");
-                    hs.setAttribute("endT", "90");
-                    hs.setAttribute("pcount", "");
-                }
-                if (param.equals("3")) {// 3-6月
-                    hs.setAttribute("startT", "90");
-                    hs.setAttribute("endT", "180");
-                    hs.setAttribute("pcount", "");
-                }
-                if (param.equals("4")) {// 6-12月
-                    hs.setAttribute("startT", "180");
-                    hs.setAttribute("endT", "360");
-                    hs.setAttribute("pcount", "");
-                }
-                if (param.equals("5")) {// 12月及以上
-                    hs.setAttribute("startT", "360");
-                    hs.setAttribute("endT", "");
-                    hs.setAttribute("pcount", "");
-                }
-            }
-
-            List<Borrowmoney> page = proS.selList(map);
-            totalrow = page.size();
-            // 获取总行数
-            if (currpage != null && !"".equals(currpage)) {
-                currpages = Integer.parseInt(currpage);
-            }
-
-            outcount = totalrow % pagerow;
-            count = totalrow / pagerow;
-
-            totalpage = count;
-
-            if (outcount > 0) {
-                totalpage = count + 1;
-            }
-
-            if (currpages < 1) {
-                currpages = 1;
-            }
-            if (currpages > totalpage) {
-                currpages = totalpage;
-            }
-
-            if (currpages == 0) {
-                currpages = 1;
-            }
-
-            Integer candp = (currpages - 1) * pagerow;
-            map.put("startPage", candp);
-            map.put("pageSize", 5);
-            List<Borrowmoney> pages = proS.selList(map);
-            model.addAttribute("totalrow", totalrow);
-            model.addAttribute("currpages", currpages);
-            model.addAttribute("totalpage", totalpage);
-            model.addAttribute("list", pages);
-        } else {
-            Product pro = new Product();
-            List<Product> page = proS.findList(BeanUtils.toMap(pro));
-            totalrow = page.size();
-            // 获取总行数
-            if (currpage != null && !"".equals(currpage)) {
-                currpages = Integer.parseInt(currpage);
-            }
-            outcount = totalrow % pagerow;
-            count = totalrow / pagerow;
-            totalpage = count;
-            if (outcount > 0) {
-                totalpage = count + 1;
-            }
-            if (currpages < 1) {
-                currpages = 1;
-            }
-            if (currpages > totalpage) {
-                currpages = totalpage;
-            }
-            if (currpages == 0) {
-                currpages = 1;
-            }
-            Integer candp = (currpages - 1) * pagerow;
-            pro.setStartPage(candp);
-            pro.setPageSize(5);
-            List<Product> list = proS.findList(BeanUtils.toMap(pro));
-            model.addAttribute("totalrow", totalrow);
-            model.addAttribute("currpages", currpages);
-            model.addAttribute("totalpage", totalpage);
-            model.addAttribute("list", list);
-        }
-        Map<String, Object> map = new HashMap<String, Object>();
-        List<Biao> biao = biaoS.findList(map);
-        model.addAttribute("biao", biao);
-        return "investinfo";
-    }
-
-    public static void main(String s[]) {
-        Date date = new Date();
-        long dl = date.getTime();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        Date d = new Date();
-        try {
-            d = sdf.parse("2017-03-05 20:27:00");
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        long dt = d.getTime();
-        long day = (dt - dl) / (24 * 60 * 60 * 1000);
-        System.out.println(day + "天");
-    }
+//    public static void main(String s[]) {
+//        Date date = new Date();
+//        long dl = date.getTime();
+//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//        Date d = new Date();
+//        try {
+//            d = sdf.parse("2017-03-05 20:27:00");
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
+//        long dt = d.getTime();
+//        long day = (dt - dl) / (24 * 60 * 60 * 1000);
+//        System.out.println(day + "天");
+//    }
 }

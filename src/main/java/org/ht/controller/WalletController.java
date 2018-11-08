@@ -39,6 +39,13 @@ public class WalletController {
         return list;
     }
 
+    @RequestMapping(value = "/getBalace", method = RequestMethod.GET)
+    @ResponseBody
+    public Double getBalanceByType(@RequestParam(value = "ctype") String ctype, HttpSession session) {
+        Integer userid = (Integer) session.getAttribute("uid");
+        return walletService.queryBalanceByType(ctype, userid).getBalance();
+    }
+
     @RequestMapping("/assets")
     public String getTransactions(@RequestParam(defaultValue = "1", value = "pn") Integer pn, HttpSession session, Model model) {
         Users user = (Users) session.getAttribute("user");

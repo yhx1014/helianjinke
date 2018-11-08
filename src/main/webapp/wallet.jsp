@@ -137,8 +137,8 @@
                 var collateral = $("<td></td>").append("总数量估值");
                 var freeze = $("<td></td>").append("已冻结")
                 var balance = $("<td></td>").append(item.balance);
-                var topupbtn = $("<button></button>").append("充值");
-                var withdrawbtn = $("<button></button>").append("提现");
+                var topupbtn = $("<button></button>").append("充值").addClass("layui-btn layui-btn-sm");
+                var withdrawbtn = $("<button></button>").append("提现").addClass("layui-btn layui-btn-sm");
                 var buttontd = $("<td></td>").append(topupbtn).append(withdrawbtn);
                 $("<tr></tr>").append(type)
                     .append(totalCount)
@@ -156,7 +156,6 @@
             margin: 20px auto;
             background: #fff;
             padding: 20px;
-
         }
     </style>
 </head>

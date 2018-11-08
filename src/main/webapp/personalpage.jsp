@@ -107,7 +107,6 @@
             margin-right: 3px;
             display: inline-block;
             background-image: url(images/bor_pic01.png);
-            display: inline-block;
         }
 
         .security-setting-icon {
@@ -155,34 +154,40 @@
             background: #000;
             opacity: 0.3;
         }
-        .changeEmailForm{
+
+        .changeEmailForm {
 
         }
-        .alert-content{
+
+        .alert-content {
             text-align: left;
             margin: 0 34px;
             line-height: 44px;
         }
-        .alert-content label{
+
+        .alert-content label {
             display: inline-block;
             width: 84px;
             text-align: right;
             padding-right: 10px;
         }
-        .alert-content input{
+
+        .alert-content input {
             width: 270px;
         }
-        .verify-btn{
+
+        .verify-btn {
             display: inline-block;
             width: 90px;
-            height:34px;
+            height: 34px;
             line-height: 34px;
             background: #423E9D;
             color: #fff;
             text-align: center;
             font-size: 12px;
         }
-        .sbumit-btn{
+
+        .sbumit-btn {
             width: 180px;
             background: #423E9D;
             margin-left: 100px;
@@ -261,7 +266,7 @@
     <div class="alert-main">
         <form id="changeMobileForm" class="alert-content">
             <%--<div>--%>
-                <%--<label>原手机号</label><span>${user.uphonenumber}</span>--%>
+            <%--<label>原手机号</label><span>${user.uphonenumber}</span>--%>
             <%--</div>--%>
             <div>
                 <label for="confirm_phone">手机验证码</label>
@@ -431,22 +436,6 @@
                     <i class="security-setting-icon"></i> <span>安全设置</span>
                 </div>
                 <div class="user-info">
-                    <%--<div class="table-tr">--%>
-                    <%--<div class="table-th">ETH地址</div>--%>
-                    <%--<div class="table-td" id="ethAddress">${user.ethaddress}</div>--%>
-                    <%--<div class="table-last">--%>
-                    <%--<span><a href="javascript:void(0)"--%>
-                    <%--onclick="qrcode('ethQRCodeDlg','${user.ethaddress}','ethqrcode')">查看二维码</a></span>--%>
-                    <%--</div>--%>
-                    <%--</div>--%>
-                    <%--<div class="table-tr">--%>
-                    <%--<div class="table-th">BTC地址</div>--%>
-                    <%--<div class="table-td" id="btcaddress">${user.btcaddress}</div>--%>
-                    <%--<div class="table-last">--%>
-                    <%--<span><a href="javascript:void(0)"--%>
-                    <%--onclick="qrcode('btcQRCodeDlg','${user.btcaddress}','btcqrcode')">查看二维码</a></span>--%>
-                    <%--</div>--%>
-                    <%--</div>--%>
                     <div class="table-tr">
                         <div class="table-th">手机绑定</div>
                         <div class="table-td">${user.upassword}</div>

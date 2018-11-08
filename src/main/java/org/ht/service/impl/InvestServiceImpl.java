@@ -33,7 +33,7 @@ public class InvestServiceImpl implements InvestService {
 
     @Override
     public Integer createInvest(InvestInfo investInfo) {
-        investInfo.setPaytype("还本付息");
+//        investInfo.setPaytype("还本付息");
         investInfo.setCreatetime(new Date());
         investInfoDao.insertSelective(investInfo);
         return 1;

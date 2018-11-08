@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.ht.dao.CoinpriceMapper">
+    <resultMap id="BaseResultMap" type="org.ht.pojo.Coinprice">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="symbol" jdbcType="VARCHAR" property="symbol"/>
+        <result column="websit_slug" jdbcType="VARCHAR" property="websitSlug"/>
+        <result column="rank" jdbcType="VARCHAR" property="rank"/>
+        <result column="price" jdbcType="VARCHAR" property="price"/>
+        <result column="time" jdbcType="VARCHAR" property="time"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, name, symbol, websit_slug, rank, price, time
+  </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from coinprice
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from coinprice
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="org.ht.pojo.Coinprice">
+    insert into coinprice (id, name, symbol, 
+      websit_slug, rank, price, 
+      time)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{symbol,jdbcType=VARCHAR}, 
+      #{websitSlug,jdbcType=VARCHAR}, #{rank,jdbcType=VARCHAR}, #{price,jdbcType=VARCHAR}, 
+      #{time,jdbcType=VARCHAR})
+  </insert>
+    <insert id="insertSelective" parameterType="org.ht.pojo.Coinprice">
+        insert into coinprice
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="name != null">
+                name,
+            </if>
+            <if test="symbol != null">
+                symbol,
+            </if>
+            <if test="websitSlug != null">
+                websit_slug,
+            </if>
+            <if test="rank != null">
+                rank,
+            </if>
+            <if test="price != null">
+                price,
+            </if>
+            <if test="time != null">
+                time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="symbol != null">
+                #{symbol,jdbcType=VARCHAR},
+            </if>
+            <if test="websitSlug != null">
+                #{websitSlug,jdbcType=VARCHAR},
+            </if>
+            <if test="rank != null">
+                #{rank,jdbcType=VARCHAR},
+            </if>
+            <if test="price != null">
+                #{price,jdbcType=VARCHAR},
+            </if>
+            <if test="time != null">
+                #{time,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="org.ht.pojo.Coinprice">
+        update coinprice
+        <set>
+            <if test="name != null">
+                name = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="symbol != null">
+                symbol = #{symbol,jdbcType=VARCHAR},
+            </if>
+            <if test="websitSlug != null">
+                websit_slug = #{websitSlug,jdbcType=VARCHAR},
+            </if>
+            <if test="rank != null">
+                rank = #{rank,jdbcType=VARCHAR},
+            </if>
+            <if test="price != null">
+                price = #{price,jdbcType=VARCHAR},
+            </if>
+            <if test="time != null">
+                time = #{time,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="org.ht.pojo.Coinprice">
+    update coinprice
+    set name = #{name,jdbcType=VARCHAR},
+      symbol = #{symbol,jdbcType=VARCHAR},
+      websit_slug = #{websitSlug,jdbcType=VARCHAR},
+      rank = #{rank,jdbcType=VARCHAR},
+      price = #{price,jdbcType=VARCHAR},
+      time = #{time,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+    <select id="getAll" parameterType="org.ht.pojo.Coinprice" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from coinprice
+    </select>
+    <select id="getPrice" resultType="org.ht.pojo.Coinprice">
+        select symbol,price,`time` from coinprice order by id desc limit 0,3;
+    </select>
+</mapper>
