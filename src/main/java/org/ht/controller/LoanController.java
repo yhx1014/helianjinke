@@ -37,7 +37,7 @@ public class LoanController {
         return coinpriceService.getCoinPrice();
     }
 
-    @RequestMapping(value = "/toloan", method = RequestMethod.POST)
+    @RequestMapping(value = "/addloan", method = RequestMethod.POST)
     @ResponseBody
     public Msg addLoan(InvestInfo investInfo, Model model, HttpSession session) {
         investInfo.setBorrowerId((Integer) session.getAttribute("uid"));

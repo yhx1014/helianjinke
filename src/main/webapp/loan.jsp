@@ -86,27 +86,38 @@
         }
     </style>
     <script>
+        var _priceJSON;
+        var _coinPrice = new Array();
+        var _USDTPrice;
+        var _ETHPrice;
+        var _BTCPrice;
         $(document).ready(
             $.ajax({
-                url: "<%=basePath%>/getCoinPrice",
                 type: "GET",
+                url: "<%=basePath%>/getCoinPrice",
                 success: function (data) {
                     $.each(data, function (index, item) {
-                        if ($("#collateralType").val() === item.symbol) {
-                            var coin = new Coin(item.price);
-                        }
-//                        参数rate = (BTC/ETH).price /(USDT).price
-                        console.log(item.symbol);
-                        console.log(item.price);
-                        console.log(item.time);
-                    })
+                        _coinPrice.push(item.price);
+                    });
+                    _USDTPrice = _coinPrice[0];
+                    _ETHPrice = _coinPrice[1];
+                    _BTCPrice = _coinPrice[2];
+                    new Coin(_BTCPrice / _USDTPrice);
                 }
             })
         );
 
-        function print(data) {
-            console.log();
-//            console.log(data.symbol + data.price + data.time);
+        function calculateRatio(rate) {
+            new Coin(rate);
+        }
+
+        function form_submit() {
+            $("#confirmDlg").css("display", "none");
+            $("#confirmPwdDlg").css("display", "block");
+        }
+
+        function pwd_submit() {
+            $("#borrowingform").submit();
         }
 
         function showDlg(op) {
@@ -120,14 +131,31 @@
             $("#" + op).css("display", "none");
         }
 
-
         layui.use('form', function () {
             var form = layui.form;
+            form.on('submit(loan_btn_next)', function (data) {
+                var resultJson = data.field;
+                console.log(JSON.stringify(data.field));
+                showDlg('confirmDlg');
+                return false;
+            });
+            form.on('select(collateralTypes)', function (data) {
+                if (data.value == "BTC") {
+                    calculateRatio(_BTCPrice / _USDTPrice);
+                } else if (data.value == "ETH") {
+                    calculateRatio(_ETHPrice / _USDTPrice);
+                }
+            });
             form.verify({
-                check: [
-                    /^[+]{0,1}(\d+)$/,  //正则表达式
-                    '余额不足，请充值'  //提示信息
-                ]
+//                check: [
+//                    /^[+]{0,1}(\d+)$/,  //正则表达式
+//                    '余额不足，请充值'  //提示信息
+//                ]
+                borrowCount: function (value) {
+                    if (parseFloat(value) > 5000) {
+                        return '借款数目不得大于5000！'
+                    }
+                }
             });
         });
     </script>
@@ -136,14 +164,14 @@
 <body>
 <jsp:include page="head.jsp"/>
 <div class="applyc clearfix">
-    <form action="" method="post" class="layui-form">
+    <form action="<%=basePath%>/addloan" method="post" class="layui-form" id="borrowingform">
         <div class="order-title">创建借款订单</div>
         <div class="layui-row">
             <div class="layui-col-md6">
                 <div class="layui-form-item re-heigth">
                     <label class="layui-form-label" for="collateralType">质押币种</label>
                     <div class="layui-input-block">
-                        <select id="collateralType" name="collateralType">
+                        <select id="collateralType" name="collateralType" lay-filter="collateralTypes">
                             <option value="BTC" selected>BTC</option>
                             <option value="ETH">ETH</option>
                         </select>
@@ -153,7 +181,7 @@
                 <div class="layui-form-item re-heigth">
                     <label class="layui-form-label">质押数量</label>
                     <div class="layui-input-block">
-                        <input type="text" name="collateralCount" oninput="print()"
+                        <input type="number" lay-verify="required" name="collateralCount"
                                autocomplete="off" data-attr='coin' id="collateralCount"
                                placeholder="请输入数量" class="layui-input">
                     </div>
@@ -184,7 +212,7 @@
                     <label class="layui-form-label">借款币种</label>
                     <div class="layui-input-block">
                         <select name="borrowType">
-                            <option value="USDT">USDT</option>
+                            <option value="USDT" selected>USDT</option>
                         </select>
                     </div>
                 </div>
@@ -192,7 +220,7 @@
                 <div class="layui-form-item re-heigth">
                     <label class="layui-form-label">借款数量</label>
                     <div class="layui-input-block">
-                        <input type="text" name="borrowCount" autocomplete="off"
+                        <input type="number" lay-verify="borrowCount" name="borrowCount" autocomplete="off"
                                data-attr='coin' id="borrowCount"
                                placeholder="请输入数量" class="layui-input">
                     </div>
@@ -213,7 +241,7 @@
                 <div class="layui-form-item re-heigth">
                     <label class="layui-form-label">年化收益</label>
                     <div class="layui-input-block">
-                        <select name="brate" style="lay-verify:required;">
+                        <select name="annualizedRate" style="lay-verify:required;">
                             <option selected="selected" value="0.03%">0.03%</option>
                             <option value="0.05%">0.05%</option>
                             <option value="0.07%">0.07%</option>
@@ -223,7 +251,8 @@
                 </div>
             </div>
         </div>
-        <button type="button" onclick="showDlg('confirmDlg')" class="layui-btn btn-next" style="margin-bottom: 30px">
+        <button type="button" onclick="" lay-submit class="layui-btn btn-next" lay-even=""
+                style="margin-bottom: 30px" lay-filter="loan_btn_next">
             下一步
         </button>
     </form>
@@ -246,7 +275,7 @@
                 <span id="warning-span"></span>
             </div>
             <div style="padding-top: 20px;margin-top: 40px">
-                <button type="button" id="confirmBtn" onclick="alertTip()" class="confirm-btn">
+                <button type="button" id="confirmBtn" onclick="pwd_submit()" class="confirm-btn">
                     确定
                 </button>
             </div>
@@ -259,34 +288,41 @@
         <span class="alert-close" onclick="closeDlg('confirmDlg')"></span>
     </div>
     <div class="alert-main">
-        <form class="alert-content">
+        <div class="layui-table">
             <div>
-                <label for="deal_psw">已抵押</label>
+                <span for="deal_psw">已抵押</span>
+                <input type="text">
             </div>
             <div>
-                <label for="deal_psw">需要借款</label>
+                <span for="deal_psw">需要借款</span>
+                <input type="text">
             </div>
             <div>
-                <label for="deal_psw">支付利息</label>
+                <span for="deal_psw">支付利息</span>
+                <input type="text">
             </div>
             <div>
-                <label for="deal_psw">手续费</label>
+                <span for="deal_psw">手续费</span>
+                <input type="text">
             </div>
             <div>
-                <label for="deal_psw">借款周期</label>
+                <span for="deal_psw">借款周期</span>
+                <input type="text">
             </div>
             <div>
-                <label for="deal_psw">累计到账</label>
+                <span for="deal_psw">累计到账</span>
+                <input type="text">
             </div>
             <div>
-                <label for="deal_psw">共计</label>
+                <span for="deal_psw">共计</span>
+                <input type="text">
             </div>
             <div style="padding-top: 20px;margin-top: 40px">
-                <button type="button" onclick="alertTip()" class="confirm-btn">
+                <button type="button" onclick="form_submit()" class="confirm-btn">
                     确定
                 </button>
             </div>
-        </form>
+        </div>
     </div>
 </div>
 <%--成功提示--%>
