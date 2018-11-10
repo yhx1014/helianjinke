@@ -57,38 +57,6 @@
             <artifactId>quartz-jboss</artifactId>
             <version>1.5.1</version>
         </dependency>
-        <!-- mybatis二级缓存      start      -->
-        <dependency>
-            <groupId>org.mybatis.caches</groupId>
-            <artifactId>mybatis-ehcache</artifactId>
-            <version>1.1.0</version>
-        </dependency>
-        <!-- 调度器 -->
-        <dependency>
-            <groupId>org.quartz-scheduler</groupId>
-            <artifactId>quartz</artifactId>
-            <version>2.2.3</version>
-        </dependency>
-
-        <!-- mybatis二级缓存    end    -->
-        <dependency>
-            <groupId>com.google.code.simple-spring-memcached</groupId>
-            <artifactId>xmemcached-provider</artifactId>
-            <version>3.1.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.google.code.simple-spring-memcached</groupId>
-            <artifactId>spymemcached-provider</artifactId>
-            <version>3.1.0</version>
-        </dependency>
-
-        <!-- 定时器 -->
-        <dependency>
-            <groupId>quartz</groupId>
-            <artifactId>quartz-jboss</artifactId>
-            <version>1.5.1</version>
-        </dependency>
 
         <!-- hjy POI -->
         <dependency>
@@ -128,14 +96,6 @@
             <version>1.2.3</version>
         </dependency>
 
-        <!-- 分页插件 -->
-        <!-- mybatis分页插件依赖 -->
-        <dependency>
-            <groupId>com.github.pagehelper</groupId>
-            <artifactId>pagehelper</artifactId>
-            <version>4.1.6</version>
-        </dependency>
-
         <dependency>
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-ehcache</artifactId>
@@ -148,13 +108,6 @@
             </exclusions>
         </dependency>
 
-        <!--<dependency>-->
-            <!--<groupId>javax</groupId>-->
-            <!--<artifactId>javaee-api</artifactId>-->
-            <!--<version>7.0</version>-->
-            <!--<scope>provided</scope>-->
-        <!--</dependency>-->
-
         <!--j2ee -->
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -163,12 +116,6 @@
             <scope>provided</scope>
         </dependency>
 
-        <!--<dependency>-->
-            <!--<groupId>javax.servlet.jsp</groupId>-->
-            <!--<artifactId>javax.servlet.jsp-api</artifactId>-->
-            <!--<version>${servlet.jsp.version}</version>-->
-            <!--<scope>provided</scope>-->
-        <!--</dependency>-->
         <!-- spring核心包 -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -225,6 +172,18 @@
         </dependency>
 
         <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-redis</artifactId>
+            <version>1.8.16.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
+            <version>2.0</version>
+        </dependency>
+
+        <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
             <version>${druid.version}</version>
@@ -252,19 +211,6 @@
             <artifactId>mybatis-spring</artifactId>
             <version>1.2.2</version>
         </dependency>
-        <!--<dependency>-->
-            <!--<groupId>javax.transaction</groupId>-->
-            <!--<artifactId>javax.transaction-api</artifactId>-->
-            <!--<version>1.2</version>-->
-        <!--</dependency>-->
-
-        <!--&lt;!&ndash;Mybatis 通用 Mapper &ndash;&gt;-->
-        <!--<dependency>-->
-        <!--<groupId>tk.mybatis</groupId>-->
-        <!--<artifactId>mapper</artifactId>-->
-        <!--<version>3.3.7</version>-->
-        <!--</dependency>-->
-
         <!--分页助手 -->
         <dependency>
             <groupId>com.github.pagehelper</groupId>
@@ -272,12 +218,6 @@
             <version>5.0.0</version>
         </dependency>
 
-        <!-- 导入java ee jar 包 -->
-        <!--<dependency>-->
-            <!--<groupId>javax</groupId>-->
-            <!--<artifactId>javaee-api</artifactId>-->
-            <!--<version>7.0</version>-->
-        <!--</dependency>-->
         <!-- 导入Mysql数据库链接jar包 -->
         <dependency>
             <groupId>mysql</groupId>
@@ -314,8 +254,18 @@
             <artifactId>slf4j-api</artifactId>
             <version>${slf4j.version}</version>
         </dependency>
+        <!--阿里云SMS服务-->
+        <dependency>
+            <groupId>com.aliyun</groupId>
+            <artifactId>aliyun-java-sdk-core</artifactId>
+            <version>4.0.6</version>
+        </dependency>
+        <dependency>
+            <groupId>com.aliyun</groupId>
+            <artifactId>aliyun-java-sdk-dysmsapi</artifactId>
+            <version>1.1.0</version>
+        </dependency>
 
-        <!-- log end -->
         <!-- 映入JSON -->
         <dependency>
             <groupId>org.codehaus.jackson</groupId>
@@ -341,34 +291,10 @@
         </dependency>
 
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>1.7.2</version>
-        </dependency>
-
-        <!--<dependency>-->
-        <!--<groupId>javax.validation</groupId>-->
-        <!--<artifactId>validation-api</artifactId>-->
-        <!--<version>1.1.0.Final</version>-->
-        <!--</dependency>-->
-
-        <!--<dependency>-->
-        <!--<groupId>org.hibernate</groupId>-->
-        <!--<artifactId>hibernate-validator</artifactId>-->
-        <!--<version>4.3.0.Final</version>-->
-        <!--</dependency>-->
-
-        <dependency>
             <groupId>org.mybatis.generator</groupId>
             <artifactId>mybatis-generator-core</artifactId>
             <version>1.3.5</version>
         </dependency>
-
-        <!--<dependency>-->
-        <!--<groupId>org.mybatis.generator</groupId>-->
-        <!--<artifactId>mybatis-generator-maven-plugin</artifactId>-->
-        <!--<version>1.3.7</version>-->
-        <!--</dependency>-->
 
         <dependency>
             <groupId>commons-codec</groupId>
@@ -380,7 +306,6 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.11</version>
-            <!--<scope>test</scope>-->
         </dependency>
 
         <dependency>

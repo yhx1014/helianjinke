@@ -29,7 +29,7 @@
                 location.href = "<%=basePath%>/query.do?id=${user.uid}";
             } else {
                 alert("请先登入!");
-                location.href = "<%=basePath%>/login.do";
+                location.href = "<%=basePath%>/login";
             }
         }
     </script>
@@ -51,12 +51,12 @@
 
         <div class="fn-right login-form">
             <c:if test="${user.unickname==null }">
-                <a href="<%=basePath%>/register.jsp" title="免费注册">免费注册</a>
-                <a href="<%=basePath%>/login.jsp" class="js-login" title="登录">登录</a>
+                <a href="<%=basePath%>/register" title="免费注册">免费注册</a>
+                <a href="<%=basePath%>/login" class="js-login" title="登录">登录</a>
             </c:if>
             <c:if test="${user!=null }">
                 <a href="#" onclick="keys();" title="名字">${user.unickname}</a>
-                <a href="<%=basePath%>/users/exit" class="js-login" title="退出">退出</a>
+                <a href="<%=basePath%>/user/logout" class="js-login" title="退出">退出</a>
             </c:if>
         </div>
     </div>

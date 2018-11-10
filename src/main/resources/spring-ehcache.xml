@@ -8,6 +8,4 @@
     <bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
         <property name="cacheManager" ref="ehcache"/>
     </bean>
-    <!-- 启用缓存注解开关 -->
-    <!--<cache:annotation-driven cache-manager="cacheManager"/>-->
 </beans>

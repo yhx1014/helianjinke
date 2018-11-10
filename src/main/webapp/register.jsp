@@ -12,6 +12,9 @@
 <head>
     <title>币币贷</title>
     <link href="<%=basePath%>/css/common.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="<%=basePath%>/layui/css/layui.css" media="all">
+    <script type="text/javascript" src="<%=basePath%>/script/jquery.min.js"></script>
+    <script type="text/javascript" src="<%=basePath%>/layui/layui.js"></script>
 </head>
 <style type="text/css">
     .wrap {
@@ -20,7 +23,6 @@
         clear: both;
         background: #fff;
         padding: 20px;
-        min-height: 680px;
     }
 
     .tdbModule {
@@ -29,8 +31,7 @@
     }
 
     .registerTitle {
-        font-size: 20px;
-        border-bottom: 1px solid #aaa;
+        font-size: 24px;
         padding-bottom: 10px;
         text-align: center;
     }
@@ -40,27 +41,18 @@
         margin-top: 16px;
     }
 
-    .input {
-        width: 386px;
-        height: 36px;
-        margin-bottom: 4px;
-        padding-left: 10px;
-        outline: none;
+    .label {
+        margin-left: 2px;
     }
 
     .regist_submit {
-        width: 386px;
-        height: 40px;
-        text-align: center;
-        border: 1px solid #efefef;
-        display: block;
-        background: #DDE4EF;
-        outline: none;
+        width: 400px;
+        background: #423E9D;
     }
 
-    .regist_submit:hover {
-        background: #423E9D;
-        color: #fff;
+    .agree {
+        width: 10px;
+        height: 10px;
     }
 </style>
 <body>
@@ -69,97 +61,114 @@
     <div class="tdbModule register">
         <div class="registerTitle">注册</div>
         <div class="registerCont">
-            <form action="<%=basePath%>users/insert.do" method="post">
-                <ul>
-                    <li class="telNumber">
-                        <div class="">用户名</div>
-                        <input type="text" class="input username" id="username"
-                               onblur="return phone();" name="unickname" tabindex="1" maxlength="11">
-                    </li>
-
-                    <li class="telNumber">
-                        <div class="dis">手机号码</div>
-                        <input type="text" class="input _phoneNum" id="userphone"
-                               onblur="return phone();" name="uphonenumber" tabindex="1" maxlength="11">
-                    </li>
-
-                    <li>
-                        <div class="dis">短信验证码</div>
-                        <input type="text"
-                               onblur="return checkyanzhengma();"
-                               class="input _password"
-                               maxlength="16" tabindex="1">
-                    </li>
-
-                    <li>
-                        <div class="dis">密码</div>
-                        <input type="password"
-                               onblur="return checkupassword();"
-                               name="upassword" id="password" class="input _password"
-                               maxlength="16" tabindex="1"
-                               placeholder="6-16个字符，英文、数字组成"
-                        >
-                    </li>
-
-                    <li><span class="dis">确认密码</span>
-                        <input type="password"
-                               name="repeatPassword"
-                               onblur="return checkupassword1();" id="repeatPassword"
-                               class="input _repeatPassword" maxlength="16" tabindex="1" placeholder="请再次输入密码">
-                    </li>
-
-                    <li class="agree"><input name="protocol" id="protocol"
-                                             type="checkbox" value="" checked="checked"> 我已阅读并同意《<a href=""
-                                                                                                    target="_black">服务协议</a>》
-                    </li>
-                    <li class="btn"><input type="submit" class="regist_submit" style="margin-top: 16px"/></li>
-                </ul>
+            <form action="/user/toRegister" class="layui-form" type="post">
+                <div class="layui-form-item">
+                    <span class="label">手机号码</span>
+                    <input type="text" name="userphone" placeholder="＋86中国大陆"
+                           id="userphone"
+                           lay-verify='required|phone'
+                           maxlength="11"
+                           autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-form-item">
+                    <span class="label">短信验证码</span>
+                    <input type="text" name="verification" placeholder="请输入短信验证码"
+                           id="verification"
+                           lay-verify='required'
+                           autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-form-item">
+                    <span class="label">密码</span>
+                    <input type="text" name="password" placeholder="请输入密码"
+                           id="password"
+                           lay-verify='required|pass'
+                           autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-form-item">
+                    <span class="label">确认密码</span>
+                    <input type="text" name="repassword" placeholder="请再次输入密码"
+                           id="repassword"
+                           lay-verify='required|confirmpass'
+                           autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-form-item">
+                    <button class="layui-btn regist_submit" lay-submit lay-filter="*">注册</button>
+                    <div><input name="protocol" id="protocol"
+                                class="agree"
+                                type="checkbox" checked>
+                        我已阅读并同意《<a href="" target="_black">服务协议</a>》
+                    </div>
+                </div>
             </form>
+            <%--<form class="layui-form">--%>
+            <%--<ul>--%>
+            <%--<li class="telNumber">--%>
+            <%--<div class="">用户名</div>--%>
+            <%--<input type="text" class="input username" id="username"--%>
+            <%--lay-verify="required"--%>
+            <%--onblur="return phone();" name="unickname" tabindex="1" maxlength="11">--%>
+            <%--</li>--%>
+
+            <%--<li class="telNumber">--%>
+            <%--<div class="dis">手机号码</div>--%>
+            <%--<input type="text" class="input _phoneNum" id="userphone"--%>
+            <%--lay-verify="required|phone"--%>
+            <%--onblur="return phone();" name="uphonenumber" tabindex="1" maxlength="11">--%>
+            <%--</li>--%>
+
+            <%--<li>--%>
+            <%--<div class="dis">短信验证码</div>--%>
+            <%--<input type="text"--%>
+            <%--onblur="return checkyanzhengma();"--%>
+            <%--class="input _password"--%>
+            <%--maxlength="16" tabindex="1">--%>
+            <%--</li>--%>
+
+            <%--<li>--%>
+            <%--<div class="dis">密码</div>--%>
+            <%--<input type="password"--%>
+            <%--onblur="return checkupassword();"--%>
+            <%--name="upassword" id="password" class="input _password"--%>
+            <%--maxlength="16" tabindex="1"--%>
+            <%--placeholder="6-16个字符，英文、数字组成"--%>
+            <%-->--%>
+            <%--</li>--%>
+
+            <%--<li><span class="dis">确认密码</span>--%>
+            <%--<input type="password"--%>
+            <%--name="repeatPassword"--%>
+            <%--onblur="return checkupassword1();" id="repeatPassword"--%>
+            <%--class="input _repeatPassword" maxlength="16" tabindex="1" placeholder="请再次输入密码">--%>
+            <%--</li>--%>
+
+            <%--<li class="agree"><input name="protocol" id="protocol"--%>
+            <%--type="checkbox" value="" checked="checked"> 我已阅读并同意《<a href=""--%>
+            <%--target="_black">服务协议</a>》--%>
+            <%--</li>--%>
+            <%--<li class="btn"><button type="submit" class="regist_submit" style="margin-top: 16px" lay-submit>提交</button></li>--%>
+            <%--</ul>--%>
+            <%--</form>--%>
         </div>
     </div>
 </div>
 <jsp:include page="bottom.jsp"></jsp:include>
 </body>
 <script type="text/javascript">
-    function checkupassword() {
-        var password = document.getElementById("password").value;
-        if (password == "" || password == null) {
-            return false;
-        }
-        if (password.length < 6) {
-            return false;
-        }
-        if (password.length > 16) {
-            return false;
-        }
-    }
-
-    function checkupassword1() {
-        var repeatPassword = document.getElementById("repeatPassword").value;
-        var password = document.getElementById("password").value;
-        if (repeatPassword == "" || repeatPassword == null) {
-            return false;
-        }
-        if (repeatPassword.length < 6) {
-            return false;
-        }
-        if (repeatPassword.length > 16) {
-            return false;
-        }
-        if (password != repeatPassword) {
-            return false;
-        }
-    }
-
-    function phone() {
-        var phone = document.getElementById("phone").value;
-        var e = /^1(3|4|5|7|8)\d{9}$/;
-        if (phone.length != 11) {
-            return false;
-        }
-        if (e.test(phone) == false) {
-            return false;
-        }
-    }
+    layui.use('form', function () {
+        var form = layui.form
+        form.verify({
+            pass: [
+                /^[\S]{6,12}$/,
+                '密码必须6-12位，且不能出现空格'
+            ],
+            confirmpass: function () {
+                var password = document.getElementById('password').value
+                var repassword = document.getElementById('repassword').value
+                if (password !== repassword) {
+                    return '输入密码不一致'
+                }
+            }
+        })
+    })
 </script>
 </html>

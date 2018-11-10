@@ -39,8 +39,8 @@ public class LogServiceImpl implements LoggerService {
 		System.out.println("EndRow " + page.getEndRow());
 		System.out.println("Total " + page.getTotal());
 		System.out.println("Pages " + page.getPages());
-		System.out.println("FirstPages  " + page.getFirstPage());
-		System.out.println("LastPage " + page.getLastPage());
+//		System.out.println("FirstPages  " + page.getFirstPage());
+//		System.out.println("LastPage " + page.getLastPage());
 		System.out.println("isHasPreviousPage " + page.isHasPreviousPage());
 		System.out.println("HasNextPage " + page.isHasNextPage());
 

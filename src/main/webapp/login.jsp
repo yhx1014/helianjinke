@@ -10,6 +10,10 @@
 <head>
     <title>币币贷</title>
     <link href="<%=basePath%>/css/common.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="<%=basePath%>/layui/css/layui.css" media="all">
+    <script src="<%=basePath%>/js/vialdata.js" type="text/javascript"></script>
+    <script type="text/javascript" src="<%=basePath%>/layui/layui.js"></script>
+
     <style>
         .wrap {
             width: 1200px;
@@ -17,7 +21,6 @@
             clear: both;
             background: #fff;
             padding: 20px;
-            height: 70vh;
         }
 
         .tdbModule {
@@ -25,10 +28,8 @@
             margin: 10vh auto;
 
         }
-
         .registerTitle {
-            font-size: 20px;
-            border-bottom: 1px solid #aaa;
+            font-size: 24px;
             padding-bottom: 10px;
             text-align: center;
         }
@@ -37,74 +38,66 @@
             line-height: 38px;
             margin-top: 16px;
         }
-
-        .input {
-            width: 386px;
-            height: 36px;
-            margin-bottom: 4px;
-            padding-left: 10px;
-            outline: none;
+        .label{
+            margin-left: 2px;
         }
-
-        .login_submit {
-            width: 386px;
-            height: 40px;
-            text-align: center;
-            border: 1px solid #efefef;
-            display: block;
-            background: #DDE4EF;
-            outline: none;
-        }
-
-        .login_submit:hover {
+        .regist_submit {
+            width: 400px;
             background: #423E9D;
-            color: #fff;
         }
     </style>
 </head>
 <body>
 <jsp:include page="head.jsp"></jsp:include>
 <div class="wrap">
-    <form id="LonginForm" name="LonginForm" action="<%=basePath%>/login" method="post">
-        <div class="tdbModule loginPage">
-            <div class="registerTitle">用户登录</div>
-            <div class="registerCont">
-                <ul id="loginform">
-                    <li><span id="prrintInfo" data-info=""><span>${status}</span></span>
-                    </li>
-                    <li><span class="dis">用户名：</span>
-                        <input class="input"
-                               type="text" onblur="" name="unickname" id="userName"
-                               maxlength="24" tabindex="1" autocomplete="off" placeholder="手机或邮箱"/>
-                    </li>
-                    <li><span class="dis">密码：</span>
-                        <input class="input"
-                               type="password" name="upassword" id="password" maxlength="24"
-                               tabindex="1" autocomplete="off" placeholder="请输入密码"/>
-                    </li>
-                    <%-- <li><span class="dis">验证码：</span>
-                    <input type="text"
-                        onkeyup="verify(this)" id="jpgVerify" style="width: 310px;"
-                        class="input" name="yzm" data-msg="验证码" maxlength="4"
-                        tabindex="1" autocomplete="off">
-                        <img src="<%=basePath%>/images/code.jpg" id="yanzheng" alt="点击更换验证码"  title="点击更换验证码"
-                        style="cursor: pointer;" class="valign" onclick="this.src='' " />
-                    </li> --%>
-                    <li class="btn">
-                        <input type="submit" class="login_submit" style="margin-top: 16px" value="立即登录">
-                        <%--<span class="login_submit" style="margin-top: 16px">立即登录</span>--%>
-                        <table style="width:400px;">
-                            <tr>
-                                <td style="width:300px">还没有账号？ <a href="###" target="_blank">立即注册</a></td>
-                                <td style="align:right;"><a href="###" target="_blank">忘记密码?</a></td>
-                            </tr>
-                        </table>
-                    </li>
-                </ul>
-            </div>
+    <div class="tdbModule register">
+        <div class="registerTitle">登录</div>
+        <div class="registerCont">
+            <form class="layui-form" action="<%=basePath%>/login">
+                <div class="layui-form-item">
+                    <span class="label">账户名</span>
+                    <input type="text" name="username" placeholder="账号为手机号码"
+                           id="userphone"
+                           lay-verify ='required|phone'
+                           maxlength="11"
+                           autocomplete="off" class="layui-input">
+                </div>
+
+                <div class="layui-form-item">
+                    <span class="label">密码</span>
+                    <input type="text" name="upassword" placeholder="请输入密码"
+                           id="password"
+                           lay-verify ='required|pass'
+                           autocomplete="off" class="layui-input">
+                </div>
+
+                <div class="layui-form-item">
+                    <span class="label">短信验证码</span>
+                    <input type="text" name="verification" placeholder="请输入短信验证码"
+                           id="verification"
+                           lay-verify ='required'
+                           autocomplete="off" class="layui-input">
+                </div>
+
+                <div class="layui-form-item">
+                    <button class="layui-btn regist_submit" lay-submit lay-filter="*">立即登录</button>
+                    <div>还没有账号？ <a href="<%=basePath%>/register">立即注册</a></div>
+                </div>
+            </form>
         </div>
-    </form>
+    </div>
 </div>
 <jsp:include page="bottom.jsp"></jsp:include>
+<script type="text/javascript">
+    layui.use('form',function () {
+        var form = layui.form;
+        form.verify({
+            pass:[
+                /^[\S]{6,12}$/,
+                '密码必须6-12位，且不能出现空格'
+            ]
+        })
+    })
+</script>
 </body>
 </html>
