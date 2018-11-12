@@ -251,47 +251,6 @@ $(function () {
         $("#credit-dleft2conlist>div").eq(index).show().siblings().hide();
     })
 
-
-    /*个人中心-左侧菜单*/
-    $("#personal-left li").mouseover(function () {
-        if ($(this).attr('class') != "pleft-cur") {
-            if (!$(this).children("dl").children("dt").hasClass("on")) //优化左侧效果
-            {
-                $(this).siblings().removeClass("on");
-                $(this).addClass("on");
-                var dot = $(this).children("span").children("a").children("i").attr('class');
-                if (dot) {
-                    if ($(this).children("span").children("a").children("i").attr('class').indexOf('dot0') >= 0) {
-                        $(this).children("span").children("a").children("i").removeClass("dot0" + dot.substring(8));
-                        $(this).children("span").children("a").children("i").addClass("dot" + dot.substring(8));
-                    } else {
-                        $(this).children("span").children("a").children("i").addClass("dot0" + dot.substring(8));
-                        $(this).children("span").children("a").children("i").removeClass("dot" + dot.substring(8));
-                    }
-                }
-
-            }
-        }
-
-    });
-    $("#personal-left li").mouseout(function () {
-        if ($(this).attr('class') != "pleft-cur") {
-            $(this).siblings("li").removeClass("on");
-            $(this).removeClass("on");
-            var dot = $(this).children("span").children("a").children("i").attr('class');
-            if (dot) {
-                if ($(this).children("span").children("a").children("i").attr('class').indexOf('dot0') < 0) {
-                    $(this).children("span").children("a").children("i").removeClass("dot" + dot.substring(7));
-                    $(this).children("span").children("a").children("i").addClass("dot0" + dot.substring(7));
-                } else {
-                    $(this).children("span").children("a").children("i").addClass("dot" + dot.substring(7));
-                    $(this).children("span").children("a").children("i").removeClass("dot0" + dot.substring(7));
-                }
-            }
-        }
-    });
-
-
 //关于我们左侧导航
     $("#about-nav dd").mouseover(function () {
         if ($(this).attr('class') == "aboutcur") {

@@ -3,10 +3,9 @@ package org.ht.controller;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.ht.pojo.Transaction;
-import org.ht.pojo.Users;
+import org.ht.pojo.User;
 import org.ht.pojo.Wallet;
 import org.ht.service.TransactionService;
-import org.ht.service.UsersService;
 import org.ht.service.WalletService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,8 +27,6 @@ public class WalletController {
     WalletService walletService;
     @Autowired
     TransactionService transactionService;
-    @Autowired
-    UsersService usersService;
 
     @RequestMapping(value = "/getWallet", method = RequestMethod.GET)
     @ResponseBody
@@ -48,7 +45,7 @@ public class WalletController {
 
     @RequestMapping("/assets")
     public String getTransactions(@RequestParam(defaultValue = "1", value = "pn") Integer pn, HttpSession session, Model model) {
-        Users user = (Users) session.getAttribute("user");
+        User user = (User) session.getAttribute("user");
         if (user == null) {
             logger.info("---------------请登录！");
             return "login";

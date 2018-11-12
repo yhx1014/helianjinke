@@ -64,7 +64,7 @@
             <form action="/user/toRegister" class="layui-form" type="post">
                 <div class="layui-form-item">
                     <span class="label">手机号码</span>
-                    <input type="text" name="userphone" placeholder="＋86中国大陆"
+                    <input type="number" name="username" placeholder="请输入手机号"
                            id="userphone"
                            lay-verify='required|phone'
                            maxlength="11"
@@ -72,28 +72,28 @@
                 </div>
                 <div class="layui-form-item">
                     <span class="label">短信验证码</span>
-                    <input type="text" name="verification" placeholder="请输入短信验证码"
+                    <input type="text" name="" placeholder="请输入短信验证码"
                            id="verification"
                            lay-verify='required'
                            autocomplete="off" class="layui-input">
                 </div>
                 <div class="layui-form-item">
                     <span class="label">密码</span>
-                    <input type="text" name="password" placeholder="请输入密码"
+                    <input type="password" name="password" placeholder="请输入密码"
                            id="password"
                            lay-verify='required|pass'
                            autocomplete="off" class="layui-input">
                 </div>
                 <div class="layui-form-item">
                     <span class="label">确认密码</span>
-                    <input type="text" name="repassword" placeholder="请再次输入密码"
+                    <input type="password" name="" placeholder="请再次输入密码"
                            id="repassword"
                            lay-verify='required|confirmpass'
                            autocomplete="off" class="layui-input">
                 </div>
                 <div class="layui-form-item">
                     <button class="layui-btn regist_submit" lay-submit lay-filter="*">注册</button>
-                    <div><input name="protocol" id="protocol"
+                    <div><input name="" id="protocol"
                                 class="agree"
                                 type="checkbox" checked>
                         我已阅读并同意《<a href="" target="_black">服务协议</a>》

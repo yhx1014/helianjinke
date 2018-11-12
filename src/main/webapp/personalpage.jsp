@@ -67,6 +67,12 @@
                         });
                     })
             });
+        $(document).ready(
+            function () {
+                $("#personal-left li:last").removeClass("pleft-cur");
+                $("#personal-left li:first").addClass("pleft-cur");
+            }
+        )
     </script>
     <style type="text/css">
         .table-tr {
@@ -155,10 +161,6 @@
             opacity: 0.3;
         }
 
-        .changeEmailForm {
-
-        }
-
         .alert-content {
             text-align: left;
             margin: 0 34px;
@@ -200,7 +202,7 @@
     </style>
 </head>
 <body>
-<jsp:include page="head.jsp"></jsp:include>
+<jsp:include page="head.jsp"/>
 
 <%--设置邮箱内容--%>
 <div class="alert-450" id="changeEmailDlg" style="display: none">
@@ -390,7 +392,7 @@
 </div>
 <%--个人资料展示页面--%>
 <div class="w1200 personal">
-    <jsp:include page="left.jsp"></jsp:include>
+    <jsp:include page="left.jsp"/>
     <div class="personal-main">
         <div class="pmain-profile">
             <div class="pmain-user">
@@ -400,7 +402,7 @@
                 <div class="user-info">
                     <div class="table-tr">
                         <div class="table-th">UID</div>
-                        <div class="table-td">TDKNSK3942302${user.uid}</div>
+                        <div class="table-td">FOR${user.uid}</div>
                     </div>
                     <%--<div class="table-tr">--%>
                     <%--<div class="table-th">用户名</div>--%>
@@ -411,7 +413,7 @@
                     <%--</div>--%>
                     <div class="table-tr">
                         <div class="table-th">手机号</div>
-                        <div class="table-td">${user.uphonenumber}</div>
+                        <div class="table-td">${user.phonenumber}</div>
                         <%--<div class="table-last">--%>
                         <%--<span><a href="javascript:void(0)"--%>
                         <%--onclick="showDlg('changeMobileDlg')">更改</a></span>--%>
@@ -419,7 +421,7 @@
                     </div>
                     <div class="table-tr">
                         <div class="table-th">邮箱</div>
-                        <div class="table-td">${user.umailbox}</div>
+                        <div class="table-td">${user.mailbox}</div>
                         <div class="table-last">
 								<span><a href="javascript:void(0)"
                                          onclick="showDlg('changeEmailDlg')">去设置</a></span>
@@ -438,7 +440,7 @@
                 <div class="user-info">
                     <div class="table-tr">
                         <div class="table-th">手机绑定</div>
-                        <div class="table-td">${user.upassword}</div>
+                        <div class="table-td">${user.password}</div>
                         <div class="table-last">
                             <span><a href="javascript:void(0)"
                                      onclick="showDlg('bindMobileDlg')">绑定</a></span>
@@ -449,14 +451,14 @@
                     </div>
                     <div class="table-tr">
                         <div class="table-th">邮箱绑定</div>
-                        <div class="table-td">${user.upwd_zd}</div>
+                        <div class="table-td">${user.mailbox}</div>
                         <div class="table-last">
                             <span><a>设置</a></span>
                         </div>
                     </div>
                     <div class="table-tr">
                         <div class="table-th">登录密码</div>
-                        <div class="table-td">${user.upassword}</div>
+                        <div class="table-td">${user.password}</div>
                         <div class="table-last">
                             <span><a href="javascript:void(0)"
                                      onclick="showDlg('changeLoginDlg')">修改</a></span>
@@ -464,7 +466,7 @@
                     </div>
                     <div class="table-tr">
                         <div class="table-th">资金密码</div>
-                        <div class="table-td">${user.upwd_zd}</div>
+                        <div class="table-td">${user.assetsPwd}</div>
                         <div class="table-last">
                             <span><a href="javascript:void(0)"
                                      onclick="showDlg('changePayPswDlg')">修改</a></span>
@@ -501,6 +503,6 @@
         </div>
     </div>
 </div>
-<jsp:include page="bottom.jsp"></jsp:include>
+<jsp:include page="bottom.jsp"/>
 </body>
 </html>

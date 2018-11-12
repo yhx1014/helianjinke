@@ -408,7 +408,7 @@
 		        		<p class="msg6" align="center">
 		        			用户在充值或提现前，需提供更详细信息。<br>
 		        		</p>
-		        		<a href="<%=basePath %>thirdparty.jsp" id="openAccountAId" class="btn-ok txt-center">确认填写</a>
+		        		<a href="<%=basePath %>investdetail.jsp" id="openAccountAId" class="btn-ok txt-center">确认填写</a>
 		        	</form>
             	</div>
             </div> --%>
@@ -532,7 +532,7 @@
 				}
 				else
 				{
-					url="<%=basePath %>thirdparty.jsp"
+					url="<%=basePath %>/investdetail.jsp"
 				}
 				$("#openAccountAId").attr("href",url);
 				showSpan('alert-notOpenAccount');

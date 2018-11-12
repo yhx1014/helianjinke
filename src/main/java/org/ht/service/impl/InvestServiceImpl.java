@@ -25,6 +25,8 @@ public class InvestServiceImpl implements InvestService {
         for (InvestInfo ii : result) {
             ii.setBorrowCount(TrimCountUtil.trimCount(ii.getBorrowCount()));
             ii.setCollateralCount(TrimCountUtil.trimCount(ii.getCollateralCount()));
+            if (ii.getPaytype().equals("S01"))
+                ii.setPaytype("还本付息");
             if (ii.getCreatetime() != null)
                 ii.setFormatTime(DateUtil.formatToString(ii.getCreatetime()));
         }
@@ -33,7 +35,6 @@ public class InvestServiceImpl implements InvestService {
 
     @Override
     public Integer createInvest(InvestInfo investInfo) {
-//        investInfo.setPaytype("还本付息");
         investInfo.setCreatetime(new Date());
         investInfoDao.insertSelective(investInfo);
         return 1;

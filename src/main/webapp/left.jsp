@@ -10,7 +10,7 @@
 
 <div id="personal-left" class="personal-left">
     <ul>
-        <li class="pleft-cur"><span><a href="query.do?id=${user.uid}"><i class="dot dot1"></i>个人中心</a></span></li>
-        <li class=""><span><a href="queryinfo.do?id=${user.uid}"><i class="dot dot02"></i>我的订单</a> </span></li>
+        <li><span><a href="<%=basePath%>/profile"><i class="dot dot1"></i>个人中心</a></span></li>
+        <li><span><a href="<%=basePath%>/orders"><i class="dot dot02"></i>我的订单</a> </span></li>
     </ul>
 </div>

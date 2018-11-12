@@ -51,6 +51,21 @@
             text-align: center;
         }
 
+        div.alert-content {
+            float: left;
+            padding: 40px 0 27px;
+        }
+
+        .alert-content-info {
+            line-height: 30px;
+            margin: 0 90px;
+            text-align: left;
+        }
+
+        .alert-content-info span {
+            float: right;
+        }
+
         .alert-content label {
             margin-right: 10px;
         }
@@ -288,37 +303,39 @@
         <span class="alert-close" onclick="closeDlg('confirmDlg')"></span>
     </div>
     <div class="alert-main">
-        <div class="layui-table">
-            <div>
-                <span for="deal_psw">已抵押</span>
-                <input type="text">
-            </div>
-            <div>
-                <span for="deal_psw">需要借款</span>
-                <input type="text">
-            </div>
-            <div>
-                <span for="deal_psw">支付利息</span>
-                <input type="text">
-            </div>
-            <div>
-                <span for="deal_psw">手续费</span>
-                <input type="text">
-            </div>
-            <div>
-                <span for="deal_psw">借款周期</span>
-                <input type="text">
-            </div>
-            <div>
-                <span for="deal_psw">累计到账</span>
-                <input type="text">
-            </div>
-            <div>
-                <span for="deal_psw">共计</span>
-                <input type="text">
+        <div class="alert-content">
+            <div class="alert-content-info">
+                <div>
+                    <label for="deal_psw">已抵押</label>
+                    <span>122343</span>
+                </div>
+                <div>
+                    <label for="deal_psw">需要借款</label>
+                    <span>124353</span>
+                </div>
+                <div>
+                    <label for="deal_psw">支付利息</label>
+                    <span>122343</span>
+                </div>
+                <div>
+                    <label for="deal_psw">手续费</label>
+                    <span>122343</span>
+                </div>
+                <div>
+                    <label for="deal_psw">借款周期</label>
+                    <span>122343</span>
+                </div>
+                <div>
+                    <label for="deal_psw">累计到账</label>
+                    <span>122343</span>
+                </div>
+                <div>
+                    <label for="deal_psw">共计</label>
+                    <span>122343</span>
+                </div>
             </div>
             <div style="padding-top: 20px;margin-top: 40px">
-                <button type="button" onclick="form_submit()" class="confirm-btn">
+                <button type="button" onclick="confirmPwdDlg()" class="confirm-btn">
                     确定
                 </button>
             </div>

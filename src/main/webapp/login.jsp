@@ -9,9 +9,8 @@
 <html>
 <head>
     <title>币币贷</title>
-    <link href="<%=basePath%>/css/common.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="<%=basePath%>/css/common.css" rel="stylesheet"/>
     <link rel="stylesheet" type="text/css" href="<%=basePath%>/layui/css/layui.css" media="all">
-    <script src="<%=basePath%>/js/vialdata.js" type="text/javascript"></script>
     <script type="text/javascript" src="<%=basePath%>/layui/layui.js"></script>
 
     <style>
@@ -28,6 +27,7 @@
             margin: 10vh auto;
 
         }
+
         .registerTitle {
             font-size: 24px;
             padding-bottom: 10px;
@@ -38,45 +38,56 @@
             line-height: 38px;
             margin-top: 16px;
         }
-        .label{
+
+        .layui-form-item label {
             margin-left: 2px;
         }
+
         .regist_submit {
             width: 400px;
             background: #423E9D;
         }
+
+        .verifybtn {
+            display: inline-block;
+            width: 100px;
+            height: 38px;
+            background: #423E9D;
+            float: left;
+        }
     </style>
 </head>
 <body>
-<jsp:include page="head.jsp"></jsp:include>
+<jsp:include page="head.jsp"/>
 <div class="wrap">
     <div class="tdbModule register">
         <div class="registerTitle">登录</div>
         <div class="registerCont">
             <form class="layui-form" action="<%=basePath%>/login">
                 <div class="layui-form-item">
-                    <span class="label">账户名</span>
-                    <input type="text" name="username" placeholder="账号为手机号码"
-                           id="userphone"
-                           lay-verify ='required|phone'
+                    <label for="userphonename">账户名</label>
+                    <input type="number" name="username" placeholder="账号为手机号码"
+                           lay-verify='required|phone'
+                           id="userphonename"
                            maxlength="11"
                            autocomplete="off" class="layui-input">
                 </div>
 
                 <div class="layui-form-item">
-                    <span class="label">密码</span>
-                    <input type="text" name="upassword" placeholder="请输入密码"
-                           id="password"
-                           lay-verify ='required|pass'
+                    <label for="userpassword">密码</label>
+                    <input type="password" name="upassword" placeholder="请输入密码"
+                           id="userpassword"
+                           lay-verify='required|pass'
                            autocomplete="off" class="layui-input">
                 </div>
 
                 <div class="layui-form-item">
-                    <span class="label">短信验证码</span>
-                    <input type="text" name="verification" placeholder="请输入短信验证码"
-                           id="verification"
-                           lay-verify ='required'
-                           autocomplete="off" class="layui-input">
+                    <label for="smscaptcha">短信验证码</label>
+                    <div><input type="text" name="verification" placeholder="请输入短信验证码"
+                                id="smscaptcha"
+                                lay-verify='required'
+                                autocomplete="off" class="layui-input" style="float: left;width: 300px">
+                        <span class="layui-btn verifybtn" disabled="true">获取验证码</span></div>
                 </div>
 
                 <div class="layui-form-item">
@@ -87,12 +98,12 @@
         </div>
     </div>
 </div>
-<jsp:include page="bottom.jsp"></jsp:include>
+<jsp:include page="bottom.jsp"/>
 <script type="text/javascript">
-    layui.use('form',function () {
+    layui.use('form', function () {
         var form = layui.form;
         form.verify({
-            pass:[
+            pass: [
                 /^[\S]{6,12}$/,
                 '密码必须6-12位，且不能出现空格'
             ]

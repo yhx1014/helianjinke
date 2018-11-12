@@ -177,7 +177,7 @@
                 url = "/user/regAuthentication"
             }
             else {
-                url = "<%=basePath %>/thirdparty.jsp"
+                url = "<%=basePath %>/investdetail.jsp"
             }
             $("#openAccountAId").attr("href", url);
             showSpan('alert-notOpenAccount');

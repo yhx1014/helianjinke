@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.ht.pojo.Notice;
 import org.ht.service.NoticeService;
-import org.ht.service.UsersService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,8 +22,6 @@ import org.springframework.web.multipart.MultipartFile;
 public class NoticeController {
     @Resource
     private NoticeService noticeService;
-    @Resource
-    private UsersService uService;
 
     @RequestMapping("banner")
     public String noticetop5(HttpServletRequest request) {
@@ -40,7 +37,6 @@ public class NoticeController {
         ServletContext context = request.getSession().getServletContext();
         context.setAttribute("listss", list);
         context.setAttribute("sy", listss);
-        context.setAttribute("size", uService.userList().size());
     }
 
     @RequestMapping("nottop")
